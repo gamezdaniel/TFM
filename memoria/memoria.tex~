@@ -1,0 +1,146 @@
+%% LaTeX template for the final master thesis
+
+\documentclass[a4paper, 12pt]{book}
+\pagestyle{plain}
+\usepackage[a4paper, left=2.5cm, right=2.5cm, top=3cm, bottom=3cm]{geometry}
+\usepackage{times}
+\usepackage[latin1]{inputenc}
+\usepackage[english]{babel}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{float}  %% H for Figures positioning
+\usepackage[nottoc, notlot, notlof, notindex]{tocbibind} %% Index options
+\usepackage{latexsym}  %% LaTeX Logo
+
+\graphicspath{{./img/}}
+
+\title{Implementation of a high availability solution based on Free Libre Open Source Software tools for Netnovation's Email and Collaboration System}
+\author{Daniel H. G\'{a}mez V.}
+
+\renewcommand{\baselinestretch}{1}  %% Interlining
+
+\begin{document}
+
+\renewcommand{\refname}{Bibliography}  %% Rename
+\renewcommand{\appendixname}{Apendix}
+
+%%%%%%%%%%%%% COVER %%%%%%%%%%%%%%%%
+\begin{titlepage}
+  \begin{center}
+  \begin{tabular}[c]{c c}
+    \includegraphics[scale=0.25]{logo_vect.eps}
+    \begin{tabular}[b]{l}
+      \Huge
+      \textsf{UNIVERSIDAD} \\
+      \Huge
+      \textsf{REY JUAN CARLOS} \\
+    \end{tabular}
+  \end{tabular}
+  \vspace{3cm}
+  
+  \Large
+  Master in Free Libre Open Source Software\\
+  \vspace{0.2cm}
+  \large
+  Academic Course 2014/2015 \\
+  \vspace{0.4cm}
+  Master Thesis \\
+  \vspace{1cm}
+  \LARGE
+  Implementation of a high availability solution based on Free Libre Open Source Software tools for Netnovation's Email and Collaboration System \\
+  \vspace{2cm}
+  \large
+  Author: DANIEL G\'{A}MEZ \\
+  Tutor: GREGORIO ROBLES
+  \end{center}
+\end{titlepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tableofcontents  %% General Index
+\listoffigures  %% Figures Index
+\listoftables %% Tables Index
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \begin{abstract} This is the Abstract... \end{abstract}
+\chapter*{Abstract}
+\label{chap:abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+% \chapter*{\centering Abstract}
+This is the Abstract...
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Introduction}
+\label{chap:introduction}
+
+As said in Chapter~\ref{chap:introduction}...
+
+See Fig.~\ref{fig:logo}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.25]{logo_vect.eps}
+  \label{fig:logo}
+\end{figure}
+
+A reference to the bibliography ~\cite{Fogel}.
+
+
+\section{Section}
+\label{sec:section}
+
+\subsection{Subseccion}
+\label{subsec:subsection}
+
+\section{Document Structure}
+\label{sec:structure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Objetives}
+\label{chap:objetives}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Design and Implementation}
+\label{chap:design}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Tests and validation}
+\label{chap:tests}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Conclusions}
+\label{chap:conclusions}
+
+\section{Lections learned}
+\label{sec:lections}
+
+
+\section{Future Work}
+\label{sec:future}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\appendix
+\chapter{Apendix 1}
+\label{app:apendix1}
+
+
+%%%%%%% BIBLIOGRAPHY %%%%%%%%%
+
+\begin{thebibliography}{25}
+  \bibliographystyle{alpha}
+
+  \bibitem{Fogel} Fogel, Karl. \textit{Producing Open Source Software: How to Run a Successful Free Software Project}. O'Reilly, 2005.
+
+  \bibitem{Raymond} Raymond, Eric. \textit{The Cathedral and the Bazaar}. O'Reilly, 1999.
+
+\end{thebibliography}
+
+\end{document}

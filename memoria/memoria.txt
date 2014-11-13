@@ -5,53 +5,47 @@ ACKNOWLEDGEMENTS
 CONTENTS
 LIST OF FIGURES
 LIST OF TABLES
-1. INTRODUCTION     
 
-- Document structure, the way the dissertation is going to be organized
-   
+1. INTRODUCTION
+  - Document structure, the way the dissertation is going to be organized
+
 2. PROBLEM STATEMENT
 
+  There is a problem in ___________(societal organization). 
+  Despite _________________ (something that should be happening) ___________ is occurring. 
+  [provided supporting evidence]. 
+  This problem has negatively impacted ____________(victims of problem) because _________________. 
+  A possible cause of this problem is ___________.
+  Perhaps a study which investigates ___________ by ________(paradigm/method) could remedy the situation.
 
-La continuidad del negocio en el campo de la informatica se ve representada en el continuo funcionamiento de los sistemas utilizados para producir. Estos sistemas deben ser tolerantes a fallas, de forma que impacten lo menos posible en el negocio.
+  * Describe the "ideal" state of affairs
+  - Start by describing how things should work. 
+  - Before you even mention your problem, explain in a few sentences how things would be if the problem didn't exist
 
+  * Explain your problem
+  - Succinctly summarize the problem you intend to solve
+  - "However, ..." to show that the problem you've identified is what is preventing the ideal vision from being a reality
 
+  * Explain your problem's financial costs?
+  - Explain why it's a big deal, no one has the time or resources to try to solve every single minor problem
+  - In the business world, money is almost always the bottom line, so you'll want to try to highlight the financial impact of your problem on the company or organization
+  - Is it damaging your brand image and thus indirectly costing your business money? (i.e. SLAs)
 
-There is a problem in ___________(societal organization). 
-Despite _________________ (something that should be happening) ___________ is occurring. 
-[provided supporting evidence]. 
-This problem has negatively impacted ____________(victims of problem) because _________________. 
-A possible cause of this problem is ___________.
-Perhaps a study which investigates ___________ by ________(paradigm/method) could remedy the situation.
+  * Back up your assertions
+  - Propose reasonable evidence
+  - From your own research, from data from a related study or project, or even from reputable third-party sources
 
-* Describe the "ideal" state of affairs
-- Start by describing how things should work. 
-- Before you even mention your problem, explain in a few sentences how things would be if the problem didn't exist
+  * Propose a solution
+  - Explanation of the solution should be written to be as clear and concise as possible
+  - Stick to big, important, concrete concepts and leave any minor details for later
 
-* Explain your problem
-- Succinctly summarize the problem you intend to solve
-- "However, ..." to show that the problem you've identified is what is preventing the ideal vision from being a reality
+  * Explain the benefits of the solution
+  - Explain why this solution is a good idea
+  - Which new forms of revenue it will generate (quality services to customers)
 
-* Explain your problem's financial costs?
-- Explain why it's a big deal, no one has the time or resources to try to solve every single minor problem
-- In the business world, money is almost always the bottom line, so you'll want to try to highlight the financial impact of your problem on the company or organization
-- Is it damaging your brand image and thus indirectly costing your business money? (i.e. SLAs)
-
-* Back up your assertions
-- Propose reasonable evidence
-- From your own research, from data from a related study or project, or even from reputable third-party sources
-
-* Propose a solution
-- Explanation of the solution should be written to be as clear and concise as possible
-- Stick to big, important, concrete concepts and leave any minor details for later
-
-* Explain the benefits of the solution
-- Explain why this solution is a good idea
-- Which new forms of revenue it will generate (quality services to customers)
-
-* Conclude by summarizing the problem and solution
-- Conclude with a summary of your main arguments that allows you transition easily into the main body of your proposal
-- State in just a few sentences
-
+  * Conclude by summarizing the problem and solution
+  - Conclude with a summary of your main arguments that allows you transition easily into the main body of your proposal
+  - State in just a few sentences
 
 
     2.1. JUSTIFICATION / MOTIVATION
@@ -81,3 +75,14 @@ Perhaps a study which investigates ___________ by ________(paradigm/method) coul
 
 REFERENCES
 APPENDIX
+
+====================================================================================================
+
+http://opensource.com/resources/ebooks
+
+\bibitem{Fogel} Fogel, Karl. \textit{Producing Open Source Software: How to Run a Successful Free Software Project}. O'Reilly, 2005.  
+
+\bibitem{ISO} International Organization for Standardization Technical Committee 223. \textit{ISO/PAS 22399:2007}. International Organization for Standardization, December 2007. URI=https://www.iso.org/obp/ui/#iso:std:iso:pas:22399:ed-1:v1:en
+  
+\bibitem{Mell & Grance} Mell, Peter and Grance, Timothy. \textit{The NIST Definition of Cloud Computing}. National Institute of Standards and Technology, September 2011.
+

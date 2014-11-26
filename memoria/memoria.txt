@@ -60,9 +60,34 @@ LIST OF TABLES
 
 3. PRECEDENTS / RELEATED TECHNOLOGIES / STATE OF THE ART
     - High Availability solutions based in FLOSS
+
+  SUSE Linux Enterprise High Availability Extension (https://www.suse.com/products/highavailability/)
+  1-Year Subscription 590,00€ (2 sockets)
+  3-Year Subscription 1.570,00€ (2 sockets)
+  5-Year Subscription 2.330,00€ (2 sockets)
+
+  openSUSE:High Availability (https://en.opensuse.org/openSUSE:High_Availability)
+  includes a suite of high availability clustering software, notably 
+  Corosync (http://corosync.github.io/corosync)
+  Pacemaker (http://clusterlabs.org)
+  DRBD (http://www.drbd.org)
+  OCFS2 (http://oss.oracle.com/projects/ocfs2)
+
+  Red Hat Enterprise Linux Cluster, High Availability, and GFS
+  Red Hat cluster suite
+  RH High-Availability Add-On (Red Hat's implementation of Linux-HA)
+  RH Messaging Realtime Grid (MRG)
+
+  Linux-HA
+
     
 4. METHODOLOGY
     - Qualitative/Quantitative Research Methods to select the technologies used
+
+
+    http://en.wikipedia.org/wiki/Diffusion_of_innovations
+    www.ukessays.com/essays/information-technology/the-lazy-model-in-information-technology-information-technology-essay.php
+    
     
 5. IMPLEMENTATION
     5.1. Technical specifications of implemented FLOSS tools
@@ -82,7 +107,15 @@ http://opensource.com/resources/ebooks
 
 \bibitem{Fogel} Fogel, Karl. \textit{Producing Open Source Software: How to Run a Successful Free Software Project}. O'Reilly, 2005.  
 
-\bibitem{ISO} International Organization for Standardization Technical Committee 223. \textit{ISO/PAS 22399:2007}. International Organization for Standardization, December 2007. URI=https://www.iso.org/obp/ui/#iso:std:iso:pas:22399:ed-1:v1:en
+\bibitem{ISO} International Organization for Standardization Technical Committee 223. \textit{ISO/PAS 22399:2007}. International Organization for Standardization, December 2007. DOI=https://www.iso.org/obp/ui/#iso:std:iso:pas:22399:ed-1:v1:en
   
 \bibitem{Mell & Grance} Mell, Peter and Grance, Timothy. \textit{The NIST Definition of Cloud Computing}. National Institute of Standards and Technology, September 2011.
 
+\bibitem{Barahona & Ortega} Gonzalez-Barahona, Jesus and Ortega, Felipe. \textit{Economic Aspects of Libre Software}. GSyC/LibreSoft, Universidad Rey Juan Carlos. November 2011.
+
+
+Collan, M. and Tetard, F., 2007, Lazy User Theory of Solution Selection, in Proceedings or the CELDA 2007 Conference, pp. 273–278, Algarve, Portugal, 7–9, December, 2007
+
+Franck Tetard, Mikael Collan, "Lazy User Theory: A Dynamic Model to Understand User Selection of Products and Services," hicss, pp. 1–9, 42nd Hawaii International Conference on System Sciences, 2009
+
+Collan, M. and Tetard, F., Lazy User Model: Solution Selection and Discussion about Switching Costs. DOI=http://link.springer.com/chapter/10.1007%2F978-3-642-22766-0_7

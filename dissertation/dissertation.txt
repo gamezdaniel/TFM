@@ -111,14 +111,21 @@ http://opensource.com/resources/ebooks
   
 \bibitem{Mell & Grance} Mell, Peter and Grance, Timothy. \textit{The NIST Definition of Cloud Computing}. National Institute of Standards and Technology, September 2011.
 
-\bibitem{Barahona & Ortega} Gonzalez-Barahona, Jesus and Ortega, Felipe. \textit{Economic Aspects of Libre Software}. GSyC/LibreSoft, Universidad Rey Juan Carlos. November 2011.
+\bibitem{Barahona & Ortega} Gonzalez-Barahona, Jesus and Ortega, Felipe. \textit{Economic Aspects of Libre Software}. GSyC/LibreSoft, Universidad Rey Juan Carlos. Spain, November 2011.
 
 \bibitem{Daffara} Daffara, Carlo. \textit{The SME guide to Open Source Software}. FLOSSMETRICS EU. July 2009. DOI=http://smeguide.conecta.it/smeguide.pdf
 
+\bibitem{Collan & Tétard} Collan M. and Tetard F. \textit{Lazy User Theory of Solution Selection}. Proceedings of the CELDA 2007 Conference. Portugal, December 2007.
+
+\bibitem{Wasserman et. all} Wasserman A., Pal M. and Chan C. \textit{The Business Readiness Rating Model: an Evaluation Framework for Open Source}. Proceedings of the EFOSS: OpenBRR Workshop. Italy, June 2006.
+
+\bibitem{} . \textit{}. . . DOI=
+
+\bibitem{} . \textit{}. . . DOI=
+
+
 
 ---
-
-Collan, M. and Tetard, F., 2007, Lazy User Theory of Solution Selection, in Proceedings or the CELDA 2007 Conference, pp. 273–278, Algarve, Portugal, 7–9, December, 2007
 
 Franck Tetard, Mikael Collan, "Lazy User Theory: A Dynamic Model to Understand User Selection of Products and Services," hicss, pp. 1–9, 42nd Hawaii International Conference on System Sciences, 2009
 

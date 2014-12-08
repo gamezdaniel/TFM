@@ -113,9 +113,16 @@ http://opensource.com/resources/ebooks
 
 \bibitem{Barahona & Ortega} Gonzalez-Barahona, Jesus and Ortega, Felipe. \textit{Economic Aspects of Libre Software}. GSyC/LibreSoft, Universidad Rey Juan Carlos. November 2011.
 
+\bibitem{Daffara} Daffara, Carlo. \textit{The SME guide to Open Source Software}. FLOSSMETRICS EU. July 2009. DOI=http://smeguide.conecta.it/smeguide.pdf
+
+
+---
 
 Collan, M. and Tetard, F., 2007, Lazy User Theory of Solution Selection, in Proceedings or the CELDA 2007 Conference, pp. 273–278, Algarve, Portugal, 7–9, December, 2007
 
 Franck Tetard, Mikael Collan, "Lazy User Theory: A Dynamic Model to Understand User Selection of Products and Services," hicss, pp. 1–9, 42nd Hawaii International Conference on System Sciences, 2009
 
 Collan, M. and Tetard, F., Lazy User Model: Solution Selection and Discussion about Switching Costs. DOI=http://link.springer.com/chapter/10.1007%2F978-3-642-22766-0_7
+
+[Fogel, 2002] Fogel Karl. “Producing Open Source Software: How to Run a Successful Free Software Project”. O’Reilly Media, 2005. p. 1-202.
+

@@ -133,3 +133,6 @@ Collan, M. and Tetard, F., Lazy User Model: Solution Selection and Discussion ab
 
 [Fogel, 2002] Fogel Karl. “Producing Open Source Software: How to Run a Successful Free Software Project”. O’Reilly Media, 2005. p. 1-202.
 
+
+
+

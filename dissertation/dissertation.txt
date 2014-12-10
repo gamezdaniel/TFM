@@ -59,9 +59,12 @@ LIST OF TABLES
     2.3. SCOPE
 
 3. PRECEDENTS / RELEATED TECHNOLOGIES / STATE OF THE ART
+
     - High Availability solutions based in FLOSS
 
-  SUSE Linux Enterprise High Availability Extension (https://www.suse.com/products/highavailability/)
+    - Commercial cluster software
+
+  SUSE Linux Enterprise High Availability Extension (https://www.suse.com/products/highavailability)
   1-Year Subscription 590,00€ (2 sockets)
   3-Year Subscription 1.570,00€ (2 sockets)
   5-Year Subscription 2.330,00€ (2 sockets)
@@ -79,24 +82,49 @@ LIST OF TABLES
   RH Messaging Realtime Grid (MRG)
 
   Linux-HA
+  
 
     
 4. METHODOLOGY
     - Qualitative/Quantitative Research Methods to select the technologies used
-
-
-    http://en.wikipedia.org/wiki/Diffusion_of_innovations
-    www.ukessays.com/essays/information-technology/the-lazy-model-in-information-technology-information-technology-essay.php
     
+?. Netnovation...?
+?. OpenBRR...?
+
+5. DESIGN
+
+    - Implement an inexpensive high-availability solution for our business-critical needs without requiring the use of expensive additional hardware or software
     
-5. IMPLEMENTATION
-    5.1. Technical specifications of implemented FLOSS tools
-    5.2. Tests and validation
-    5.3. Other considerations
+    - Complexity and advanced planning no needed
 
-6. RESULTS AND DISCUSSION
+    - i.e. Two sets of simple storage devices are less expensive than a dual-port RAID box of similar capacity
 
-7. CONCLUSIONS AND FUTURE WORK
+    - Cluster Load Balancing
+      Is difficult when read/write or transactional type of services such as e-mail or database access
+      It would also require the disk mirroring to be near-instantaneous and use lots of distributed locking techniques
+      
+      In a two-node cluster, half of the required services on node 'A' and the other half on node 'B'
+      A mutual failover configuration is employed so that if node A fails, node B would take over all of its services and vice versa
+
+
+      http://www.linuxjournal.com/article/3247?page=0,1
+    
+    5.1. Infrastructure
+    5.2. Hardware
+    5.3. Network
+    5.4. Software
+    5.5. Overall Scheme
+
+
+6. IMPLEMENTATION    
+
+    6.1. Technical specifications of implemented FLOSS tools
+    6.2. Tests and validation
+    6.3. Other considerations
+
+7. RESULTS AND DISCUSSION
+
+8. CONCLUSIONS AND FUTURE WORK
 
 REFERENCES
 APPENDIX
@@ -132,7 +160,4 @@ Franck Tetard, Mikael Collan, "Lazy User Theory: A Dynamic Model to Understand U
 Collan, M. and Tetard, F., Lazy User Model: Solution Selection and Discussion about Switching Costs. DOI=http://link.springer.com/chapter/10.1007%2F978-3-642-22766-0_7
 
 [Fogel, 2002] Fogel Karl. “Producing Open Source Software: How to Run a Successful Free Software Project”. O’Reilly Media, 2005. p. 1-202.
-
-
-
 

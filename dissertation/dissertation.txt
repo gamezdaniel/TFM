@@ -112,6 +112,15 @@ LIST OF TABLES
     
     5.2. Infrastructure
     5.3. Hardware
+    
+    PowerEdge Rack Servers
+    Unified Threat Management Firewall
+    Netgear Gigabit Ports and 24 PoE Ports
+    20U RACK CABINET
+    Intel Xeon CPU
+    Small Computer System Interface
+    hard disk drive
+    
     5.4. Network
     5.5. Software
     5.6. Overall Scheme
@@ -132,23 +141,20 @@ APPENDIX
 
 ====================================================================================================
 
-http://opensource.com/resources/ebooks
-
 \bibitem{Fogel} Fogel, Karl. \textit{Producing Open Source Software: How to Run a Successful Free Software Project}. O'Reilly, 2005.  
 
 \bibitem{ISO} International Organization for Standardization Technical Committee 223. \textit{ISO/PAS 22399:2007}. International Organization for Standardization, December 2007. DOI=https://www.iso.org/obp/ui/#iso:std:iso:pas:22399:ed-1:v1:en
   
 \bibitem{Mell & Grance} Mell, Peter and Grance, Timothy. \textit{The NIST Definition of Cloud Computing}. National Institute of Standards and Technology, September 2011.
 
-\bibitem{Barahona & Ortega} Gonzalez-Barahona, Jesus and Ortega, Felipe. \textit{Economic Aspects of Libre Software}. GSyC/LibreSoft, Universidad Rey Juan Carlos. Spain, November 2011.
+\bibitem{Daffara1} Daffara, Carlo. \textit{The SME guide to Open Source Software}. FLOSSMETRICS EU. July 2009. DOI=http://smeguide.conecta.it/smeguide.pdf
 
-\bibitem{Daffara} Daffara, Carlo. \textit{The SME guide to Open Source Software}. FLOSSMETRICS EU. July 2009. DOI=http://smeguide.conecta.it/smeguide.pdf
+\bibitem{Daffara2} Daffara, Carlo. \textit{The economic value of Open Source software}. Conecta Research. Italy, July 2012. DOI=http://carlodaffara.conecta.it/category/oss-business-models/
 
 \bibitem{Collan & Tétard} Collan M. and Tetard F. \textit{Lazy User Theory of Solution Selection}. Proceedings of the CELDA 2007 Conference. Portugal, December 2007.
 
 \bibitem{Wasserman et. all} Wasserman A., Pal M. and Chan C. \textit{The Business Readiness Rating Model: an Evaluation Framework for Open Source}. Proceedings of the EFOSS: OpenBRR Workshop. Italy, June 2006.
 
-\bibitem{} . \textit{}. . . DOI=
 
 \bibitem{} . \textit{}. . . DOI=
 
@@ -160,4 +166,12 @@ Franck Tetard, Mikael Collan, "Lazy User Theory: A Dynamic Model to Understand U
 
 Collan, M. and Tetard, F., Lazy User Model: Solution Selection and Discussion about Switching Costs. DOI=http://link.springer.com/chapter/10.1007%2F978-3-642-22766-0_7
 
-[Fogel, 2002] Fogel Karl. “Producing Open Source Software: How to Run a Successful Free Software Project”. O’Reilly Media, 2005. p. 1-202.
+[Fogel, 2002] Fogel Karl. "Producing Open Source Software: How to Run a Successful Free Software Project". O'Reilly Media, 2005. p. 1-202.
+
+Business Model - Taxonomy:
+http://carlodaffara.conecta.it/category/oss-business-models/
+
+\bibitem{Barahona & Ortega} Gonzalez-Barahona, Jesus and Ortega, Felipe. \textit{Economic Aspects of Libre Software}. GSyC/LibreSoft, Universidad Rey Juan Carlos. Spain, November 2011.
+
+http://opensource.com/resources/ebooks
+

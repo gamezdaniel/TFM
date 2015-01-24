@@ -84,14 +84,29 @@ LIST OF TABLES
   Linux-HA
   
 
-    
+  provides features based on C programming languaje, implementing high availability within applications, through virtual synchrony for replicated state machines, simple availability handling responsible for applications restart when fail, it keeps configuration and statistics in a memory database providing the ability to set, retrieve, and receive change notifications of information, and a quorum system that notifies applications when it is achieved or lost.
+
+  an open source high availability resource manager software used on computer clusters since 2004
+  
+  It implements APIs for resources controll, including the Open Cluster Framework (OCF).
+  
+  It was part of the Linux-HA project until 2007, then was split out to be its own project.
+
+  is a command-line interface to the Pacemaker cluster resource management stack
+  
+  initially, the crm shell was distributed as part of the Pacemaker project. It was split into its own, separate project in 2011.
+  
+  manages the cluster configuration and provides configuration information to other cluster components in a Red Hat cluster. CCS runs in each cluster node and makes sure that the cluster configuration file in each cluster node is up to date.
+  
+  
+  
 4. METHODOLOGY
     - Qualitative/Quantitative Research Methods to select the technologies used
 
     ?. OpenBRR...?
 
 
-5. DESIGN
+5. ARCHITECTURE
 
     5.1. Netnovation...?
 

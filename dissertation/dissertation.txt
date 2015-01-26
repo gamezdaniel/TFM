@@ -124,7 +124,14 @@ LIST OF TABLES
       A mutual failover configuration is employed so that if node A fails, node B would take over all of its services and vice versa
 
       http://www.linuxjournal.com/article/3247?page=0,1
-    
+
+      A symmetric general purpose kernel based cluster manager, formed by a Connection Manager (cnxman) and a Service Manager (sm). The first one handles membership, messaging, quorum, event notification and transitions, and the second one is responsible for instances of external systems.
+      
+      in order to be specific in this exercise,
+      
+      
+      
+      
     5.2. Infrastructure
     5.3. Hardware
     

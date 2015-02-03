@@ -199,50 +199,7 @@ Description: solution for monitoring of networks, applications and databases
 Supported Platforms: GNU/Linux
 Commercial support: custom quotes and support tickets 
 
-
-
-
-
-\begin{table}
-    \begin{tabular}{|rl|}
-    \hline
-    UTM Endian Firewall                                                                              & ~                                                                                                                                                                                                        \\
-    Company:\\Industry:\\License:\\Website:\\Description:\\Supported Platforms:\\Commercial support: & Endian S.r.l.\\Unified Threat Management\\GNU GPL\\endian.com\\A linux security distribution with full featured Unified Threat Management functionality.\\GNU/Linux\\annual subscription                 \\ \hline
-    Proxmox VE                                                                                       & ~                                                                                                                                                                                                        \\
-    Company:\\Industry:\\License:\\Website:\\Description:\\Supported Platforms:\\Commercial support: & Proxmox Server Solutions GmbH\\Server Virtualization\\GNU Affero and GPLv3\\pve.proxmox.com\\virtualization management solution for servers, based on KVM and containers\\GNU/Linux\\annual subscription \\ \hline
-    \end{tabular}
-\end{table}
-
-
 ---
-
-\begin{table}[h]
-\begin{tabular}{@{}|rl|@{}}
-\toprule
-\multicolumn{2}{|l|}{\textbf{UTM Endian Firewall}}
-\\
-Company:            & Endian S.r.l.                                                                                                                                                                                                                                                                                                                                       \\
-Industry:           & Unified Threat Management                                                                                                                                                                                                                                                                                                                           \\
-License:            & GNU GPL                                                                                                                                                                                                                                                                                                                                             \\
-Website:            & endian.com                                                                                                                                                                                                                                                                                                                                          \\
-Description:        & A linux security distribution with full featured Unified Threat . \\
-Commercial support: & annual subscription                                                                                                                                                                                                                                                                                                                                 \\ \midrule
-\multicolumn{2}{|l|}{\textbf{Proxmox VE}}                                                                                                                                                                                                                                                                                                                                 \\
-Company:            & Proxmox Server Solutions GmbH                                                                                                                                                                                                                                                                                                                       \\
-Industry:           & Server Virtualization                                                                                                                                                                                                                                                                                                                               \\ \bottomrule
-\end{tabular}
-\caption{Software Supporting the Infrastructure}
-\label{table:technologies}
-\end{table}
-
-
-
-
-
-
-
-
-
 
 6. IMPLEMENTATION    
 
@@ -292,5 +249,4 @@ http://carlodaffara.conecta.it/category/oss-business-models/
 \bibitem{Barahona & Ortega} Gonzalez-Barahona, Jesus and Ortega, Felipe. \textit{Economic Aspects of Libre Software}. GSyC/LibreSoft, Universidad Rey Juan Carlos. Spain, November 2011.
 
 http://opensource.com/resources/ebooks
-
 

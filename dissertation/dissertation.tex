@@ -273,7 +273,7 @@ In Table~\ref{table:technologies} there are some software solutions currently us
     Supported Platforms: & GNU/Linux \\
     Commercial support: & annual subscription \\
     
-    \hline    
+    \hline
     \multicolumn{2}{|c|}{\textbf{Proxmox VE}}\\
     \hline
     Company: & Proxmox Server Solutions GmbH \\
@@ -407,6 +407,125 @@ This section is intended to provide technical documentation in the process of im
 \end{figure}
 
 
+
+\section{Operating system considerations}
+\label{sec:considerations}
+
+The configuration must be similar in both nodes. In Table~\ref{table:configuration} is shown the configuration selected for the current implementation. It should be take into consideration that it is not necessary to format partitions for devices vdb1 or vdc1 during OS install.
+
+
+\begin{table}
+  \centering
+  \begin{tabular}{ | r l l l | }
+  
+    \hline    
+    \multicolumn{4}{|c|}{\textbf{RHEL 6.5 x86\_64}}\\
+    \hline
+    Disk Partitions: & /              & 10 Gb  & \\
+                     & /boot          & 100 Mb & \\
+                     & /opt/zimbra    & 8 Gb   & (/dev/vdb1)\\
+                     & drbd meta-data & 150 Mb & (/dev/vdc1)\\
+    CPU:             & 1              &        & \\
+    RAM:			 & 2 Gb 		  &        & \\
+    \hline
+  \end{tabular}
+\caption{Operating system configuration}
+\label{table:os}
+\end{table}
+
+
+\subsection{FQDN hostnames and IP addresses}
+\label{sec:fqdn}
+
+
+Table~\ref{table:hostnames} shows the current configuration for the virtual IP address shared by the two nodes, and for the primary IP address on each node.\\
+
+\begin{table}
+  \centering
+  \begin{tabular}{ | r c l | }
+    \hline    
+    Split DNS IP: & 172.17.18.190 & zcs-ha.got.com \\
+	Astapor:      & 172.17.18.191 & astapor.got.com \\
+	Braavos:      & 172.17.18.192 & braavos.got.com \\
+    \hline
+  \end{tabular}
+\caption{FQDN hostnames and IP addresses}
+\label{table:fqdn}
+\end{table}
+
+\noindent On both nodes, /etc/hosts file should contain at least the entries described in Table~\ref{table:hosts}:
+
+\begin{table}
+  \centering
+  \begin{tabular}{ | l l l | }
+    \hline    
+    127.0.0.1     & localhost.localdomain & localhost \\
+    127.0.0.1     & zcs-ha.got.com        & zcs-ha\\
+	172.17.18.190 & astapor.got.com       & astapor\\
+	172.17.18.191 & braavos.got.com       & braavos\\
+    \hline
+  \end{tabular}
+\caption{/etc/hosts file}
+\label{table:hosts}
+\end{table}
+
+\noindent A useful command to handle hostname changes in RHEL:\\
+service hostname restart\\
+
+
+\subsection{Network}
+\label{sec:network}
+
+\begin{itemize}
+	\item Internet Protocol version 4 (IPv4)
+\end{itemize}
+
+\noindent Set the proper network parameters in /etc/sysconfig/network-scripts/ifcfg-eth0 file on each server, as described in Table~\ref{table:ifcfg}.
+
+
+\begin{table}
+  \centering
+  \begin{tabular}{ | l | l | }
+    \hline
+    \multicolumn{1}{|c|}{Astapor} & Braavos \\
+    \hline
+    DEVICE=eth0 & DEVICE=eth0 \\
+    HWADDR=26:34:99:65:d7:77 & HWADDR=26:34:99:65:d7:78\\
+    TYPE=Ethernet & TYPE=Ethernet\\
+    ONBOOT=yes & ONBOOT=yes\\
+    NM\_CONTROLLED=no & NM\_CONTROLLED=no\\
+    BOOTPROTO=none & BOOTPROTO=none\\
+    IPADDR=172.17.18.191 & IPADDR=172.17.18.192\\
+    NETMASK=255.255.255.0 & NETMASK=255.255.255.0\\
+    GATEWAY=172.17.18.1	& GATEWAY=172.17.18.1\\
+	DNS1=127.0.0.1 & DNS1=127.0.0.1\\
+	IPV6INIT=no & IPV6INIT=no\\
+	USERCTL=no & USERCTL=no\\
+    \hline
+  \end{tabular}
+\caption{/etc/sysconfig/network-scripts/ifcfg-eth0 file}
+\label{table:ifcfg}
+\end{table}
+
+
+\noindent Set the correct Netmask and Gateway, so servers are able to reach internet addresses, also disable the firewall or allow the http and ftp outgoing rules on it. The primary DNS server will be configured later to be the localhost, with forwarding to external DNS servers.\\
+
+\noindent Some useful commands to manipulate and consult the network service on RHEL:\\
+
+\noindent service network restart\\
+/etc/init.d/network restart\\
+ifconfig eth0 down; ifconfig eth0 up\\
+ifdown eth0; ifup eth0\\
+ifconfig\\
+ip addr show\\
+
+\begin{itemize}
+	\item NTP
+\end{itemize}
+
+\noindent RPM packages that would be necessary: ntp, ntpdate.\\
+
+\noindent Set the proper NTP parameters in /etc/ntp.conf file on each server, so both nodes share the same date and time, as shown in Table..\\
 
 
 

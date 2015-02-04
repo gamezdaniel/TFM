@@ -713,22 +713,87 @@ The following actions must be performed in parallel on both nodes, except in tho
 \subsection{DRBD Split Brain Recovery}
 \label{sec:splitbrain}
 
-\noindent Assuming that the primary node is still consistent, and the secondary node has an inconsistent state, it would be necessary to recover data loss.
+\noindent Assuming that the primary node is still consistent, and the secondary node has an inconsistent state, it would be necessary to recover data loss. The following actions will allow to recover the data corrupted in secondary node.
 
+\begin{itemize}
+	\item In both nodes:\\
+		drbdadm disconnect optzimbra
+	
+	\item In the secondary node:\\
+		drbdadm secondary optzimbra\\
+		drbdadm connect --discard-my-data optzimbra
+	
+	\item In the primary node:\\
+		drbdadm connect optzimbra
+	
+	\item Finally it is possible to check the sync status, running the command ``cat /proc/drbd", wich is going to show a message similar to this:\\
+		cs:Connected ro:Primary/Secondary ds:UpToDate/UpToDate C r-----
 
-
+\end{itemize}
 
 
 \section{ZCS}
 \label{sec:zcs}
 
-
+Here will be fully installed ZCS on astapor, but just a dummy installation on braavos, since DRBD will replicate the data to the other node. Download and place ZCS installation file in astapor and braavos filesystems. It can be found at \url{http://www.zimbra.com/downloads/os-downloads.html}. In order to complete a full install on a single server, the following resource will be useful:\\
+\url{http://files.zimbra.com/website/docs/8.5/Zimbra_OS_Quick_Start_8.5.0.pdf}
 
 
 \subsection{ZCS full install on primary node}
 \label{sec:fullinstall}
 
+The following actions must be performed sequentially on \textit{\textbf{astapor}}.
 
+\begin{itemize}
+	\item Create directory for ZCS:\\
+		mkdir   /opt/zimbra
+	
+	\item Mount DRBD device on ZCS mount point:\\
+		mount   /dev/drbd0   /opt/zimbra
+	
+	\item Check mounted device:\\
+		df\  \textbar \ grep zimbra\\
+		mount\  \textbar \ grep zimbra
+	
+	\item Set manual virtual link configuration temporally:\\
+		ifconfig eth0:1 inet 172.17.18.190 netmask 255.255.255.0
+	
+	\item Set split DNS hostname temporally:\\
+		hostname zcs-ha.got.com\\
+		It is also recommendable to change /etc/sysconfig/network file.
+	
+	\item Unpack ZCS installer and proceed with full installation:\\
+		./install.sh
+	
+	\item Leave all packages to install by default, and follow the process.
+	
+	\item When prompted for domain name change, select ``Yes" and then provide: got.com
+	
+	\item 
+	
+	\item 
+	
+	\item 
+	
+	\item 
+	
+	\item 
+	
+	\item 
+	
+	\item 
+	
+	\item 
+		
+	\item 
+	
+	\item 
+	
+	\item 
+	
+	\item 
+		
+\end{itemize}
 
 
 \subsection{ZCS dummy install on secondary node}

@@ -713,9 +713,6 @@ The following actions must be performed in parallel on both nodes, except in tho
 \subsection{DRBD Split Brain Recovery}
 \label{sec:splitbrain}
 
-\noindent Assuming that the primary node is still consistent, and the secondary node has an inconsistent state, it would be necessary to recover data loss.
-
-
 
 
 

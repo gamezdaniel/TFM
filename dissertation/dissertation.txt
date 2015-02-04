@@ -199,6 +199,10 @@ Description: solution for monitoring of networks, applications and databases
 Supported Platforms: GNU/Linux
 Commercial support: custom quotes and support tickets 
 
+
+
+
+
 ---
 
 6. IMPLEMENTATION    
@@ -249,4 +253,3 @@ http://carlodaffara.conecta.it/category/oss-business-models/
 \bibitem{Barahona & Ortega} Gonzalez-Barahona, Jesus and Ortega, Felipe. \textit{Economic Aspects of Libre Software}. GSyC/LibreSoft, Universidad Rey Juan Carlos. Spain, November 2011.
 
 http://opensource.com/resources/ebooks
-

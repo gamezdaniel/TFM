@@ -199,11 +199,13 @@ Description: solution for monitoring of networks, applications and databases
 Supported Platforms: GNU/Linux
 Commercial support: custom quotes and support tickets 
 
-
-
-
-
 ---
+
+pcs \ resource \ create \ VIP1 \ IPaddr2 \ ip=172.17.18.190 \ \textbackslash \\
+	broadcast=172.17.18.255 \ nic=eth0 \ cidr\_netmask=24 \textbackslash \\
+	iflabel=VIP1 \ op \ monitor \ interval=30s \ timeout=30s
+
+\textminus \textminus -
 
 6. IMPLEMENTATION    
 
@@ -253,3 +255,4 @@ http://carlodaffara.conecta.it/category/oss-business-models/
 \bibitem{Barahona & Ortega} Gonzalez-Barahona, Jesus and Ortega, Felipe. \textit{Economic Aspects of Libre Software}. GSyC/LibreSoft, Universidad Rey Juan Carlos. Spain, November 2011.
 
 http://opensource.com/resources/ebooks
+

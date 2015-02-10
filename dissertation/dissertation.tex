@@ -16,6 +16,7 @@
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{enumitem}
+\usepackage{textcomp}
 
 \graphicspath{{./img/}}
 
@@ -769,29 +770,30 @@ The following actions must be performed sequentially on \textit{\textbf{astapor}
 	
 	\item When prompted for domain name change, select ``Yes" and then provide: got.com
 	
-	\item 
+	\item On ``Main Menu" section, set admin user password by browsing through option 3 and then 4:\\
+		``Password for admin@zcs-ha.got.com (min 6 characters)"
 	
-	\item 
+	\item Apply configuration and advance until ZCS setup process is completed:\\
+		``Configuration complete - press return to exit"
 	
-	\item 
+	\item Check ZCS status:\\
+		service zimbra status
 	
-	\item 
+	\item Stop ZCS:\\	
+		service zimbra stop
 	
-	\item 
+	\item Umount DRBD device:\\
+		umount   /opt/zimbra
 	
-	\item 
+	\item Set original DNS hostname:\\
+		hostname astapor.got.com\\
+		* Revert change in /etc/sysconfig/network file if needed.
 	
-	\item 
+	\item Delete temporal virtual link configuration:\\
+		ifconfig eth0:1 down
 	
-	\item 
-		
-	\item 
-	
-	\item 
-	
-	\item 
-	
-	\item 
+	\item Demote astapor to secondary DRBD, and continue with section~\ref{sec:dummyinstall}:\\
+		drbdadm secondary optzimbra
 		
 \end{itemize}
 
@@ -799,18 +801,234 @@ The following actions must be performed sequentially on \textit{\textbf{astapor}
 \subsection{ZCS dummy install on secondary node}
 \label{sec:dummyinstall}
 
+\noindent The following actions must be performed sequentially on braavos.
+
+\begin{itemize}
+	\item Promote braavos to primary DRBD:\\
+		drbdadm primary optzimbra
+		
+	\item Create directory for ZCS:\\
+		mkdir   /opt/zimbra
+		
+	\item Mount DRBD device on ZCS mount point:\\
+		mount   /dev/drbd0   /opt/zimbra
+	
+	\item Check mounted device:\\
+		df\  \textbar \ grep zimbra\\
+		mount\  \textbar \ grep zimbra
+		
+	\item Unpack ZCS installer and proceed with a dummy installation:\\
+		./install.sh -s
+		
+	\item Stop ZCS:\\
+		service zimbra stop
+	
+	\item Umount DRBD device:\\
+		umount   /opt/zimbra
+		
+	\item Demote braavos back to secondary DRBD:\\
+		drbdadm secondary optzimbra
+		
+	\item Promote astapor back to primary DRBD, executing from astapor node:\\
+		drbdadm primary optzimbra
+		
+\noindent At this point DRBD has to synchronize data from primary node, so check the status until it is done:\\
+	watch cat /proc/drbd
+	
+\end{itemize}
+
+
 
 \section{OCF}
 \label{sec:ocf}
 
+\noindent Open Cluster Framework, standard scripts to control services such as ZCS. Following actions must be performed in both nodes.
 
+\begin{itemize}
+	\item Create file /usr/lib/ocf/resource.d/btactic/zimbra:\\
+		% Embedded OLE (Object Linking and Embedding) file, double click on it to see the full content.
+
+	\item Also create the following symbolic link:\\
+		ln  -s  /usr/lib/ocf/resource.d/btactic/zimbra  /usr/lib/ocf/resource.d/heartbeat/
+\end{itemize}
+
+\noindent In section~\ref{sec:pacemaker} this file will be referenced.
 
 
 
 \section{Pacemaker}
 \label{sec:pacemaker}
 
+\noindent Resource manager, starts and stops services orderly.
 
+\begin{itemize}
+	\item Install the required RPM packages:\\
+		pacemaker-cluster-libs-1.1.10-14.el6.x86\_64\\
+		pacemaker-libs-1.1.10-14.el6.x86\_64\\
+		pacemaker-cli-1.1.10-14.el6.x86\_64\\
+		pacemaker-1.1.10-14.el6.x86\_64\\
+		cman-3.0.12.1-59.el6.x86\_64\\
+		crmsh-1.2.5-0.el6.x86\_64\\
+		ccs-0.16.2-69.el6.x86\_64\\
+		resource-agents-3.9.2-40.el6\_5.7.x86\_64
+\end{itemize}
+
+\noindent Usually it is difficult to obtain the required RPM's for RHEL, so an alternative is to add CentOS repository by editing /etc/yum.repo.d/centos.repo file with the content described in Table~\ref{table:centosrepo}.
+
+\begin{table}
+  \centering
+  \begin{tabular}{ | r c l | }
+    \hline
+      % \multicolumn{3}{|c|}{[centos-6-base]}\\
+      % name & = & CentOS-\$releasever - Base\\
+      %mirrorlist & = & \url{http://mirrorlist.centos.org/?release=6.5&arch=x86\_64&repo=os}\\
+      enabled & = & 0\\
+      gpgcheck & = & 0\\
+      %baseurl & = & \url{http://mirror.centos.org/centos/6.5/os/x86\_64/}
+    \hline
+  \end{tabular}
+\caption{/etc/yum.repo.d/centos.repo file}
+\label{table:centosrepo}
+\end{table}
+
+
+\begin{itemize}
+	\item Then update and install the packages:\\
+		yum install --enablerepo=centos-6-base pacemaker pcs.noarch  cman ccs resource-agents crmsh
+\end{itemize}
+
+\noindent There are two ways to interact with Pacemaker configuration. The first one is using the crmsh interpreter, starting the crm shell with ``crm" command, and then providing configuration sentences. For instance:\\
+
+	[root@astapor \textasciitilde]\# crm\\
+	crm(live)\# help\\
+	crm(live)\# quit\\
+
+\noindent Another way would be through \textit{\textbf{pcs}} and \textit{\textbf{ccs}} instructions directly from a linux tty in a bash session. Following is going to be used this way to configure de cluster, executing the commands only on the primary node.
+
+
+\begin{itemize}
+	\item Create the cluster:\\
+		ccs \ \textminus \textminus file \ /etc/cluster/cluster.conf \ \textminus \textminus createcluster \ zcsCluster
+\end{itemize}
+
+
+\begin{itemize}
+	\item Add the nodes:\\
+		ccs \ \textminus \textminus file \ /etc/cluster/cluster.conf \ \textminus \textminus addnode \ astapor.got.com\\
+		ccs \ \textminus \textminus file \ /etc/cluster/cluster.conf \ \textminus \textminus addnode \ astapor.got.com\\
+\end{itemize}
+
+
+\begin{itemize}
+	\item Set fencing to defer to Pacemaker:\\
+		ccs \ \textminus \textminus file \ /etc/cluster/cluster.conf \ \textminus \textminus addfencedev \ pcmk \ agent=fence\_pcmk\\
+		ccs \ \textminus \textminus file \ /etc/cluster/cluster.conf \ \textminus \textminus addmethod \ pcmk-redirect \ astapor.got.com\\
+		ccs \ \textminus \textminus file \ /etc/cluster/cluster.conf \ \textminus \textminus addmethod \ pcmk-redirect \ braavos.got.com\\
+		ccs \ \textminus \textminus file \ /etc/cluster/cluster.conf \ \textminus \textminus addfenceinst \ pcmk \ astapor.got.com \ pcmk-redirect \ port=astapor.got.com\\
+		ccs \ \textminus \textminus file \ /etc/cluster/cluster.conf \ \textminus \textminus addfenceinst \ pcmk \ braavos.got.com \ pcmk-redirect \ port=braavos.got.com\\
+\end{itemize}
+
+
+\begin{itemize}
+	\item Disable CMAN quorum:\\
+		This will let the cluster function if only one node is up, and it is necessary to be performed in both nodes.\\
+		echo \ ``CMAN\_QUORUM\_TIMEOUT=0" \ \textgreater \textgreater \ /etc/sysconfig/cman\\
+\end{itemize}
+
+
+\begin{itemize}
+	\item Start Pacemaker Cluster:\\
+		pcs \ cluster \ start \ \textminus \textminus all\\
+		Also equivalent to execute on each node,\\
+		``service pacemaker start" or ``pcs cluster start"\\
+\end{itemize}
+
+
+\begin{itemize}
+	\item Copy cluster file to secondary node:\\
+		scp \ -p \ /etc/cluster/cluster.conf \ braavos:/etc/cluster/\\
+\end{itemize}
+
+
+\begin{itemize}
+	\item Check Pacemaker cluster status:\\
+		pcs \ status\\
+		crm\_mon \ -1\\
+\end{itemize}
+
+
+\begin{itemize}
+	\item Show current cluster config:\\
+		pcs \ config\\
+		pcs \ property\\
+		crm \ configure \ show\\
+\end{itemize}
+
+
+\begin{itemize}
+	\item Check configuration validity:\\
+		crm\_verify \ -L \ -V\\
+\end{itemize}
+
+
+\begin{itemize}
+	\item Disable STONITH (a type of fencing):\\
+		pcs \ property \ set \ stonith-enabled=false\\
+\end{itemize}
+
+
+\begin{itemize}
+	\item Ignore Quorum Policy:\\
+		pcs \ property \ set \ no-quorum-policy=ignore\\
+\end{itemize}
+
+
+\begin{itemize}
+	\item Set reconnect attempt:\\
+		pcs \ property \ set \ migration-threshold=1 \ \textminus \textminus force\\
+\end{itemize}
+
+
+\begin{itemize}
+	\item Set stickiness:\\
+		pcs \ property \ set \ resource-stickiness=100 \ \textminus \textminus force\\
+\end{itemize}
+
+\noindent Now, it is going to be used the crmsh interpreter, starting it with the following command:\\
+	crm \ configure
+
+\begin{itemize}
+	\item Add floating IP address resource (Virtual IP - VIP):\\
+		pcs \ resource \ create \ VIP1 \ IPaddr2 \ ip=172.17.18.190 \ \textbackslash \\
+			broadcast=172.17.18.255 \ nic=eth0 \ cidr\_netmask=24 \ \textbackslash \\
+			iflabel=VIP1 \ op \ monitor \ interval=30s \ timeout=30s
+\end{itemize}
+
+
+\begin{itemize}
+	\item Define DRBD cluster resource:\\
+		configure \ primitive \ drbd \ ocf:linbit:drbd \ params \ \textbackslash \\
+			drbd\_resource=optzimbra \ \textbackslash \\
+			op \ monitor \ role=Master \ interval=60s \ \textbackslash \\
+			op \ monitor \ role=Slave \ interval=50s \ \textbackslash \\
+			op \ start \ role=Master \ interval=60s \ timeout=240s \ \textbackslash \\
+			op \ start \ role=Slave \ interval=0s \ timeout=240s \ \textbackslash \\
+			op \ stop \ role=Master \ interval=60s \ timeout=100s \textbackslash \\
+			op \ stop \ role=Slave \ interval=0s \ timeout=100s\\
+\end{itemize}
+
+
+
+\begin{itemize}
+	\item .\\
+\end{itemize}
+
+
+
+
+\begin{itemize}
+	\item .\\
+\end{itemize}
 
 \section{Control and check services}
 \label{sec:control}

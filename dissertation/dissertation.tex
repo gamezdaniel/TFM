@@ -1013,32 +1013,124 @@ The following actions must be performed sequentially on \textit{\textbf{astapor}
 			op \ monitor \ role=Slave \ interval=50s \ \textbackslash \\
 			op \ start \ role=Master \ interval=60s \ timeout=240s \ \textbackslash \\
 			op \ start \ role=Slave \ interval=0s \ timeout=240s \ \textbackslash \\
-			op \ stop \ role=Master \ interval=60s \ timeout=100s \textbackslash \\
+			op \ stop \ role=Master \ interval=60s \ timeout=100s \ \textbackslash \\
 			op \ stop \ role=Slave \ interval=0s \ timeout=100s\\
 \end{itemize}
 
-
+\begin{itemize}
+	\item Define DRBD Zimbra data clone:\\
+		configure \ ms \ drbd\_ms drbd \ \textbackslash \\
+		meta \ master-max=1 \ master-node-max=1 \ \textbackslash \\
+		clone-max=2 \ clone-node-max=1 \ notify=true\\
+\end{itemize}
 
 \begin{itemize}
-	\item .\\
+	\item Define Zimbra service resource:\\
+		configure \ primitive \ zcs\_service ocf:btactic:zimbra \ \textbackslash \\
+		op \ monitor \ interval=2min \ timeout="40s" \ \textbackslash \\
+		op \ start \ interval="0" \ timeout="360s" \ \textbackslash \\
+		op \ stop \ interval="0" \ timeout="360s" \ \\
+\end{itemize}
+
+\begin{itemize}
+	\item Define Zimbra cluster filesystem resource:\\
+		configure \ primitive \ zcs\_fs \ ocf:heartbeat:Filesystem \ params \ \textbackslash \\ 
+		device="/dev/drbd0" \ directory="/opt/zimbra" \ fstype=ext4 \ \textbackslash \\
+		op \ start \ interval=0 \ timeout=60s \ \textbackslash \\
+		op \ stop \ interval="0" \ timeout="60"\\
+\end{itemize}
+
+\begin{itemize}
+	\item Group all resources in the same host:\\
+		group zcsgroup zcs\_fs zcs\_service \ \textbackslash \\
+		configure colocation VIP1-with-drbd\_ms-Master \ \textbackslash \\
+			inf: drbd\_ms:Master VIP1 \\
+		configure colocation drbd\_ms-Master-with-zcs\_fs \ \textbackslash \\
+			inf: zcs\_fs drbd\_ms:Master \\
+		configure colocation zcs\_fs-with-zcs\_service \ \textbackslash \\
+			inf: zcs\_service zcs\_fs
+\end{itemize}
+
+\begin{itemize}
+	\item Order resources:\\
+		configure order drbd\_ms-promote-on-VIP1 \textbackslash \\
+			inf: VIP1:start drbd\_ms:promote\\
+		configure order zcs\_fs-on-dbrb\_ms-promote \textbackslash \\
+			inf: dbrb\_ms:promote zcs\_fs:start\\
+		configure order zcs\_service-on-zcs\_fs \textbackslash \\
+			inf: zcs\_fs:start zcs\_service:start\\
+\end{itemize}
+
+\begin{itemize}
+	\item Commit configuration changes and quit:\\
+		commit\\
+		quit\\
 \end{itemize}
 
 
+\noindent On both nodes make sure chkconfig is off on every service but DRBD. This means the service will not start up on when the server starts up.\\
+	chkconfig corosync off\\
+	chkconfig cman off\\
+	chkconfig ricci off\\
+	chkconfig pacemaker off\\
+	chkconfig drbd on
 
-
-\begin{itemize}
-	\item .\\
-\end{itemize}
 
 \section{Control and check services}
 \label{sec:control}
 
 
+\begin{itemize}
+	\item Check Pacemaker cluster status:\\
+		crm\_mon -1\\
+		pcs status\\
+\end{itemize}
+
+\begin{itemize}
+	\item Check resources status:\\
+		crm resource status RESOURCE\\
+\end{itemize}
+
+\begin{itemize}
+	\item Check configuration validity:\\
+		crm\_verify -L -V\\
+\end{itemize}
+
+\begin{itemize}
+	\item Edit values already configured:\\
+		crm configure edit\\
+	After save changes through the preferred text editor, exit and execute:\\
+		cibadmin \textminus \textminus replace\\
+\end{itemize}
+
+\begin{itemize}
+	\item Delete existent resource:\\
+		pcs resource delete RESOURCE\\
+\end{itemize}
+
+\begin{itemize}
+	\item Clean resource history errors (check configuration health):\\
+		crm\_resource -P\\
+\end{itemize}
+
+\begin{itemize}
+	\item List available classes and resources:\\
+		crm ra classes\\
+		crm ra list ocf btactic\\
+		crm ra list lsb\\
+\end{itemize}
+
+\begin{itemize}
+	\item Delete cluster configuration (WARNING):\\
+		pcs cluster destroy\\
+\end{itemize}
 
 
 
 \section{Testing failover}
 \label{sec:failover}
+
+
 
 
 

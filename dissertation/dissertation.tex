@@ -240,7 +240,7 @@ Currently the services are offered from two DataCenters (DC1 and DC2) geographic
 
 Each DC has an average of seven Dell\texttrademark \ PowerEdge Racked Servers with different capacities, interconnected via communication devices that provide various services analogously.\\
 
-There is a Dell PowerEdge 2850/2950 server serving as firewall and main router on each DC. On the one hand it has a WAN 1000Mbps interface, which is connected through UTP Cat-6 wired to 24 PoE ports Switches Netgear FS728TPv1 Gigabit. Physical servers are installed in 20U rack cabinets. These servers range from models Dell PowerEdge 1950, R510 to R710, have Intel Xeon CPUs within 24 and 64 cores, count with 8 to 64GB of RAM, and also have SCSI HDD with capacities between 100GB and 2,5TB.
+\noindent There is a Dell PowerEdge 2850/2950 server serving as firewall and main router on each DC. On the one hand it has a WAN 1000Mbps interface, which is connected through UTP Cat-6 wired to 24 PoE ports Switches Netgear FS728TPv1 Gigabit. Physical servers are installed in 20U rack cabinets. These servers range from models Dell PowerEdge 1950, R510 to R710, have Intel Xeon CPUs within 24 and 64 cores, count with 8 to 64GB of RAM, and also have SCSI HDD with capacities between 100GB and 2,5TB.
 
 \section{Company Network Scheme}
 \label{sec:network}
@@ -1131,6 +1131,101 @@ The following actions must be performed sequentially on \textit{\textbf{astapor}
 \label{sec:failover}
 
 
+\begin{itemize}
+	\item On primary node:\\
+		crm node standby\\
+	Or stop pacemaker:\\
+		service pacemaker stop\\
+\end{itemize}
+
+
+\begin{itemize}
+	\item Now ``crm\_mon" or ``pcs status" will show:\\
+		Node astapor.got.com: standby\\
+		Online: [ braavos.got.com ]\\
+\end{itemize}
+
+
+\begin{itemize}
+	\item It is going to take a while before secondary node takes control. So it is possible to check logs and ``crm\_mon" status during the process.\\
+		crm\_mon\\
+		tail -F /var/log/zimbra.log\\
+		tail -F /var/log/messages\\
+\end{itemize}
+
+
+\begin{itemize}
+	\item Also it is possible to check with ``crm\_standby" command. A value of true \textbar on indicates that the node is not able to host any resources and a value of false \textbar off indicates it does.\\
+		crm\_standby \textminus \textminus get-value
+\end{itemize}
+
+
+\begin{itemize}
+	\item At any moment it will be displayed a message like the depicted in Table~\ref{table:failover}.
+\end{itemize}
+
+
+\begin{table}
+  \centering
+  \begin{tabular}{ | r l | }
+    \hline
+      Master/Slave Set: 		& 	drbd\_ms [drbd]\\
+      Masters: 					& [ braavos.got.com ]\\
+      Slaves: 					& [ astapor.got.com ]\\
+      Resource Group: 			& zcsgroup\\
+      zcs\_fs (ocf::heartbeat:Filesystem): & Started braavos.got.com\\
+      zcs\_service (ocf::btactic:zimbra):  & Started braavos.got.com\\
+      VIP1 (ocf::heartbeat:IPaddr2):       & Started braavos.got.com\\
+    \hline
+  \end{tabular}
+\caption{DRBD failover test}
+\label{table:failover}
+\end{table}
+
+
+
+\begin{itemize}
+	\item Now the secondary node has control of the cluster resources, while the primary node is in standby or unreachable state. If primary node is back online, secondary node will keep the control of resources, until an explicit node move is done.\\
+\end{itemize}
+
+
+\begin{itemize}
+	\item Set back online the primary node:\\
+			crm node online\\
+		  Or start over pacemaker service:\\
+		  	service pacemaker start\\
+\end{itemize}
+
+
+\begin{itemize}
+	\item To give the control back to primary node, execute on secondary node:\\
+			crm node standby\\
+		  Then resources will be transferred back to primary node.\\
+\end{itemize}
+
+
+\begin{itemize}
+	\item Finally ``crm\_mon" or ``pcs status" on each node will display a similar to the one showed in Table~\ref{table:sync}\\
+\end{itemize}
+
+
+\begin{table}
+  \centering
+  \begin{tabular}{ | r l | }
+    \hline
+      Online:                   & [ astapor.got.com braavos.got.com ]\\
+      Master/Slave Set: 		& 	drbd\_ms [drbd]\\
+      Masters: 					& [ astapor.got.com ]\\
+      Slaves: 					& [ braavos.got.com ]\\
+      Resource Group: 			& zcsgroup\\
+      zcs\_fs (ocf::heartbeat:Filesystem): & Started astapor.got.com\\
+      zcs\_service (ocf::btactic:zimbra):  & Started astapor.got.com\\
+      VIP1 (ocf::heartbeat:IPaddr2):       & Started astapor.got.com\\
+    \hline
+  \end{tabular}
+\caption{DRBD synced status}
+\label{table:sync}
+\end{table}
 
 
 

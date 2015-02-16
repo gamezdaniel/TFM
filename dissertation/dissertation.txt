@@ -7,8 +7,26 @@ LIST OF FIGURES
 LIST OF TABLES
 
 1. INTRODUCTION
-  - Document structure, the way the dissertation is going to be organized
 
+  Set out the background to the research study and address the following areas:
+
+  A. The context in which the research took place
+  - The background, the context
+  - Why is this subject or issue important
+  - Who are the key participants and/or ‘actors’ in the area under investigation
+  - Important trends or pivotal variables of which the reader needs to be made aware
+  - A clear and succinct statement of the aims and objectives that the dissertation is going to address
+
+  B. The reasons why this study was carried out
+  -  this study was undertaken in order to test some aspect of business practices
+  - research carried out to fulfill the demands of a business organization
+
+  C. The way the Dissertation is to be organized
+  - Document structure, the way the dissertation is going to be organized
+  - Disposition of the document
+
+  This short final section of the Introduction should tell the reader what topics are going to be discussed in each of the chapters and how the chapters are related to each other. At a glance, they can see (1) where they are starting from, (2) the context in which the journey is taking place, (3) where they are going to end up, and (4) the route which they will take to reach their final destination.
+  
 2. PROBLEM STATEMENT
 
   There is a problem in ___________(societal organization). 
@@ -255,4 +273,3 @@ http://carlodaffara.conecta.it/category/oss-business-models/
 \bibitem{Barahona & Ortega} Gonzalez-Barahona, Jesus and Ortega, Felipe. \textit{Economic Aspects of Libre Software}. GSyC/LibreSoft, Universidad Rey Juan Carlos. Spain, November 2011.
 
 http://opensource.com/resources/ebooks
-

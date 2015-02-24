@@ -114,12 +114,31 @@ These are the Acknowledgements..
 \chapter{Introduction}
 \label{chap:introduction}
 
-Since year 2004 Netnovation\texttrademark \ is a Venezuelan SME, formed by a team of professionals in the areas of IT and telecommunications who adopted a business model based on consulting around FLOSS~\cite{Daffara2}, providing system integration, timely development and Software as a Service (SaaS) cloud services.
+\noindent With the growing use of cloud-oriented systems and the need for this information to be always available, online systems play an increasingly important role in our society nowadays. The technologies that support such schemes have evolved fleetingly and today there are numerous ways to get this kind of solutions, from proprietary software implementations, tools oriented to corporate environments that can be even based on FLOSS products and a variety of business models, to FLOSS standalone tools representing a robust solution to meet today's demands.\\
 
-\begin{itemize}
-	\item Disposition/document structure, the way the dissertation is going to be organized...
-\end{itemize}
+\noindent Since year 2004 Netnovation\texttrademark \ is a Venezuelan SME formed by a team of professionals in the areas of IT and telecommunications who adopted a business model based on consulting around FLOSS~\cite{Daffara2}, providing system integration, timely development and Software as a Service (SaaS) cloud services.\\
 
+\noindent Due to a number of reasons that will be discussed throughout this dissertation, cloud services require a set of components to ensure the security, availability and reliability of data that is stored in data center facilities remotely accessible from internet. The study conducted here, is focused specifically on the availability of the data that must be accessible to their applicants at all times.\\
+
+\noindent This study was undertaken in the one hand to test some aspects of business practices in the current technology market and the use of FLOSS as a key factor, and in the other one, to fulfill the demands of a business organization showing that business models around FLOSS are a fact.\\
+
+\noindent The way this dissertation is going to be organized is the following:\\
+
+\noindent Chapter 2 with the problem statement, setting why there is an issue in the current situation, what are the justification and motivation of this dissertation, also defining the objectives and the proper scope.\\
+
+\noindent Chapter 3 describing the most relevant related technologies around the possible solutions.\\
+
+\noindent Chapter 4 establishing the used methodology, supported by the OpenBRR and the Lazy User models.\\
+
+\noindent Chapter 5 showing the architecture of the company and its infrastructure, available hardware for operations, the network scheme, and an overview of the software supporting the current situation, all of this in order to understand how to adapt an actual solution.\\
+
+\noindent Chapter 6 describing the implemented technologies to achieve the solution for the problem stated.\\
+
+\noindent Chapter 7 will provide a detailed description of the actual implementation for the proposed solution.\\
+
+\noindent Chapter 8 with the results and discussion around the subject.\\
+
+\noindent Finally in Chapter 9 will be displayed the conclusions and future work.
 
 
 %=====================================
@@ -146,8 +165,8 @@ Business continuity in the field of information technology is supported in a lar
 
 The factors that motivates this work are on one hand, give proper credit to business models based on FLOSS as those used by technology companies nowadays~\cite{Daffara2}, and on the other hand, show that private enterprise can be benefited by FLOSS, through a set of toolsets and mechanisms who allow obtaining robust solutions in accordance to technology needs.
 
-\section{Objetives}
-\label{subsec:objetives}
+\section{Objectives}
+\label{subsec:objectives}
 
 The overall objectives are:
 
@@ -210,13 +229,13 @@ The followed roadmap to achieve the objectives outlined is a set of guidelines a
 
 \noindent On the one hand, the guidelines proposed by Daffara suggest a research method by collecting and read as much information related to the project is available and select the appropriate solution from a matching set that fulfill the requirements. On the other hand this dissertation also contemplates an open and standard framework to select the technologies to be used, this is the light weight model OpenBRR~\cite{Wasserman et. all}, which performs a quick and flexible assessment over software tools considered.\\
 
-\noindent Additionally, and following a practical formal approach, applying a model of technology acceptance such as the Lazy User Model (LUM)~\cite{Collan and Tetard} is possible to frame the process by which are chosen the technological tools that will make up the solution that meets user requirements, which in this case is being represented by the company Netnovation. This model focuses on user needs and the demanded effort when selecting a solution to a problem from a set of possible solutions.\\
+\noindent Additionally, and following a practical formal approach, applying a model of technology acceptance such as the Lazy User Model (LUM)~\cite{Collan and Tetard} is possible to frame the process by which are chosen the technological tools that will make up the solution that meets user requirements, which in this case is being represented by the company Netnovation. This model focuses on user needs and the demanded effort when selecting a solution to a problem from a set of possible solutions, ``According to the lazy user model, a user is likely to choose the solution that requires the least effort. The user examines this cost in terms of time, energy and money when considering how to use a new solution." [?]. The LUM proposes that technology acceptance is impacted by this principle.
 
-LUM: ``According to the lazy user model, a user is likely to choose the solution that requires the least effort
-The selection between one solution and another is known as 'Switching Cost', which tell us that the user examines this cost in terms of time, energy and money when considering how to use a new solution. The LUM proposes that technology acceptance is impacted by the principle of least effort."
 
 \section{OpenBRR}
 \label{sec:openbrr}
+
+
 
 
 %=====================================
@@ -437,7 +456,6 @@ The configuration must be similar in both nodes. In Table~\ref{table:configurati
 
 \subsection{FQDN hostnames and IP addresses}
 \label{sec:fqdn}
-
 
 Table~\ref{table:hostnames} shows the current configuration for the virtual IP address shared by the two nodes, and for the primary IP address on each node.\\
 
@@ -1236,7 +1254,15 @@ The following actions must be performed sequentially on \textit{\textbf{astapor}
 \chapter{Results and discussion}
 \label{chap:results}
 
-Text..
+This chapter presents the evidence and/or results of primary research which you have undertaken
+
+\noindent Presented in the form of:\\
+
+\noindent - hypothesis testing to analysis suggested by guidelines for the adoption of FLOSS within SMEs (Daffara), search method by collecting and read as much information related to the project is available and select the appropriate solution from a matching set that fulfill the requirements\\
+
+\noindent - Detailed quantitative model OpenBRR, quick and flexible assessment over software tools considered\\
+
+\noindent - Lazy User Model, frame the process by which are chosen the technological tools that will make up the solution that meets user requirements. This model focuses on user needs and the demanded effort when selecting a solution to a problem from a set of possible solutions
 
 
 %=====================================
@@ -1255,9 +1281,17 @@ Text..
 \begin{thebibliography}{25}
   \bibliographystyle{alpha}
 
+
+  \bibitem{Collan & Tetard} Collan M. and Tetard F. \textit{Lazy User Theory of Solution Selection}. Proceedings of the CELDA 2007 Conference. Portugal, December 2007.
+
+  \bibitem{Daffara2} Daffara, Carlo. \textit{The economic value of Open Source software}. Conecta Research. Italy, July 2012. DOI=http://carlodaffara.conecta.it/category/oss-business-models/
+
   \bibitem{Fogel} Fogel, Karl. \textit{Producing Open Source Software: How to Run a Successful Free Software Project}. O'Reilly, 2005.
 
   \bibitem{Raymond} Raymond, Eric. \textit{The Cathedral and the Bazaar}. O'Reilly, 1999.
+
+  \bibitem{Wasserman et. all} Wasserman A., Pal M. and Chan C. \textit{The Business Readiness Rating Model: an Evaluation Framework for Open Source}. Proceedings of the EFOSS: OpenBRR Workshop. Italy, June 2006.
+
 
 \end{thebibliography}
 

@@ -9,6 +9,7 @@
 \usepackage{url}
 \usepackage{graphicx}
 \usepackage{float}  									 % H for Figures positioning
+\usepackage{placeins}
 \usepackage[nottoc, notlot, notlof, notindex]{tocbibind} % Index options
 \usepackage{latexsym}  									 % LaTeX Logo
 \usepackage{caption}
@@ -419,6 +420,7 @@ This section is intended to provide technical documentation in the process of im
 
 \noindent The defined cluster consists of two nodes which will be referenced as Astapor and Braavos in the domain got.com (as in the novel Game of Thrones). These nodes are virtual machines hosted on two Proxmox Virtual Environment servers based on KVM virtualization, which are installed on separate physical machines in the same LAN to avoid single point of failure. The proposed scheme is conceptually similar to the observed in Figure~\ref{fig:ha-cluster}.
 
+\FloatBarrier
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.50]{two_nodes_ha_cluster.png}
@@ -427,14 +429,13 @@ This section is intended to provide technical documentation in the process of im
 \end{figure}
 
 
-
 \section{Operating system considerations}
 \label{sec:considerations}
 
-The configuration must be similar in both nodes. In Table~\ref{table:configuration} is shown the configuration selected for the current implementation. It should be take into consideration that it is not necessary to format partitions for devices vdb1 or vdc1 during OS install.
+The configuration must be similar in both nodes. In Table~\ref{table:os} is shown the configuration selected for the current implementation. It should be take into consideration that it is not necessary to format partitions for devices vdb1 or vdc1 during OS install.
 
-
-\begin{table}
+\FloatBarrier
+\begin{table}[H]
   \centering
   \begin{tabular}{ | r l l l | }
   
@@ -457,9 +458,10 @@ The configuration must be similar in both nodes. In Table~\ref{table:configurati
 \subsection{FQDN hostnames and IP addresses}
 \label{sec:fqdn}
 
-Table~\ref{table:hostnames} shows the current configuration for the virtual IP address shared by the two nodes, and for the primary IP address on each node.\\
+Table~\ref{table:fqdn} shows the current configuration for the virtual IP address shared by the two nodes, and for the primary IP address on each node.
 
-\begin{table}
+\FloatBarrier
+\begin{table}[H]
   \centering
   \begin{tabular}{ | r c l | }
     \hline    
@@ -472,9 +474,10 @@ Table~\ref{table:hostnames} shows the current configuration for the virtual IP a
 \label{table:fqdn}
 \end{table}
 
-\noindent On both nodes, /etc/hosts file should contain at least the entries described in Table~\ref{table:hosts}:
+\noindent On both nodes, /etc/hosts file should contain at least the entries described in Table~\ref{table:hosts} :
 
-\begin{table}
+\FloatBarrier
+\begin{table}[H]
   \centering
   \begin{tabular}{ | l l l | }
     \hline    
@@ -501,8 +504,8 @@ service hostname restart\\
 
 \noindent Set the proper network parameters in /etc/sysconfig/network-scripts/ifcfg-eth0 file on each server, as described in Table~\ref{table:ifcfg}.
 
-
-\begin{table}
+\FloatBarrier
+\begin{table}[H]
   \centering
   \begin{tabular}{ | l | l | }
     \hline
@@ -544,9 +547,10 @@ ip addr show\\
 
 \noindent Required RPM packages to sincronize cluster nodes through network time protocol: ntp, ntpdate.\\
 
-\noindent Set the proper NTP parameters in /etc/ntp.conf file on each server, so both nodes share the same date and time, as shown in Table~\ref{table:ntp}\\
+\noindent Set the proper NTP parameters in /etc/ntp.conf file on each server, so both nodes share the same date and time, as shown in Table~\ref{table:ntp}
 
-\begin{table}
+\FloatBarrier
+\begin{table}[H]
   \centering
   \begin{tabular}{ | l l | }
     \hline
@@ -567,7 +571,7 @@ ip addr show\\
 service ntpd restart \\
 ntpstat \\
 ntpq -pn \\
-date\\
+date
 
 
 \begin{itemize}
@@ -576,9 +580,10 @@ date\\
 
 \noindent Required RPM packages for domain name resolution: bind, bind-utils.\\
 
-\noindent A primary DNS server configured on each server is crucial, or alternatively a remote centralized DNS server on the LAN with the whole configuration. Here is considered the first option. Table~\ref{table:named} shows the content of /etc/named.conf file. 
+\noindent A primary DNS server configured on each server is crucial, or alternatively a remote centralized DNS server on the LAN with the whole configuration. Here is considered the first option. Table~\ref{table:named} shows the content of /etc/named.conf file.
 
-\begin{table}
+\FloatBarrier
+\begin{table}[H]
   \centering
   \begin{tabular}{ | l | }
     \hline
@@ -595,7 +600,8 @@ date\\
 
 \noindent Astapor node holds /var/named/got.com.db file, with the content described in Table~\ref{table:bindastapor}. Dot characters at the end of hostnames are not a typo, they should be included so that the configuration is correct, and must be absent in the case of IP addresses.
 
-\begin{table}
+\FloatBarrier
+\begin{table}[H]
   \centering
   \begin{tabular}{ | l l l l l | }
     \hline
@@ -616,10 +622,10 @@ date\\
 \noindent Some useful commands to handle and request BIND service on RHEL are:
 
 named-checkconf -z \\
-service named restart \\
-service named status \\
-dig -t ANY got.com \\
-nslookup astapor.got.com \\
+\indent service named restart \\
+\indent service named status \\
+\indent dig -t ANY got.com \\
+\indent nslookup astapor.got.com \\
 
 
 \subsection{ZCS dependencies}
@@ -644,8 +650,8 @@ As requirement for ZCS, the following RPM packages must be installed in the OS:
 \end{itemize}
 
 \noindent The postfix daemon must be turned off and excluded from boot start-up:\\
-service postfix stop\\
-chkconfig postfix off\\
+\indent service postfix stop\\
+\indent chkconfig postfix off\\
 
 
 \section{DRBD}
@@ -669,9 +675,9 @@ The following actions must be performed in parallel on both nodes, except in tho
 	\item Leave /etc/drbd.conf and /etc/drbd.d/global\_common.conf files by default.
 	
 	\item Add /etc/drbd.d/optzimbra.res file with the content described in Table~\ref{table:resource}:
-	
 %%%%%%%%%%%%%%%%%%%% MODIFY TABLE %%%%%%%%%%%%%%%%%%%%%%
-\begin{table}
+\FloatBarrier
+\begin{table}[H]
   \centering
   \begin{tabular}{ | l l l l l | }
     \hline
@@ -686,8 +692,8 @@ The following actions must be performed in parallel on both nodes, except in tho
 	\item Remove from /etc/fstab file any reference to /dev/vdb1 or /dev/vdc1 devices, as drbd is going to handle its mounting.
 	
 	\item Initialize data and metadata disks:\\
-		dd if=/dev/zero of=/dev/vdb1 bs=1K count=100\\
-		dd if=/dev/zero of=/dev/vdc1 bs=1K count=100
+		\indent dd if=/dev/zero of=/dev/vdb1 bs=1K count=100\\
+		\indent dd if=/dev/zero of=/dev/vdc1 bs=1K count=100
 	
 	\item Start DRBD module:\\
 		modprobe drbd
@@ -893,7 +899,8 @@ The following actions must be performed sequentially on \textit{\textbf{astapor}
 
 \noindent Usually it is difficult to obtain the required RPM's for RHEL, so an alternative is to add CentOS repository by editing /etc/yum.repo.d/centos.repo file with the content described in Table~\ref{table:centosrepo}.
 
-\begin{table}
+\FloatBarrier
+\begin{table}[H]
   \centering
   \begin{tabular}{ | r c l | }
     \hline
@@ -1182,8 +1189,8 @@ The following actions must be performed sequentially on \textit{\textbf{astapor}
 	\item At any moment it will be displayed a message like the depicted in Table~\ref{table:failover}.
 \end{itemize}
 
-
-\begin{table}
+\FloatBarrier
+\begin{table}[H]
   \centering
   \begin{tabular}{ | r l | }
     \hline
@@ -1223,11 +1230,11 @@ The following actions must be performed sequentially on \textit{\textbf{astapor}
 
 
 \begin{itemize}
-	\item Finally ``crm\_mon" or ``pcs status" on each node will display a similar to the one showed in Table~\ref{table:sync}\\
+	\item Finally ``crm\_mon" or ``pcs status" on each node will display a similar to the one showed in Table~\ref{table:sync}
 \end{itemize}
 
-
-\begin{table}
+\FloatBarrier
+\begin{table}[H]
   \centering
   \begin{tabular}{ | r l | }
     \hline

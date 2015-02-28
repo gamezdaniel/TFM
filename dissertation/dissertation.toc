@@ -2,21 +2,35 @@
 \contentsline {chapter}{Abstract}{3}
 \contentsline {chapter}{Acknowledgements}{5}
 \contentsline {chapter}{\numberline {1}Introduction}{13}
-\contentsline {section}{\numberline {1.1}Section}{13}
-\contentsline {subsection}{\numberline {1.1.1}Subseccion}{13}
-\contentsline {section}{\numberline {1.2}Document Structure}{14}
 \contentsline {chapter}{\numberline {2}Problem statement}{15}
-\contentsline {section}{\numberline {2.1}Justification / Motivation}{15}
-\contentsline {subsection}{\numberline {2.1.1}Subseccion}{15}
-\contentsline {section}{\numberline {2.2}Objetives}{15}
-\contentsline {section}{\numberline {2.3}Scope}{15}
-\contentsline {chapter}{\numberline {3}Precedents / Releated technologies / State of the art}{17}
+\contentsline {section}{\numberline {2.1}Justification / Motivation}{16}
+\contentsline {section}{\numberline {2.2}Objectives}{16}
+\contentsline {section}{\numberline {2.3}Scope}{16}
+\contentsline {chapter}{\numberline {3}Releated technologies}{17}
 \contentsline {chapter}{\numberline {4}Methodology}{19}
-\contentsline {chapter}{\numberline {5}Implementation}{21}
-\contentsline {section}{\numberline {5.1}Technical specifications of implemented FLOSS tools}{21}
-\contentsline {section}{\numberline {5.2}Tets and validation}{21}
-\contentsline {section}{\numberline {5.3}Other considerations}{21}
-\contentsline {chapter}{\numberline {6}Results and discussion}{23}
-\contentsline {chapter}{\numberline {7}Conclusions and future work}{25}
-\contentsline {chapter}{References}{27}
-\contentsline {chapter}{\numberline {A}Title of appendix 1}{29}
+\contentsline {section}{\numberline {4.1}OpenBRR}{19}
+\contentsline {chapter}{\numberline {5}Architecture}{21}
+\contentsline {section}{\numberline {5.1}Company Infrastructure}{21}
+\contentsline {section}{\numberline {5.2}Existent Hardware}{21}
+\contentsline {section}{\numberline {5.3}Company Network Scheme}{22}
+\contentsline {section}{\numberline {5.4}Software Supporting the Infrastructure}{22}
+\contentsline {chapter}{\numberline {6}Implemented technologies}{25}
+\contentsline {chapter}{\numberline {7}Implementation}{27}
+\contentsline {section}{\numberline {7.1}Operating system considerations}{28}
+\contentsline {subsection}{\numberline {7.1.1}FQDN hostnames and IP addresses}{28}
+\contentsline {subsection}{\numberline {7.1.2}Network}{29}
+\contentsline {subsection}{\numberline {7.1.3}ZCS dependencies}{31}
+\contentsline {section}{\numberline {7.2}DRBD}{31}
+\contentsline {subsection}{\numberline {7.2.1}Initial configuration}{31}
+\contentsline {subsection}{\numberline {7.2.2}DRBD Split Brain Recovery}{33}
+\contentsline {section}{\numberline {7.3}ZCS}{33}
+\contentsline {subsection}{\numberline {7.3.1}ZCS full install on primary node}{33}
+\contentsline {subsection}{\numberline {7.3.2}ZCS dummy install on secondary node}{34}
+\contentsline {section}{\numberline {7.4}OCF}{35}
+\contentsline {section}{\numberline {7.5}Pacemaker}{35}
+\contentsline {section}{\numberline {7.6}Control and check services}{38}
+\contentsline {section}{\numberline {7.7}Testing failover}{39}
+\contentsline {chapter}{\numberline {8}Results and discussion}{41}
+\contentsline {chapter}{\numberline {9}Conclusions and future work}{43}
+\contentsline {chapter}{References}{45}
+\contentsline {chapter}{\numberline {A}Title of appendix 1}{47}

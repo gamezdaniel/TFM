@@ -85,47 +85,54 @@ LIST OF TABLES
 3. PRECEDENTS / RELEATED TECHNOLOGIES / STATE OF THE ART
 
     - High Availability solutions based in FLOSS
-
     - Commercial cluster software
 
   SUSE Linux Enterprise High Availability Extension (https://www.suse.com/products/highavailability)
   1-Year Subscription 590,00€ (2 sockets)
   3-Year Subscription 1.570,00€ (2 sockets)
   5-Year Subscription 2.330,00€ (2 sockets)
+  
+  https://www.suse.com/documentation/sle_ha/book_sleha/data/book_sleha.html
+  https://www.suse.com/products/highavailability/features/
 
+  
+  - Multiple clustering scenarios, as active/active and active/passive configurations, as well as hybrid physical and virtual clusters
+  - Supports mixed clustering, physical and virtual Linux servers, based on Xen and KVM hypervisors
+  - Corosync messaging and membership layer, also Pacemaker cluster resource manager
+  - Storage and data replication supporting Fibre Channel or iSCSI SAN
+  - Cluster-aware file systems with cLVM and OCFS2 as volume manager
+  - Supports replication through DRBD
+  - Samba clustering with CTDB
+  - Provides resource agent manager OCF
+  - GUI and CLI administration tools, such as YaST, Hawk and crm
+  
   openSUSE:High Availability (https://en.opensuse.org/openSUSE:High_Availability)
-  includes a suite of high availability clustering software, notably 
-  Corosync (http://corosync.github.io/corosync)
-  Pacemaker (http://clusterlabs.org)
-  DRBD (http://www.drbd.org)
-  OCFS2 (http://oss.oracle.com/projects/ocfs2)
 
+  Historically these packages were split into two projects; network:ha-clustering (stable packages) and network:ha-clustering:Factory (unstable/development for the next openSUSE release). As of August 2013, we have transitioned to the following project structure.. 
+  
   Red Hat Cluster Suite
   Is suggested an architecture review of the cluster, by submitting a support ticket to Red Hat.
     
   "Downtime is costly to your business"
+  
   "When mission-critical applications fail, so does your business. This often is a true statement in today's environments, where most organizations spend millions of dollars making their services available 24/7, 365 days a year."
   http://www.linuxjournal.com/article/9759
 
-  HP Serviceguard, formerly known as MC/ServiceGuard, is a high-availability cluster software produced by HP that runs on HP-UX and Linux
-
-  http://en.wikipedia.org/wiki/HP_Serviceguard
-  
-  
+  "eliminate single points of failure. It ensures the high availability and manageability of critical network resources including data, applications, and services. Thus, it helps you maintain business continuity, protect data integrity, and reduce unplanned downtime for your mission-critical Linux workloads."
+    
   Evolution of commercial HA tools (Figure): http://www.hpintelco.net/sglx/service.html
-  HP Intel Red Hat Open Source Solutions Initiative (OSSI): 
-  (http://www.hpintelco.net/hp-intel-redhat.htm)
-  Based on a joint HP, Intel and Red Hat solutions center open to partners and their customers, to reduce partner's sale cycle by delivering Enterprise solutions credibility
-  
-  HP Proliant
-  
-  
   https://enterprisersproject.com/article/2015/1/top-advantages-open-source-offers-over-proprietary-solutions
-  
-  
-  Linux-HA
 
-  provides features based on C programming languaje, implementing high availability within applications, through virtual synchrony for replicated state machines, simple availability handling responsible for applications restart when fail, it keeps configuration and statistics in a memory database providing the ability to set, retrieve, and receive change notifications of information, and a quorum system that notifies applications when it is achieved or lost.
+  
+  - Corosync (http://corosync.github.io/corosync)
+  - DRBD (http://www.drbd.org)
+  - OCFS2 (http://oss.oracle.com/projects/ocfs2)
+  - Pacemaker (http://clusterlabs.org)
+  
+  
+  Linux-HA (http://www.linux-ha.org/wiki/Main_Page)
+
+  provides features based on C programming language, implementing high availability within applications, through virtual synchrony for replicated state machines, simple availability handling responsible for applications restart when fail, it keeps configuration and statistics in a memory database providing the ability to set, retrieve, and receive change notifications of information, and a quorum system that notifies applications when it is achieved or lost.
 
   an open source high availability resource manager software used on computer clusters since 2004
   
@@ -295,4 +302,8 @@ http://carlodaffara.conecta.it/category/oss-business-models/
 \bibitem{Barahona & Ortega} Gonzalez-Barahona, Jesus and Ortega, Felipe. \textit{Economic Aspects of Libre Software}. GSyC/LibreSoft, Universidad Rey Juan Carlos. Spain, November 2011.
 
 http://opensource.com/resources/ebooks
+
+Tanja R. and Schraitle T. High Availability Guide. SUSE LLC and contributors. 2014.
+
+Copyright © 2006– 2014
 

@@ -66,7 +66,7 @@
 % LICENSE
 %
 {\raggedleft
-(c) 2014, Daniel H. G\'{a}mez V.\\
+(c) 2015, Daniel H. G\'{a}mez V.\\
  daniel.gamez@gmail.com\\
  This work is licensed under a\\
  Creative Commons Attributions 3.0 License
@@ -91,7 +91,7 @@
 This is the Abstract...
 
 \noindent
-Key words: Cluster, Corosync, DRBD, FLOSS, High Availability, Pacemaker, Zimbra
+Key words: Cluster, Corosync, CRM, DRBD, FOSS, FLOSS, High Availability, OCF, Pacemaker, Zimbra
 
 %=====================================
 % ACKNOWLEDGEMENTS
@@ -150,7 +150,7 @@ These are the Acknowledgements..
 
 Business continuity in the field of information technology is supported in a large extent by the uninterrupted operation of the systems used in productivity tasks~\cite{ISO}. These systems must be fault tolerant, so that operations have the least possible impact in the event that an unexpected incident occurs.\\
 
-\noindent Nowadays there are increasingly more people and organizations using centralized remote systems that allow online access to resources and everyday services, this scheme is called cloud computing~\cite{Mell & Grance}. Through this type of services, end users whether individuals or corporations, are abstracted to support the infrastructure that this entails, giving responsibility to intermediary companies providing cloud services. So these intermediaries are the ones who must ensure the proper availability of the services, as well as factors such as communications security and redundancy of stored data, among many others.\\
+\noindent Nowadays there are increasingly more people and organizations using centralized remote systems that allow online access to resources and everyday services, this scheme is called cloud computing~\cite{Mell and Grance}. Through this type of services, end users whether individuals or corporations, are abstracted to support the infrastructure that this entails, giving responsibility to intermediary companies providing cloud services. So these intermediaries are the ones who must ensure the proper availability of the services, as well as factors such as communications security and redundancy of stored data, among many others.\\
 
 \noindent In particular Netnovation is a SME in the field of information technologies, which provides private cloud services from data storage to hosting virtual private servers (VPS), including e-mail and collaboration servers. The latter is precisely one of the mainstays for the operations of the company, which employs mainly FLOSS to its internal systems, specifically using the FLOSS e-mail and collaboration suite Zimbra\texttrademark \footnote{\ http://www.zimbra.com}. One of the main problems that Netnovation faces is to ensure the communication and workflow continuity that is carried through this collaboration tool, as well as meet the SLAs offered to its customers over this software.\\
 
@@ -164,10 +164,10 @@ Business continuity in the field of information technology is supported in a lar
 \label{sec:justification}
 
 
-The factors that motivates this work are on one hand, give proper credit to business models based on FLOSS as those used by technology companies nowadays~\cite{Daffara2}, and on the other hand, show that private enterprise can be benefited by FLOSS, through a set of toolsets and mechanisms who allow obtaining robust solutions in accordance to technology needs.
+The factors that motivates this work are on one hand, give proper credit to business models based on FLOSS as those used by technology companies nowadays~\cite{Daffara Eco}, and on the other hand, show that private enterprise can be benefited by FLOSS, through a set of toolsets and mechanisms who allow obtaining robust solutions in accordance to technology needs.
 
 \section{Objectives}
-\label{subsec:objectives}
+\label{sec:objectives}
 
 The overall objectives are:
 
@@ -188,7 +188,6 @@ The overall objectives are:
 \end{itemize}
 
 
-
 \section{Scope}
 \label{sec:scope}
 
@@ -204,20 +203,88 @@ The solution to be implemented consists of FLOSS tools that allow its adaptation
 %
 \chapter{Releated technologies}
 \label{chap:related}
+These high-availability technologies could be categorized as Enterprise Solutions and FLOSS based tools, considering that usually the first ones have associated a complete support service over the whole provided solution, whereas the second ones provide support over its own tools, but not necessarily over the whole cluster implementation.
 
-High Availability solutions based in FLOSS:\\
+\section{Commercial Enterprise Cluster Software}
+\label{sec:enterprise}
 
-\noindent Commercial cluster software:
+At the beginning many of these high-availability implementations were usually proprietary, but at some point commercial companies realized that these technologies could be strengthened by FLOSS. Since then, as a business model strategy, companies such as Hewlett Packard, Red Hat and SUSE (a Novell company) provide assistance services contemplating their entire solution, charging for business support licenses generally on annual basis. Examples of this situation, are in the following sub-sections.
+
+\subsection{HP Serviceguard}
+\label{subsec:serviceguard}
+
+Hewlett Packard (HP) claims the credit for the development of the first high availability solution for UNIX since 1990\footnote{\url{http://www.hpintelco.net/sglx/service.html}}. MC/ServiceGuard, is a high-availability cluster software released for HP-UX and later for GNU/Linux. Since the first development of the software, HP has competed with companies such as Oracle or SAP to deploy high-availability in enterprise environments, as Figure~\ref{fig:enterprise} (took from \url{http://www.hpintelco.net}) shows.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.70]{commercial-ha.png}
+  \caption[High-availability race in enterprise environments]{High-availability race in enterprise environments}
+  \label{fig:enterprise}
+\end{figure}
+
+\noindent With the appearance of Linux in 1994 and its increasing popularity together with GNU, in 1999 HP released a Linux port called SG/LX, allowing high-availability features on it.\\
+
+\noindent Since 2001, companies Intel, Red Hat and HP joined efforts to produce the Red Hat Open Source Solutions Initiative\footnote{\url{http://www.hpintelco.net/hp-intel-redhat.htm}} (OSSI), with the aim to reduce partner's sale cycle by delivering enterprise reliable solutions to their customers.
+
+\subsection{Red Hat Cluster Suite}
+\label{subsec:rhcs}
+
+At the end of the 90's Red Hat Inc. introduced its Red Hat Enterprise Linux Advanced Server product, designed specifically for use in enterprise environments to deliver superior application support, performance, availability and scalability. It included a high-availability clustering feature as part of the base product. Since then, the product has evolve to the current Red Hat Cluster Suite (RHCS), provided as a separately licensed product, also on top of Red Hat's base Linux Enterprise Server license.\\
+
+\noindent The RHCS has two major features, one is the Cluster Manager that provides high availability, and the other is the IP Load Balancing (originally called Piranha). The first is Red Hat's implementation of Linux-HA, which will be discussed in Section~\ref{sec:hafloss}.\\
+
+\noindent On the other hand Piranha was originally developed by researchers at Oak Ridge National Laboratory\footnote{\url{http://www.ornl.gov/}}, basically a text mining technology that Red Hat adapted in order to allow transparent load balancing and failover between servers. The software Piranha is under copyright and count with its own patents, but the organization allow strategic partnerships, evaluating deals based on the ability and commitment to successfully commercialize the technology\footnote{\url{http://www.ornl.gov/connect-with-ornl/for-industry/partnerships/technology-licensing/licensing-opportunity-announcements/piranha}}.\\
+
+\noindent The Cluster Manager and IP load balancing are complementary high-availability technologies that can be used separately or in combination, depending on application requirements, and both of these technologies are integrated in RHCS.\\
+
+\noindent Some technical details of this product are the following:
+
 \begin{itemize}
-	\item SUSE Linux Enterprise High Availability Extension
-	\item openSUSE High Availability
-	\item Red Hat Enterprise Linux Cluster
+	\item Support for up to 128 nodes (16 nodes on Red Hat Enterprise Linux 3, 4, 5, and 6)
+	\item NFS, CIFS, GFS share and cluster filesystem managers
+	\item File system and services failover support
+	\item Fully shared storage subsystem
+	\item Comprehensive data integrity
+	\item SCSI and fibre channel support
+	\item OCF and LSB resource agents
 \end{itemize}
 
-\noindent Standalone FLOSS tools:
+
+\subsection{SUSE Linux Enterprise High Availability Extension}
+\label{subsec:suseha}
+
+This is an integrated suite of clustering technologies that enables the implementation of high availability over physical and virtual Linux clusters~\cite{Tanja and Schraitle}. It allows monitoring, messaging, and cluster resource management, handling failover and load balancing of resources.\\
+
+\noindent As Red Hat did, other companies such as Novell relies on SG/LX Linux port to provide high availability solutions. This product is available as a paid add-on to SUSE Linux Enterprise Server GNU/Linux distribution, although in openSUSE many of these tools are included into the base system for free (with no payment), with available repositories on OBS to provide newer versions of the packages for various GNU/Linux distributions\footnote{\url{https://en.opensuse.org/openSUSE:High_Availability}}.\\
+
+\noindent Among the main product features of this product are the following:
+
 \begin{itemize}
-	\item Linux-HA\footnote{\url{http://www.linux-ha.org/wiki/Main_Page}}
+	\item Multiple clustering scenarios, as active/active and active/passive configurations, as well as hybrid physical and virtual clusters
+	\item Supports mixed clustering, physical and virtual Linux servers, based on Xen and KVM hypervisors
+	\item Corosync messaging and membership layer, also Pacemaker cluster resource manager
+	\item Storage and data replication supporting Fibre Channel or iSCSI SAN
+	\item Cluster-aware file systems with GFS and OCFS, and cLVM as volume manager
+	\item Supports replication through DRBD
+	\item Samba clustering with CTDB
+	\item Provides resource agent manager OCF
+	\item GUI and CLI administration tools, such as YaST, HAWK and CRM
 \end{itemize}
+
+
+\section{High availability FLOSS based tools}
+\label{sec:hafloss}
+
+These tools are possibly those that conform some of the enterprise solutions mentioned before, but are not supported as a complete enterprise cluster solution. Either way, most of these FLOSS technologies are backed by professional support over the standalone software provided. Examples of this tools, are mentioned below.\\
+
+\noindent Linux-HA has been released since 1999 under GNU GPL and GNU LGPL license, maintains a set of building blocks for high availability cluster systems, including a cluster messaging layer, a bunch of resource agents for a variety of applications, and a plumbing library and error reporting toolkit. Around 2007 this project evolved to Pacemaker, integrating or allowing interaction with multiple FLOSS cluster stacks such as Heartbeat, Corosync and OCF.\\
+
+\noindent Nowadays Pacemaker is a resource manager responsible for starting and stopping cluster services in a proper way. Combined with other tools is able to detect service-level failures and move resources between cluster nodes as needed, to ensure the smooth operation of the services.\\
+
+\noindent Corosync is responsible for cluster membership, message passing and quorum, using the totem protocol 
+for \textit{heartbeat}, monitoring other node's health.\\
+
+\noindent DRBD works on top of block devices, such as hard disk partitions or LVM logical volumes, mirroring each data block that it is written to disk to the peer node. 
 
 
 %=====================================
@@ -226,11 +293,11 @@ High Availability solutions based in FLOSS:\\
 \chapter{Methodology}
 \label{chap:methodology}
 
-The followed roadmap to achieve the objectives outlined is a set of guidelines and suggestions for the adoption of FLOSS within SMEs~\cite{Daffara1}, in the sense that a methodology is not an exact formula but a set of practices. At using this model, companies find a supporting guide from the initial selection and adoption of FLOSS within the IT infrastructure and even to the consolidation of business models around open source.\\
+The followed roadmap to achieve the objectives outlined is a set of guidelines and suggestions for the adoption of FLOSS within SMEs~\cite{Daffara SME}, in the sense that a methodology is not an exact formula but a set of practices. At using this model, companies find a supporting guide from the initial selection and adoption of FLOSS within the IT infrastructure and even to the consolidation of business models around open source.\\
 
 \noindent On the one hand, the guidelines proposed by Daffara suggest a research method by collecting and read as much information related to the project is available and select the appropriate solution from a matching set that fulfill the requirements. On the other hand this dissertation also contemplates an open and standard framework to select the technologies to be used, this is the light weight model OpenBRR~\cite{Wasserman et. all}, which performs a quick and flexible assessment over software tools considered.\\
 
-\noindent Additionally, and following a practical formal approach, applying a model of technology acceptance such as the Lazy User Model (LUM)~\cite{Collan and Tetard} is possible to frame the process by which are chosen the technological tools that will make up the solution that meets user requirements, which in this case is being represented by the company Netnovation. This model focuses on user needs and the demanded effort when selecting a solution to a problem from a set of possible solutions, ``According to the lazy user model, a user is likely to choose the solution that requires the least effort. The user examines this cost in terms of time, energy and money when considering how to use a new solution." [?]. The LUM proposes that technology acceptance is impacted by this principle.
+\noindent Additionally, and following a practical formal approach, applying a model of technology acceptance such as the Lazy User Model (LUM)~\cite{Collan and Tetard} is possible to frame the process by which are chosen the technological tools that will make up the solution that meets user requirements, which in this case is being represented by the company Netnovation. This model focuses on user needs and the demanded effort when selecting a solution to a problem from a set of possible solutions, ``According to the lazy user model, a user is likely to choose the solution that requires the least effort. The user examines this cost in terms of time, energy and money when considering how to use a new solution."~\cite{Collan and Tetard LUM PS}. The LUM proposes that technology acceptance is impacted by this principle.
 
 
 \section{OpenBRR}
@@ -339,7 +406,7 @@ In Table~\ref{table:technologies} there are some software solutions currently us
 \chapter{Implemented technologies}
 \label{chap:implemented}
 
-The following software tools represent the key elements on which it has been possible to implement a comprehensive high availability solution. 
+The following software tools represent the key elements on which it has been possible to implement a comprehensive high availability solution, some of them mentioned in Section~\ref{sec:hafloss}.
 
 \begin{itemize}
 	\item Red Hat Enterprise Linux Server
@@ -1288,14 +1355,23 @@ Text..
 \begin{thebibliography}{25}
   \bibliographystyle{alpha}
 
+  \bibitem{Collan and Tetard} Collan M. and Tetard F. \textit{Lazy User Theory of Solution Selection}. Proceedings of the CELDA 2007 Conference. Portugal, December 2007.
 
-  \bibitem{Collan & Tetard} Collan M. and Tetard F. \textit{Lazy User Theory of Solution Selection}. Proceedings of the CELDA 2007 Conference. Portugal, December 2007.
+  \bibitem{Collan and Tetard LUM PS} Collan M. and Tetard F. \textit{Lazy User Theory: A Dynamic Model to Understand User Selection of Products and Services}. 42nd Hawaii International Conference on System Sciences. 2009.
 
-  \bibitem{Daffara2} Daffara, Carlo. \textit{The economic value of Open Source software}. Conecta Research. Italy, July 2012. DOI=http://carlodaffara.conecta.it/category/oss-business-models/
+\bibitem{Daffara SME} Daffara, Carlo. \textit{The SME guide to Open Source Software}. FLOSSMETRICS EU. July 2009. DOI=http://smeguide.conecta.it/smeguide.pdf
+
+  \bibitem{Daffara Eco} Daffara, Carlo. \textit{The economic value of Open Source software}. Conecta Research. Italy, July 2012. DOI=http://carlodaffara.conecta.it/category/oss-business-models/
 
   \bibitem{Fogel} Fogel, Karl. \textit{Producing Open Source Software: How to Run a Successful Free Software Project}. O'Reilly, 2005.
 
+  \bibitem{ISO} International Organization for Standardization Technical Committee 223. \textit{ISO/PAS 22399:2007}. International Organization for Standardization, December 2007. DOI=\url{https://www.iso.org/obp/ui/\#iso:std:iso:pas:22399:ed-1:v1:en}
+
+  \bibitem{Mell and Grance} Mell, Peter and Grance, Timothy. \textit{The NIST Definition of Cloud Computing}. National Institute of Standards and Technology, September 2011.
+
   \bibitem{Raymond} Raymond, Eric. \textit{The Cathedral and the Bazaar}. O'Reilly, 1999.
+
+  \bibitem{Tanja and Schraitle} Tanja R. and Schraitle T. \textit{High Availability Guide.} SUSE LLC and contributors. 2014.
 
   \bibitem{Wasserman et. all} Wasserman A., Pal M. and Chan C. \textit{The Business Readiness Rating Model: an Evaluation Framework for Open Source}. Proceedings of the EFOSS: OpenBRR Workshop. Italy, June 2006.
 

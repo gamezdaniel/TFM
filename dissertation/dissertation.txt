@@ -270,27 +270,33 @@ APPENDIX
 
 ====================================================================================================
 
-\bibitem{Fogel} Fogel, Karl. \textit{Producing Open Source Software: How to Run a Successful Free Software Project}. O'Reilly, 2005.  
+Abo Akademi University Lazy User Model
+Essays, UK. (November 2013). The Lazy Model In Information Technology Information Technology Essay. Retrieved from http://www.ukessays.com/essays/information-technology/the-lazy-model-in-information-technology-information-technology-essay.php?cref=1
 
-\bibitem{ISO} International Organization for Standardization Technical Committee 223. \textit{ISO/PAS 22399:2007}. International Organization for Standardization, December 2007. DOI=https://www.iso.org/obp/ui/#iso:std:iso:pas:22399:ed-1:v1:en
-  
-\bibitem{Mell & Grance} Mell, Peter and Grance, Timothy. \textit{The NIST Definition of Cloud Computing}. National Institute of Standards and Technology, September 2011.
+
+\bibitem{Collan and Tetard} Collan M. and Tetard F. \textit{Lazy User Theory of Solution Selection}. Proceedings of the CELDA 2007 Conference. Portugal, December 2007.
+
+\bibitem{Collan and Tetard LUM PS} Collan M. and Tetard F. \textit{Lazy User Theory: A Dynamic Model to Understand User Selection of Products and Services}. 42nd Hawaii International Conference on System Sciences. 2009.
 
 \bibitem{Daffara1} Daffara, Carlo. \textit{The SME guide to Open Source Software}. FLOSSMETRICS EU. July 2009. DOI=http://smeguide.conecta.it/smeguide.pdf
 
 \bibitem{Daffara2} Daffara, Carlo. \textit{The economic value of Open Source software}. Conecta Research. Italy, July 2012. DOI=http://carlodaffara.conecta.it/category/oss-business-models/
 
-\bibitem{Collan & Tetard} Collan M. and Tetard F. \textit{Lazy User Theory of Solution Selection}. Proceedings of the CELDA 2007 Conference. Portugal, December 2007.
+\bibitem{Fogel} Fogel, Karl. \textit{Producing Open Source Software: How to Run a Successful Free Software Project}. O'Reilly, 2005.
+
+\bibitem{ISO} International Organization for Standardization Technical Committee 223. \textit{ISO/PAS 22399:2007}. International Organization for Standardization, December 2007. DOI=https://www.iso.org/obp/ui/\#iso:std:iso:pas:22399:ed-1:v1:en
+
+\bibitem{Mell and Grance} Mell, Peter and Grance, Timothy. \textit{The NIST Definition of Cloud Computing}. National Institute of Standards and Technology, September 2011.
+
+\bibitem{Tanja and Schraitle} Tanja R. and Schraitle T. \textit{High Availability Guide.} SUSE LLC and contributors. 2014.
 
 \bibitem{Wasserman et. all} Wasserman A., Pal M. and Chan C. \textit{The Business Readiness Rating Model: an Evaluation Framework for Open Source}. Proceedings of the EFOSS: OpenBRR Workshop. Italy, June 2006.
 
-\bibitem{} . \textit{}. . . DOI=
+
 \bibitem{} . \textit{}. . . DOI=
 \bibitem{} . \textit{}. . . DOI=
 
 ---
-
-Franck Tetard, Mikael Collan, "Lazy User Theory: A Dynamic Model to Understand User Selection of Products and Services," hicss, pp. 1–9, 42nd Hawaii International Conference on System Sciences, 2009
 
 Collan, M. and Tetard, F., Lazy User Model: Solution Selection and Discussion about Switching Costs. DOI=http://link.springer.com/chapter/10.1007%2F978-3-642-22766-0_7
 
@@ -302,8 +308,4 @@ http://carlodaffara.conecta.it/category/oss-business-models/
 \bibitem{Barahona & Ortega} Gonzalez-Barahona, Jesus and Ortega, Felipe. \textit{Economic Aspects of Libre Software}. GSyC/LibreSoft, Universidad Rey Juan Carlos. Spain, November 2011.
 
 http://opensource.com/resources/ebooks
-
-Tanja R. and Schraitle T. High Availability Guide. SUSE LLC and contributors. 2014.
-
-Copyright © 2006– 2014
 

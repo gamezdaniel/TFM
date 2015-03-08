@@ -117,9 +117,9 @@ These are the Acknowledgements..
 
 \noindent With the growing use of cloud-oriented systems and the need for this information to be always available, online systems play an increasingly important role in our society nowadays. The technologies that support such schemes have evolved fleetingly and today there are numerous ways to get this kind of solutions, from proprietary software implementations, tools oriented to corporate environments that can be even based on FLOSS products and a variety of business models, to FLOSS standalone tools representing a robust solution to meet today's demands.\\
 
-\noindent Since year 2004 Netnovation\texttrademark \ is a Venezuelan SME formed by a team of professionals in the areas of IT and telecommunications who adopted a business model based on consulting around FLOSS, providing system integration, timely development and Software as a Service (SaaS) cloud services.\\
+\noindent Since 2004 Netnovation\texttrademark \ is a Venezuelan SME formed by a team of professionals in the areas of IT and telecommunications who adopted a business model based on consulting around FLOSS, providing system integration, timely development and Software as a Service (SaaS) cloud services.\\
 
-\noindent Due to a number of reasons that will be discussed throughout this dissertation, cloud services require a set of components to ensure the security, availability and reliability of data that is stored in data center facilities remotely accessible from internet. The study conducted here, is focused specifically on the availability of the data that must be accessible to their applicants at all times.\\
+\noindent Due to a number of reasons that will be discussed throughout this dissertation, cloud services require a set of components to ensure the security, availability and reliability of data that is stored in data center facilities remotely accessible from internet. The study conducted here is focused specifically on the availability of the data that must be accessible to their applicants at all times.\\
 
 \noindent This study was undertaken in the one hand to test some aspects of business practices in the current technology market and the use of FLOSS as a key factor, and in the other one, to fulfill the demands of a business organization showing that business models around FLOSS are a fact.\\
 
@@ -139,7 +139,7 @@ These are the Acknowledgements..
 
 \noindent Chapter 8 with the results and discussion around the subject.\\
 
-\noindent Finally in Chapter 9 will be displayed the conclusions and future work.
+\noindent Finally in Chapter 9 the conclusions and future work will be displayed.
 
 
 %=====================================
@@ -152,9 +152,9 @@ Business continuity in the field of information technology is supported in a lar
 
 \noindent Nowadays there are increasingly more people and organizations using centralized remote systems that allow online access to resources and everyday services, this scheme is called cloud computing~\cite{Mell and Grance}. Through this type of services, end users whether individuals or corporations, are abstracted to support the infrastructure that this entails, giving responsibility to intermediary companies providing cloud services. So these intermediaries are the ones who must ensure the proper availability of the services, as well as factors such as communications security and redundancy of stored data, among many others.\\
 
-\noindent In particular Netnovation is a SME in the field of information technologies, which provides private cloud services from data storage to hosting virtual private servers (VPS), including e-mail and collaboration servers. The latter is precisely one of the mainstays for the operations of the company, which employs mainly FLOSS to its internal systems, specifically using the FLOSS e-mail and collaboration suite Zimbra\texttrademark \footnote{\ http://www.zimbra.com}. One of the main problems that Netnovation faces is to ensure the communication and workflow continuity that is carried through this collaboration tool, as well as meet the SLAs offered to its customers over this software.\\
+\noindent In particular Netnovation is a SME in the field of information technologies, which provides private cloud services from data storage to hosting virtual private servers (VPS), including e-mail and collaboration servers. The latter is precisely one of the mainstays for the operations of the company, which employs mainly FLOSS to its internal systems, specifically using the FLOSS e-mail and collaboration suite Zimbra\texttrademark\footnote{\ http://www.zimbra.com}. One of the main problems that Netnovation faces is to ensure the communication and workflow continuity that is carried through this collaboration tool, as well as meet the SLAs offered to its customers over this software.\\
 
-\noindent There are various software solutions offering high availability of services such as those provided by Zimbra, each one with its legal implications, associated costs and implementation difficulty \footnote{\ Some of these solutions will be addressed in Chapter~\ref{chap:related}}. A valid alternative is the integration of multiple tools in the field of FLOSS providing a framework to ensure  continuity of systems operation or business continuity. By doing it this way it is possible to adapt the different requirements and use different technologies to provide the most consistent solution to what is desired.\\
+\noindent There are various software solutions offering high availability of services such as those provided by Zimbra, each one with its legal implications, associated costs and implementation difficulty\footnote{\ Some of these solutions will be addressed in Chapter~\ref{chap:related}}. A valid alternative is the integration of multiple tools in the field of FLOSS providing a framework to ensure  continuity of systems operation or business continuity. By doing it this way it is possible to adapt the different requirements and use different technologies to provide the most consistent solution to what is desired.\\
 
 \noindent On previous occasions, Netnovation has managed to successfully consolidate most of its operations infrastructure adapting FLOSS, making it a wonderful idea to keep this scheme working. To achieve this, it is necessary to evaluate the state of the art in the field of systems that provide high availability, with the aim of offering an effective solution, all of this in accordance to the guidelines that have been proposed by the company.
 
@@ -172,19 +172,19 @@ The factors that motivates this work are on one hand, give proper credit to busi
 The overall objectives are:
 
 \begin{itemize}
-	\item Frame the FLOSS business model used by Netnovation
-	\item Show various current alternatives provided by FLOSS at the corporate level
-	\item Adapt the proposed solution to the guidelines established by Netnovation
-	\item Establish an initial point reference for implementing high availability private cloud services offered by Netnovation
+	\item To frame the FLOSS business model used by Netnovation
+	\item To show various current alternatives provided by FLOSS at the corporate level
+	\item To adapt the proposed solution to the guidelines established by Netnovation
+	\item To establish an initial point reference for implementing high availability private cloud services offered by Netnovation
 \end{itemize}
 
 \noindent The specific objectives are:
 
 \begin{itemize}
-	\item Implement a high availability solution based on FLOSS for the e-mail and collaboration system Zimbra used by Netnovation
-	\item Describe the methodology used for the selection of the solution to be implemented
-	\item Describe the process undertaken to implement the selected solution
-	\item Perform tests in a controlled laboratory environment and validate the correct operation of the solution in order to promote it to a production environment
+	\item To implement a high availability solution based on FLOSS for the e-mail and collaboration system Zimbra used by Netnovation
+	\item To describe the methodology used for the selection of the solution to be implemented
+	\item To describe the process undertaken to implement the selected solution
+	\item To perform tests in a controlled laboratory environment and validate the correct operation of the solution in order to promote it to a production environment
 \end{itemize}
 
 
@@ -201,7 +201,7 @@ The solution to be implemented consists of FLOSS tools that allow its adaptation
 %=====================================
 % PRECEDENTS / RELEATED TECHNOLOGIES / STATE OF THE ART
 %
-\chapter{Releated technologies}
+\chapter{Related technologies}
 \label{chap:related}
 These high-availability technologies could be categorized as Enterprise Solutions and FLOSS based tools, considering that usually the first ones have associated a complete support service over the whole provided solution, whereas the second ones provide support over its own tools, but not necessarily over the whole cluster implementation.
 
@@ -213,12 +213,12 @@ At the beginning many of these high-availability implementations were usually pr
 \subsection{HP Serviceguard}
 \label{subsec:serviceguard}
 
-Hewlett Packard (HP) claims the credit for the development of the first high availability solution for UNIX since 1990\footnote{\url{http://www.hpintelco.net/sglx/service.html}}. MC/ServiceGuard, is a high-availability cluster software released for HP-UX and later for GNU/Linux. Since the first development of the software, HP has competed with companies such as Oracle or SAP to deploy high-availability in enterprise environments, as Figure~\ref{fig:enterprise} (took from \url{http://www.hpintelco.net}) shows.
+Hewlett Packard (HP) claims the credit for the development of the first high availability solution for UNIX since 1990\footnote{\url{http://www.hpintelco.net/sglx/service.html}}. MC/ServiceGuard, is a high-availability cluster software released for HP-UX and later for GNU/Linux. Since the first development of the software, HP has competed with companies such as Oracle or SAP to deploy high-availability in enterprise environments, as Figure~\ref{fig:enterprise} shows.
 
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.70]{commercial-ha.png}
-  \caption[High-availability race in enterprise environments]{High-availability race in enterprise environments}
+  \caption[High-availability race in enterprise environments]{High-availability race in enterprise environments. Source: \url{http://www.hpintelco.net}}
   \label{fig:enterprise}
 \end{figure}
 
@@ -245,7 +245,7 @@ At the end of the 90's Red Hat Inc. introduced its Red Hat Enterprise Linux Adva
 	\item File system and services failover support
 	\item Fully shared storage subsystem
 	\item Comprehensive data integrity
-	\item SCSI and fibre channel support
+	\item SCSI and fiber channel support
 	\item OCF and LSB resource agents
 \end{itemize}
 
@@ -255,7 +255,7 @@ At the end of the 90's Red Hat Inc. introduced its Red Hat Enterprise Linux Adva
 
 This is an integrated suite of clustering technologies that enables the implementation of high availability over physical and virtual Linux clusters~\cite{Tanja and Schraitle}. It allows monitoring, messaging, and cluster resource management, handling failover and load balancing of resources.\\
 
-\noindent As Red Hat did, other companies such as Novell relies on SG/LX Linux port to provide high availability solutions. This product is available as a paid add-on to SUSE Linux Enterprise Server GNU/Linux distribution, although in openSUSE many of these tools are included into the base system for free (with no payment), with available repositories on OBS to provide newer versions of the packages for various GNU/Linux distributions\footnote{\url{https://en.opensuse.org/openSUSE:High_Availability}}.\\
+\noindent As Red Hat did, other companies such as Novell relies on SG/LX Linux port to provide high availability solutions. This product is available as a paid add-on to SUSE Linux Enterprise Server GNU/Linux distribution, although in OpenSUSE many of these tools are included into the base system for free (with no payment), with available repositories on OBS to provide newer versions of the packages for various GNU/Linux distributions\footnote{\url{https://en.opensuse.org/openSUSE:High_Availability}}.\\
 
 \noindent Among the main product features of this product are the following:
 
@@ -330,7 +330,7 @@ Each DC has an average of seven Dell\texttrademark \ PowerEdge Racked Servers wi
 \noindent There is a Dell PowerEdge 2850/2950 server serving as firewall and main router on each DC. On the one hand it has a WAN 1000Mbps interface, which is connected through UTP Cat-6 wired to 24 PoE ports Switches Netgear FS728TPv1 Gigabit. Physical servers are installed in 20U rack cabinets. These servers range from models Dell PowerEdge 1950, R510 to R710, have Intel Xeon CPUs within 24 and 64 cores, count with 8 to 64GB of RAM, and also have SCSI HDD with capacities between 100GB and 2,5TB.
 
 \section{Company Network Scheme}
-\label{sec:network}
+\label{sec:networkscheme}
 
 The housing services leased by the providers offer a pool of public IPv4 addresses that are handled by the main router on each DC facility. DC1 and DC2 are interconnected by a VPN through WAN, each of them associated to a different private Class B network internally. To the LAN Ethernet ports of the switches are connected the physical servers of the private network with transfer speed rates of 100/1000Mbps. The overall interconnection scheme can be appreciated in Figure~\ref{fig:network}.
 
@@ -403,7 +403,7 @@ In Table~\ref{table:technologies} there are some software solutions currently us
 %=====================================
 % IMPLEMENTED TECHNOLOGIES
 %
-\chapter{Implemented technologies}
+\chapter{Technological background}
 \label{chap:implemented}
 
 The following software tools represent the key elements on which it has been possible to implement a comprehensive high availability solution, some of them mentioned in Section~\ref{sec:hafloss}.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/TeX Live for SUSE Linux) (format=pdflatex 2014.11.8)  25 FEB 2015 23:29
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/TeX Live for SUSE Linux) (format=pdflatex 2014.11.8)  8 MAR 2015 09:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -556,16 +556,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 140--141
 [14]
 Chapter 2.
 
-LaTeX Warning: Citation `ISO' on page 15 undefined on input line 151.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 151--152
 
  []
-
-
-LaTeX Warning: Citation `Mell & Grance' on page 15 undefined on input line 153.
-
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 153--154
@@ -592,426 +585,482 @@ Underfull \hbox (badness 10000) in paragraph at lines 157--158
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 163.
 
-Underfull \hbox (badness 10000) in paragraph at lines 195--196
+Underfull \hbox (badness 10000) in paragraph at lines 194--195
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 197--198
+Underfull \hbox (badness 10000) in paragraph at lines 196--197
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 199--200
+Underfull \hbox (badness 10000) in paragraph at lines 198--199
 
  []
 
 [16]
 Chapter 3.
-
-Underfull \hbox (badness 10000) in paragraph at lines 208--209
-
- []
-
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 219.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 213.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 216.
 
 (/usr/share/texmf/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-) [17
+)
+<./img/commercial-ha.png, id=63, 402.75468pt x 408.02437pt>
+File: ./img/commercial-ha.png Graphic file (type png)
 
-] [18
+<use ./img/commercial-ha.png>
+Package pdftex.def Info: ./img/commercial-ha.png used on input line 220.
+(pdftex.def)             Requested size: 281.92635pt x 285.61511pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [17
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 225--226
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 232--233
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 234--235
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 236--236
+[][]$\OT1/pcr/m/n/10 http : / / www . ornl . gov / connect-[]with-[]ornl / for-
+[]industry / partnerships /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 236--237
+
+ []
+
+[18 <./img/commercial-ha.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 238--239
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 256--257
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 258--259
+
+ []
+
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 278--279
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 280--281
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 282--283
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 284--286
+
+ []
+
+[20]
 Chapter 4.
 
-LaTeX Warning: Citation `Daffara1' on page 19 undefined on input line 229.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 229--230
+Underfull \hbox (badness 10000) in paragraph at lines 296--297
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 231--232
+Underfull \hbox (badness 10000) in paragraph at lines 298--299
 
  []
 
+[21
 
-LaTeX Warning: Citation `Collan and Tetard' on page 19 undefined on input line 
-233.
-
-[19] [20
+] [22
 
 ]
 Chapter 5.
 
-Underfull \hbox (badness 10000) in paragraph at lines 248--249
+Underfull \hbox (badness 10000) in paragraph at lines 315--316
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 261--262
+Underfull \hbox (badness 10000) in paragraph at lines 328--329
 
  []
 
 
 Underfull \vbox (badness 1460) has occurred while \output is active []
 
- [21]
-<./img/network_scheme.png, id=80, 803.0pt x 602.25pt>
+ [23]
+<./img/network_scheme.png, id=88, 803.0pt x 602.25pt>
 File: ./img/network_scheme.png Graphic file (type png)
 
 <use ./img/network_scheme.png>
-Package pdftex.def Info: ./img/network_scheme.png used on input line 272.
+Package pdftex.def Info: ./img/network_scheme.png used on input line 339.
 (pdftex.def)             Requested size: 401.49902pt x 301.12425pt.
 
-Underfull \hbox (badness 1281) in paragraph at lines 325--326
+Underfull \hbox (badness 1281) in paragraph at lines 392--393
 []|\OT1/ptm/m/n/12 Solution for mon-i-tor-ing of net-works, ap-pli-ca-tions and
 
  []
 
-[22 <./img/network_scheme.png (PNG copy)>] [23] [24
+[24 <./img/network_scheme.png (PNG copy)>] [25] [26
 
 ]
 Chapter 6.
-[25]
+[27]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 384.
+(Font)              <10.95> on input line 451.
 
-Overfull \hbox (17.67403pt too wide) in paragraph at lines 384--385
+Overfull \hbox (17.67403pt too wide) in paragraph at lines 451--452
 \OT1/pcr/m/n/10.95 Red _ Hat _ Enterprise _ Linux / 4 / html / Cluster _ Suite 
 _ Overview / images/$\OT1/ptm/m/n/10.95 ) is rep-re-sented
  []
 
-<./img/ccs-overview.png, id=94, 531.586pt x 386.243pt>
+<./img/ccs-overview.png, id=102, 531.586pt x 386.243pt>
 File: ./img/ccs-overview.png Graphic file (type png)
 
 <use ./img/ccs-overview.png>
-Package pdftex.def Info: ./img/ccs-overview.png used on input line 388.
+Package pdftex.def Info: ./img/ccs-overview.png used on input line 455.
 (pdftex.def)             Requested size: 265.79234pt x 193.12102pt.
- [26 <./img/ccs-overview.png>]
+ [28 <./img/ccs-overview.png>]
 Chapter 7.
-<./img/two_nodes_ha_cluster.png, id=99, 642.4pt x 401.5pt>
+<./img/two_nodes_ha_cluster.png, id=107, 642.4pt x 401.5pt>
 File: ./img/two_nodes_ha_cluster.png Graphic file (type png)
 
 <use ./img/two_nodes_ha_cluster.png>
-Package pdftex.def Info: ./img/two_nodes_ha_cluster.png used on input line 426.
+Package pdftex.def Info: ./img/two_nodes_ha_cluster.png used on input line 493.
 
 (pdftex.def)             Requested size: 321.19922pt x 200.7495pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [27
+ [29
 
 ]
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 458.
-
-[28 <./img/two_nodes_ha_cluster.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 494--496
+[30 <./img/two_nodes_ha_cluster.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 561--563
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 533--534
+Underfull \hbox (badness 10000) in paragraph at lines 600--601
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 535--536
+Underfull \hbox (badness 10000) in paragraph at lines 602--603
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 537--543
+Underfull \hbox (badness 10000) in paragraph at lines 604--610
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 548--549
+Underfull \hbox (badness 10000) in paragraph at lines 615--616
 
  []
 
-[29]
-Underfull \hbox (badness 10000) in paragraph at lines 581--582
+[31]
+Underfull \hbox (badness 10000) in paragraph at lines 648--649
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 590.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 657.
 
 (/usr/share/texmf/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 590.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 657.
 
-Underfull \hbox (badness 10000) in paragraph at lines 624--629
-
- []
-
-[30]
-Underfull \hbox (badness 10000) in paragraph at lines 652--655
+Underfull \hbox (badness 10000) in paragraph at lines 691--696
 
  []
 
-[31] [32]
-Overfull \hbox (0.58772pt too wide) in paragraph at lines 763--765
+[32]
+Underfull \hbox (badness 10000) in paragraph at lines 719--722
+
+ []
+
+[33] [34]
+Overfull \hbox (0.58772pt too wide) in paragraph at lines 830--832
 \OT1/ptm/m/n/10.95 filesys-tems. It can be found at $\OT1/pcr/m/n/10.95 http : 
 / / www . zimbra . com / downloads / os-[]downloads . html$\OT1/ptm/m/n/10.95 .
 
  []
 
 
-Overfull \hbox (17.79532pt too wide) in paragraph at lines 763--765
+Overfull \hbox (17.79532pt too wide) in paragraph at lines 830--832
 \OT1/pcr/m/n/10.95 http : / / files . zimbra . com / website / docs / 8 . 5 / Z
 imbra _ OS _ Quick _ Start _ 8 . 5 . 0 . pdf$ 
  []
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 770.
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 837.
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 780.
-[33] [34]
-Underfull \hbox (badness 10000) in paragraph at lines 872--874
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 847.
+[35] [36]
+Underfull \hbox (badness 10000) in paragraph at lines 939--941
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 925--926
+Underfull \hbox (badness 10000) in paragraph at lines 992--993
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 927--930
+Underfull \hbox (badness 10000) in paragraph at lines 994--997
 
  []
 
-[35]
-Underfull \hbox (badness 10000) in paragraph at lines 941--944
+[37]
+Underfull \hbox (badness 10000) in paragraph at lines 1008--1011
 
  []
 
 
-Overfull \hbox (61.41032pt too wide) in paragraph at lines 948--954
+Overfull \hbox (61.41032pt too wide) in paragraph at lines 1015--1021
 \OT1/ptm/m/n/10.95 ccs  \TS1/ptm/m/n/10.95 ==\OT1/ptm/m/n/10.95 file  /etc/clus
 ter/cluster.conf  \TS1/ptm/m/n/10.95 ==\OT1/ptm/m/n/10.95 addfen-ce-inst  pcmk 
  astapor.got.com  pcmk-redirect  port=astapor.got.com 
  []
 
 
-Overfull \hbox (66.60088pt too wide) in paragraph at lines 948--954
+Overfull \hbox (66.60088pt too wide) in paragraph at lines 1015--1021
 \OT1/ptm/m/n/10.95 ccs  \TS1/ptm/m/n/10.95 ==\OT1/ptm/m/n/10.95 file  /etc/clus
 ter/cluster.conf  \TS1/ptm/m/n/10.95 ==\OT1/ptm/m/n/10.95 addfen-ce-inst  pcmk 
  braavos.got.com  pcmk-redirect  port=braavos.got.com 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 948--954
+Underfull \hbox (badness 10000) in paragraph at lines 1015--1021
 
  []
 
-LaTeX Font Info:    Try loading font information for OML+ptm on input line 960.
-
+LaTeX Font Info:    Try loading font information for OML+ptm on input line 1027
+.
 (/usr/share/texmf/tex/latex/psnfss/omlptm.fd
 File: omlptm.fd 
 )
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 960.
-
-Underfull \hbox (badness 10000) in paragraph at lines 958--961
-
- []
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 1027.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 965--969
+Underfull \hbox (badness 10000) in paragraph at lines 1025--1028
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 973--975
+Underfull \hbox (badness 10000) in paragraph at lines 1032--1036
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 979--982
+Underfull \hbox (badness 10000) in paragraph at lines 1040--1042
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 986--990
+Underfull \hbox (badness 10000) in paragraph at lines 1046--1049
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 994--996
-
- []
-
-[36]
-Underfull \hbox (badness 10000) in paragraph at lines 1000--1002
+Underfull \hbox (badness 10000) in paragraph at lines 1053--1057
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1006--1008
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1012--1014
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1018--1020
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1034--1043
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1046--1050
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1053--1058
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1061--1066
-
- []
-
-[37]
-Underfull \hbox (badness 10000) in paragraph at lines 1080--1087
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1090--1093
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1109--1112
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1115--1117
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1120--1122
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1125--1129
+Underfull \hbox (badness 10000) in paragraph at lines 1061--1063
 
  []
 
 [38]
-Underfull \hbox (badness 10000) in paragraph at lines 1132--1134
+Underfull \hbox (badness 10000) in paragraph at lines 1067--1069
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1137--1139
+Underfull \hbox (badness 10000) in paragraph at lines 1073--1075
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1142--1146
+Underfull \hbox (badness 10000) in paragraph at lines 1079--1081
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1149--1151
+Underfull \hbox (badness 10000) in paragraph at lines 1085--1087
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1160--1164
+Underfull \hbox (badness 10000) in paragraph at lines 1101--1110
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1168--1171
+Underfull \hbox (badness 10000) in paragraph at lines 1113--1117
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1175--1179
+Underfull \hbox (badness 10000) in paragraph at lines 1120--1125
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1128--1133
 
  []
 
 [39]
-Underfull \hbox (badness 10000) in paragraph at lines 1213--1214
+Underfull \hbox (badness 10000) in paragraph at lines 1147--1154
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1218--1222
+Underfull \hbox (badness 10000) in paragraph at lines 1157--1160
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1226--1229
+Underfull \hbox (badness 10000) in paragraph at lines 1176--1179
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1182--1184
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1187--1189
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1192--1196
 
  []
 
 [40]
+Underfull \hbox (badness 10000) in paragraph at lines 1199--1201
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1204--1206
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1209--1213
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1216--1218
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1227--1231
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1235--1238
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1242--1246
+
+ []
+
+[41]
+Underfull \hbox (badness 10000) in paragraph at lines 1280--1281
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1285--1289
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1293--1296
+
+ []
+
+[42]
 Chapter 8.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1266--1267
+Underfull \hbox (badness 10000) in paragraph at lines 1333--1334
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1268--1269
+Underfull \hbox (badness 10000) in paragraph at lines 1335--1336
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1270--1271
+Underfull \hbox (badness 10000) in paragraph at lines 1337--1338
 
  []
 
-[41
+[43
 
-] [42
+] [44
 
 ]
 Chapter 9.
-[43] [44
+[45] [46
 
-] [45] [46
+] [47] [48
 
 ]
 Appendix A.
-[47] (./dissertation.aux)
-
-LaTeX Warning: There were undefined references.
-
+[49] (./dissertation.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4998 strings out of 493607
- 74332 string characters out of 3149945
- 142121 words of memory out of 3500000
- 8178 multiletter control sequences out of 15000+200000
- 34456 words of font info for 70 fonts, out of 3000000 for 9000
+ 5014 strings out of 493607
+ 74631 string characters out of 3149945
+ 142214 words of memory out of 3500000
+ 8191 multiletter control sequences out of 15000+200000
+ 36655 words of font info for 74 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 38i,13n,38p,834b,387s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,13n,38p,869b,387s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf/fonts/enc/dvips/base/8r.enc}</usr/share/texmf/fonts/type1/p
 ublic/amsfonts/cm/cmmi10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/c
 msy10.pfb></usr/share/texmf/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texm
@@ -1019,10 +1068,10 @@ f/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf/fonts/type1/urw/times/u
 tmb8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texmf
 /fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmri
 8a.pfb>
-Output written on dissertation.pdf (47 pages, 307977 bytes).
+Output written on dissertation.pdf (49 pages, 361764 bytes).
 PDF statistics:
- 201 PDF objects out of 1000 (max. 8388607)
- 134 compressed objects within 2 object streams
+ 209 PDF objects out of 1000 (max. 8388607)
+ 139 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

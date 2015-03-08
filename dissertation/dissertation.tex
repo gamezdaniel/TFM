@@ -117,7 +117,7 @@ These are the Acknowledgements..
 
 \noindent With the growing use of cloud-oriented systems and the need for this information to be always available, online systems play an increasingly important role in our society nowadays. The technologies that support such schemes have evolved fleetingly and today there are numerous ways to get this kind of solutions, from proprietary software implementations, tools oriented to corporate environments that can be even based on FLOSS products and a variety of business models, to FLOSS standalone tools representing a robust solution to meet today's demands.\\
 
-\noindent Since year 2004 Netnovation\texttrademark \ is a Venezuelan SME formed by a team of professionals in the areas of IT and telecommunications who adopted a business model based on consulting around FLOSS~\cite{Daffara2}, providing system integration, timely development and Software as a Service (SaaS) cloud services.\\
+\noindent Since year 2004 Netnovation\texttrademark \ is a Venezuelan SME formed by a team of professionals in the areas of IT and telecommunications who adopted a business model based on consulting around FLOSS, providing system integration, timely development and Software as a Service (SaaS) cloud services.\\
 
 \noindent Due to a number of reasons that will be discussed throughout this dissertation, cloud services require a set of components to ensure the security, availability and reliability of data that is stored in data center facilities remotely accessible from internet. The study conducted here, is focused specifically on the availability of the data that must be accessible to their applicants at all times.\\
 
@@ -636,9 +636,9 @@ ip addr show\\
 \noindent Some useful commands to manipulate and consult NTP service on RHEL are:
 
 service ntpd restart \\
-ntpstat \\
-ntpq -pn \\
-date
+\indent ntpstat \\
+\indent ntpq -pn \\
+\indent date
 
 
 \begin{itemize}
@@ -992,8 +992,8 @@ The following actions must be performed sequentially on \textit{\textbf{astapor}
 \noindent There are two ways to interact with Pacemaker configuration. The first one is using the crmsh interpreter, starting the crm shell with ``crm" command, and then providing configuration sentences. For instance:\\
 
 	[root@astapor \textasciitilde]\# crm\\
-	crm(live)\# help\\
-	crm(live)\# quit\\
+	\indent crm(live)\# help\\
+	\indent crm(live)\# quit\\
 
 \noindent Another way would be through \textit{\textbf{pcs}} and \textit{\textbf{ccs}} instructions directly from a linux tty in a bash session. Following is going to be used this way to configure de cluster, executing the commands only on the primary node.
 

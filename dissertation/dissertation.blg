@@ -1,26 +1,40 @@
 This is BibTeX, Version 0.99d (TeX Live 2012/TeX Live for SUSE Linux)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: dissertation.aux
-White space in argument---line 18 of file dissertation.aux
+White space in argument---line 17 of file dissertation.aux
  : \citation{Mell
- :                & Grance}
+ :                and Grance}
 I'm skipping whatever remains of this command
-White space in argument---line 35 of file dissertation.aux
+White space in argument---line 22 of file dissertation.aux
+ : \citation{Daffara
+ :                   Eco}
+I'm skipping whatever remains of this command
+White space in argument---line 39 of file dissertation.aux
+ : \citation{Tanja
+ :                 and Schraitle}
+I'm skipping whatever remains of this command
+White space in argument---line 46 of file dissertation.aux
+ : \citation{Daffara
+ :                   SME}
+I'm skipping whatever remains of this command
+White space in argument---line 47 of file dissertation.aux
  : \citation{Wasserman
  :                     et. all}
 I'm skipping whatever remains of this command
-White space in argument---line 36 of file dissertation.aux
+White space in argument---line 48 of file dissertation.aux
  : \citation{Collan
  :                  and Tetard}
 I'm skipping whatever remains of this command
+White space in argument---line 49 of file dissertation.aux
+ : \citation{Collan
+ :                  and Tetard LUM PS}
+I'm skipping whatever remains of this command
 The style file: alpha.bst
 I found no \bibdata command---while reading file dissertation.aux
-Warning--I didn't find a database entry for "Daffara2"
 Warning--I didn't find a database entry for "ISO"
-Warning--I didn't find a database entry for "Daffara1"
 You've used 0 entries,
             2543 wiz_defined-function locations,
-            563 strings with 4481 characters,
+            559 strings with 4449 characters,
 and the built_in function-call counts, 24 in all, are:
 = -- 0
 > -- 0
@@ -59,4 +73,4 @@ warning$ -- 0
 while$ -- 0
 width$ -- 0
 write$ -- 2
-(There were 4 error messages)
+(There were 8 error messages)

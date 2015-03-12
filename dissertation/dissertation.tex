@@ -1,24 +1,24 @@
 % LaTeX template for the final master thesis
 
 \documentclass[a4paper, 12pt]{book}
-\pagestyle{plain}
 \usepackage[a4paper, left=2.5cm, right=2.5cm, top=3cm, bottom=3cm]{geometry}
-\usepackage{times}
-\usepackage[latin1]{inputenc}
-\usepackage[english]{babel}
-\usepackage{url}
-\usepackage{graphicx}
-\usepackage{float}  									 % H for Figures positioning
-\usepackage{placeins}
-\usepackage[nottoc, notlot, notlof, notindex]{tocbibind} % Index options
-\usepackage{latexsym}  									 % LaTeX Logo
-\usepackage{caption}
-\usepackage{titlesec}
-\usepackage{booktabs}
 \usepackage{array}
+\usepackage[english]{babel}
+\usepackage{booktabs}
+\usepackage{caption}
 \usepackage{enumitem}
+\usepackage{float}  									 % H for Figures positioning
+\usepackage{graphicx}
+\usepackage[latin1]{inputenc}
+\usepackage{latexsym}  									 % LaTeX Logo
+\usepackage{placeins}
 \usepackage{textcomp}
+\usepackage{times}
+\usepackage{titlesec}
+\usepackage[nottoc, notlot, notlof, notindex]{tocbibind} % Index options
+\usepackage{url}
 
+\pagestyle{plain}
 \graphicspath{{./img/}}
 
 \title{Implementation of a high availability solution based on Free Libre Open Source Software tools for Netnovation's Email and Collaboration System}
@@ -115,31 +115,31 @@ These are the Acknowledgements..
 \chapter{Introduction}
 \label{chap:introduction}
 
-\noindent With the growing use of cloud-oriented systems and the need for this information to be always available, online systems play an increasingly important role in our society nowadays. The technologies that support such schemes have evolved fleetingly and today there are numerous ways to get this kind of solutions, from proprietary software implementations, tools oriented to corporate environments that can be even based on FLOSS products and a variety of business models, to FLOSS standalone tools representing a robust solution to meet today's demands.\\
+\noindent With the growing use of cloud-oriented systems and the need for this information to be always available, online systems play an increasingly important role in our society nowadays. The technologies that support such schemes have evolved fleetingly and today there are numerous ways to get this kind of solutions, from proprietary software implementations, tools oriented to corporate environments that can be even based on FLOSS products and a variety of business models, to FLOSS standalone tools representing a robust solution to meet today's demands.\bigskip
 
-\noindent Since 2004 Netnovation\texttrademark \ is a Venezuelan SME formed by a team of professionals in the areas of IT and telecommunications who adopted a business model based on consulting around FLOSS, providing system integration, timely development and Software as a Service (SaaS) cloud services.\\
+\noindent Since 2004 Netnovation\texttrademark \ is a Venezuelan SME formed by a team of professionals in the areas of IT and telecommunications who adopted a business model based on consulting around FLOSS, providing system integration, timely development and Software as a Service (SaaS) cloud services.\bigskip
 
-\noindent Due to a number of reasons that will be discussed throughout this dissertation, cloud services require a set of components to ensure the security, availability and reliability of data that is stored in data center facilities remotely accessible from internet. The study conducted here is focused specifically on the availability of the data that must be accessible to their applicants at all times.\\
+\noindent Due to a number of reasons that will be discussed throughout this dissertation, cloud services require a set of components to ensure the security, availability and reliability of data that is stored in data center facilities remotely accessible from internet. The study conducted here is focused specifically on the availability of the data that must be accessible to their applicants at all times.\bigskip
 
-\noindent This study was undertaken in the one hand to test some aspects of business practices in the current technology market and the use of FLOSS as a key factor, and in the other one, to fulfill the demands of a business organization showing that business models around FLOSS are a fact.\\
+\noindent This study was undertaken in the one hand to test some aspects of business practices in the current technology market and the use of FLOSS as a key factor, and in the other one, to fulfill the demands of a business organization showing that business models around FLOSS are a fact.\bigskip
 
-\noindent The way this dissertation is going to be organized is the following:\\
+\noindent The way this dissertation is going to be organized is the following:\bigskip
 
-\noindent Chapter 2 with the problem statement, setting why there is an issue in the current situation, what are the justification and motivation of this dissertation, also defining the objectives and the proper scope.\\
+\noindent Chapter 2 with the problem statement, setting why there is an issue in the current situation, what are the justification and motivation of this dissertation, also defining the objectives and the proper scope.\bigskip
 
-\noindent Chapter 3 describing the most relevant related technologies around the possible solutions.\\
+\noindent Chapter 3 describing the most relevant related technologies around the possible solutions.\bigskip
 
-\noindent Chapter 4 establishing the used methodology, supported by the OpenBRR and the Lazy User models.\\
+\noindent Chapter 4 establishing the used methodology, supported by the OpenBRR and the Lazy User models.\bigskip
 
-\noindent Chapter 5 showing the architecture of the company and its infrastructure, available hardware for operations, the network scheme, and an overview of the software supporting the current situation, all of this in order to understand how to adapt an actual solution.\\
+\noindent Chapter 5 showing the architecture of the company and its infrastructure, available hardware for operations, the network scheme, and an overview of the software supporting the current situation, all of this in order to understand how to adapt an actual solution.\bigskip
 
-\noindent Chapter 6 describing the implemented technologies to achieve the solution for the problem stated.\\
+\noindent Chapter 6 describing the implemented technologies to achieve the solution for the problem stated.\bigskip
 
-\noindent Chapter 7 will provide a detailed description of the actual implementation for the proposed solution.\\
+\noindent Chapter 7 will provide a detailed description of the actual implementation for the proposed solution.\bigskip
 
-\noindent Chapter 8 with the results and discussion around the subject.\\
+\noindent Chapter 8 with the results and discussion around the subject.\bigskip
 
-\noindent Finally in Chapter 9 the conclusions and future work will be displayed.
+\noindent Finally in Chapter 9 the conclusions and future work will be raised.\bigskip
 
 
 %=====================================
@@ -148,23 +148,21 @@ These are the Acknowledgements..
 \chapter{Problem statement}
 \label{chap:problem}
 
-Business continuity in the field of information technology is supported in a large extent by the uninterrupted operation of the systems used in productivity tasks~\cite{ISO}. These systems must be fault tolerant, so that operations have the least possible impact in the event that an unexpected incident occurs.\\
+Business continuity in the field of information technology is supported in a large extent by the uninterrupted operation of the systems used in productivity tasks~\cite{ISO22399}. These systems must be fault tolerant, so that operations have the least possible impact in the event that an unexpected incident occurs.\bigskip
 
-\noindent Nowadays there are increasingly more people and organizations using centralized remote systems that allow online access to resources and everyday services, this scheme is called cloud computing~\cite{Mell and Grance}. Through this type of services, end users whether individuals or corporations, are abstracted to support the infrastructure that this entails, giving responsibility to intermediary companies providing cloud services. So these intermediaries are the ones who must ensure the proper availability of the services, as well as factors such as communications security and redundancy of stored data, among many others.\\
+\noindent Nowadays there are increasingly more people and organizations using centralized remote systems that allow online access to resources and everyday services, this scheme is called cloud computing~\cite{MandG}. Through this type of services, end users whether individuals or corporations, are abstracted to support the infrastructure that this entails, giving responsibility to intermediary companies providing cloud services. So these intermediaries are the ones who must ensure the proper availability of the services, as well as factors such as communications security and redundancy of stored data, among many others.\bigskip
 
-\noindent In particular Netnovation is a SME in the field of information technologies, which provides private cloud services from data storage to hosting virtual private servers (VPS), including e-mail and collaboration servers. The latter is precisely one of the mainstays for the operations of the company, which employs mainly FLOSS to its internal systems, specifically using the FLOSS e-mail and collaboration suite Zimbra\texttrademark\footnote{\ http://www.zimbra.com}. One of the main problems that Netnovation faces is to ensure the communication and workflow continuity that is carried through this collaboration tool, as well as meet the SLAs offered to its customers over this software.\\
+\noindent In particular Netnovation is a SME in the field of information technologies, which provides private cloud services from data storage to hosting virtual private servers (VPS), including e-mail and collaboration servers. The latter is precisely one of the mainstays for the operations of the company, which employs mainly FLOSS to its internal systems, specifically using the FLOSS e-mail and collaboration suite Zimbra\texttrademark\footnote{\ http://www.zimbra.com}. One of the main problems that Netnovation faces is to ensure the communication and workflow continuity that is carried through this collaboration tool, as well as meet the SLAs offered to its customers over this software.\bigskip
 
-\noindent There are various software solutions offering high availability of services such as those provided by Zimbra, each one with its legal implications, associated costs and implementation difficulty\footnote{\ Some of these solutions will be addressed in Chapter~\ref{chap:related}}. A valid alternative is the integration of multiple tools in the field of FLOSS providing a framework to ensure  continuity of systems operation or business continuity. By doing it this way it is possible to adapt the different requirements and use different technologies to provide the most consistent solution to what is desired.\\
+\noindent There are various software solutions offering high availability of services such as those provided by Zimbra, each one with its legal implications, associated costs and implementation difficulty\footnote{\ Some of these solutions will be addressed in Chapter~\ref{chap:related}}. A valid alternative is the integration of multiple tools in the field of FLOSS providing a framework to ensure  continuity of systems operation or business continuity. By doing it this way it is possible to adapt the different requirements and use different technologies to provide the most consistent solution to what is desired.\bigskip
 
 \noindent On previous occasions, Netnovation has managed to successfully consolidate most of its operations infrastructure adapting FLOSS, making it a wonderful idea to keep this scheme working. To achieve this, it is necessary to evaluate the state of the art in the field of systems that provide high availability, with the aim of offering an effective solution, all of this in accordance to the guidelines that have been proposed by the company.
-
 
 
 \section{Justification / Motivation}
 \label{sec:justification}
 
-
-The factors that motivates this work are on one hand, give proper credit to business models based on FLOSS as those used by technology companies nowadays~\cite{Daffara Eco}, and on the other hand, show that private enterprise can be benefited by FLOSS, through a set of toolsets and mechanisms who allow obtaining robust solutions in accordance to technology needs.
+The factors that motivates this work are on one hand, give proper credit to business models based on FLOSS as those used by technology companies nowadays~\cite{DC2}, and on the other hand, show that private enterprise can be benefited by FLOSS, through a set of toolsets and mechanisms who allow obtaining robust solutions in accordance to technology needs.
 
 \section{Objectives}
 \label{sec:objectives}
@@ -191,11 +189,11 @@ The overall objectives are:
 \section{Scope}
 \label{sec:scope}
 
-The solution to be implemented consists of FLOSS tools that allow its adaptation to the current infrastructure of Netnovation, they are not intended to replace the elements of the existing operations  platform.\\
+The solution to be implemented consists of FLOSS tools that allow its adaptation to the current infrastructure of Netnovation, they are not intended to replace the elements of the existing operations  platform.\bigskip
 
-\noindent The methodology used for the selection of FLOSS tools that make the proposed solution is not intended to provide an exhaustive process that considers all possibilities in the area, but a flexible way that allows classify them qualitatively, justifying their choice through concrete metrics.\\
+\noindent The methodology used for the selection of FLOSS tools that make the proposed solution is not intended to provide an exhaustive process that considers all possibilities in the area, but a flexible way that allows classify them qualitatively, justifying their choice through concrete metrics.\bigskip
 
-\noindent Having successfully implemented a high availability solution on the e-mail and collaboration system used by Netnovation, this will serve as a reference for providing high availability to other enterprise systems, but these other configurations are not covered in this exercise.\\
+\noindent Having successfully implemented a high availability solution on the e-mail and collaboration system used by Netnovation, this will serve as a reference for providing high availability to other enterprise systems, but these other configurations are not covered in this exercise.\bigskip
 
 
 %=====================================
@@ -213,29 +211,29 @@ At the beginning many of these high-availability implementations were usually pr
 \subsection{HP Serviceguard}
 \label{subsec:serviceguard}
 
-Hewlett Packard (HP) claims the credit for the development of the first high availability solution for UNIX since 1990\footnote{\url{http://www.hpintelco.net/sglx/service.html}}. MC/ServiceGuard, is a high-availability cluster software released for HP-UX and later for GNU/Linux. Since the first development of the software, HP has competed with companies such as Oracle or SAP to deploy high-availability in enterprise environments, as Figure~\ref{fig:enterprise} shows.
+Hewlett Packard (HP) claims the credit for the development of the first high availability solution for UNIX since 1990\footnote{\url{http://www.hpintelco.net/sglx/service.html}}. MC/ServiceGuard, is a high-availability cluster software released for HP-UX and later for GNU/Linux. Since the first development of the software, HP has competed with companies such as Oracle or SAP to deploy high-availability in enterprise environments, as Figure~\ref{fig:enterprise} (took from \url{http://www.hpintelco.net}) shows.\bigskip
 
-\begin{figure}[H]
+\begin{figure}
   \centering
   \includegraphics[scale=0.70]{commercial-ha.png}
-  \caption[High-availability race in enterprise environments]{High-availability race in enterprise environments. Source: \url{http://www.hpintelco.net}}
+  \caption[High-availability race in enterprise environments]{High-availability race in enterprise environments}
   \label{fig:enterprise}
 \end{figure}
 
-\noindent With the appearance of Linux in 1994 and its increasing popularity together with GNU, in 1999 HP released a Linux port called SG/LX, allowing high-availability features on it.\\
+\noindent With the appearance of Linux in 1994 and its increasing popularity together with GNU, in 1999 HP released a Linux port called SG/LX, allowing high-availability features on it.\bigskip
 
 \noindent Since 2001, companies Intel, Red Hat and HP joined efforts to produce the Red Hat Open Source Solutions Initiative\footnote{\url{http://www.hpintelco.net/hp-intel-redhat.htm}} (OSSI), with the aim to reduce partner's sale cycle by delivering enterprise reliable solutions to their customers.
 
 \subsection{Red Hat Cluster Suite}
 \label{subsec:rhcs}
 
-At the end of the 90's Red Hat Inc. introduced its Red Hat Enterprise Linux Advanced Server product, designed specifically for use in enterprise environments to deliver superior application support, performance, availability and scalability. It included a high-availability clustering feature as part of the base product. Since then, the product has evolve to the current Red Hat Cluster Suite (RHCS), provided as a separately licensed product, also on top of Red Hat's base Linux Enterprise Server license.\\
+At the end of the 90's Red Hat Inc. introduced its Red Hat Enterprise Linux Advanced Server product, designed specifically for use in enterprise environments to deliver superior application support, performance, availability and scalability. It included a high-availability clustering feature as part of the base product. Since then, the product has evolve to the current Red Hat Cluster Suite (RHCS), provided as a separately licensed product, also on top of Red Hat's base Linux Enterprise Server license.\bigskip
 
-\noindent The RHCS has two major features, one is the Cluster Manager that provides high availability, and the other is the IP Load Balancing (originally called Piranha). The first is Red Hat's implementation of Linux-HA, which will be discussed in Section~\ref{sec:hafloss}.\\
+%\noindent The RHCS has two major features, one is the Cluster Manager that provides high availability, and the other is the IP Load Balancing (originally called Piranha). The first is Red Hat's implementation of Linux-HA, which will be discussed in Section~\ref{sec:hafloss}.\bigskip
 
-\noindent On the other hand Piranha was originally developed by researchers at Oak Ridge National Laboratory\footnote{\url{http://www.ornl.gov/}}, basically a text mining technology that Red Hat adapted in order to allow transparent load balancing and failover between servers. The software Piranha is under copyright and count with its own patents, but the organization allow strategic partnerships, evaluating deals based on the ability and commitment to successfully commercialize the technology\footnote{\url{http://www.ornl.gov/connect-with-ornl/for-industry/partnerships/technology-licensing/licensing-opportunity-announcements/piranha}}.\\
+\noindent On the other hand Piranha was originally developed by researchers at Oak Ridge National Laboratory\footnote{\url{http://www.ornl.gov/}}, basically a text mining technology that Red Hat adapted in order to allow transparent load balancing and failover between servers. The software Piranha is under copyright and count with its own patents, but the organization allow strategic partnerships, evaluating deals based on the ability and commitment to successfully commercialize the technology\footnote{\url{http://www.ornl.gov/connect-with-ornl/for-industry/partnerships/technology-licensing/licensing-opportunity-announcements/piranha}}.\bigskip
 
-\noindent The Cluster Manager and IP load balancing are complementary high-availability technologies that can be used separately or in combination, depending on application requirements, and both of these technologies are integrated in RHCS.\\
+\noindent The Cluster Manager and IP load balancing are complementary high-availability technologies that can be used separately or in combination, depending on application requirements, and both of these technologies are integrated in RHCS.\bigskip
 
 \noindent Some technical details of this product are the following:
 
@@ -253,9 +251,9 @@ At the end of the 90's Red Hat Inc. introduced its Red Hat Enterprise Linux Adva
 \subsection{SUSE Linux Enterprise High Availability Extension}
 \label{subsec:suseha}
 
-This is an integrated suite of clustering technologies that enables the implementation of high availability over physical and virtual Linux clusters~\cite{Tanja and Schraitle}. It allows monitoring, messaging, and cluster resource management, handling failover and load balancing of resources.\\
+This is an integrated suite of clustering technologies that enables the implementation of high availability over physical and virtual Linux clusters~\cite{TandS}. It allows monitoring, messaging, and cluster resource management, handling failover and load balancing of resources.\bigskip
 
-\noindent As Red Hat did, other companies such as Novell relies on SG/LX Linux port to provide high availability solutions. This product is available as a paid add-on to SUSE Linux Enterprise Server GNU/Linux distribution, although in OpenSUSE many of these tools are included into the base system for free (with no payment), with available repositories on OBS to provide newer versions of the packages for various GNU/Linux distributions\footnote{\url{https://en.opensuse.org/openSUSE:High_Availability}}.\\
+\noindent As Red Hat did, other companies such as Novell relies on SG/LX Linux port to provide high availability solutions. This product is available as a paid add-on to SUSE Linux Enterprise Server GNU/Linux distribution, although in OpenSUSE many of these tools are included into the base system for free (with no payment), with available repositories on OBS to provide newer versions of the packages for various GNU/Linux distributions\footnote{\url{https://en.opensuse.org/openSUSE:High_Availability}}.\bigskip
 
 \noindent Among the main product features of this product are the following:
 
@@ -275,14 +273,14 @@ This is an integrated suite of clustering technologies that enables the implemen
 \section{High availability FLOSS based tools}
 \label{sec:hafloss}
 
-These tools are possibly those that conform some of the enterprise solutions mentioned before, but are not supported as a complete enterprise cluster solution. Either way, most of these FLOSS technologies are backed by professional support over the standalone software provided. Examples of this tools, are mentioned below.\\
+These tools are possibly those that conform some of the enterprise solutions mentioned before, but are not supported as a complete enterprise cluster solution. Either way, most of these FLOSS technologies are backed by professional support over the standalone software provided. Examples of this tools, are mentioned below.\bigskip
 
-\noindent Linux-HA has been released since 1999 under GNU GPL and GNU LGPL license, maintains a set of building blocks for high availability cluster systems, including a cluster messaging layer, a bunch of resource agents for a variety of applications, and a plumbing library and error reporting toolkit. Around 2007 this project evolved to Pacemaker, integrating or allowing interaction with multiple FLOSS cluster stacks such as Heartbeat, Corosync and OCF.\\
+\noindent Linux-HA has been released since 1999 under GNU GPL and GNU LGPL license, maintains a set of building blocks for high availability cluster systems, including a cluster messaging layer, a bunch of resource agents for a variety of applications, and a plumbing library and error reporting toolkit. Around 2007 this project evolved to Pacemaker, integrating or allowing interaction with multiple FLOSS cluster stacks such as Heartbeat, Corosync and OCF.\bigskip
 
-\noindent Nowadays Pacemaker is a resource manager responsible for starting and stopping cluster services in a proper way. Combined with other tools is able to detect service-level failures and move resources between cluster nodes as needed, to ensure the smooth operation of the services.\\
+\noindent Nowadays Pacemaker is a resource manager responsible for starting and stopping cluster services in a proper way. Combined with other tools is able to detect service-level failures and move resources between cluster nodes as needed, to ensure the smooth operation of the services.\bigskip
 
 \noindent Corosync is responsible for cluster membership, message passing and quorum, using the totem protocol 
-for \textit{heartbeat}, monitoring other node's health.\\
+for \textit{heartbeat}, monitoring other node's health.\bigskip
 
 \noindent DRBD works on top of block devices, such as hard disk partitions or LVM logical volumes, mirroring each data block that it is written to disk to the peer node. 
 
@@ -293,18 +291,15 @@ for \textit{heartbeat}, monitoring other node's health.\\
 \chapter{Methodology}
 \label{chap:methodology}
 
-The followed roadmap to achieve the objectives outlined is a set of guidelines and suggestions for the adoption of FLOSS within SMEs~\cite{Daffara SME}, in the sense that a methodology is not an exact formula but a set of practices. At using this model, companies find a supporting guide from the initial selection and adoption of FLOSS within the IT infrastructure and even to the consolidation of business models around open source.\\
+The followed roadmap to achieve the objectives outlined is a set of guidelines and suggestions for the adoption of FLOSS within SMEs~\cite{DC1}, in the sense that a methodology is not an exact formula but a set of practices. At using this model, companies find a supporting guide from the initial selection and adoption of FLOSS within the IT infrastructure and even to the consolidation of business models around open source.\bigskip
 
-\noindent On the one hand, the guidelines proposed by Daffara suggest a research method by collecting and read as much information related to the project is available and select the appropriate solution from a matching set that fulfill the requirements. On the other hand this dissertation also contemplates an open and standard framework to select the technologies to be used, this is the light weight model OpenBRR~\cite{Wasserman et. all}, which performs a quick and flexible assessment over software tools considered.\\
+\noindent On the one hand, the guidelines proposed by Daffara suggest a research method by collecting and read as much information related to the project is available and select the appropriate solution from a matching set that fulfill the requirements. On the other hand this dissertation also contemplates an open and standard framework to select the technologies to be used, this is the light weight model OpenBRR~\cite{Wasserman}, which performs a quick and flexible assessment over software tools considered.\bigskip
 
-\noindent Additionally, and following a practical formal approach, applying a model of technology acceptance such as the Lazy User Model (LUM)~\cite{Collan and Tetard} is possible to frame the process by which are chosen the technological tools that will make up the solution that meets user requirements, which in this case is being represented by the company Netnovation. This model focuses on user needs and the demanded effort when selecting a solution to a problem from a set of possible solutions, ``According to the lazy user model, a user is likely to choose the solution that requires the least effort. The user examines this cost in terms of time, energy and money when considering how to use a new solution."~\cite{Collan and Tetard LUM PS}. The LUM proposes that technology acceptance is impacted by this principle.
+\noindent Additionally, and following a practical formal approach, applying a model of technology acceptance such as the Lazy User Model (LUM)~\cite{CandT1} is possible to frame the process by which are chosen the technological tools that will make up the solution that meets user requirements, which in this case is being represented by the company Netnovation. This model focuses on user needs and the demanded effort when selecting a solution to a problem from a set of possible solutions, ``According to the lazy user model, a user is likely to choose the solution that requires the least effort. The user examines this cost in terms of time, energy and money when considering how to use a new solution."~\cite{CandT2} The LUM proposes that technology acceptance is impacted by this principle.
 
 
 \section{OpenBRR}
 \label{sec:openbrr}
-
-
-
 
 %=====================================
 % ARCHITECHTURE
@@ -312,7 +307,7 @@ The followed roadmap to achieve the objectives outlined is a set of guidelines a
 \chapter{Architecture}
 \label{chap:architecture}
 
-In order to provide IT services to customers, considering software services hosted in an on-line remote location, Netnovation requires a proper software and hardware infrastructure to operate. Some of these services are from VPS, Data Storage Systems, Customer Relationship Management Systems (CRM), Email and Collaboration Systems, to Voice over IP PBX systems. Both parties, software infrastructure and product services offered are based on FLOSS.\\
+In order to provide IT services to customers, considering software services hosted in an on-line remote location, Netnovation requires a proper software and hardware infrastructure to operate. Some of these services are from VPS, Data Storage Systems, Customer Relationship Management Systems (CRM), Email and Collaboration Systems, to Voice over IP PBX systems. Both parties, software infrastructure and product services offered are based on FLOSS.\bigskip
 
 \noindent In particular the Zimbra server to which a high availability schema is been configured, resides into this architecture, and it is consistent with the company's principles and business model, which is why it is useful to understand the environment to which it belongs.
 
@@ -325,9 +320,10 @@ Currently the services are offered from two DataCenters (DC1 and DC2) geographic
 \section{Existent Hardware}
 \label{sec:hardware}
 
-Each DC has an average of seven Dell\texttrademark \ PowerEdge Racked Servers with different capacities, interconnected via communication devices that provide various services analogously.\\
+Each DC has an average of seven Dell PowerEdge\texttrademark \ Racked Servers with different capacities, interconnected via communication devices that provide various services analogously.\bigskip
 
 \noindent There is a Dell PowerEdge 2850/2950 server serving as firewall and main router on each DC. On the one hand it has a WAN 1000Mbps interface, which is connected through UTP Cat-6 wired to 24 PoE ports Switches Netgear FS728TPv1 Gigabit. Physical servers are installed in 20U rack cabinets. These servers range from models Dell PowerEdge 1950, R510 to R710, have Intel Xeon CPUs within 24 and 64 cores, count with 8 to 64GB of RAM, and also have SCSI HDD with capacities between 100GB and 2,5TB.
+
 
 \section{Company Network Scheme}
 \label{sec:networkscheme}
@@ -340,6 +336,7 @@ The housing services leased by the providers offer a pool of public IPv4 address
   \caption[Network interconnection scheme]{Network interconnection scheme}
   \label{fig:network}
 \end{figure}
+
 
 \section{Software Supporting the Infrastructure}
 \label{sec:software}
@@ -397,7 +394,6 @@ In Table~\ref{table:technologies} there are some software solutions currently us
 \caption{Software Supporting the Infrastructure}
 \label{table:technologies}
 \end{table}
-
 
 
 %=====================================
@@ -470,7 +466,8 @@ The following software tools represent the key elements on which it has been pos
 \chapter{Implementation}
 \label{chap:implementation}
 
-This section is intended to provide technical documentation in the process of implementing high availability in a FLOSS Zimbra Collaboration System (ZCS). The scope of this implementation is limited to the following software components and versions:
+This section is intended to provide technical documentation in the process of implementing high availability in a FLOSS Zimbra Collaboration System (ZCS). The scope of this implementation is framed by the following software components and versions:
+
 \begin{itemize}
 	\setlength{\itemsep}{0pt}
 	\item Red Hat Enterprise Linux Server release 6.5 (Santiago)
@@ -488,7 +485,7 @@ This section is intended to provide technical documentation in the process of im
 \noindent The defined cluster consists of two nodes which will be referenced as Astapor and Braavos in the domain got.com (as in the novel Game of Thrones). These nodes are virtual machines hosted on two Proxmox Virtual Environment servers based on KVM virtualization, which are installed on separate physical machines in the same LAN to avoid single point of failure. The proposed scheme is conceptually similar to the observed in Figure~\ref{fig:ha-cluster}.
 
 \FloatBarrier
-\begin{figure}[H]
+\begin{figure}
   \centering
   \includegraphics[scale=0.50]{two_nodes_ha_cluster.png}
   \caption[Two nodes HA cluster]{Two nodes HA cluster}
@@ -559,7 +556,7 @@ Table~\ref{table:fqdn} shows the current configuration for the virtual IP addres
 \end{table}
 
 \noindent A useful command to handle hostname changes in RHEL:\\
-service hostname restart\\
+\indent service hostname restart\bigskip
 
 
 \subsection{Network}
@@ -597,24 +594,23 @@ service hostname restart\\
 \end{table}
 
 
-\noindent Set the correct Netmask and Gateway, so servers are able to reach internet addresses, also disable the firewall or allow the http and ftp outgoing rules on it. The primary DNS server will be configured later to be the localhost, with forwarding to external DNS servers.\\
+\noindent Set the correct Netmask and Gateway, so servers are able to reach internet addresses, also disable the firewall or allow the http and ftp outgoing rules on it. The primary DNS server will be configured later to be the localhost, with forwarding to external DNS servers.\bigskip
 
 \noindent Some useful commands to manipulate and consult the network service on RHEL:\\
-
-\noindent service network restart\\
-/etc/init.d/network restart\\
-ifconfig eth0 down; ifconfig eth0 up\\
-ifdown eth0; ifup eth0\\
-ifconfig\\
-ip addr show\\
+\indent service network restart\\
+\indent /etc/init.d/network restart\\
+\indent ifconfig eth0 down; ifconfig eth0 up\\
+\indent ifdown eth0; ifup eth0\\
+\indent ifconfig\\
+\indent ip addr show
 
 \begin{itemize}
 	\item NTP
 \end{itemize}
 
-\noindent Required RPM packages to sincronize cluster nodes through network time protocol: ntp, ntpdate.\\
+\noindent Required RPM packages to sincronize cluster nodes through network time protocol: ntp, ntpdate.\bigskip
 
-\noindent Set the proper NTP parameters in /etc/ntp.conf file on each server, so both nodes share the same date and time, as shown in Table~\ref{table:ntp}
+\noindent Set the proper NTP parameters in /etc/ntp.conf file on each server, so both nodes share the same date and time, as shown in Table~\ref{table:ntp}.
 
 \FloatBarrier
 \begin{table}[H]
@@ -633,19 +629,18 @@ ip addr show\\
 \label{table:ntp}
 \end{table}
 
-\noindent Some useful commands to manipulate and consult NTP service on RHEL are:
 
-service ntpd restart \\
+\noindent Some useful commands to manipulate and consult NTP service on RHEL are:\\
+\indent service ntpd restart \\
 \indent ntpstat \\
 \indent ntpq -pn \\
 \indent date
-
 
 \begin{itemize}
 	\item BIND
 \end{itemize}
 
-\noindent Required RPM packages for domain name resolution: bind, bind-utils.\\
+\noindent Required RPM packages for domain name resolution: bind, bind-utils.\bigskip
 
 \noindent A primary DNS server configured on each server is crucial, or alternatively a remote centralized DNS server on the LAN with the whole configuration. Here is considered the first option. Table~\ref{table:named} shows the content of /etc/named.conf file.
 
@@ -683,17 +678,14 @@ service ntpd restart \\
 \label{table:bindastapor}
 \end{table}
 
+\noindent A similar got.com.db file must be set on braavos node replacing the corresponding hostname and IP address. Leaving zcs-ha entries without changes in both nodes.\bigskip
 
-\noindent A similar got.com.db file must be set on braavos node replacing the corresponding hostname and IP address. Leaving zcs-ha entries without changes in both nodes.
-
-\noindent Some useful commands to handle and request BIND service on RHEL are:
-
-named-checkconf -z \\
+\noindent Some useful commands to handle and request BIND service on RHEL are:\\
+\indent named-checkconf -z \\
 \indent service named restart \\
 \indent service named status \\
 \indent dig -t ANY got.com \\
-\indent nslookup astapor.got.com \\
-
+\indent nslookup astapor.got.com
 
 \subsection{ZCS dependencies}
 \label{sec:zcsdeps}
@@ -718,7 +710,7 @@ As requirement for ZCS, the following RPM packages must be installed in the OS:
 
 \noindent The postfix daemon must be turned off and excluded from boot start-up:\\
 \indent service postfix stop\\
-\indent chkconfig postfix off\\
+\indent chkconfig postfix off
 
 
 \section{DRBD}
@@ -733,7 +725,7 @@ As requirement for ZCS, the following RPM packages must be installed in the OS:
 The following actions must be performed in parallel on both nodes, except in those cases where otherwise specified.
 
 \begin{itemize}
-	\item Ensure to adapt hostname to 'astapor' on the primary node and 'braavos' on the secondary node.
+	\item Ensure to adapt hostname to `astapor' on the primary node and `braavos' on the secondary node.
 	
 	\item Install RPM packages:\\
 			drbd-kmdl-2.6.32-431.el6-8.4.3-33.el6.x86\_64\\
@@ -742,6 +734,7 @@ The following actions must be performed in parallel on both nodes, except in tho
 	\item Leave /etc/drbd.conf and /etc/drbd.d/global\_common.conf files by default.
 	
 	\item Add /etc/drbd.d/optzimbra.res file with the content described in Table~\ref{table:resource}:
+
 %%%%%%%%%%%%%%%%%%%% MODIFY TABLE %%%%%%%%%%%%%%%%%%%%%%
 \FloatBarrier
 \begin{table}[H]
@@ -801,7 +794,6 @@ The following actions must be performed in parallel on both nodes, except in tho
 \noindent Now it is necessary to revert the roles back, making braavos the secondary node and astapor the primary one, with the procedure described in section~\ref{sec:initialconf}.
 
 
-
 \subsection{DRBD Split Brain Recovery}
 \label{sec:splitbrain}
 
@@ -813,21 +805,20 @@ The following actions must be performed in parallel on both nodes, except in tho
 	
 	\item In the secondary node:\\
 		drbdadm secondary optzimbra\\
-		drbdadm connect --discard-my-data optzimbra
+		drbdadm connect -\ -discard-my-data optzimbra
 	
 	\item In the primary node:\\
 		drbdadm connect optzimbra
 	
 	\item Finally it is possible to check the sync status, running the command ``cat /proc/drbd", wich is going to show a message similar to this:\\
-		cs:Connected ro:Primary/Secondary ds:UpToDate/UpToDate C r-----
+		cs:Connected ro:Primary/Secondary ds:UpToDate/UpToDate C r- \ - \ - \ -
 
 \end{itemize}
-
 
 \section{ZCS}
 \label{sec:zcs}
 
-Here will be fully installed ZCS on astapor, but just a dummy installation on braavos, since DRBD will replicate the data to the other node. Download and place ZCS installation file in astapor and braavos filesystems. It can be found at \url{http://www.zimbra.com/downloads/os-downloads.html}. In order to complete a full install on a single server, the following resource will be useful:\\
+Here will be fully installed ZCS on astapor but just a dummy installation on braavos, since DRBD will replicate the data to the other node. Download and place ZCS installation file in astapor and braavos filesystems. It can be found at \url{http://www.zimbra.com/downloads/os-downloads.html}. In order to complete a full install on a single server, the following resource will be useful:\\
 \url{http://files.zimbra.com/website/docs/8.5/Zimbra_OS_Quick_Start_8.5.0.pdf}
 
 
@@ -928,8 +919,6 @@ The following actions must be performed sequentially on \textit{\textbf{astapor}
 	
 \end{itemize}
 
-
-
 \section{OCF}
 \label{sec:ocf}
 
@@ -937,15 +926,13 @@ The following actions must be performed sequentially on \textit{\textbf{astapor}
 
 \begin{itemize}
 	\item Create file /usr/lib/ocf/resource.d/btactic/zimbra:\\
-		% Embedded OLE (Object Linking and Embedding) file, double click on it to see the full content.
+		% Content in Apendix
 
 	\item Also create the following symbolic link:\\
-		ln  -s  /usr/lib/ocf/resource.d/btactic/zimbra  /usr/lib/ocf/resource.d/heartbeat/
+		ln \ -s \ /usr/lib/ocf/resource.d/btactic/zimbra \ /usr/lib/ocf/resource.d/heartbeat/
 \end{itemize}
 
 \noindent In section~\ref{sec:pacemaker} this file will be referenced.
-
-
 
 \section{Pacemaker}
 \label{sec:pacemaker}
@@ -971,81 +958,77 @@ The following actions must be performed sequentially on \textit{\textbf{astapor}
   \centering
   \begin{tabular}{ | r c l | }
     \hline
-      % \multicolumn{3}{|c|}{[centos-6-base]}\\
-      % name & = & CentOS-\$releasever - Base\\
-      %mirrorlist & = & \url{http://mirrorlist.centos.org/?release=6.5&arch=x86\_64&repo=os}\\
-      enabled & = & 0\\
-      gpgcheck & = & 0\\
-      %baseurl & = & \url{http://mirror.centos.org/centos/6.5/os/x86\_64/}
+      \multicolumn{3}{|c|}{[centos-6-base]}\\
+      \hline
+      name &=& CentOS-\$releasever - Base\\
+      mirrorlist &=& http://mirrorlist.centos.org/?release=6.5\&arch=x86\_64\&repo=os\\
+      enabled &=& 0\\
+      gpgcheck &=& 0\\
+      baseurl &=& http://mirror.centos.org/centos/6.5/os/x86\_64/\\
     \hline
   \end{tabular}
 \caption{/etc/yum.repo.d/centos.repo file}
 \label{table:centosrepo}
 \end{table}
 
-
 \begin{itemize}
 	\item Then update and install the packages:\\
-		yum install --enablerepo=centos-6-base pacemaker pcs.noarch  cman ccs resource-agents crmsh
+		yum \ install \ \textminus \textminus enablerepo=centos-6-base \ pacemaker \ pcs.noarch \ cman \textbackslash \\
+		ccs \ resource-agents \ crmsh
 \end{itemize}
 
-\noindent There are two ways to interact with Pacemaker configuration. The first one is using the crmsh interpreter, starting the crm shell with ``crm" command, and then providing configuration sentences. For instance:\\
+
+\noindent There are two ways to interact with Pacemaker configuration. The first one is using the crmsh interpreter, starting the crm shell with ``crm" command, and then providing configuration sentences. For instance:\bigskip
 
 	[root@astapor \textasciitilde]\# crm\\
 	\indent crm(live)\# help\\
 	\indent crm(live)\# quit\\
 
-\noindent Another way would be through \textit{\textbf{pcs}} and \textit{\textbf{ccs}} instructions directly from a linux tty in a bash session. Following is going to be used this way to configure de cluster, executing the commands only on the primary node.
-
+\noindent Another way would be through \textit{\textbf{pcs}} and \textit{\textbf{ccs}} instructions directly from a linux tty in a bash session. Following is going to be used this way to configure the cluster, executing the commands only on the primary node.
 
 \begin{itemize}
 	\item Create the cluster:\\
 		ccs \ \textminus \textminus file \ /etc/cluster/cluster.conf \ \textminus \textminus createcluster \ zcsCluster
 \end{itemize}
 
-
 \begin{itemize}
 	\item Add the nodes:\\
 		ccs \ \textminus \textminus file \ /etc/cluster/cluster.conf \ \textminus \textminus addnode \ astapor.got.com\\
-		ccs \ \textminus \textminus file \ /etc/cluster/cluster.conf \ \textminus \textminus addnode \ astapor.got.com\\
+		ccs \ \textminus \textminus file \ /etc/cluster/cluster.conf \ \textminus \textminus addnode \ astapor.got.com
 \end{itemize}
-
 
 \begin{itemize}
 	\item Set fencing to defer to Pacemaker:\\
 		ccs \ \textminus \textminus file \ /etc/cluster/cluster.conf \ \textminus \textminus addfencedev \ pcmk \ agent=fence\_pcmk\\
 		ccs \ \textminus \textminus file \ /etc/cluster/cluster.conf \ \textminus \textminus addmethod \ pcmk-redirect \ astapor.got.com\\
 		ccs \ \textminus \textminus file \ /etc/cluster/cluster.conf \ \textminus \textminus addmethod \ pcmk-redirect \ braavos.got.com\\
-		ccs \ \textminus \textminus file \ /etc/cluster/cluster.conf \ \textminus \textminus addfenceinst \ pcmk \ astapor.got.com \ pcmk-redirect \ port=astapor.got.com\\
-		ccs \ \textminus \textminus file \ /etc/cluster/cluster.conf \ \textminus \textminus addfenceinst \ pcmk \ braavos.got.com \ pcmk-redirect \ port=braavos.got.com\\
+		ccs \ \textminus \textminus file \ /etc/cluster/cluster.conf \ \textminus \textminus addfenceinst \ pcmk \ astapor.got.com \textbackslash \\ pcmk-redirect \ port=astapor.got.com\\
+		ccs \ \textminus \textminus file \ /etc/cluster/cluster.conf \ \textminus \textminus addfenceinst \ pcmk \ braavos.got.com \textbackslash \\ pcmk-redirect \ port=braavos.got.com
 \end{itemize}
 
 
 \begin{itemize}
 	\item Disable CMAN quorum:\\
 		This will let the cluster function if only one node is up, and it is necessary to be performed in both nodes.\\
-		echo \ ``CMAN\_QUORUM\_TIMEOUT=0" \ \textgreater \textgreater \ /etc/sysconfig/cman\\
+		echo \ ``CMAN\_QUORUM\_TIMEOUT=0" \ \textgreater \textgreater \ /etc/sysconfig/cman
 \end{itemize}
-
 
 \begin{itemize}
 	\item Start Pacemaker Cluster:\\
 		pcs \ cluster \ start \ \textminus \textminus all\\
 		Also equivalent to execute on each node,\\
-		``service pacemaker start" or ``pcs cluster start"\\
+		``service pacemaker start" or ``pcs cluster start"
 \end{itemize}
-
 
 \begin{itemize}
 	\item Copy cluster file to secondary node:\\
-		scp \ -p \ /etc/cluster/cluster.conf \ braavos:/etc/cluster/\\
+		scp \ -p \ /etc/cluster/cluster.conf \ braavos:/etc/cluster/
 \end{itemize}
-
 
 \begin{itemize}
 	\item Check Pacemaker cluster status:\\
 		pcs \ status\\
-		crm\_mon \ -1\\
+		crm\_mon \ -1
 \end{itemize}
 
 
@@ -1053,47 +1036,50 @@ The following actions must be performed sequentially on \textit{\textbf{astapor}
 	\item Show current cluster config:\\
 		pcs \ config\\
 		pcs \ property\\
-		crm \ configure \ show\\
+		crm \ configure \ show
 \end{itemize}
 
 
 \begin{itemize}
 	\item Check configuration validity:\\
-		crm\_verify \ -L \ -V\\
+		crm\_verify \ -L \ -V
 \end{itemize}
 
 
 \begin{itemize}
 	\item Disable STONITH (a type of fencing):\\
-		pcs \ property \ set \ stonith-enabled=false\\
+		pcs \ property \ set \ stonith-enabled=false
 \end{itemize}
 
 
 \begin{itemize}
 	\item Ignore Quorum Policy:\\
-		pcs \ property \ set \ no-quorum-policy=ignore\\
+		pcs \ property \ set \ no-quorum-policy=ignore
 \end{itemize}
 
 
 \begin{itemize}
 	\item Set reconnect attempt:\\
-		pcs \ property \ set \ migration-threshold=1 \ \textminus \textminus force\\
+		pcs \ property \ set \ migration-threshold=1 \ \textminus \textminus force
 \end{itemize}
 
 
 \begin{itemize}
 	\item Set stickiness:\\
-		pcs \ property \ set \ resource-stickiness=100 \ \textminus \textminus force\\
+		pcs \ property \ set \ resource-stickiness=100 \ \textminus \textminus force
 \end{itemize}
+
+\bigskip
 
 \noindent Now, it is going to be used the crmsh interpreter, starting it with the following command:\\
 	crm \ configure
 
+\bigskip
+	
 \begin{itemize}
 	\item Add floating IP address resource (Virtual IP - VIP):\\
-		pcs \ resource \ create \ VIP1 \ IPaddr2 \ ip=172.17.18.190 \ \textbackslash \\
-			broadcast=172.17.18.255 \ nic=eth0 \ cidr\_netmask=24 \ \textbackslash \\
-			iflabel=VIP1 \ op \ monitor \ interval=30s \ timeout=30s
+		pcs \ resource \ create \ VIP1 \ IPaddr2 \ ip=172.17.18.190 \ broadcast=172.17.18.255 \ \textbackslash \\
+			nic=eth0 \ cidr\_netmask=24 \ iflabel=VIP1 \ op \ monitor \ interval=30s \ timeout=30s
 \end{itemize}
 
 
@@ -1106,14 +1092,14 @@ The following actions must be performed sequentially on \textit{\textbf{astapor}
 			op \ start \ role=Master \ interval=60s \ timeout=240s \ \textbackslash \\
 			op \ start \ role=Slave \ interval=0s \ timeout=240s \ \textbackslash \\
 			op \ stop \ role=Master \ interval=60s \ timeout=100s \ \textbackslash \\
-			op \ stop \ role=Slave \ interval=0s \ timeout=100s\\
+			op \ stop \ role=Slave \ interval=0s \ timeout=100s
 \end{itemize}
 
 \begin{itemize}
 	\item Define DRBD Zimbra data clone:\\
 		configure \ ms \ drbd\_ms drbd \ \textbackslash \\
 		meta \ master-max=1 \ master-node-max=1 \ \textbackslash \\
-		clone-max=2 \ clone-node-max=1 \ notify=true\\
+		clone-max=2 \ clone-node-max=1 \ notify=true
 \end{itemize}
 
 \begin{itemize}
@@ -1121,7 +1107,7 @@ The following actions must be performed sequentially on \textit{\textbf{astapor}
 		configure \ primitive \ zcs\_service ocf:btactic:zimbra \ \textbackslash \\
 		op \ monitor \ interval=2min \ timeout="40s" \ \textbackslash \\
 		op \ start \ interval="0" \ timeout="360s" \ \textbackslash \\
-		op \ stop \ interval="0" \ timeout="360s" \ \\
+		op \ stop \ interval="0" \ timeout="360s"
 \end{itemize}
 
 \begin{itemize}
@@ -1129,44 +1115,36 @@ The following actions must be performed sequentially on \textit{\textbf{astapor}
 		configure \ primitive \ zcs\_fs \ ocf:heartbeat:Filesystem \ params \ \textbackslash \\ 
 		device="/dev/drbd0" \ directory="/opt/zimbra" \ fstype=ext4 \ \textbackslash \\
 		op \ start \ interval=0 \ timeout=60s \ \textbackslash \\
-		op \ stop \ interval="0" \ timeout="60"\\
+		op \ stop \ interval="0" \ timeout="60"
 \end{itemize}
 
 \begin{itemize}
 	\item Group all resources in the same host:\\
 		group zcsgroup zcs\_fs zcs\_service \ \textbackslash \\
-		configure colocation VIP1-with-drbd\_ms-Master \ \textbackslash \\
-			inf: drbd\_ms:Master VIP1 \\
-		configure colocation drbd\_ms-Master-with-zcs\_fs \ \textbackslash \\
-			inf: zcs\_fs drbd\_ms:Master \\
-		configure colocation zcs\_fs-with-zcs\_service \ \textbackslash \\
-			inf: zcs\_service zcs\_fs
+		configure colocation VIP1-with-drbd\_ms-Master \ inf: drbd\_ms:Master VIP1 \\
+		configure colocation drbd\_ms-Master-with-zcs\_fs \ inf: zcs\_fs drbd\_ms:Master \\
+		configure colocation zcs\_fs-with-zcs\_service \ inf: zcs\_service zcs\_fs
 \end{itemize}
 
 \begin{itemize}
 	\item Order resources:\\
-		configure order drbd\_ms-promote-on-VIP1 \textbackslash \\
-			inf: VIP1:start drbd\_ms:promote\\
-		configure order zcs\_fs-on-dbrb\_ms-promote \textbackslash \\
-			inf: dbrb\_ms:promote zcs\_fs:start\\
-		configure order zcs\_service-on-zcs\_fs \textbackslash \\
-			inf: zcs\_fs:start zcs\_service:start\\
+		configure order drbd\_ms-promote-on-VIP1 \ inf: VIP1:start drbd\_ms:promote\\
+		configure order zcs\_fs-on-dbrb\_ms-promote \ inf: dbrb\_ms:promote zcs\_fs:start\\
+		configure order zcs\_service-on-zcs\_fs \ inf: zcs\_fs:start zcs\_service:start
 \end{itemize}
 
 \begin{itemize}
 	\item Commit configuration changes and quit:\\
 		commit\\
-		quit\\
+		quit
 \end{itemize}
 
-
 \noindent On both nodes make sure chkconfig is off on every service but DRBD. This means the service will not start up on when the server starts up.\\
-	chkconfig corosync off\\
-	chkconfig cman off\\
-	chkconfig ricci off\\
-	chkconfig pacemaker off\\
-	chkconfig drbd on
-
+	\indent chkconfig corosync off\\
+	\indent chkconfig cman off\\
+	\indent chkconfig ricci off\\
+	\indent chkconfig pacemaker off\\
+	\indent chkconfig drbd on
 
 \section{Control and check services}
 \label{sec:control}
@@ -1175,49 +1153,47 @@ The following actions must be performed sequentially on \textit{\textbf{astapor}
 \begin{itemize}
 	\item Check Pacemaker cluster status:\\
 		crm\_mon -1\\
-		pcs status\\
+		pcs status
 \end{itemize}
 
 \begin{itemize}
 	\item Check resources status:\\
-		crm resource status RESOURCE\\
+		crm resource status RESOURCE
 \end{itemize}
 
 \begin{itemize}
 	\item Check configuration validity:\\
-		crm\_verify -L -V\\
+		crm\_verify -L -V
 \end{itemize}
 
 \begin{itemize}
 	\item Edit values already configured:\\
 		crm configure edit\\
 	After save changes through the preferred text editor, exit and execute:\\
-		cibadmin \textminus \textminus replace\\
+		cibadmin \textminus \textminus replace
 \end{itemize}
 
 \begin{itemize}
 	\item Delete existent resource:\\
-		pcs resource delete RESOURCE\\
+		pcs resource delete RESOURCE
 \end{itemize}
 
 \begin{itemize}
 	\item Clean resource history errors (check configuration health):\\
-		crm\_resource -P\\
+		crm\_resource -P
 \end{itemize}
 
 \begin{itemize}
 	\item List available classes and resources:\\
 		crm ra classes\\
 		crm ra list ocf btactic\\
-		crm ra list lsb\\
+		crm ra list lsb
 \end{itemize}
 
 \begin{itemize}
 	\item Delete cluster configuration (WARNING):\\
-		pcs cluster destroy\\
+		pcs cluster destroy
 \end{itemize}
-
-
 
 \section{Testing failover}
 \label{sec:failover}
@@ -1227,14 +1203,14 @@ The following actions must be performed sequentially on \textit{\textbf{astapor}
 	\item On primary node:\\
 		crm node standby\\
 	Or stop pacemaker:\\
-		service pacemaker stop\\
+		service pacemaker stop
 \end{itemize}
 
 
 \begin{itemize}
 	\item Now ``crm\_mon" or ``pcs status" will show:\\
 		Node astapor.got.com: standby\\
-		Online: [ braavos.got.com ]\\
+		Online: [ braavos.got.com ]
 \end{itemize}
 
 
@@ -1242,12 +1218,12 @@ The following actions must be performed sequentially on \textit{\textbf{astapor}
 	\item It is going to take a while before secondary node takes control. So it is possible to check logs and ``crm\_mon" status during the process.\\
 		crm\_mon\\
 		tail -F /var/log/zimbra.log\\
-		tail -F /var/log/messages\\
+		tail -F /var/log/messages
 \end{itemize}
 
 
 \begin{itemize}
-	\item Also it is possible to check with ``crm\_standby" command. A value of true \textbar on indicates that the node is not able to host any resources and a value of false \textbar off indicates it does.\\
+	\item Also it is possible to check with ``crm\_standby" command. A value of true\textbar on indicates that the node is not able to host any resources and a value of false\textbar off indicates it does.\\
 		crm\_standby \textminus \textminus get-value
 \end{itemize}
 
@@ -1274,10 +1250,8 @@ The following actions must be performed sequentially on \textit{\textbf{astapor}
 \label{table:failover}
 \end{table}
 
-
-
 \begin{itemize}
-	\item Now the secondary node has control of the cluster resources, while the primary node is in standby or unreachable state. If primary node is back online, secondary node will keep the control of resources, until an explicit node move is done.\\
+	\item Now the secondary node has control of the cluster resources, while the primary node is in standby or unreachable state. If primary node is back online, secondary node will keep the control of resources, until an explicit node move is done.
 \end{itemize}
 
 
@@ -1285,14 +1259,14 @@ The following actions must be performed sequentially on \textit{\textbf{astapor}
 	\item Set back online the primary node:\\
 			crm node online\\
 		  Or start over pacemaker service:\\
-		  	service pacemaker start\\
+		  	service pacemaker start
 \end{itemize}
 
 
 \begin{itemize}
 	\item To give the control back to primary node, execute on secondary node:\\
 			crm node standby\\
-		  Then resources will be transferred back to primary node.\\
+		  Then resources will be transferred back to primary node.
 \end{itemize}
 
 
@@ -1320,8 +1294,6 @@ The following actions must be performed sequentially on \textit{\textbf{astapor}
 \end{table}
 
 
-
-
 %=====================================
 % RESULTS AND DISCUSSION
 %
@@ -1347,36 +1319,18 @@ This chapter presents the evidence and/or results of primary research which you 
 
 Text..
 
+
+
+
+
+
+
 %=====================================
-% REFERENCES
+% BIBLIOGRAPHY
 %
-\renewcommand{\bibname}{References}
+\bibliography{ref}{}
+\bibliographystyle{plain}
 
-\begin{thebibliography}{25}
-  \bibliographystyle{alpha}
-
-  \bibitem{Collan and Tetard} Collan M. and Tetard F. \textit{Lazy User Theory of Solution Selection}. Proceedings of the CELDA 2007 Conference. Portugal, December 2007.
-
-  \bibitem{Collan and Tetard LUM PS} Collan M. and Tetard F. \textit{Lazy User Theory: A Dynamic Model to Understand User Selection of Products and Services}. 42nd Hawaii International Conference on System Sciences. 2009.
-
-\bibitem{Daffara SME} Daffara, Carlo. \textit{The SME guide to Open Source Software}. FLOSSMETRICS EU. July 2009. DOI=http://smeguide.conecta.it/smeguide.pdf
-
-  \bibitem{Daffara Eco} Daffara, Carlo. \textit{The economic value of Open Source software}. Conecta Research. Italy, July 2012. DOI=http://carlodaffara.conecta.it/category/oss-business-models/
-
-  \bibitem{Fogel} Fogel, Karl. \textit{Producing Open Source Software: How to Run a Successful Free Software Project}. O'Reilly, 2005.
-
-  \bibitem{ISO} International Organization for Standardization Technical Committee 223. \textit{ISO/PAS 22399:2007}. International Organization for Standardization, December 2007. DOI=\url{https://www.iso.org/obp/ui/\#iso:std:iso:pas:22399:ed-1:v1:en}
-
-  \bibitem{Mell and Grance} Mell, Peter and Grance, Timothy. \textit{The NIST Definition of Cloud Computing}. National Institute of Standards and Technology, September 2011.
-
-  \bibitem{Raymond} Raymond, Eric. \textit{The Cathedral and the Bazaar}. O'Reilly, 1999.
-
-  \bibitem{Tanja and Schraitle} Tanja R. and Schraitle T. \textit{High Availability Guide.} SUSE LLC and contributors. 2014.
-
-  \bibitem{Wasserman et. all} Wasserman A., Pal M. and Chan C. \textit{The Business Readiness Rating Model: an Evaluation Framework for Open Source}. Proceedings of the EFOSS: OpenBRR Workshop. Italy, June 2006.
-
-
-\end{thebibliography}
 
 %=====================================
 % APPENDIX

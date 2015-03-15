@@ -206,12 +206,12 @@ These high-availability technologies could be categorized as Enterprise Solution
 \section{Commercial Enterprise Cluster Software}
 \label{sec:enterprise}
 
-At the beginning many of these high-availability implementations were usually proprietary, but at some point commercial companies realized that these technologies could be strengthened by FLOSS. Since then, as a business model strategy, companies such as Hewlett Packard, Red Hat and SUSE (a Novell company) provide assistance services contemplating their entire solution, charging for business support licenses generally on annual basis. Examples of this situation, are in the following sub-sections.
+Since the beginning many of these high-availability implementations have been proprietary, either way at some point commercial companies realized that these technologies could be integrated into open systems thanks to licenses such as GNU/LGPL. Since then, as a business model strategy, companies such as Hewlett Packard, Red Hat Inc. and SUSE (a Novell company) provide assistance services considering their entire solution, charging for business support licenses, generally on annual basis. Examples of this situation, are in the following sub-sections.
 
 \subsection{HP Serviceguard}
 \label{subsec:serviceguard}
 
-Hewlett Packard (HP) claims the credit for the development of the first high availability solution for UNIX since 1990\footnote{\url{http://www.hpintelco.net/sglx/service.html}}. MC/ServiceGuard, is a high-availability cluster software released for HP-UX and later for GNU/Linux. Since the first development of the software, HP has competed with companies such as Oracle or SAP to deploy high-availability in enterprise environments, as Figure~\ref{fig:enterprise} (took from \url{http://www.hpintelco.net}) shows.\bigskip
+Hewlett Packard (HP) claims the credit for the development of the first high availability solution for UNIX since 1990\footnote{\url{http://www.hpintelco.net/sglx/service.html}}. MC/ServiceGuard, is a high-availability cluster software released for HP-UX and later for GNU/Linux systems. Since the first development of the software, HP has competed with companies such as Oracle or SAP to deploy high-availability in enterprise environments, as Figure~\ref{fig:enterprise} (took from \url{http://www.hpintelco.net}) shows.\bigskip
 
 \begin{figure}
   \centering
@@ -222,14 +222,38 @@ Hewlett Packard (HP) claims the credit for the development of the first high ava
 
 \noindent With the appearance of Linux in 1994 and its increasing popularity together with GNU, in 1999 HP released a Linux port called SG/LX, allowing high-availability features on it.\bigskip
 
-\noindent Since 2001, companies Intel, Red Hat and HP joined efforts to produce the Red Hat Open Source Solutions Initiative\footnote{\url{http://www.hpintelco.net/hp-intel-redhat.htm}} (OSSI), with the aim to reduce partner's sale cycle by delivering enterprise reliable solutions to their customers.
+\noindent Since 2001, companies Intel, Red Hat and HP joined efforts to produce the Red Hat Open Source Solutions Initiative\footnote{\url{http://www.hpintelco.net/hp-intel-redhat.htm}} (OSSI), with the aim to reduce partner's sale cycle by delivering enterprise reliable solutions to their customers. To some extent, realizing that their technologies could be strengthened by FLOSS.\bigskip
+
+\noindent Some technical specifications of this product are the following:
+
+\begin{itemize}
+	\item Proprietary Licensing Model\footnote{http://h20564.www2.hp.com/hpsc/doc/public/display?docId=emr\_na-c02199685}
+	\item Active/active, active/standby, and rotating standby cluster types
+	\item Quorum Server support
+	\item 32 Fibre Channel nodes, 2 single-path SCSI nodes, and 32 multipath SCSI nodes
+	\item Operating Systems RHEL and SLES
+	\item Hardware HP ProLiant ML, DL, and BL G7, Gen8 and Gen9 servers
+	\item HP 3PAR, EVA, StoreSure, EMC VMAX, VNX storage
+	\item ext3, ext4, NFS, XFS, VxFS, VxVM and btrfs filesystems
+	\item Logical Volume Manager
+\end{itemize}
+
+\noindent The general overview of an HP Serviceguard architecture is shown in Figure~\ref{fig:serviceguard} (took from data sheet HP Serviceguard Solutions for Linux\footnote{http://h20195.www2.hp.com/v2/GetDocument.aspx?docname=4AA4-1792ENW\&doctype=data\%20sheet\&doclang=EN\_US}).
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.70]{hp-serviceguard.png}
+  \caption[Basic HP Serviceguard for Linux cluster]{Basic HP Serviceguard for Linux cluster}
+  \label{fig:serviceguard}
+\end{figure}
+
 
 \subsection{Red Hat Cluster Suite}
 \label{subsec:rhcs}
 
-At the end of the 90's Red Hat Inc. introduced its Red Hat Enterprise Linux Advanced Server product, designed specifically for use in enterprise environments to deliver superior application support, performance, availability and scalability. It included a high-availability clustering feature as part of the base product. Since then, the product has evolve to the current Red Hat Cluster Suite (RHCS), provided as a separately licensed product, also on top of Red Hat's base Linux Enterprise Server license.\bigskip
+At the end of the 90's Red Hat Inc. introduced its Red Hat Enterprise Linux Advanced Server product, designed specifically for use in enterprise environments to deliver superior application support, performance, availability and scalability. It included a high-availability clustering feature as part of the base product. Since then, the product has evolved to the current Red Hat Cluster Suite (RHCS), provided as a separately licensed product, also on top of Red Hat's base Linux Enterprise Server license.\bigskip
 
-%\noindent The RHCS has two major features, one is the Cluster Manager that provides high availability, and the other is the IP Load Balancing (originally called Piranha). The first is Red Hat's implementation of Linux-HA, which will be discussed in Section~\ref{sec:hafloss}.\bigskip
+\noindent The RHCS has two major features, one is the Cluster Manager that provides high availability, and the other is the IP Load Balancing (originally called Piranha). The first is Red Hat's implementation of Linux-HA, which will be discussed in Section~\ref{sec:hafloss}.\bigskip
 
 \noindent On the other hand Piranha was originally developed by researchers at Oak Ridge National Laboratory\footnote{\url{http://www.ornl.gov/}}, basically a text mining technology that Red Hat adapted in order to allow transparent load balancing and failover between servers. The software Piranha is under copyright and count with its own patents, but the organization allow strategic partnerships, evaluating deals based on the ability and commitment to successfully commercialize the technology\footnote{\url{http://www.ornl.gov/connect-with-ornl/for-industry/partnerships/technology-licensing/licensing-opportunity-announcements/piranha}}.\bigskip
 
@@ -248,12 +272,18 @@ At the end of the 90's Red Hat Inc. introduced its Red Hat Enterprise Linux Adva
 \end{itemize}
 
 
+% Subscription Model
+% http://www.redhat.com/en/about/subscription
+% https://www.redhat.com/wapps/store/allProducts.html
+% \footnote{https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Cluster_Suite_Overview/images/}
+
+
 \subsection{SUSE Linux Enterprise High Availability Extension}
 \label{subsec:suseha}
 
 This is an integrated suite of clustering technologies that enables the implementation of high availability over physical and virtual Linux clusters~\cite{TandS}. It allows monitoring, messaging, and cluster resource management, handling failover and load balancing of resources.\bigskip
 
-\noindent As Red Hat did, other companies such as Novell relies on SG/LX Linux port to provide high availability solutions. This product is available as a paid add-on to SUSE Linux Enterprise Server GNU/Linux distribution, although in OpenSUSE many of these tools are included into the base system for free (with no payment), with available repositories on OBS to provide newer versions of the packages for various GNU/Linux distributions\footnote{\url{https://en.opensuse.org/openSUSE:High_Availability}}.\bigskip
+\noindent As Red Hat did, other companies such as Novell relies on SG/LX Linux port to provide high availability solutions. This product is available as a paid add-on to SUSE Linux Enterprise Server GNU/Linux distribution, although in OpenSUSE many of these tools are included into the base system for free (without charge), with available repositories on OBS to provide newer versions of the packages for various GNU/Linux distributions\footnote{\url{https://en.opensuse.org/openSUSE:High_Availability}}.\bigskip
 
 \noindent Among the main product features of this product are the following:
 

@@ -91,7 +91,7 @@
 This is the Abstract...
 
 \noindent
-Key words: Cluster, Corosync, CRM, DRBD, FOSS, FLOSS, High Availability, OCF, Pacemaker, Zimbra
+Key words: Cluster, Corosync, CRM, DRBD, FOSS, F$\ell$OSS, High Availability, OCF, Pacemaker, Zimbra
 
 %=====================================
 % ACKNOWLEDGEMENTS
@@ -101,6 +101,53 @@ Key words: Cluster, Corosync, CRM, DRBD, FOSS, FLOSS, High Availability, OCF, Pa
 \addcontentsline{toc}{chapter}{Acknowledgements}
 
 These are the Acknowledgements..
+
+
+%=====================================
+% TERMINOLOGY
+%
+\chapter*{Terminology}
+\label{chap:terminology}
+\addcontentsline{toc}{chapter}{Terminology}
+
+\begin{itemize}[label={}]
+	\item CLI: Command Line Interface
+	\item cLVM: clustered Logical Volume Manager
+	\item CPU: Central Process Unit
+	\item CRM: Cluster Resource Manager / Customer Relationship Management
+	\item CTDB: Clustered Trivial Database
+	\item DRBD: Distributed Replicated Block Device
+	\item F$\ell$OSS: Free Libre Open Source Software
+	\item GNU: GNU is Not Unix
+	\item GPL:  General Public License
+	\item GUI: Graphic User Interface
+	\item HA: High Availability
+	\item HAWK: HA Web Konsole
+	\item HDD: Hard Disk Drive
+	\item IPv4: Internet Protocol version 4
+	\item ISO: International Organization for Standardization
+	\item IT: Information Technologies
+	\item KVM: Kernel-based Virtual Machine
+	\item LGPL: Lesser General Public License
+	\item LSB: Linux Standard Base
+	\item OBS: openSUSE Build Service
+	\item OCF: Open Cluster Framework
+	\item OCFS: Oracle Cluster File System
+	\item OpenBRR: Open Business Readiness Rating
+	\item OS: Operating System
+	\item PBX: Private Branch Exchange
+	\item RHEL: Ret Hat Enterprise Linux
+	\item SAN: Storage Area Network
+	\item SCSI: Small Computer System Interface
+	\item SLA: Service Level Agreement
+	\item SME: Small and Medium Enterprises
+	\item VPN: Virtual Private Network
+	\item VPS: Virtual Private Server
+	\item WAN: Wide Area Network
+	\item YaST: Yet another Setup Tool
+	\item ZCS: Zimbra Collaboration System
+\end{itemize}
+
 
 %=====================================
 % CONTENTS
@@ -115,13 +162,13 @@ These are the Acknowledgements..
 \chapter{Introduction}
 \label{chap:introduction}
 
-\noindent With the growing use of cloud-oriented systems and the need for this information to be always available, online systems play an increasingly important role in our society nowadays. The technologies that support such schemes have evolved fleetingly and today there are numerous ways to get this kind of solutions, from proprietary software implementations, tools oriented to corporate environments that can be even based on FLOSS products and a variety of business models, to FLOSS standalone tools representing a robust solution to meet today's demands.\bigskip
+\noindent With the growing use of cloud-oriented systems and the need for this information to be always available, online systems play an increasingly important role in our society nowadays. The technologies that support such schemes have evolved fleetingly and today there are numerous ways to get this kind of solutions, from proprietary software implementations, tools oriented to corporate environments that can be even based on F$\ell$OSS products and a variety of business models, to F$\ell$OSS standalone tools representing a robust solution to meet today's demands.\bigskip
 
-\noindent Since 2004 Netnovation\texttrademark \ is a Venezuelan SME formed by a team of professionals in the areas of IT and telecommunications who adopted a business model based on consulting around FLOSS, providing system integration, timely development and Software as a Service (SaaS) cloud services.\bigskip
+\noindent Since 2004 Netnovation\texttrademark \ is a Venezuelan SME formed by a team of professionals in the areas of IT and telecommunications who adopted a business model based on consulting around F$\ell$OSS, providing system integration, timely development and Software as a Service (SaaS) cloud services.\bigskip
 
 \noindent Due to a number of reasons that will be discussed throughout this dissertation, cloud services require a set of components to ensure the security, availability and reliability of data that is stored in data center facilities remotely accessible from internet. The study conducted here is focused specifically on the availability of the data that must be accessible to their applicants at all times.\bigskip
 
-\noindent This study was undertaken in the one hand to test some aspects of business practices in the current technology market and the use of FLOSS as a key factor, and in the other one, to fulfill the demands of a business organization showing that business models around FLOSS are a fact.\bigskip
+\noindent This study was undertaken in the one hand to test some aspects of business practices in the current technology market and the use of F$\ell$OSS as a key factor, and in the other one, to fulfill the demands of a business organization showing that business models around F$\ell$OSS are a fact.\bigskip
 
 \noindent The way this dissertation is going to be organized is the following:\bigskip
 
@@ -152,17 +199,17 @@ Business continuity in the field of information technology is supported in a lar
 
 \noindent Nowadays there are increasingly more people and organizations using centralized remote systems that allow online access to resources and everyday services, this scheme is called cloud computing~\cite{MandG}. Through this type of services, end users whether individuals or corporations, are abstracted to support the infrastructure that this entails, giving responsibility to intermediary companies providing cloud services. So these intermediaries are the ones who must ensure the proper availability of the services, as well as factors such as communications security and redundancy of stored data, among many others.\bigskip
 
-\noindent In particular Netnovation is a SME in the field of information technologies, which provides private cloud services from data storage to hosting virtual private servers (VPS), including e-mail and collaboration servers. The latter is precisely one of the mainstays for the operations of the company, which employs mainly FLOSS to its internal systems, specifically using the FLOSS e-mail and collaboration suite Zimbra\texttrademark\footnote{\ http://www.zimbra.com}. One of the main problems that Netnovation faces is to ensure the communication and workflow continuity that is carried through this collaboration tool, as well as meet the SLAs offered to its customers over this software.\bigskip
+\noindent In particular Netnovation is a SME in the field of information technologies, which provides private cloud services from data storage to hosting virtual private servers (VPS), including e-mail and collaboration servers. The latter is precisely one of the mainstays for the operations of the company, which employs mainly F$\ell$OSS to its internal systems, specifically using the F$\ell$OSS e-mail and collaboration suite Zimbra\texttrademark\footnote{\ http://www.zimbra.com}. One of the main problems that Netnovation faces is to ensure the communication and workflow continuity that is carried through this collaboration tool, as well as meet the SLAs offered to its customers over this software.\bigskip
 
-\noindent There are various software solutions offering high availability of services such as those provided by Zimbra, each one with its legal implications, associated costs and implementation difficulty\footnote{\ Some of these solutions will be addressed in Chapter~\ref{chap:related}}. A valid alternative is the integration of multiple tools in the field of FLOSS providing a framework to ensure  continuity of systems operation or business continuity. By doing it this way it is possible to adapt the different requirements and use different technologies to provide the most consistent solution to what is desired.\bigskip
+\noindent There are various software solutions offering high availability of services such as those provided by Zimbra, each one with its legal implications, associated costs and implementation difficulty\footnote{\ Some of these solutions will be addressed in Chapter~\ref{chap:related}}. A valid alternative is the integration of multiple tools in the field of F$\ell$OSS providing a framework to ensure  continuity of systems operation or business continuity. By doing it this way it is possible to adapt the different requirements and use different technologies to provide the most consistent solution to what is desired.\bigskip
 
-\noindent On previous occasions, Netnovation has managed to successfully consolidate most of its operations infrastructure adapting FLOSS, making it a wonderful idea to keep this scheme working. To achieve this, it is necessary to evaluate the state of the art in the field of systems that provide high availability, with the aim of offering an effective solution, all of this in accordance to the guidelines that have been proposed by the company.
+\noindent On previous occasions, Netnovation has managed to successfully consolidate most of its operations infrastructure adapting F$\ell$OSS, making it a wonderful idea to keep this scheme working. To achieve this, it is necessary to evaluate the state of the art in the field of systems that provide high availability, with the aim of offering an effective solution, all of this in accordance to the guidelines that have been proposed by the company.
 
 
 \section{Justification / Motivation}
 \label{sec:justification}
 
-The factors that motivates this work are on one hand, give proper credit to business models based on FLOSS as those used by technology companies nowadays~\cite{DC2}, and on the other hand, show that private enterprise can be benefited by FLOSS, through a set of toolsets and mechanisms who allow obtaining robust solutions in accordance to technology needs.
+The factors that motivates this work are on one hand, give proper credit to business models based on F$\ell$OSS as those used by technology companies nowadays~\cite{DC2}, and on the other hand, show that private enterprise can be benefited by F$\ell$OSS, through a set of toolsets and mechanisms who allow obtaining robust solutions in accordance to technology needs.
 
 \section{Objectives}
 \label{sec:objectives}
@@ -170,8 +217,8 @@ The factors that motivates this work are on one hand, give proper credit to busi
 The overall objectives are:
 
 \begin{itemize}
-	\item To frame the FLOSS business model used by Netnovation
-	\item To show various current alternatives provided by FLOSS at the corporate level
+	\item To frame the F$\ell$OSS business model used by Netnovation
+	\item To show various current alternatives provided by F$\ell$OSS at the corporate level
 	\item To adapt the proposed solution to the guidelines established by Netnovation
 	\item To establish an initial point reference for implementing high availability private cloud services offered by Netnovation
 \end{itemize}
@@ -179,7 +226,7 @@ The overall objectives are:
 \noindent The specific objectives are:
 
 \begin{itemize}
-	\item To implement a high availability solution based on FLOSS for the e-mail and collaboration system Zimbra used by Netnovation
+	\item To implement a high availability solution based on F$\ell$OSS for the e-mail and collaboration system Zimbra used by Netnovation
 	\item To describe the methodology used for the selection of the solution to be implemented
 	\item To describe the process undertaken to implement the selected solution
 	\item To perform tests in a controlled laboratory environment and validate the correct operation of the solution in order to promote it to a production environment
@@ -189,9 +236,9 @@ The overall objectives are:
 \section{Scope}
 \label{sec:scope}
 
-The solution to be implemented consists of FLOSS tools that allow its adaptation to the current infrastructure of Netnovation, they are not intended to replace the elements of the existing operations  platform.\bigskip
+The solution to be implemented consists of F$\ell$OSS tools that allow its adaptation to the current infrastructure of Netnovation, they are not intended to replace the elements of the existing operations  platform.\bigskip
 
-\noindent The methodology used for the selection of FLOSS tools that make the proposed solution is not intended to provide an exhaustive process that considers all possibilities in the area, but a flexible way that allows classify them qualitatively, justifying their choice through concrete metrics.\bigskip
+\noindent The methodology used for the selection of F$\ell$OSS tools that make the proposed solution is not intended to provide an exhaustive process that considers all possibilities in the area, but a flexible way that allows classify them qualitatively, justifying their choice through concrete metrics.\bigskip
 
 \noindent Having successfully implemented a high availability solution on the e-mail and collaboration system used by Netnovation, this will serve as a reference for providing high availability to other enterprise systems, but these other configurations are not covered in this exercise.\bigskip
 
@@ -201,17 +248,17 @@ The solution to be implemented consists of FLOSS tools that allow its adaptation
 %
 \chapter{Related technologies}
 \label{chap:related}
-These high-availability technologies could be categorized as Enterprise Solutions and FLOSS based tools, considering that usually the first ones have associated a complete support service over the whole provided solution, whereas the second ones provide support over its own tools, but not necessarily over the whole cluster implementation.
+A possible way to categorize high-availability technologies are Enterprise Solutions and F$\ell$OSS based tools, considering that usually the first ones have associated support plans over the whole provided solution, whereas the second ones provide support over its own tools, but not necessarily over the whole cluster implementation.
 
 \section{Commercial Enterprise Cluster Software}
 \label{sec:enterprise}
 
-Since the beginning many of these high-availability implementations have been proprietary, either way at some point commercial companies realized that these technologies could be integrated into open systems thanks to licenses such as GNU/LGPL. Since then, as a business model strategy, companies such as Hewlett Packard, Red Hat Inc. and SUSE (a Novell company) provide assistance services considering their entire solution, charging for business support licenses, generally on annual basis. Examples of this situation, are in the following sub-sections.
+Some of these high-availability implementations have been proprietary since the beginning, either way at some point commercial companies realized that these technologies could be integrated into open systems thanks to licenses such as GNU/LGPL. Since then, as a business model strategy, companies such as Hewlett Packard, Red Hat Inc. and SUSE (a Novell company) provide support plans over open system platforms, considering their entire solution and charging for business licenses, generally on annual basis. In the following sections there is a description for each of them.
 
 \subsection{HP Serviceguard}
 \label{subsec:serviceguard}
 
-Hewlett Packard (HP) claims the credit for the development of the first high availability solution for UNIX since 1990\footnote{\url{http://www.hpintelco.net/sglx/service.html}}. MC/ServiceGuard, is a high-availability cluster software released for HP-UX and later for GNU/Linux systems. Since the first development of the software, HP has competed with companies such as Oracle or SAP to deploy high-availability in enterprise environments, as Figure~\ref{fig:enterprise} (took from \url{http://www.hpintelco.net}) shows.\bigskip
+Hewlett Packard (HP) claims the credit for the development of the first high availability solution for UNIX systems since 1990\footnote{\url{http://www.hpintelco.net/sglx/service.html}}. MC/ServiceGuard is a high-availability cluster software released for HP-UX and later for GNU/Linux systems. Since the first development of the software, HP has partnered with with companies such as Oracle or SAP to deploy high-availability in enterprise environments, as Figure~\ref{fig:enterprise} (took from \url{http://www.hpintelco.net}) shows.\bigskip
 
 \begin{figure}
   \centering
@@ -222,7 +269,7 @@ Hewlett Packard (HP) claims the credit for the development of the first high ava
 
 \noindent With the appearance of Linux in 1994 and its increasing popularity together with GNU, in 1999 HP released a Linux port called SG/LX, allowing high-availability features on it.\bigskip
 
-\noindent Since 2001, companies Intel, Red Hat and HP joined efforts to produce the Red Hat Open Source Solutions Initiative\footnote{\url{http://www.hpintelco.net/hp-intel-redhat.htm}} (OSSI), with the aim to reduce partner's sale cycle by delivering enterprise reliable solutions to their customers. To some extent, realizing that their technologies could be strengthened by FLOSS.\bigskip
+\noindent Since 2001, companies Intel, Red Hat and HP joined efforts to produce the Red Hat Open Source Solutions Initiative\footnote{\url{http://www.hpintelco.net/hp-intel-redhat.htm}} (OSSI), with the aim to reduce partner's sale cycle by delivering enterprise reliable solutions to their customers. To some extent, realizing that their technologies could be strengthened by F$\ell$OSS.\bigskip
 
 \noindent Some technical specifications of this product are the following:
 
@@ -238,7 +285,7 @@ Hewlett Packard (HP) claims the credit for the development of the first high ava
 	\item Logical Volume Manager
 \end{itemize}
 
-\noindent The general overview of an HP Serviceguard architecture is shown in Figure~\ref{fig:serviceguard} (took from data sheet HP Serviceguard Solutions for Linux\footnote{http://h20195.www2.hp.com/v2/GetDocument.aspx?docname=4AA4-1792ENW\&doctype=data\%20sheet\&doclang=EN\_US}).
+\noindent The general overview of an HP Serviceguard architecture is shown in Figure~\ref{fig:serviceguard} (took from data sheet HP Serviceguard Solutions for Linux\footnote{http://h20195.www2.hp.com/v2/GetDocument.aspx?docname=4AA4-1792ENW}).
 
 \begin{figure}
   \centering
@@ -251,13 +298,11 @@ Hewlett Packard (HP) claims the credit for the development of the first high ava
 \subsection{Red Hat Cluster Suite}
 \label{subsec:rhcs}
 
-At the end of the 90's Red Hat Inc. introduced its Red Hat Enterprise Linux Advanced Server product, designed specifically for use in enterprise environments to deliver superior application support, performance, availability and scalability. It included a high-availability clustering feature as part of the base product. Since then, the product has evolved to the current Red Hat Cluster Suite (RHCS), provided as a separately licensed product, also on top of Red Hat's base Linux Enterprise Server license.\bigskip
+At the end of the 90's Red Hat Inc. introduced its Enterprise Linux Advanced Server, designed specifically for use in enterprise environments to deliver superior application support, performance, availability and scalability. It included a high-availability clustering feature as part of the base product. Since then, the product has evolved to the current Red Hat Cluster Suite (RHCS), provided as a separately licensed product, also on top of Red Hat's Linux Enterprise Server.\bigskip
 
-\noindent The RHCS has two major features, one is the Cluster Manager that provides high availability, and the other is the IP Load Balancing (originally called Piranha). The first is Red Hat's implementation of Linux-HA, which will be discussed in Section~\ref{sec:hafloss}.\bigskip
+\noindent The RHCS has three major features, one of them is the Cluster Manager or \textbf{cman}, which adds functionality to, and is dependent upon other cluster stacks such as Corosync or OpenAIS. Is noteworthy that this is an adaptation of the Linux-HA project. Another key feature is the Resource Group Manager or \textbf{rgmanager}, a fully functional replacement for Pacemaker intended to work exclusively with RHCS. And also the IP Load Balancing (originally called Piranha), was originally developed by researchers at Oak Ridge National Laboratory, basically a text mining technology that Red Hat adapted in order to allow transparent load balancing and failover between servers\footnote{http://www.ornl.gov/connect-with-ornl/for-industry/partnerships/technology-licensing/licensing-opportunity-announcements/piranha}.\bigskip
 
-\noindent On the other hand Piranha was originally developed by researchers at Oak Ridge National Laboratory\footnote{\url{http://www.ornl.gov/}}, basically a text mining technology that Red Hat adapted in order to allow transparent load balancing and failover between servers. The software Piranha is under copyright and count with its own patents, but the organization allow strategic partnerships, evaluating deals based on the ability and commitment to successfully commercialize the technology\footnote{\url{http://www.ornl.gov/connect-with-ornl/for-industry/partnerships/technology-licensing/licensing-opportunity-announcements/piranha}}.\bigskip
-
-\noindent The Cluster Manager and IP load balancing are complementary high-availability technologies that can be used separately or in combination, depending on application requirements, and both of these technologies are integrated in RHCS.\bigskip
+\noindent The Cluster Manager, the Resource Group Manager and the IP Load Balancing are complementary high-availability technologies that can be used separately or in combination, depending on application requirements. Some of these technologies come from previous F$\ell$OSS projects and have been properly integrated into RHCS.\bigskip
 
 \noindent Some technical details of this product are the following:
 
@@ -271,11 +316,14 @@ At the end of the 90's Red Hat Inc. introduced its Red Hat Enterprise Linux Adva
 	\item OCF and LSB resource agents
 \end{itemize}
 
+\noindent A general RHCS infrastructure is shown in Figure~\ref{fig:rhcs} (took from RHCS online documentation\footnote{\url{https://access.redhat.com/documentation/en-US/Red\_Hat\_Enterprise\_Linux/5/html/Cluster\_Suite\_Overview/images/9106.png}}).
 
-% Subscription Model
-% http://www.redhat.com/en/about/subscription
-% https://www.redhat.com/wapps/store/allProducts.html
-% \footnote{https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Cluster_Suite_Overview/images/}
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.70]{rhcs.png}
+  \caption[RHCS Basic Infrastructure]{RHCS Basic Infrastructure}
+  \label{fig:rhcs}
+\end{figure}
 
 
 \subsection{SUSE Linux Enterprise High Availability Extension}
@@ -283,7 +331,7 @@ At the end of the 90's Red Hat Inc. introduced its Red Hat Enterprise Linux Adva
 
 This is an integrated suite of clustering technologies that enables the implementation of high availability over physical and virtual Linux clusters~\cite{TandS}. It allows monitoring, messaging, and cluster resource management, handling failover and load balancing of resources.\bigskip
 
-\noindent As Red Hat did, other companies such as Novell relies on SG/LX Linux port to provide high availability solutions. This product is available as a paid add-on to SUSE Linux Enterprise Server GNU/Linux distribution, although in OpenSUSE many of these tools are included into the base system for free (without charge), with available repositories on OBS to provide newer versions of the packages for various GNU/Linux distributions\footnote{\url{https://en.opensuse.org/openSUSE:High_Availability}}.\bigskip
+\noindent As Red Hat did, other companies such as Novell took advantage of the high-availability demand over the enterprise sector and also adapted their own HA solution. This product is available as a paid add-on to SUSE Linux Enterprise Server GNU/Linux distribution, although in OpenSUSE many of these tools are included into the base system for free (without charge), with available repositories on OBS to provide newer versions of the packages for various GNU/Linux distributions\footnote{\url{https://en.opensuse.org/openSUSE:High_Availability}}.\bigskip
 
 \noindent Among the main product features of this product are the following:
 
@@ -299,18 +347,50 @@ This is an integrated suite of clustering technologies that enables the implemen
 	\item GUI and CLI administration tools, such as YaST, HAWK and CRM
 \end{itemize}
 
+\noindent A SUSE HA cluster architecture is depicted in Figure~\ref{fig:suseha} (took from SUSE Linux High Availability Extension online documentation\footnote{https://www.suse.com/documentation/sle\_ha/book\_sleha/graphics/ha\_cluster\_components\_arch.png}).
 
-\section{High availability FLOSS based tools}
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.50]{suse-ha.png}
+  \caption[SUSE HA Cluster Components]{SUSE HA Cluster Components}
+  \label{fig:suseha}
+\end{figure}
+
+
+\section{High availability F$\ell$OSS based tools}
 \label{sec:hafloss}
 
-These tools are possibly those that conform some of the enterprise solutions mentioned before, but are not supported as a complete enterprise cluster solution. Either way, most of these FLOSS technologies are backed by professional support over the standalone software provided. Examples of this tools, are mentioned below.\bigskip
+Some of these tools are possibly part of the enterprise products mentioned before, but are not supported as a complete enterprise cluster solution. Either way, most? of these F$\ell$OSS technologies are backed by professional support over the standalone software provided. Examples of this tools, are mentioned below.\bigskip
 
-\noindent Linux-HA has been released since 1999 under GNU GPL and GNU LGPL license, maintains a set of building blocks for high availability cluster systems, including a cluster messaging layer, a bunch of resource agents for a variety of applications, and a plumbing library and error reporting toolkit. Around 2007 this project evolved to Pacemaker, integrating or allowing interaction with multiple FLOSS cluster stacks such as Heartbeat, Corosync and OCF.\bigskip
+% Re-do the previous paragraph
+
+% Describe the evolution of Linux HA Clustering Technologies
+% Two separate groups:
+% - one mostly concerned with the cluster messaging
+% - one concerned with cluster resources
+
+% Mention Heartbeat(Linux-HA), Pacemaker, Corosync, OpenAIS
+
+\noindent Heartbeat, part of the Linux-HA project, was first released in 1999 under GNU GPL and GNU LGPL license, maintaining a set of building blocks for high availability cluster systems, including a cluster messaging layer, a bunch of resource agents for a variety of applications, a plumbing library and error reporting toolkit. Around 2007 this project evolved to Pacemaker, integrating or allowing interaction with multiple F$\ell$OSS cluster stacks such as Corosync and OCF.\bigskip
 
 \noindent Nowadays Pacemaker is a resource manager responsible for starting and stopping cluster services in a proper way. Combined with other tools is able to detect service-level failures and move resources between cluster nodes as needed, to ensure the smooth operation of the services.\bigskip
 
 \noindent Corosync is responsible for cluster membership, message passing and quorum, using the totem protocol 
-for \textit{heartbeat}, monitoring other node's health.\bigskip
+for heartbeat, monitoring other node's health.\bigskip
+
+% OpenAIS?
+
+% Mention FLOSS Cluster Managers (http://en.wikipedia.org/wiki/Cluster_manager)
+% Apache Mesos
+% Keepalived
+% Linux Cluster Manager (LCM)
+% oneSIS
+% Rocks Cluster Distribution
+% SCMS.pro
+% Ultra Monkey
+% YARN
+% xCAT
+
 
 \noindent DRBD works on top of block devices, such as hard disk partitions or LVM logical volumes, mirroring each data block that it is written to disk to the peer node. 
 
@@ -321,15 +401,13 @@ for \textit{heartbeat}, monitoring other node's health.\bigskip
 \chapter{Methodology}
 \label{chap:methodology}
 
-The followed roadmap to achieve the objectives outlined is a set of guidelines and suggestions for the adoption of FLOSS within SMEs~\cite{DC1}, in the sense that a methodology is not an exact formula but a set of practices. At using this model, companies find a supporting guide from the initial selection and adoption of FLOSS within the IT infrastructure and even to the consolidation of business models around open source.\bigskip
+The followed roadmap to achieve the objectives outlined is a set of guidelines and suggestions for the adoption of F$\ell$OSS within SMEs~\cite{DC1}, in the sense that a methodology is not an exact formula but a set of practices. At using this model, companies find a supporting guide from the initial selection and adoption of F$\ell$OSS within the IT infrastructure and even to the consolidation of business models around open source.\bigskip
 
 \noindent On the one hand, the guidelines proposed by Daffara suggest a research method by collecting and read as much information related to the project is available and select the appropriate solution from a matching set that fulfill the requirements. On the other hand this dissertation also contemplates an open and standard framework to select the technologies to be used, this is the light weight model OpenBRR~\cite{Wasserman}, which performs a quick and flexible assessment over software tools considered.\bigskip
 
-\noindent Additionally, and following a practical formal approach, applying a model of technology acceptance such as the Lazy User Model (LUM)~\cite{CandT1} is possible to frame the process by which are chosen the technological tools that will make up the solution that meets user requirements, which in this case is being represented by the company Netnovation. This model focuses on user needs and the demanded effort when selecting a solution to a problem from a set of possible solutions, ``According to the lazy user model, a user is likely to choose the solution that requires the least effort. The user examines this cost in terms of time, energy and money when considering how to use a new solution."~\cite{CandT2} The LUM proposes that technology acceptance is impacted by this principle.
+\noindent Additionally, and following a practical formal approach, applying a model of technology acceptance such as the Lazy User Model (LUM)~\cite{CandT1} is possible to frame the process by which are chosen the technological tools that will make up the solution that meets user requirements, which in this case is being represented by the company Netnovation. This model focuses on user needs and the demanded effort when selecting a solution to a problem from a set of possible solutions, ``According to the lazy user model, a user is likely to choose the solution that requires the least effort. The user examines this cost in terms of time, energy and money when considering how to use a new solution."~\cite{CandT2} The LUM proposes that technology acceptance is impacted by this principle.\bigskip
 
 
-\section{OpenBRR}
-\label{sec:openbrr}
 
 %=====================================
 % ARCHITECHTURE
@@ -337,7 +415,7 @@ The followed roadmap to achieve the objectives outlined is a set of guidelines a
 \chapter{Architecture}
 \label{chap:architecture}
 
-In order to provide IT services to customers, considering software services hosted in an on-line remote location, Netnovation requires a proper software and hardware infrastructure to operate. Some of these services are from VPS, Data Storage Systems, Customer Relationship Management Systems (CRM), Email and Collaboration Systems, to Voice over IP PBX systems. Both parties, software infrastructure and product services offered are based on FLOSS.\bigskip
+In order to provide IT services to customers, considering software services hosted in an on-line remote location, Netnovation requires a proper software and hardware infrastructure to operate. Some of these services are from VPS, Data Storage Systems, Customer Relationship Management Systems (CRM), Email and Collaboration Systems, to Voice over IP PBX systems. Both parties, software infrastructure and product services offered are based on F$\ell$OSS.\bigskip
 
 \noindent In particular the Zimbra server to which a high availability schema is been configured, resides into this architecture, and it is consistent with the company's principles and business model, which is why it is useful to understand the environment to which it belongs.
 
@@ -438,31 +516,31 @@ The following software tools represent the key elements on which it has been pos
 	\item Red Hat Enterprise Linux Server
 \end{itemize}
 
-\noindent GNU/Linux enterprise-oriented distribution providing a very stable base system, vast documentation and proper support from manufacturer, released as FLOSS mainly under the terms of the GNU Lesser General Public License 2.1, except for some optional components. In order to be specific in this exercise, the Linux kernel 2.6.32-431.el6.x86\_64 that is included by the RHEL version 6.5 was used.
+\noindent GNU/Linux enterprise-oriented distribution providing a very stable base system, vast documentation and proper support from manufacturer, released as F$\ell$OSS mainly under the terms of the GNU Lesser General Public License 2.1, except for some optional components. In order to be specific in this exercise, the Linux kernel 2.6.32-431.el6.x86\_64 that is included by the RHEL version 6.5 was used.
 
 \begin{itemize}
 	\item Zimbra Collaboration System (ZCS)
 \end{itemize}
 
-\noindent Server and client collaboration software, supporting e-mail, contacts, calendar, documents, push synchronization, and many other enterprise features related to groupware. The software is FLOSS released under the terms of the Common Public Attribution License version 1 and the GNU General Public License version 2 (GPLv2). The exact version implemented was ZCS FOSS  8.0.7\_GA\_6021.RHEL6\_64.
+\noindent Server and client collaboration software, supporting e-mail, contacts, calendar, documents, push synchronization, and many other enterprise features related to groupware. The software is F$\ell$OSS released under the terms of the Common Public Attribution License version 1 and the GNU General Public License version 2 (GPLv2). The exact version implemented was ZCS FOSS  8.0.7\_GA\_6021.RHEL6\_64.
 
 \begin{itemize}
 	\item Distributed Replicated Block Device (DRBD)
 \end{itemize}
 
-\noindent A distributed replicated storage system for Linux, implemented as several userspace management applications and shell scripts, used to provide data redundancy. DRBD software is FLOSS released under the terms of the GNU GPLv2. 
+\noindent A distributed replicated storage system for Linux, implemented as several userspace management applications and shell scripts, used to provide data redundancy. DRBD software is F$\ell$OSS released under the terms of the GNU GPLv2. 
 
 \begin{itemize}
 	\item Corosync
 \end{itemize}
 
-\noindent It is released as FLOSS under the 3-clause BSD License. This software provides features based on C programming language implementing high availability within applications, through virtual synchrony for replicated state machines, simple availability handling responsible for applications restart when fail, it keeps configuration and statistics in a memory database providing the ability to set, retrieve, and receive change notifications of information, and a quorum system that notifies applications when it is achieved or lost.
+\noindent It is released as F$\ell$OSS under the 3-clause BSD License. This software provides features based on C programming language implementing high availability within applications, through virtual synchrony for replicated state machines, simple availability handling responsible for applications restart when fail, it keeps configuration and statistics in a memory database providing the ability to set, retrieve, and receive change notifications of information, and a quorum system that notifies applications when it is achieved or lost.
 
 \begin{itemize}
 	\item Pacemaker
 \end{itemize}
 
-\noindent A FLOSS high availability resource manager software released under GNU GPLv2. This software was part of the Linux-HA project until 2007, then was split out to be its own project. It implements APIs for resources control, including the Open Cluster Framework (OCF). It is used on computer clusters since 2004.
+\noindent A F$\ell$OSS high availability resource manager software released under GNU GPLv2. This software was part of the Linux-HA project until 2007, then was split out to be its own project. It implements APIs for resources control, including the Open Cluster Framework (OCF). It is used on computer clusters since 2004.
 
 \begin{itemize}
 	\item Cluster Resource Manager Shell (CRMsh\footnote{http://crmsh.github.io}) and Pacemaker Configuration System (PCS\footnote{https://github.com/feist/pcs})
@@ -496,7 +574,7 @@ The following software tools represent the key elements on which it has been pos
 \chapter{Implementation}
 \label{chap:implementation}
 
-This section is intended to provide technical documentation in the process of implementing high availability in a FLOSS Zimbra Collaboration System (ZCS). The scope of this implementation is framed by the following software components and versions:
+This section is intended to provide technical documentation in the process of implementing high availability in a F$\ell$OSS Zimbra Collaboration System (ZCS). The scope of this implementation is framed by the following software components and versions:
 
 \begin{itemize}
 	\setlength{\itemsep}{0pt}
@@ -840,7 +918,7 @@ The following actions must be performed in parallel on both nodes, except in tho
 	\item In the primary node:\\
 		drbdadm connect optzimbra
 	
-	\item Finally it is possible to check the sync status, running the command ``cat /proc/drbd", wich is going to show a message similar to this:\\
+	\item Finally it is possible to check the sync status, running the command ``cat /proc/drbd", which is going to show a message similar to this:\\
 		cs:Connected ro:Primary/Secondary ds:UpToDate/UpToDate C r- \ - \ - \ -
 
 \end{itemize}
@@ -955,8 +1033,7 @@ The following actions must be performed sequentially on \textit{\textbf{astapor}
 \noindent Open Cluster Framework, standard scripts to control services such as ZCS. Following actions must be performed in both nodes.
 
 \begin{itemize}
-	\item Create file /usr/lib/ocf/resource.d/btactic/zimbra:\\
-		% Content in Apendix
+	\item Add btactic zimbra script to /usr/lib/ocf/resource.d/btactic/zimbra. The source code of this script is included in the Appendix~\ref{app:appendix1}.\\
 
 	\item Also create the following symbolic link:\\
 		ln \ -s \ /usr/lib/ocf/resource.d/btactic/zimbra \ /usr/lib/ocf/resource.d/heartbeat/
@@ -1102,7 +1179,7 @@ The following actions must be performed sequentially on \textit{\textbf{astapor}
 \bigskip
 
 \noindent Now, it is going to be used the crmsh interpreter, starting it with the following command:\\
-	crm \ configure
+	\indent crm \ configure
 
 \bigskip
 	
@@ -1334,7 +1411,7 @@ This chapter presents the evidence and/or results of primary research which you 
 
 \noindent Presented in the form of:\\
 
-\noindent - hypothesis testing to analysis suggested by guidelines for the adoption of FLOSS within SMEs (Daffara), search method by collecting and read as much information related to the project is available and select the appropriate solution from a matching set that fulfill the requirements\\
+\noindent - hypothesis testing to analysis suggested by guidelines for the adoption of F$\ell$OSS within SMEs (Daffara), search method by collecting and read as much information related to the project is available and select the appropriate solution from a matching set that fulfill the requirements\\
 
 \noindent - Detailed quantitative model OpenBRR, quick and flexible assessment over software tools considered\\
 
@@ -1366,8 +1443,346 @@ Text..
 % APPENDIX
 %
 \appendix
-\chapter{Title of appendix 1}
-\label{app:apendix1}
+\chapter{btactic zimbra script}
+\label{app:appendix1}
+% btactic zimbra script
 
+\#!/bin/sh\\
+\#\\
+\# Resource script for Zimbra\\
+\#\\
+\# Description:  Manages Zimbra as an OCF resource in an high-availability setup.\\
+\#\\
+\# Author:       Adrian Gibanel\\
+\# \textless adrian.gibanel@btactic.com\textgreater : Original Author\\
+\#\\
+\# License: GNU General Public License (GPL)\\
+\# Note:  Aimed at an active/passive cluster originally\\
+\#        Inspired from postfix OCF script\\
+\#        Inspired from Ubuntu LSB script.\\
+\#        Not sure it will work for other distros without modifying\\
+\#\\
+\#   usage: \$0 \{start\textbar stop\textbar reload\textbar status\textbar monitor\textbar validate-all\textbar meta-data\}\\
+\#\\
+\#       The ``start" arg starts Zimbra\\
+\#       The ``stop" arg stops it.\\
+\#\\
+\# OCF parameters:\\
+\#  OCF\_RESKEY\_binary\\
+\#  OCF\_RESKEY\_config\_dir\\
+\#  OCF\_RESKEY\_parameters\\
+\#\\
+\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\\
+
+\noindent \# Initialization:\\
+
+\noindent : \$\{OCF\_FUNCTIONS\_DIR=\$\{OCF\_ROOT\}/lib/heartbeat\}\\
+. \$\{OCF\_FUNCTIONS\_DIR\}/ocf-shellfuncs\\
+: \$\{OCF\_RESKEY\_binary=``zmcontrol"\}\\
+: \$\{OCF\_RESKEY\_zimbra\_dir=``/opt/zimbra"\}\\
+: \$\{OCF\_RESKEY\_zimbra\_user=``zimbra"\}\\
+: \$\{OCF\_RESKEY\_zimbra\_group=``zimbra"\}\\
+USAGE=``Usage: \$0 \{start\textbar stop\textbar reload\textbar status\textbar monitor\textbar validate-all\textbar meta-data\}";\\
+
+\noindent \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\\
+
+\noindent usage() \{\\
+    \indent echo \$USAGE \textgreater\&2\\
+\}\\
+
+\noindent meta\_data() \{\\
+
+        cat \textless \textless END\\
+        
+\textless ?xml version=``1.0"?\textgreater\\
+\textless !DOCTYPE resource-agent SYSTEM ``ra-api-1.dtd"\textgreater\\
+\textless resource-agent name=``zimbra"\textgreater\\
+\textless version\textgreater0.1\textless /version\textgreater\\
+\textless longdesc lang=``en"\textgreater\\
+This script manages Zimbra as an OCF resource in a high-availability setup.\\
+\textless /longdesc\textgreater\\
+\textless shortdesc lang=``en"\textgreater\\
+Manages a highly available Zimbra mail server instance\\
+\textless /shortdesc\textgreater\\
+
+\noindent \textless parameters\textgreater\\
+
+\noindent \textless parameter name=``binary" unique=``0" required=``0"\textgreater\\
+\textless longdesc lang=``en"\textgreater\\
+Short name to the Zimbra control script.\\
+For example, ``zmcontrol".\\
+\textless /longdesc\textgreater\\
+\textless shortdesc lang=``en"\textgreater\\
+Short name to the Zimbra control script\textless /shortdesc\textgreater\\
+\textless content type=``string" default=``zmcontrol" /\textgreater\\
+\textless /parameter\textgreater\\
+
+\noindent \textless parameter name=``zimbra\_dir" unique=``1" required=``0"\textgreater\\
+\textless longdesc lang=``en"\textgreater\\
+Full path to Zimbra directory.\\
+For example, ``/opt/zimbra".\\
+\textless /longdesc\textgreater\\
+\textless shortdesc lang=``en"\textgreater\\
+Full path to Zimbra directory\textless /shortdesc\textgreater\\
+\textless content type=``string" default=``/opt/zimbra" /\textgreater\\
+\textless /parameter\textgreater\\
+
+\noindent \textless parameter name=``zimbra\_user" unique=``1" required=``0"\textgreater\\
+\textless longdesc lang=``en"\textgreater\\
+Zimbra username.\\
+For example, ``zimbra".\\
+\textless /longdesc\textgreater\\
+\textless shortdesc lang=``en"\textgreater Zimbra username\textless /shortdesc\textgreater\\
+\textless content type=``string" default=``zimbra" /\textgreater\\
+\textless /parameter\textgreater\\
+
+\noindent \textless parameter name=``zimbra\_group" unique=``1" required=``0"\textgreater\\
+\textless longdesc lang=``en"\textgreater\\
+Zimbra group.\\
+For example, ``zimbra".\\
+\textless /longdesc\textgreater\\
+\textless shortdesc lang=``en"\textgreater Zimbra group\textless /shortdesc\textgreater\\
+\textless content type=``string" default=``zimbra" /\textgreater\\
+\textless /parameter\textgreater\\
+
+\noindent \textless /parameters\textgreater\\
+
+\noindent \textless actions\textgreater\\
+\textless action name=``start"   timeout=``360s" /\textgreater\\
+\textless action name=``stop"    timeout=``360s" /\textgreater\\
+\textless action name=``restart"  timeout=``360s" /\textgreater\\
+\textless action name=``monitor" depth=``0"  timeout=``40s" interval=``60s" /\textgreater\\
+\textless action name=``validate-all"  timeout=``360s" /\textgreater\\
+\textless action name=``meta-data"  timeout=``5s" /\textgreater\\
+\textless /actions\textgreater\\
+\textless /resource-agent\textgreater\\
+
+\noindent END\\
+\noindent \}\\
+
+\noindent command()\\
+\{\\
+  \indent if [ -f \$\{zimbra\_dir\}/redolog/redo.log ]; then\\
+  \indent \indent chown -f \$\{zimbra\_user\}:\$\{zimbra\_group\} \$\{zimbra\_dir\}/redolog/redo.log\\
+  \indent fi\\
+  \indent su - \$\{zimbra\_user\} -c ``\$\{binary\} \$1 \textless /dev/null"\\
+\}\\
+
+\noindent running() \{\\
+\indent \# run Zimbra status\\
+\indent  command status\\
+\}\\
+
+
+\noindent zimbra\_status()\\
+\{\\
+    \indent running\\
+\}\\
+
+\noindent zimbra\_start()\\
+\{\\
+    \indent \# if Zimbra is running return success\\
+    \indent if zimbra\_status; then\\
+    \indent \indent ocf\_log info ``Zimbra is already running."\\
+    \indent \indent return \$OCF\_SUCCESS\\
+    \indent fi\\
+
+    \indent \# start Zimbra\\
+    \indent command start\\
+    \indent ret=\$?\\
+    \indent if [ -d /var/lock/subsys -a \$ret -eq 0 ]; then\\
+    \indent \indent touch /var/lock/subsys/zimbra\\
+    \indent fi\\
+
+    \indent if [ \$ret -ne 0 ]; then\\
+        \indent \indent ocf\_log err ``Zimbra returned an error." \$ret\\
+        \indent \indent return \$OCF\_ERR\_GENERIC\\
+    \indent fi\\
+
+    \indent \# grant some time for startup/forking the sub processes\\
+    \indent sleep 2\\
+
+    \indent \# initial monitoring action\\
+    \indent running\\
+    \indent ret=\$?\\
+    \indent if [ \$ret -ne \$OCF\_SUCCESS ]; then\\
+     \indent \indent ocf\_log err ``Zimbra failed initial monitor action." \$ret\\
+     \indent \indent return \$OCF\_ERR\_GENERIC\\
+    \indent fi\\
+
+    \indent ocf\_log info ``Zimbra started."\\
+    \indent return \$OCF\_SUCCESS\\
+\}\\
+
+
+\noindent zimbra\_stop()\\
+\{\\
+    \indent \# if Zimbra is not running return success\\
+    \indent if ! zimbra\_status; then\\
+        \indent \indent ocf\_log info ``Zimbra already stopped."\\
+        \indent \indent return \$OCF\_SUCCESS\\
+    \indent fi\\
+
+    \indent \# stop Zimbra\\
+    \indent command stop \\
+    \indent ret=\$?\\
+
+    \indent if [ -d /var/lock/subsys -a \$ret -eq 0 ]; then\\
+      \indent \indent rm -f /var/lock/subsys/zimbra\\
+    \indent fi\\
+
+    \indent if [ \$ret -ne 0 ]; then\\
+        \indent \indent ocf\_log err ``Zimbra returned an error while stopping." \$ret\\
+        \indent \indent return \$OCF\_ERR\_GENERIC\\
+    \indent fi\\
+
+    \indent \# grant some time for shutdown and recheck 5 times\\
+    \indent for i in 1 2 3 4 5; do\\
+        \indent \indent if zimbra\_status; then\\
+            \indent \indent \indent sleep 1\\
+        \indent \indent fi\\
+    \indent done\\
+
+    \indent \# escalate to abort if we did not stop by now\\
+    \indent if zimbra\_status; then\\
+        \indent \indent ocf\_log err ``Zimbra failed to stop. Escalating to `abort'."\\
+
+        \indent \indent ORPHANED=\textasciigrave ps -u \$\{zimbra\_user\} -o ``pid="` \&\& kill -9 \$ORPHANED 2\textgreater\&1\\
+        \indent \indent ret=\$?\\
+        \indent \indent sleep 10\\
+
+        \indent \indent \# zimbra abort did not succeed\\
+        \indent \indent if zimbra\_status; then\\
+            \indent \indent \indent ocf\_log err ``Zimbra failed to abort."\\
+            \indent \indent \indent return \$OCF\_ERR\_GENERIC\\
+        \indent \indent fi\\
+    \indent fi\\
+
+    \indent ocf\_log info ``Zimbra stopped."\\
+    \indent return \$OCF\_SUCCESS\\
+\}\\
+
+\noindent zimbra\_restart()\\
+\{\\
+    \indent if zimbra\_status; then\\
+        \indent \indent ocf\_log info ``Reloading Zimbra."\\
+        \indent \indent command restart\\
+    \indent fi\\
+\}\\
+
+\noindent zimbra\_monitor()\\
+\{\\
+    \indent if zimbra\_status; then\\
+        \indent \indent return \$OCF\_SUCCESS\\
+    \indent fi\\
+    \indent return \$OCF\_NOT\_RUNNING\\
+\}\\
+
+\noindent zimbra\_validate\_all()\\
+\{\\
+    \indent \# check zimbra\_dir parameter\\
+    \indent if [ ! -d ``\$zimbra\_dir" ]; then\\
+      \indent \indent ocf\_log err ``Zimbra directory `\$config\_dir' does not exist." \$ret\\
+      \indent \indent return \$OCF\_ERR\_INSTALLED\\
+    \indent fi\\
+    \indent \# check that the Zimbra binaries exist and can be executed\\
+    \indent if ! have\_binary ``\$\{zimbra\_dir\}/bin/\$\{binary\}" ; then\\
+      \indent \indent return \$OCF\_ERR\_INSTALLED\\
+    \indent fi\\
+
+    \indent \# check permissions\\
+    \indent user=\$\{zimbra\_user\}\\
+    \indent zimbra\_writable\_dirs=``\$\{zimbra\_dir\}/conf"\\
+    \indent for dir in ``\$zimbra\_writable\_dirs"; do\\
+        \indent \indent if ! su -s /bin/sh - \$user -c ``test -w \$dir"; then\\
+            \indent \indent \indent ocf\_log err ``Directory `\$dir' is not writable by user `\$user'."\\
+            \indent \indent \indent exit \$OCF\_ERR\_PERM;\\
+        \indent \indent fi\\
+    \indent done\\
+
+    \indent return \$OCF\_SUCCESS\\
+\}\\
+
+\noindent \#\\
+\# Main\\
+\#\\
+
+\noindent if [ \$\# -ne 1 ]; then\\
+    \indent usage\\
+    \indent exit \$OCF\_ERR\_ARGS\\
+fi\\
+
+\noindent binary=\$OCF\_RESKEY\_binary\\
+zimbra\_dir=\$OCF\_RESKEY\_zimbra\_dir\\
+zimbra\_user=\$OCF\_RESKEY\_zimbra\_user\\
+zimbra\_group=\$OCF\_RESKEY\_zimbra\_group\\
+parameters=\$OCF\_RESKEY\_parameters\\
+
+\noindent \# build Zimbra options string *outside* to access from each method\\
+OPTIONS=`'\\
+OPTION\_CONFIG\_DIR=`'\\
+
+\noindent \# check if the Zimbra config\_dir exist\\
+if [ ``x\$config\_dir" != ``x" ]; then\\
+    \indent \# check for postconf binary\\
+    \indent \#check\_binary ``\$\{zimbra\_dir\}/bin/\$\{binary\}"\\
+
+    \# remove all trailing slashes\\
+    \indent zimbra\_dir=\textasciigrave echo \$zimbra\_dir \textbar \ sed `s/\/*\$//'\textasciigrave \\
+fi\\
+
+\noindent case \$1 in\\
+    \indent meta-data)  meta\_data\\
+                \indent \indent \indent \indent exit \$OCF\_SUCCESS\\
+                \indent \indent \indent \indent ;;\\
+
+    \indent usage\textbar help) usage\\
+                \indent \indent \indent \indent exit \$OCF\_SUCCESS\\
+                \indent \indent \indent \indent ;;\\
+\noindent esac\\
+
+\noindent zimbra\_validate\_all\\
+ret=\$?\\
+
+\noindent LSB\_STATUS\_STOPPED=3\\
+if [ \$ret -ne \$OCF\_SUCCESS ]; then\\
+    \indent case \$1 in\\
+    \indent \indent stop)       exit \$OCF\_SUCCESS ;;\\
+    \indent \indent monitor)    exit \$OCF\_NOT\_RUNNING;;\\
+    \indent \indent status)     exit \$LSB\_STATUS\_STOPPED;;\\
+    \indent \indent *)          exit \$ret;;\\
+    \indent esac\\
+fi\\
+
+\noindent case \$1 in\\
+    \indent monitor)    zimbra\_monitor\\
+                \indent \indent exit \$?\\
+                \indent \indent ;;\\
+    \indent start)      zimbra\_start\\
+                \indent \indent exit \$?\\
+                \indent \indent ;;\\
+
+    \indent stop)       zimbra\_stop\\
+                \indent \indent exit \$?\\
+                \indent \indent ;;\\
+
+    \indent restart)     zimbra\_restart\\
+                \indent \indent exit \$?\\
+                \indent \indent ;;\\
+
+    \indent status)     if zimbra\_status; then\\
+                    \indent \indent \indent \indent ocf\_log info ``Zimbra is running."\\
+                    \indent \indent \indent \indent exit \$OCF\_SUCCESS\\
+                \indent \indent \indent else\\
+                    \indent \indent \indent \indent ocf\_log info ``Zimbra is stopped."\\
+                    \indent \indent \indent \indent exit \$OCF\_NOT\_RUNNING\\
+                \indent \indent \indent fi\\
+                \indent \indent \indent ;;\\
+
+    \indent validate-all)   exit \$OCF\_SUCCESS;;\\
+
+    \indent *)          usage\\
+                \indent \indent exit \$OCF\_ERR\_UNIMPLEMENTED;;\\
+esac
 
 \end{document}

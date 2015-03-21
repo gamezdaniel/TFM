@@ -160,9 +160,53 @@ http://h20564.www2.hp.com/hpsc/doc/public/display?docId=emr_na-c02199685
 4. METHODOLOGY
     - Qualitative/Quantitative Research Methods to select the technologies used
 
-    ?. OpenBRR...?
+
+Collecting and read as much information related to the project is available and select the appropriate solution from a matching set that fulfill the requirements.
 
 
+
+
+Resultaria ideal poder comparar un conjunto de herramientas de FLOSS que solventen las necesidades de los requerimientos pleanteados, ..perform a an assessment over them.. y elegir el software mas adecuado. 
+
+replicacion de disco (a nivel de bloques) para obtener redundancia de datos
+
+* DRBD = maneja el recurso compartido que vendria siendo el FS /opt
+  HA clusters with block-level asynchronous replication
+
+  Alternatives:
+
+    SAN: are great in terms of management, even though they’re sometimes prohibitively expensive.
+    You’re dealing with a single point of failure. SAN box does not offer physically distributed redundancy at the data level.
+
+    RAID: host-based mirroring between a local device, and a network block device.
+
+
+En efecto existen metodologias especializadas para evaluacion de proyectos de FLOSS tales como OpenBRR, QSoS o QualOSS que lo permiten, sin embargo en el area de HA la diversidad de soluciones basadas en FLOSS disponibles en la actualidad es escaza.
+
+A medida que estas soluciones evolucionen y exista una mayor competencia para su desarrollo, sin duda sera oportuno hacer una comparativa entre los distintos tipos de software (FLOSS) que provean...
+
+Pero por el momento la eleccion de las herramientas a utilizar se limita a ..?
+
+
+Two separate groups:
+- one mostly concerned with the cluster messaging
+- one concerned with cluster resources
+
+* Heartbeat: messaging mechanism, keeping the status of each node. Included Cluster Resource Manager (a process to manage services), but was removed and evolved into its own project known as Pacemaker.
+
+Development of heartbeat has slowed down and so now (according to pacemaker's website) corosync is considered the superior service.
+
+* Pacemaker = Se encarga de llevar los recursos, (FS, Servicios, archivos, direcciones IP) es decir los gestiona para pasarlos de un servidor a otro. Pacemaker works as a resource manager for either of these two projects (Heartbeat & Corosync).
+
+* Corosync = es el mediador que se encarga con ayuda de agentes de heartbeat de velar que los nodos esten arriba.
+A competing cluster messaging layer software (also known as Group Communication System) was born which added functionality over heartbeat.
+
+Two clustering configurations to choose:
+Heartbeat + Pacemaker
+Corosync + Pacemaker
+
+
+    
 5. ARCHITECTURE
 
     5.1. Netnovation...?

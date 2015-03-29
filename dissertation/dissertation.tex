@@ -111,6 +111,7 @@ These are the Acknowledgements..
 \addcontentsline{toc}{chapter}{Terminology}
 
 \begin{itemize}[label={}]
+	\item API: Application Programming Interface
 	\item CLI: Command Line Interface
 	\item cLVM: clustered Logical Volume Manager
 	\item CPU: Central Process Unit
@@ -362,6 +363,8 @@ This is an integrated suite of clustering technologies that enables the implemen
 \section{High availability F$\ell$OSS based tools}
 \label{sec:hafloss}
 
+% *** Include professional support offered by these software vendors ***
+
 Some of these tools are possibly part of the enterprise products mentioned before, but they do not necessarily have an infrastructure providing corporate-oriented services. Either way, some of these F$\ell$OSS technologies are backed by professional support over their standalone software, giving rise to business models such as product specialists~\cite{Daffara1}.\bigskip
 
 \noindent To understand the comprehensive solution that these tools are capable to provide, it is appropriate to understand briefly how an HA cluster works and how its components have evolved since the appearance of this concept.\bigskip
@@ -372,34 +375,88 @@ Some of these tools are possibly part of the enterprise products mentioned befor
 
 \noindent One of the earliest tools who managed this task was Heartbeat, as a daemon installed on each node, able to \textit{talk} to the other ones and share cluster related information. This task was referred to as the Cluster Messaging Layer or Group Communication System.\bigskip
 
-\noindent Another important branch evolved, focused on the service or group of resources that the cluster is supposed to provide, for which Heartbeat incorporated a Cluster Resource Manager (CRM). A process to manage software resources, making use of scripts known as \textit{resource agents} responsible to perform actions depending on the status of each node.\bigskip
+\noindent Another important branch evolved, focused on the service or group of resources that the cluster is supposed to provide, for which Heartbeat incorporated a Cluster Resource Manager (CRM). A process to manage software resources, making use of scripts known as \textit{Resource Agents} responsible to perform actions depending on the status of each node.\bigskip
 
-\noindent With these two distinct groups, one mostly concerned with the cluster messaging, and the other concerned with cluster resources, begins an important race of technologies looking for specialization on each area.\bigskip
+\noindent With these two distinct groups, one mostly concerned with the cluster messaging, and the other concerned with cluster resources, begins an important race of technologies seeking specialization on each area.\bigskip
 
-
-\noindent Heartbeat, part of the Linux-HA project, was first released in 1999 under GNU GPL and GNU LGPL license, maintaining a set of building blocks for high availability cluster systems, including a cluster messaging layer, a bunch of resource agents for a variety of applications, a plumbing library and error reporting toolkit. Around 2007 this project evolved to Pacemaker, integrating or allowing interaction with multiple F$\ell$OSS cluster stacks such as Corosync and OCF.\bigskip
+\noindent Heartbeat, part of the Linux-HA project, was first released in 1999 under GNU GPL and GNU LGPL license, maintaining a set of building blocks for high availability cluster systems, including a cluster messaging layer, a bunch of resource agents for a variety of applications, a plumbing library and an error reporting toolkit. Around 2007 this project evolved to Pacemaker, integrating or allowing interaction with multiple F$\ell$OSS cluster stacks such as Corosync and OCF.\bigskip
 
 \noindent Nowadays Pacemaker is a resource manager responsible for starting and stopping cluster services in a proper way. Combined with other tools is able to detect service-level failures and move resources between cluster nodes as needed, to ensure the smooth operation of the services.\bigskip
 
-\noindent Corosync is responsible for cluster membership, message passing and quorum, using the totem protocol 
+\noindent On the other hand Corosync is responsible for cluster membership, message passing and quorum, using the totem protocol 
 for heartbeat, monitoring other node's health.\bigskip
 
-% OpenAIS?
+\noindent Technologies such as OpenAIS (a software API) also compete into the HA race. It is a F$\ell$OSS implementation of the Application Interface Specification released under the terms of the Artistic License\footnote{http://opensource.org/licenses/Artistic-2.0}, used to define how HA applications work together, trying to mask hardware, operating system, middleware and application-level failures.
 
-% Mention FLOSS Cluster Managers (http://en.wikipedia.org/wiki/Cluster_manager)
-% Apache Mesos
-% Keepalived
-% Linux Cluster Manager (LCM)
-% oneSIS
-% Rocks Cluster Distribution
-% SCMS.pro
-% Ultra Monkey
-% YARN
-% xCAT
+As in enterprise HA solutions, Cluster Managers are an important element within HA implementations, providing backend GUI or CLI software that runs on one or all cluster nodes, responsible for managing and controlling clustered services. Currently there are several F$\ell$OSS alternatives, including the ones listed in Table~\ref{table:cluster_managers}.
 
-% Include professional support offered by these software vendors
 
-\noindent DRBD works on top of block devices, such as hard disk partitions or LVM logical volumes, mirroring each data block that it is written to disk to the peer node. 
+
+Apache Mesos	
+  Apache License Version 2.0
+  http://mesos.apache.org/
+  
+Keepalived	
+  GNU GPL v2+
+  http://keepalived.sourceforge.net/
+  
+Linux Cluster Manager	
+  GNU GPL
+  http://linuxcm.sourceforge.net/
+
+oneSIS	
+  GNU GPL v2
+  http://onesis.org/
+
+Rocks Cluster Distribution	
+  BSD 3-Cluase like
+  http://www.rocksclusters.org/
+
+SCMS.pro	
+  Apache 2 License
+  http://www.scms.pro/
+
+Ultra Monkey
+    LGPLv2
+    http://www.ultramonkey.org/
+
+xCAT
+  Eclipse Public License
+  http://xcat.org/
+
+% *** STORAGE ***
+
+Apache Hadoop
+  http://hadoop.apache.org/
+  Apache License 2
+
+DRBD
+  
+  
+GFS
+  http://sourceware.org/cluster/gfs/
+  GPL
+  
+GlusterFS
+  http://www.gluster.org/  
+  GPLv3
+
+Lustre FS
+  http://lustre.org/
+  GPL
+
+MooseFS
+  https://moosefs.com/
+  GPLv2
+  
+OCFS2 (Oracle Cluster File System)
+  https://oss.oracle.com/projects/ocfs2/
+  GPL
+
+XtreemFS
+  http://www.xtreemfs.org/
+  BSD License
+
 
 
 %=====================================
@@ -535,7 +592,7 @@ The following software tools represent the key elements on which it has been pos
 	\item Distributed Replicated Block Device (DRBD)
 \end{itemize}
 
-\noindent A distributed replicated storage system for Linux, implemented as several userspace management applications and shell scripts, used to provide data redundancy. DRBD software is F$\ell$OSS released under the terms of the GNU GPLv2. 
+\noindent A distributed replicated storage system for Linux, implemented as several userspace management applications and shell scripts, used to provide data redundancy. works on top of block devices, such as hard disk partitions or LVM logical volumes, mirroring each data block that it is written to disk to the peer node.
 
 \begin{itemize}
 	\item Corosync

@@ -1,3 +1,5 @@
+% LaTeX template for the final master thesis
+
 \documentclass[a4paper, 12pt]{book}
 \usepackage[a4paper, left=2.5cm, right=2.5cm, top=3cm, bottom=3cm]{geometry}
 \usepackage{array}
@@ -132,6 +134,7 @@ These are the Acknowledgements..
 	\item OBS: openSUSE Build Service
 	\item OCF: Open Cluster Framework
 	\item OCFS: Oracle Cluster File System
+	\item OpenBRR: Open Business Readiness Rating
 	\item OS: Operating System
 	\item PBX: Private Branch Exchange
 	\item RHEL: Ret Hat Enterprise Linux
@@ -174,7 +177,7 @@ These are the Acknowledgements..
 
 \noindent Chapter 3 describing the most relevant related technologies around the possible solutions.\bigskip
 
-\noindent Chapter 4 establishing the used methodology, supported by guidelines proposed by Carlo Daffara and the Lazy User model.\bigskip
+\noindent Chapter 4 establishing the used methodology, supported by the OpenBRR and the Lazy User models.\bigskip
 
 \noindent Chapter 5 showing the architecture of the company and its infrastructure, available hardware for operations, the network scheme, and an overview of the software supporting the current situation, all of this in order to understand how to adapt an actual solution.\bigskip
 
@@ -387,8 +390,7 @@ for heartbeat, monitoring other node's health.\bigskip
 
 \noindent As in enterprise HA solutions, Cluster Managers are an important element within HA implementations, providing backend GUI or CLI software that runs on one or all cluster nodes, responsible for managing and controlling clustered services. Currently there are several F$\ell$OSS alternatives, including the ones listed in Table~\ref{table:cluster_managers}.
 
-\FloatBarrier
-\begin{table}[H]
+\begin{table}
   \centering
   \begin{tabular}{ | r m{10cm} | }
 
@@ -437,18 +439,6 @@ for heartbeat, monitoring other node's health.\bigskip
     Description: &  \\
     Commercial support: &  \\
     
-    \hline
-  \end{tabular}
-\label{table:cluster_managers_1}
-\end{table}
-
-\hfill\break
-
-\FloatBarrier
-\begin{table}[H]
-  \centering
-  \begin{tabular}{ | r m{10cm} | }
-  
     \hline    
     \multicolumn{2}{|c|}{\textbf{SCMS.pro}}\\
     \hline
@@ -483,10 +473,12 @@ for heartbeat, monitoring other node's health.\bigskip
 \end{table}
 
 
-\noindent The cluster oriented filesystems are another key element regarding HA implementations. They provide data replication and fault tolerance, allowing operations continuity against incidents. There are several F$\ell$OSS alternatives to provide clustered storage, including the tools listed in Table~\ref{table:cluster_filesystems}. One of the most consolidated clustered storage technologies is DRBD, first released in 1999, it will be aborded in Chapter~\ref{chap:implemented}.
+% *** STORAGE ***
+\noindent The cluster oriented filesystems are another key element regarding HA implementations. They provide data replication and fault tolerance, allowing operations continuity against incidents.
 
-%\FloatBarrier
-\begin{table}[H]
+\noindent There are also several F$\ell$OSS alternatives to provide clustered storage, including the tools listed in Table~\ref{table:cluster_filesystems}. One of the most consolidated clustered storage technologies is DRBD, first released in 1999, it will be aborded in Chapter~\ref{chap:implemented}.
+
+\begin{table}
   \centering
   \begin{tabular}{ | r m{10cm} | }
 
@@ -507,16 +499,6 @@ for heartbeat, monitoring other node's health.\bigskip
     Website: & http://sourceware.org/cluster/gfs/ \\
     Description: &  \\
     Commercial support: &  \\
-    
-    \hline
-  \end{tabular}
-\label{table:cluster_filesystems_1}
-\end{table}
-
-\FloatBarrier
-\begin{table}[H]
-  \centering
-  \begin{tabular}{ | r m{10cm} | }
 
     \hline
     \multicolumn{2}{|c|}{\textbf{GlusterFS}}\\
@@ -562,10 +544,10 @@ for heartbeat, monitoring other node's health.\bigskip
     Website: & http://www.xtreemfs.org/ \\
     Description: &  \\
     Commercial support: &  \\
-    \hline    
     
+    \hline
   \end{tabular}
-\caption{F$\ell$OSS Cluster Storage Technologies}
+\caption{F$\ell$OSS Clustered Storage Technologies}
 \label{table:cluster_filesystems}
 \end{table}
 
@@ -578,7 +560,9 @@ for heartbeat, monitoring other node's health.\bigskip
 
 The followed roadmap to achieve the objectives outlined is a set of guidelines and suggestions for the adoption of F$\ell$OSS within SMEs~\cite{Daffara1}, in the sense that a methodology is not an exact formula but a set of practices. At using this model, companies find a supporting guide from the initial selection and adoption of F$\ell$OSS within the IT infrastructure and even to the consolidation of business models around open source.\bigskip
 
-\noindent On the one hand, the guidelines proposed by Daffara suggest a research method by collecting and read as much information related to the project is available and select the appropriate solution from a matching set that fulfill the requirements. On the other hand, following a practical formal approach, applying a model of technology acceptance such as the Lazy User Model (LUM)~\cite{CandT1} is possible to frame the process by which are chosen the technological tools that will make up the solution that meets user requirements, which in this case is being represented by the company Netnovation. This model focuses on user needs and the demanded effort when selecting a solution to a problem from a set of possible solutions, ``According to the lazy user model, a user is likely to choose the solution that requires the least effort. The user examines this cost in terms of time, energy and money when considering how to use a new solution."~\cite{CandT2} The LUM proposes that technology acceptance is impacted by this principle.\bigskip
+\noindent On the one hand, the guidelines proposed by Daffara suggest a research method by collecting and read as much information related to the project is available and select the appropriate solution from a matching set that fulfill the requirements. On the other hand this dissertation also contemplates an open and standard framework to select the technologies to be used, this is the light weight model OpenBRR~\cite{Wasserman}, which performs a quick and flexible assessment over software tools considered.\bigskip
+
+\noindent Additionally, and following a practical formal approach, applying a model of technology acceptance such as the Lazy User Model (LUM)~\cite{CandT1} is possible to frame the process by which are chosen the technological tools that will make up the solution that meets user requirements, which in this case is being represented by the company Netnovation. This model focuses on user needs and the demanded effort when selecting a solution to a problem from a set of possible solutions, ``According to the lazy user model, a user is likely to choose the solution that requires the least effort. The user examines this cost in terms of time, energy and money when considering how to use a new solution."~\cite{CandT2} The LUM proposes that technology acceptance is impacted by this principle.\bigskip
 
 
 
@@ -819,7 +803,7 @@ Table~\ref{table:fqdn} shows the current configuration for the virtual IP addres
 \label{table:fqdn}
 \end{table}
 
-\noindent On both nodes, /etc/hosts file should contain at least the entries described in Table~\ref{table:hosts}:
+\noindent On both nodes, /etc/hosts file should contain at least the entries described in Table~\ref{table:hosts} :
 
 \FloatBarrier
 \begin{table}[H]
@@ -1580,52 +1564,15 @@ The following actions must be performed sequentially on \textit{\textbf{astapor}
 \chapter{Results and discussion}
 \label{chap:results}
 
-When 
-
-
-
-
-Results presents the evidence and/or results of primary research which you have undertaken:
-
-- Results section should set out your key experimental results, including any statistical analysis and whether or not the results of these are significant
-
-- should cover any literature supporting your interpretation of significance
-
-- You should write your results section in the past tense: you are describing what you have done in the past
-
-- Having decided what to include, next decide what order to use. You could choose chronological, which should follow the methods, or in order from most to least important in the answering of your research questions, or by research question and/or hypothesis
-
-
-Discussion section has four purposes:
-
-- Interpret and explain your results
-
-- Answer your research question
-
-- Justify your approach
-
-- Critically evaluate your study
-
--  written in the present tense
-
-- review your findings in the context of the literature and the existing knowledge about the subject.
-
-- demonstrate that you understand the limitations of your research and the implications of your findings for policy and practice
-
-
-
-
+This chapter presents the evidence and/or results of primary research which you have undertaken
 
 \noindent Presented in the form of:\\
 
-- hypothesis testing to analysis suggested by guidelines for the adoption of F$\ell$OSS within SMEs (Daffara)\\
+\noindent - hypothesis testing to analysis suggested by guidelines for the adoption of F$\ell$OSS within SMEs (Daffara), search method by collecting and read as much information related to the project is available and select the appropriate solution from a matching set that fulfill the requirements\\
 
-- search method by collecting and read as much information related to the project is available and select the appropriate solution from a matching set that fulfill the requirements\\
+\noindent - Detailed quantitative model OpenBRR, quick and flexible assessment over software tools considered\\
 
-- Lazy User Model, frame the process by which are chosen the technological tools that will make up the solution that meets user requirements. This model focuses on user needs and the demanded effort when selecting a solution to a problem from a set of possible solutions
-
-- identify as significant results, patterns and focus from the primary research data you have collected
-
+\noindent - Lazy User Model, frame the process by which are chosen the technological tools that will make up the solution that meets user requirements. This model focuses on user needs and the demanded effort when selecting a solution to a problem from a set of possible solutions
 
 
 %=====================================

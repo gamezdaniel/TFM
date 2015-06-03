@@ -578,9 +578,12 @@ for heartbeat, monitoring other node's health.\bigskip
 
 The followed roadmap to achieve the objectives outlined is a set of guidelines and suggestions for the adoption of F$\ell$OSS within SMEs~\cite{Daffara1}, in the sense that a methodology is not an exact formula but a set of practices. At using this model, companies find a supporting guide from the initial selection and adoption of F$\ell$OSS within the IT infrastructure and even to the consolidation of business models around open source.\bigskip
 
-\noindent On the one hand, the guidelines proposed by Daffara suggest a research method by collecting and read as much information related to the project is available and select the appropriate solution from a matching set that fulfill the requirements. On the other hand, following a practical formal approach, applying a model of technology acceptance such as the Lazy User Model (LUM)~\cite{CandT1} is possible to frame the process by which are chosen the technological tools that will make up the solution that meets user requirements, which in this case is being represented by the company Netnovation. This model focuses on user needs and the demanded effort when selecting a solution to a problem from a set of possible solutions, ``According to the lazy user model, a user is likely to choose the solution that requires the least effort. The user examines this cost in terms of time, energy and money when considering how to use a new solution."~\cite{CandT2} The LUM proposes that technology acceptance is impacted by this principle.\bigskip
+\noindent On the one hand, the guidelines proposed by Daffara suggest a research method by collecting and read as much information related to the project is available and select the appropriate solution from a matching set that fulfill the requirements. On the other hand, following a practical formal approach, applying a model of technology acceptance such as the Lazy User Model (LUM)~\cite{CandT1} is possible to frame the process by which are chosen the technological tools that will make up the solution that meets user requirements, which in this case is being represented by the company Netnovation. This model focuses on user needs and the demanded effort when selecting a solution to a problem from a set of possible solutions, ``According to the lazy user model, a user is likely to choose the solution that requires the least effort. The user examines this cost in terms of time, energy and money when considering how to use a new solution."~\cite{CandT2} The LUM proposes that technology acceptance is impacted 
+by this principle.\bigskip
 
+\noindent Additionally at using MetricsGrimoire~\cite{GSyC}, a flexible toolset which allow to obtain data from repositories related to software development, is possible to analyze databases that can later be mined for specific patterns or summaries of activity, allowing to establish objective comparisons in relation to the projects analyzed.
 
+% python, matplotlib ?
 
 %=====================================
 % ARCHITECHTURE
@@ -1580,51 +1583,63 @@ The following actions must be performed sequentially on \textit{\textbf{astapor}
 \chapter{Results and discussion}
 \label{chap:results}
 
-When 
+In the initial research over the internet, main F$\ell$OSS web-based source code repositories were consulted (listed in alphabetical order) in order to review the state of the art regarding F$\ell$OSS tools that could fit the requirements. However many of the related projects were currently hosted in Github.
 
+\begin{itemize}
+	\item BerliOS (berlios.de)
+	\item BountySource (bountysource.com)
+	\item GitHub (github.com)
+	\item Gitorious (gitorious.org)
+	\item GNU Savannah (savannah.gnu.org)
+	\item Launchpad (launchpad.net)
+	\item SourceForge (sourceforge.net)
+\end{itemize}
 
+\noindent Since the desired solution was corporate oriented and focused on a GNU/Linux distribution, official websites and documentation were browsed for Hewlett Packard, Redhat Enterprise Linux and SuSE Linux Enterprise Server:
 
+\begin{itemize}
+	\item ``HP Serviceguard sglx for Linux Deployment Guide". Hewlett Packard Co.\\
+	      DOI=http://www.hp.com/go/sglx/info
+	\item ``Red Hat Enterprise Linux 6 Cluster Administration". Red Hat, Inc. and others, 2014.\\
+	      DOI=https://access.redhat.com/documentation/en-US/Red\_Hat\_Enterprise\_Linux/6/html-single/ \textbackslash \\
+	      Cluster\_Administration
+	\item Roth T. and Schraitle T. ``SUSE Linux Enterprise High Availability Extension". Novell Inc, 2014.\\
+	      https://www.suse.com/documentation\\
+	      https://en.opensuse.org/openSUSE:High\_Availability
+\end{itemize}
 
-Results presents the evidence and/or results of primary research which you have undertaken:
+\noindent Also documentation from each individual F$\ell$OSS product:
 
-- Results section should set out your key experimental results, including any statistical analysis and whether or not the results of these are significant
+\begin{itemize}
+	\item DRBD: Haas F., Reisner P. and Ellenberg L. ``The DRBD User's Guide". LINBIT Information Technologies GmbH and LINBIT HA Solutions GmbH. 2011.
+	\item Linux-HA: Haas, Florian. ``The Linux-HA User's Guide". LINBIT HA-Solutions GmbH, The Linux-HA Project. 2010. \\
+	DOI=http://www.linux-ha.org/wiki/MainPage
+	\item Pacemaker: ``A scalable High Availability cluster resource manager". ClusterLabs. \\
+	DOI=http://clusterlabs.org/wiki/MainPage
+	\item OCF: Haas, Florian. ``The OCF Resource Agent Developer's Guide". LINBIT HA-Solutions GmbH, Novell, Inc., SUSE Linux GmbH, hastexo Professional Services GmbH. 2011. \\
+        DOI=http://www.linux-ha.org/doc/dev-guides/ra-dev-guide.html
+\end{itemize}
 
-- should cover any literature supporting your interpretation of significance
+\noindent Also specific related work was founded, such as:
 
-- You should write your results section in the past tense: you are describing what you have done in the past
+\begin{itemize}
+	\item Gibanel Lopez, Adrian. ``Zimbra 8 High Availability on Ubuntu 12.04". Universitat de Lleida. 2013. DOI=http://repositori.udl.cat/bitstream/handle/10459.1/46685/agibanell.pdf
+	\item OCF zimbra script: https://github.com/adrian15/hazimbra-thesis/blob/master/ocf/zimbra
+	\item Miguel Vidal Lopez, Jose Castro Luis. ``Creacion de un cluster de alta disponibilidad con software libre". Novatica Journal. Nro 210. 2011. \\
+	DOI=http://www.ati.es/novatica/2011/209/Nv209-75.pdf
+\end{itemize}
 
-- Having decided what to include, next decide what order to use. You could choose chronological, which should follow the methods, or in order from most to least important in the answering of your research questions, or by research question and/or hypothesis
+\noindent Pending content..\\
+- Analysing Libre Software communities~\cite{IandR}\\
+- MetricsGrimoire~\cite{GSyC}\\
+- Collaboration to community: http://community.zimbra.com/collaboration/f/1888/t/1136032\\
 
+\noindent The analysis suggested by Carlo Daffara~\cite{Daffara1} through his guidelines for the adoption of F$\ell$OSS within SMEs has proved tremendously useful in the process of selecting and evaluate new tools among the vast amount of existent alternatives in the market.\bigskip
 
-Discussion section has four purposes:
+\noindent The proposed hypothesis of a search method by collecting and read as much information related to the project is available, results on the one hand, a task very well supported by the Internet facilities and lots of information available both officially and unofficially in the Web. Though on the other hand, this amount of information is not always available in an organized or easy way to digest, leading to an extensive analysis on many occasions that the companies are not willing to invest.\bigskip
 
-- Interpret and explain your results
+\noindent To deal with the latter fact, the Lazy User Model leverages the process by which are elected the technological tools that represent the appropriate solution and fulfill the user requirements. 
 
-- Answer your research question
-
-- Justify your approach
-
-- Critically evaluate your study
-
--  written in the present tense
-
-- review your findings in the context of the literature and the existing knowledge about the subject.
-
-- demonstrate that you understand the limitations of your research and the implications of your findings for policy and practice
-
-
-
-
-
-\noindent Presented in the form of:\\
-
-- hypothesis testing to analysis suggested by guidelines for the adoption of F$\ell$OSS within SMEs (Daffara)\\
-
-- search method by collecting and read as much information related to the project is available and select the appropriate solution from a matching set that fulfill the requirements\\
-
-- Lazy User Model, frame the process by which are chosen the technological tools that will make up the solution that meets user requirements. This model focuses on user needs and the demanded effort when selecting a solution to a problem from a set of possible solutions
-
-- identify as significant results, patterns and focus from the primary research data you have collected
 
 
 
@@ -1636,7 +1651,8 @@ Discussion section has four purposes:
 
 Text..
 
-
+As future work:
+- OpenBRR, QSoS, QualOSS, 
 
 
 

@@ -316,6 +316,104 @@ pcs \ resource \ create \ VIP1 \ IPaddr2 \ ip=172.17.18.190 \ \textbackslash \\
 
 7. RESULTS AND DISCUSSION
 
+--------
+Results presents the evidence and results of primary research which you have undertaken:
+
+- This section should set out your key experimental results, including any statistical analysis and whether or not the results of these are significant
+
+- should cover any literature supporting your interpretation of significance
+
+- You should write your results section in the past tense: you are describing what you have done in the past
+
+- Having decided what to include, next decide what order to use. You could choose chronological, which should follow the methods, or in order from most to least important in the answering of your research questions, or by research question and/or hypothesis
+
+
+Discussion section has four purposes:
+
+  - Interpret and explain your results
+
+  - Answer your research question
+
+  - Justify your approach
+
+  - Critically evaluate your study
+
+  -  written in the present tense
+
+  - review your findings in the context of the literature and the existing knowledge about the subject.
+
+  - demonstrate that you understand the limitations of your research and the implications of your findings for policy and practice
+--------
+
+- LUM: This model focuses on user needs and the demanded effort when selecting a solution to a problem from a set of possible solutions
+- Results: identify as significant results, patterns and focus from the primary research data you have collected
+
+MetricsGrimoire metrics toolset.
+In particular, among the MetricsGrimoire tools, following have been used: CVSanalY
+
+GSyC LibreSoft (Universidad Rey Juan Carlos). Bitergia. http://metricsgrimoire.github.io/
+
+
+Python, matplotlib [mat14a], has been used to generate graphics for certain metrics.
+A python 2d plotting library. 2014. http://matplotlib.org.
+
+
+Tools and metrics: Page 106 Sergio's TFM.
+
+MetricsGrimoire is a toolset to obtain data from repositories related to software development: source code management, issue tracking systems, mailing lists, etc. 
+
+Data and metadata about the software development processes is retrieved from those repositories (information about commits, ticket management, communication in mailing lists, etc.), and then organized and stored into SQL databases that can later be mined for specific patterns or summaries of activity.
+
+
+
+Developers with the most number of commits:
+SELECT p.name, count(distinct(s.id)) from people p, scmlog s where p.id=s.author_id GROUP BY p.name order by count(distinct(s.id)) desc;
+
+Developers who have modified most different files during the whole proyect history:
+SELECT p.name, count(distinct(a.file_id)) FROM people p, scmlog s, actions a WHERE a.commit_id=s.id AND s.author_id=p.id GROUP BY p.name ORDER BY COUNT(distinct(a.file_id)) desc;
+
+Number of files modified only by one developer:
+SELECT COUNT(p.email) FROM scmlog s, people p, file_links fl WHERE fl.commit_id=s.id AND s.committer_id=p.id GROUP BY fl.file_path HAVING COUNT(p.email)=1;
+
+Number of messages for year 20xy:
+SELECT count(*) FROM messages where year(first_date) = 2013;
+
+Number of commiters in year 2012:
+SELECT COUNT(s.id) FROM scmlog s, people p WHERE YEAR(s.date)="2012" AND s.committer_id=p.id;
+
+Number of commiters in the last month (November 2013):
+SELECT COUNT(DISTINCT(p.id)) FROM scmlog s, people p WHERE s.committer_id=p.id AND YEAR(s.date)="2013" AND MONTH(s.date)="11";
+
+Number of commits in the last month (November 2013):
+SELECT COUNT(s.id) FROM scmlog s, people p WHERE s.committer_id=p.id AND YEAR(s.date)="2013" AND MONTH(s.date)="11";
+
+Top 20 committers in the project:
+  select p.name, count(distinct(s.id)) as "Number of commits" 
+  from people p, scmlog s where p.id=s.author_id group by p.name
+  order by count(distinct(s.id)) desc LIMIT 20;
+
+  
+  Corosync:
+  git clone https://github.com/corosync/corosync
+
+  mysql -uroot
+  create database cvsanaly_corosync;
+  exit
+  cd /path/to/cloned/dir
+  cvsanaly2 --db-database=cvsanaly_corosync
+
+  
+  DRBD:
+  git://git.drbd.org/drbd-8.4.git
+
+  Pacemaker:
+    mysql
+    create database cvsanaly_
+    git clone https://github.com/ClusterLabs/pacemaker
+    cd pacemaker/
+    cvsanaly2 -u root -d cvsanaly_pacemaker
+
+
 8. CONCLUSIONS AND FUTURE WORK
 
 REFERENCES
@@ -365,4 +463,3 @@ Hewlett-Packard. Data sheet HP Serviceguard Solutions for Linux. Hewlett-Packard
 http://h20195.www2.hp.com/v2/GetDocument.aspx?docname=4AA4-1792ENW&doctype=data%20sheet&doclang=EN_US
 
 http://opensource.com/resources/ebooks
-

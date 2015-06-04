@@ -343,27 +343,16 @@ Discussion section has four purposes:
   - review your findings in the context of the literature and the existing knowledge about the subject.
 
   - demonstrate that you understand the limitations of your research and the implications of your findings for policy and practice
+  
 --------
-
-- LUM: This model focuses on user needs and the demanded effort when selecting a solution to a problem from a set of possible solutions
-- Results: identify as significant results, patterns and focus from the primary research data you have collected
-
-MetricsGrimoire metrics toolset.
-In particular, among the MetricsGrimoire tools, following have been used: CVSanalY
-
-GSyC LibreSoft (Universidad Rey Juan Carlos). Bitergia. http://metricsgrimoire.github.io/
-
 
 Python, matplotlib [mat14a], has been used to generate graphics for certain metrics.
 A python 2d plotting library. 2014. http://matplotlib.org.
 
-
 Tools and metrics: Page 106 Sergio's TFM.
 
-MetricsGrimoire is a toolset to obtain data from repositories related to software development: source code management, issue tracking systems, mailing lists, etc. 
 
-Data and metadata about the software development processes is retrieved from those repositories (information about commits, ticket management, communication in mailing lists, etc.), and then organized and stored into SQL databases that can later be mined for specific patterns or summaries of activity.
-
+- Collaboration to community: http://community.zimbra.com/collaboration/f/1888/t/1136032
 
 
 Developers with the most number of commits:
@@ -412,6 +401,7 @@ Top 20 committers in the project:
     git clone https://github.com/ClusterLabs/pacemaker
     cd pacemaker/
     cvsanaly2 -u root -d cvsanaly_pacemaker
+
 
 
 8. CONCLUSIONS AND FUTURE WORK

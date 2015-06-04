@@ -1583,11 +1583,13 @@ The following actions must be performed sequentially on \textit{\textbf{astapor}
 \chapter{Results and discussion}
 \label{chap:results}
 
-In the initial research over the internet, main F$\ell$OSS web-based source code repositories were consulted (listed in alphabetical order) in order to review the state of the art regarding F$\ell$OSS tools that could fit the requirements. However many of the related projects were currently hosted in Github.
+In the initial research over internet, main F$\ell$OSS source code repositories were consulted (listed bellow alphabetically) in order to review the state of the art regarding tools that could fit the requirements. Most of the related projects were currently hosted in Github. It is worth noting important work in this area such as the ``Study of available tools"~\cite{FMC} by the FLOSSMetrics Consortium.
 
 \begin{itemize}
 	\item BerliOS (berlios.de)
 	\item BountySource (bountysource.com)
+	\item FLOSSMetrics (flossmetrics.org)
+	\item FLOSSmole (ossmole.sourceforge.net)
 	\item GitHub (github.com)
 	\item Gitorious (gitorious.org)
 	\item GNU Savannah (savannah.gnu.org)
@@ -1595,12 +1597,12 @@ In the initial research over the internet, main F$\ell$OSS web-based source code
 	\item SourceForge (sourceforge.net)
 \end{itemize}
 
-\noindent Since the desired solution was corporate oriented and focused on a GNU/Linux distribution, official websites and documentation were browsed for Hewlett Packard, Redhat Enterprise Linux and SuSE Linux Enterprise Server:
+\noindent Since the desired solution was corporate oriented and focused on a GNU/Linux distribution, official websites and documentation were browsed for Hewlett Packard, Redhat Enterprise Linux and SuSE Linux Enterprise Server.
 
 \begin{itemize}
 	\item ``HP Serviceguard sglx for Linux Deployment Guide". Hewlett Packard Co.\\
 	      DOI=http://www.hp.com/go/sglx/info
-	\item ``Red Hat Enterprise Linux 6 Cluster Administration". Red Hat, Inc. and others, 2014.\\
+	\item ``Red Hat Enterprise Linux 6 Cluster Administration". Red Hat Inc. et al, 2014.\\
 	      DOI=https://access.redhat.com/documentation/en-US/Red\_Hat\_Enterprise\_Linux/6/html-single/ \textbackslash \\
 	      Cluster\_Administration
 	\item Roth T. and Schraitle T. ``SUSE Linux Enterprise High Availability Extension". Novell Inc, 2014.\\
@@ -1611,7 +1613,8 @@ In the initial research over the internet, main F$\ell$OSS web-based source code
 \noindent Also documentation from each individual F$\ell$OSS product:
 
 \begin{itemize}
-	\item DRBD: Haas F., Reisner P. and Ellenberg L. ``The DRBD User's Guide". LINBIT Information Technologies GmbH and LINBIT HA Solutions GmbH. 2011.
+	\item DRBD: Haas F., Reisner P., Ellenberg L. et al. ``The DRBD User's Guide". LINBIT Information Technologies GmbH and LINBIT HA Solutions GmbH. 2011.\\
+	DOU=https://drbd.linbit.com/users-guide
 	\item Linux-HA: Haas, Florian. ``The Linux-HA User's Guide". LINBIT HA-Solutions GmbH, The Linux-HA Project. 2010. \\
 	DOI=http://www.linux-ha.org/wiki/MainPage
 	\item Pacemaker: ``A scalable High Availability cluster resource manager". ClusterLabs. \\
@@ -1620,25 +1623,41 @@ In the initial research over the internet, main F$\ell$OSS web-based source code
         DOI=http://www.linux-ha.org/doc/dev-guides/ra-dev-guide.html
 \end{itemize}
 
-\noindent Also specific related work was founded, such as:
+\noindent Also specific related work was found, such as:
 
 \begin{itemize}
 	\item Gibanel Lopez, Adrian. ``Zimbra 8 High Availability on Ubuntu 12.04". Universitat de Lleida. 2013. DOI=http://repositori.udl.cat/bitstream/handle/10459.1/46685/agibanell.pdf
 	\item OCF zimbra script: https://github.com/adrian15/hazimbra-thesis/blob/master/ocf/zimbra
-	\item Miguel Vidal Lopez, Jose Castro Luis. ``Creacion de un cluster de alta disponibilidad con software libre". Novatica Journal. Nro 210. 2011. \\
+	\item Vidal Lopez M. and Castro Jose L. ``Creacion de un cluster de alta disponibilidad con software libre". Novatica Journal. Nro 210. 2011. \\
 	DOI=http://www.ati.es/novatica/2011/209/Nv209-75.pdf
 \end{itemize}
 
-\noindent Pending content..\\
-- Analysing Libre Software communities~\cite{IandR}\\
-- MetricsGrimoire~\cite{GSyC}\\
-- Collaboration to community: http://community.zimbra.com/collaboration/f/1888/t/1136032\\
+\noindent Once enough information on the subject of interest have been collected, is crucial to abstract the essence, for which a model as LUM~\cite{CandT1} is ideal. This model focuses on user needs and the demanded effort when selecting a solution to a problem from a set of possible solutions, identifying significant results from patterns and focus on the primary research collected.\bigskip
+
+\noindent A particular type of data that has been obtained is the source code repository for some of the main projects involved in the final solution. They refers to collection of source code used to build a particular software system, supporting versioning through revision control systems, on multi-developer projects to handle various code versions and providing aid in resolving conflicts that arise from developers submitting conflicting modifications.
+
+\begin{itemize}
+	\item Corosync: https://github.com/corosync/corosync
+	\item DRBD: git://git.drbd.org/drbd-8.4.git
+	\item Pacemaker: https://github.com/ClusterLabs/pacemaker
+\end{itemize}
+
+\noindent These repositories aside from offering the source code of the software, basically provide data about the project's development behavior and details of the community that makes it possible. This allows for instance, to find out how long has been developing the software and to know if the project is still active, among many other interesting analysis. To achieve this is very useful to use tools like Metrics Grimoire~\cite{GSyC}, a toolset to obtain data from repositories related to software development, source code management, issue tracking systems, mailing lists, among others. Data and metadata about the software development processes is retrieved from repositories, including information about commits, ticket management, communication in mailing lists, etc. Then the data is organized and stored into SQL databases that can later be mined for specific patterns or summaries of activity. \bigskip
+
+\noindent In particular Repository Handler and CVSanalY are the tools that have been used to extract the required data. A detailed description for setup and use of these tools can be found in the document ``Analysing Libre Software communities"~\cite{IandR} that GSyC LibreSoft from Universidad Rey Juan Carlos and Bitergia\footnote{\ http://bitergia.com} team have published. Part of the analysis consisted into make the following requests:\bigskip
+
+
+
+
+
+
 
 \noindent The analysis suggested by Carlo Daffara~\cite{Daffara1} through his guidelines for the adoption of F$\ell$OSS within SMEs has proved tremendously useful in the process of selecting and evaluate new tools among the vast amount of existent alternatives in the market.\bigskip
 
-\noindent The proposed hypothesis of a search method by collecting and read as much information related to the project is available, results on the one hand, a task very well supported by the Internet facilities and lots of information available both officially and unofficially in the Web. Though on the other hand, this amount of information is not always available in an organized or easy way to digest, leading to an extensive analysis on many occasions that the companies are not willing to invest.\bigskip
+\noindent The proposed hypothesis of a search method by collecting and read as much information related to the project is available, results on the one hand, a task very well supported with internet approachability and lots of information available for both official and unofficial. Though on the other hand, this amount of information is not always available in an organized or easy way to digest, leading to an extensive analysis on many occasions that the companies are not willing to invest.\bigskip
 
 \noindent To deal with the latter fact, the Lazy User Model leverages the process by which are elected the technological tools that represent the appropriate solution and fulfill the user requirements. 
+
 
 
 

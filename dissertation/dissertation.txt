@@ -346,10 +346,25 @@ Discussion section has four purposes:
   
 --------
 
+* Tools and metrics: Page 106 Sergio's TFM *
+
 Python, matplotlib [mat14a], has been used to generate graphics for certain metrics.
 A python 2d plotting library. 2014. http://matplotlib.org.
 
-Tools and metrics: Page 106 Sergio's TFM.
+python2 boxplots.py cvsanaly_nova
+python3 boxplots.py cvsanaly_nova
+python boxplots.py cvsanaly_nova
+
++--------------------+
+| Database           |
++--------------------+
+| cvsanaly_corosync  |
+| cvsanaly_drbd      |
+| cvsanaly_pacemaker |
++--------------------+
+
+/home/dgamez/Documents/URJC/Project Evaluation/Ricardo/mswl-project-evaluation/final_report/libcsvanaly2/script_sample
+/home/dgamez/Documents/URJC/Project Evaluation/Ricardo/mswl-project-evaluation/final_report/libcsvanaly2/plot_sample
 
 
 - Collaboration to community: http://community.zimbra.com/collaboration/f/1888/t/1136032
@@ -377,10 +392,8 @@ Number of commits in the last month (November 2013):
 SELECT COUNT(s.id) FROM scmlog s, people p WHERE s.committer_id=p.id AND YEAR(s.date)="2013" AND MONTH(s.date)="11";
 
 Top 20 committers in the project:
-  select p.name, count(distinct(s.id)) as "Number of commits" 
-  from people p, scmlog s where p.id=s.author_id group by p.name
+  SELECT p.name, count(distinct(s.id)) as "Number of commits" from people p, scmlog s where p.id=s.author_id group by p.name
   order by count(distinct(s.id)) desc LIMIT 20;
-
   
   Corosync:
   git clone https://github.com/corosync/corosync
@@ -391,7 +404,7 @@ Top 20 committers in the project:
   cd /path/to/cloned/dir
   cvsanaly2 --db-database=cvsanaly_corosync
 
-  
+
   DRBD:
   git://git.drbd.org/drbd-8.4.git
 

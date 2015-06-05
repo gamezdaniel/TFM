@@ -1644,7 +1644,34 @@ In the initial research over internet, main F$\ell$OSS source code repositories 
 
 \noindent These repositories aside from offering the source code of the software, basically provide data about the project's development behavior and details of the community that makes it possible. This allows for instance, to find out how long has been developing the software and to know if the project is still active, among many other interesting analysis. To achieve this is very useful to use tools like Metrics Grimoire~\cite{GSyC}, a toolset to obtain data from repositories related to software development, source code management, issue tracking systems, mailing lists, among others. Data and metadata about the software development processes is retrieved from repositories, including information about commits, ticket management, communication in mailing lists, etc. Then the data is organized and stored into SQL databases that can later be mined for specific patterns or summaries of activity. \bigskip
 
-\noindent In particular Repository Handler and CVSanalY are the tools that have been used to extract the required data. A detailed description for setup and use of these tools can be found in the document ``Analysing Libre Software communities"~\cite{IandR} that GSyC LibreSoft from Universidad Rey Juan Carlos and Bitergia\footnote{\ http://bitergia.com} team have published. Part of the analysis consisted into make the following requests:\bigskip
+\noindent In particular Repository Handler and CVSanalY are the tools that have been used to extract the required data. A detailed description for setup and use of these tools can be found in the document ``Analysing Libre Software communities"~\cite{IandR} published by GSyC LibreSoft from Universidad Rey Juan Carlos and Bitergia\footnote{\ http://bitergia.com} team. Part of the analysis consisted into make the following SQL requests:
+
+\begin{itemize}
+	\item Developers with the most number of commits:\\
+	SELECT p.name, COUNT(DISTINCT(s.id)) FROM people p, scmlog s WHERE p.id=s.author\_id GROUP BY p.name ORDER BY COUNT(DISTINCT(s.id)) DESC;
+	
+	\item Developers who have modified most different files during the whole proyect history:\\
+	SELECT p.name, COUNT(DISTINCT(a.file\_id)) FROM people p, scmlog s, actions a WHERE a.commit\_id=s.id AND s.author\_id=p.id GROUP BY p.name ORDER BY COUNT(distinct(a.file\_id)) DESC;
+	
+	\item Number of files modified only by one developer:\\
+	SELECT COUNT(p.email) FROM scmlog s, people p, file\_links fl WHERE fl.commit\_id=s.id AND s.committer\_id=p.id GROUP BY fl.file\_path HAVING COUNT(p.email)=1;
+	
+	\item Number of messages for year 20xy:\\
+	SELECT count(*) FROM messages WHERE year(first\_date)=20xy;
+	
+	\item Number of commiters in year 20xy:\\
+	SELECT COUNT(s.id) FROM scmlog s, people p WHERE YEAR(s.date)=20xy AND s.committer\_id=p.id;
+	
+	\item Number of commiters since the beginning of current year:\\
+	SELECT COUNT(DISTINCT(p.id)) FROM scmlog s, people p WHERE s.committer\_id=p.id AND YEAR(s.date)=2015 AND MONTH(s.date)=1;
+	
+	\item Number of commits since the beginning of current year:\\
+	SELECT COUNT(s.id) FROM scmlog s, people p WHERE s.committer\_id=p.id AND YEAR(s.date)=2015 AND MONTH(s.date)=1;
+	
+	\item Top 20 committers in the project:\\
+	SELECT p.name, COUNT(DISTINCT(s.id)) AS ``Number of commits" FROM people p, scmlog s WHERE p.id=s.author\_id GROUP BY p.name ORDER BY COUNT(DISTINCT(s.id)) DESC LIMIT 20;
+	
+\end{itemize}
 
 
 

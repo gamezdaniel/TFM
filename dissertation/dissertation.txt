@@ -163,6 +163,8 @@ http://h20564.www2.hp.com/hpsc/doc/public/display?docId=emr_na-c02199685
 
 Collecting and read as much information related to the project is available and select the appropriate solution from a matching set that fulfill the requirements.
 
+Additionally at using MetricsGrimoire [5], a flexible toolset which allow to obtain data from repositories related to software development, is possible to analyze databases that can later be mined for specific patterns or summaries of activity, allowing to establish objective comparisons
+in relation to the projects analyzed.
 
 
 
@@ -347,7 +349,6 @@ Discussion section has four purposes:
 --------
 
 * Tools and metrics: Page 106 Sergio's TFM *
-
 Python, matplotlib [mat14a], has been used to generate graphics for certain metrics.
 A python 2d plotting library. 2014. http://matplotlib.org.
 
@@ -363,11 +364,40 @@ python boxplots.py cvsanaly_nova
 | cvsanaly_pacemaker |
 +--------------------+
 
-/home/dgamez/Documents/URJC/Project Evaluation/Ricardo/mswl-project-evaluation/final_report/libcsvanaly2/script_sample
-/home/dgamez/Documents/URJC/Project Evaluation/Ricardo/mswl-project-evaluation/final_report/libcsvanaly2/plot_sample
+python2 commits_per_commiter.py cvsanaly_corosync
+  max: 192
+  min: 1
+  mean: 31.0833333333
+  median: 8.0
+  std: 52.4769129131
+  .25 quartile: 2.0
+  .50 quartile: 8.0
+  .75 quartile: 29.0
+
+python2 commits_per_commiter.py cvsanaly_drbd
+  max: 20
+  min: 1
+  mean: 7.5625
+  median: 6.5
+  std: 6.06185563586
+  .25 quartile: 2.75
+  .50 quartile: 6.5
+  .75 quartile: 10.5
+  
+python2 commits_per_commiter.py cvsanaly_pacemaker
+  max: 192
+  min: 4
+  mean: 34.3428571429
+  median: 16.0
+  std: 45.4268283583
+  .25 quartile: 9.0
+  .50 quartile: 16.0
+  .75 quartile: 37.0
 
 
 - Collaboration to community: http://community.zimbra.com/collaboration/f/1888/t/1136032
+- Give credit to GNU matplotlib
+
 
 
 Developers with the most number of commits:
@@ -394,6 +424,24 @@ SELECT COUNT(s.id) FROM scmlog s, people p WHERE s.committer_id=p.id AND YEAR(s.
 Top 20 committers in the project:
   SELECT p.name, count(distinct(s.id)) as "Number of commits" from people p, scmlog s where p.id=s.author_id group by p.name
   order by count(distinct(s.id)) desc LIMIT 20;
+
+---
+  %\item Number of messages for year 2014:\\
+  %SELECT COUNT(*) FROM messages WHERE year(first\_date)=2014;
+
+  % Territoriality
+  %\item Number of files modified only by one developer:\\
+  %SELECT COUNT(p.email) FROM scmlog s, people p, file\_links fl WHERE fl.commit\_id=s.id AND s.committer\_id=p.id GROUP BY fl.file\_path HAVING COUNT(p.email)=1;
+
+  %\item Most number of commits by developer:\\
+  %SELECT p.name, COUNT(DISTINCT(s.id)) FROM people p, scmlog s WHERE p.id=s.author\_id GROUP BY p.name ORDER BY COUNT(DISTINCT(s.id)) DESC;
+
+  %\item Developers who have modified most different files during the whole proyect history:\\
+  %SELECT p.name, COUNT(DISTINCT(a.file\_id)) FROM people p, scmlog s, actions a WHERE a.commit\_id=s.id AND s.author\_id=p.id GROUP BY p.name ORDER BY COUNT(distinct(a.file\_id)) DESC;
+
+  %\item Top 15 committers in the project:\\
+  %SELECT p.name, COUNT(DISTINCT(s.id)) AS ``Number of commits" FROM people p, scmlog s WHERE p.id=s.author\_id GROUP BY p.name ORDER BY COUNT(DISTINCT(s.id)) DESC LIMIT 15;
+---
   
   Corosync:
   git clone https://github.com/corosync/corosync
@@ -416,11 +464,16 @@ Top 20 committers in the project:
     cvsanaly2 -u root -d cvsanaly_pacemaker
 
 
-
 8. CONCLUSIONS AND FUTURE WORK
 
 REFERENCES
+- * Tools and metrics: Page 106 Sergio's TFM *
+  Python, matplotlib [mat14a], has been used to generate graphics for certain metrics.
+  A python 2d plotting library. 2014. http://matplotlib.org
+
 APPENDIX
+- Include python scripts (for graphics charts)
+
 
 ====================================================================================================
 

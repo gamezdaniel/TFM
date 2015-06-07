@@ -174,7 +174,7 @@ These are the Acknowledgements..
 
 \noindent Chapter 3 describing the most relevant related technologies around the possible solutions.\bigskip
 
-\noindent Chapter 4 establishing the used methodology, supported by guidelines proposed by Carlo Daffara and the Lazy User model.\bigskip
+\noindent Chapter 4 establishing the used methodology, supported by guidelines proposed by Carlo Daffara and the Lazy User model, as well as analysis of concrete metrics.\bigskip
 
 \noindent Chapter 5 showing the architecture of the company and its infrastructure, available hardware for operations, the network scheme, and an overview of the software supporting the current situation, all of this in order to understand how to adapt an actual solution.\bigskip
 
@@ -209,7 +209,7 @@ Business continuity in the field of information technology is supported in a lar
 \section{Justification / Motivation}
 \label{sec:justification}
 
-The factors that motivates this work are on one hand, give proper credit to business models based on F$\ell$OSS as those used by technology companies nowadays~\cite{Daffara2}, and on the other hand, show that private enterprise can be benefited by F$\ell$OSS, through a set of toolsets and mechanisms who allow obtaining robust solutions in accordance to technology needs.
+The factors that motivate this work are on one hand, give proper credit to business models based on F$\ell$OSS as those used by technology companies nowadays~\cite{Daffara2}, and on the other hand, show that private enterprise can be benefited by F$\ell$OSS  through a set of toolsets and mechanisms which allow obtaining robust solutions in accordance to technology needs.
 
 \section{Objectives}
 \label{sec:objectives}
@@ -1058,8 +1058,8 @@ The following actions must be performed in parallel on both nodes, except in tho
 
 	\item Verify current roles:\\
 		drbdadm role optzimbra\\
-		It will show 'Primary/Secondary' on astapor \\
-		and 'Secondary/Primary' on braavos node.
+		It will show `Primary/Secondary' on astapor \\
+		and `Secondary/Primary' on braavos node.
 
 	\item Now make the filesystem on astapor:\\
 		mkfs.ext4 /dev/drbd0
@@ -1075,7 +1075,7 @@ The following actions must be performed in parallel on both nodes, except in tho
 
 \end{itemize}
 
-\noindent Now it is necessary to revert the roles back, making braavos the secondary node and astapor the primary one, with the procedure described in section~\ref{sec:initialconf}.
+\noindent Now it is necessary to revert the roles back, making braavos the secondary node and astapor the primary one.
 
 
 \subsection{DRBD Split Brain Recovery}
@@ -1642,50 +1642,114 @@ In the initial research over internet, main F$\ell$OSS source code repositories 
 	\item Pacemaker: https://github.com/ClusterLabs/pacemaker
 \end{itemize}
 
-\noindent These repositories aside from offering the source code of the software, basically provide data about the project's development behavior and details of the community that makes it possible. This allows for instance, to find out how long has been developing the software and to know if the project is still active, among many other interesting analysis. To achieve this is very useful to use tools like Metrics Grimoire~\cite{GSyC}, a toolset to obtain data from repositories related to software development, source code management, issue tracking systems, mailing lists, among others. Data and metadata about the software development processes is retrieved from repositories, including information about commits, ticket management, communication in mailing lists, etc. Then the data is organized and stored into SQL databases that can later be mined for specific patterns or summaries of activity. \bigskip
+\noindent These repositories aside from offering the source code of the software, basically provide data about the project's development behavior and details of the community that makes it possible. This allows for instance, to find out how long has been developing the software and to know if the project is still active, among many other interesting analysis. To achieve this is very useful to use tools like Metrics Grimoire~\cite{GSyC}, obtaining data from project's source code repositories and retrieving information about commits, ticket management, communication in mailing lists, etc. The data is organized and stored into SQL databases that can later be mined for specific patterns or summaries of activity. \bigskip
 
 \noindent In particular Repository Handler and CVSanalY are the tools that have been used to extract the required data. A detailed description for setup and use of these tools can be found in the document ``Analysing Libre Software communities"~\cite{IandR} published by GSyC LibreSoft from Universidad Rey Juan Carlos and Bitergia\footnote{\ http://bitergia.com} team. Part of the analysis consisted into make the following SQL requests:
 
 \begin{itemize}
-	\item Developers with the most number of commits:\\
-	SELECT p.name, COUNT(DISTINCT(s.id)) FROM people p, scmlog s WHERE p.id=s.author\_id GROUP BY p.name ORDER BY COUNT(DISTINCT(s.id)) DESC;
-	
-	\item Developers who have modified most different files during the whole proyect history:\\
-	SELECT p.name, COUNT(DISTINCT(a.file\_id)) FROM people p, scmlog s, actions a WHERE a.commit\_id=s.id AND s.author\_id=p.id GROUP BY p.name ORDER BY COUNT(distinct(a.file\_id)) DESC;
-	
-	\item Number of files modified only by one developer:\\
-	SELECT COUNT(p.email) FROM scmlog s, people p, file\_links fl WHERE fl.commit\_id=s.id AND s.committer\_id=p.id GROUP BY fl.file\_path HAVING COUNT(p.email)=1;
-	
-	\item Number of messages for year 20xy:\\
-	SELECT count(*) FROM messages WHERE year(first\_date)=20xy;
-	
-	\item Number of commiters in year 20xy:\\
-	SELECT COUNT(s.id) FROM scmlog s, people p WHERE YEAR(s.date)=20xy AND s.committer\_id=p.id;
-	
-	\item Number of commiters since the beginning of current year:\\
-	SELECT COUNT(DISTINCT(p.id)) FROM scmlog s, people p WHERE s.committer\_id=p.id AND YEAR(s.date)=2015 AND MONTH(s.date)=1;
-	
-	\item Number of commits since the beginning of current year:\\
-	SELECT COUNT(s.id) FROM scmlog s, people p WHERE s.committer\_id=p.id AND YEAR(s.date)=2015 AND MONTH(s.date)=1;
-	
-	\item Top 20 committers in the project:\\
-	SELECT p.name, COUNT(DISTINCT(s.id)) AS ``Number of commits" FROM people p, scmlog s WHERE p.id=s.author\_id GROUP BY p.name ORDER BY COUNT(DISTINCT(s.id)) DESC LIMIT 20;
-	
+      % [8.A] Is the project is still active?
+      \item Number of commits in the last 6 months, shown in Figure~\ref{fig:fig8-1} for Corosync, Figure~\ref{fig:fig8-2} for DRBD and Figure~\ref{fig:fig8-3} for Pacemaker:
+      % SELECT COUNT(s.id) FROM scmlog s, people p WHERE s.committer\_id=p.id AND YEAR(s.date)=2014 AND MONTH(s.date) IN (7,8,9,10,11,12);
 \end{itemize}
 
+    \begin{figure}[H]
+      \centering
+      \includegraphics[scale=0.30]{fig8-1.png}
+      \caption[Commits in the last 6 months for Corosync]{Corosync - number of commits in the last 6 months}
+      \label{fig:fig8-1}
+    \end{figure}
+	  
+    \begin{figure}[H]
+      \centering
+      \includegraphics[scale=0.30]{fig8-2.png}
+      \caption[Commits in the last 6 months for DRBD]{DRBD - number of commits in the last 6 months}
+      \label{fig:fig8-2}
+    \end{figure}
+    
+    \begin{figure}[H]
+      \centering
+      \includegraphics[scale=0.30]{fig8-3.png}
+      \caption[Commits in the last 6 months for Pacemaker]{Pacemaker - number of commits in the last 6 months}
+      \label{fig:fig8-3}
+    \end{figure}
 
 
+\noindent Text...
+    
+
+\begin{itemize}
+      % [8.B] Evolution in the number of commits
+      \item Evolution in the number of commits per year since the begining of the project, shown in Figure~\ref{fig:fig8-4} for Corosync, Figure~\ref{fig:fig8-5} for DRBD and Figure~\ref{fig:fig8-6} for Pacemaker:
+      
+      For this purpose was employed a GNU GPL python script {INCLUDE INTO APPENDIX} published by Daniel Izquierdo Cortazar from GSyC/LibreSoft which uses the following query:\\
+      SELECT YEAR(date), MONTH(date), DAY(date), COUNT(*) FROM scmlog GROUP BY YEAR(date), MONTH(date), DAY(date);
+\end{itemize}
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[scale=0.45]{fig8-4.png}
+      \caption[Evolution in the number of commits for Corosync]{Corosync - evolution in the number of commits per year}
+      \label{fig:fig8-4}
+    \end{figure}
+	  
+    \begin{figure}[H]
+      \centering
+      \includegraphics[scale=0.45]{fig8-5.png}
+      \caption[Evolution in the number of commits for DRBD]{DRBD - evolution in the number of commits per year}
+      \label{fig:fig8-5}
+    \end{figure}
+    
+    \begin{figure}[H]
+      \centering
+      \includegraphics[scale=0.45]{fig8-6.png}
+      \caption[Evolution in the number of commits for Pacemaker]{Pacemaker - evolution in the number of commits per year}
+      \label{fig:fig8-6}
+    \end{figure}
+
+    
+\noindent Text...
+    
+    
+    
+\begin{itemize}
+      % [8.C] Evolution in the number of active committers
+      \item Evolution in the number of active committers since the begining of the project, shown in Figure~\ref{fig:barchart_c} for Corosync, Figure~\ref{fig:barchart_d} for DRBD and Figure~\ref{fig:barchart_p} for Pacemaker:
+
+      To produce these bar charts was used a simple python script {INCLUDE INTO APPENDIX} with the following queries:\\
+      SELECT year(s.date) FROM scmlog s GROUP BY year(s.date);\\
+      SELECT COUNT(DISTINCT(p.id)) FROM scmlog s, people p WHERE s.committer\_id=p.id AND YEAR(s.date)=XXXX;
+\end{itemize}
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[scale=0.45]{barchart_c.png}
+      \caption[Active committers for Corosync]{Corosync - evolution in the number of active committers per year}
+      \label{fig:barchart_c}
+    \end{figure}
+	  
+    \begin{figure}[H]
+      \centering
+      \includegraphics[scale=0.45]{barchart_d.png}
+      \caption[Active committers for DRBD]{DRBD - evolution in the number of active committers per year}
+      \label{fig:barchart_d}
+    \end{figure}
+    
+    \begin{figure}[H]
+      \centering
+      \includegraphics[scale=0.45]{barchart_p.png}
+      \caption[Active committers for Pacemaker]{Pacemaker - evolution in the number of active committers per year}
+      \label{fig:barchart_p}
+    \end{figure}
 
 
+\noindent Text...
 
-
-\noindent The analysis suggested by Carlo Daffara~\cite{Daffara1} through his guidelines for the adoption of F$\ell$OSS within SMEs has proved tremendously useful in the process of selecting and evaluate new tools among the vast amount of existent alternatives in the market.\bigskip
+    
+\noindent Finally it can be said that the analysis suggested by Carlo Daffara~\cite{Daffara1} through his guidelines for the adoption of F$\ell$OSS within SMEs has proved tremendously useful in the process of selecting and evaluate new tools among the vast amount of existent alternatives in the market.\bigskip
 
 \noindent The proposed hypothesis of a search method by collecting and read as much information related to the project is available, results on the one hand, a task very well supported with internet approachability and lots of information available for both official and unofficial. Though on the other hand, this amount of information is not always available in an organized or easy way to digest, leading to an extensive analysis on many occasions that the companies are not willing to invest.\bigskip
 
 \noindent To deal with the latter fact, the Lazy User Model leverages the process by which are elected the technological tools that represent the appropriate solution and fulfill the user requirements. 
-
-
 
 
 

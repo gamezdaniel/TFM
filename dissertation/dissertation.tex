@@ -172,7 +172,7 @@ Key words: Cluster, Corosync, CRM, DRBD, FOSS, F$\ell$OSS, High Availability, OC
 
 \noindent Due to a number of reasons that will be discussed throughout this dissertation, cloud services require a set of components to ensure the security, availability and reliability of data that is stored in data center facilities remotely accessible from internet. The study conducted here is focused specifically on the availability of the data that must be accessible to their applicants at all times.\bigskip
 
-\noindent This study was undertaken in the one hand to test some aspects of business practices in the current technology market and the use of F$\ell$OSS as a key factor, and in the other one, to fulfill the demands of a business organization showing that business models around F$\ell$OSS are a fact.\bigskip
+\noindent This study was undertaken in the one hand to test some aspects of business practices in the current technology market and the use of F$\ell$OSS as a key factor, and in the other one, to fulfill the demands of a business organization showing that business models around F$\ell$OSS are a fact nowadays.\bigskip
 
 \noindent The way this dissertation is going to be organized is the following:\bigskip
 
@@ -203,13 +203,13 @@ Business continuity in the field of information technology is supported in a lar
 
 \noindent Nowadays there are increasingly more people and organizations using centralized remote systems that allow online access to resources and everyday services, this scheme is called cloud computing~\cite{MandG}. Through this type of services, end users whether individuals or corporations, are abstracted to support the infrastructure that this entails, giving responsibility to intermediary companies providing cloud services. So these intermediaries are the ones who must ensure the proper availability of the services, as well as factors such as communications security and redundancy of stored data, among many others.\bigskip
 
-\noindent In particular Netnovation is a SME in the field of information technologies, which provides private cloud services from data storage to hosting virtual private servers (VPS), including e-mail and collaboration servers. The latter is precisely one of the mainstays for the operations of the company, which employs mainly F$\ell$OSS to its internal systems, specifically using the F$\ell$OSS e-mail and collaboration suite Zimbra\texttrademark\footnote{\ http://www.zimbra.com}. One of the main problems that Netnovation faces is to ensure the communication and workflow continuity that is carried through this collaboration tool, as well as meet the SLAs offered to its customers over this software.\bigskip
+\noindent In particular Netnovation is a SME in the field of information technologies, which provides private cloud services from data storage to hosting of virtual private servers (VPS), including e-mail and collaboration systems. The latter is precisely one of the mainstays for the operations of the company, which employs mainly F$\ell$OSS to its internal systems, specifically using the F$\ell$OSS e-mail and collaboration suite Zimbra\texttrademark\footnote{\ http://www.zimbra.com}. One of the main problems that Netnovation faces is to ensure the communication and workflow continuity that is carried through this collaboration tool, as well as meet the SLAs offered to its customers over this software.\bigskip
 
 \noindent There are various software solutions offering high availability of services such as those provided by Zimbra, each one with its own legal implications, associated costs and implementation difficulty\footnote{\ Some of these solutions will be addressed in Chapter~\ref{chap:related}}. A valid alternative is the integration of multiple tools in the field of F$\ell$OSS providing a framework to ensure  continuity of systems operation or business continuity. By doing it this way it is possible to adapt the different requirements and use different technologies to provide the most consistent solution to what is desired.\bigskip
 
-\noindent One key technology for this purpose is a cluster, in particular a high availability cluster, basically a a group of computers interconnected that work together trying to maintain a service up and running all the time.\bigskip
+\noindent One key technology for this purpose is a cluster, in particular a high availability cluster, basically a group of computers interconnected that work together trying to maintain a service up and running all the time.\bigskip
 
-\noindent On previous occasions, Netnovation has managed to successfully consolidate most of its operations infrastructure adapting F$\ell$OSS, making it a wonderful idea to keep this scheme working. To achieve this, it is necessary to evaluate the state of the art in the field of systems that provide high availability, with the aim of offering an effective solution, all of this in accordance to the guidelines that have been proposed by the company.
+\noindent On previous occasions, Netnovation has managed to successfully consolidate most of its operations infrastructure adapting F$\ell$OSS, making it a wonderful situation to keep this scheme working. To achieve this, it is necessary to evaluate the state of the art in the field of systems that provide high availability with the aim of offering an effective solution, all of this in accordance to the guidelines that have been proposed by the company in the first place.
 
 
 \section{Justification / Motivation}
@@ -226,7 +226,7 @@ The overall objectives are:
 	\item To frame the F$\ell$OSS business model used by Netnovation
 	\item To show various current alternatives provided by F$\ell$OSS at the corporate level
 	\item To adapt the proposed solution to the guidelines established by Netnovation
-	\item To establish an initial point reference for implementing high availability private cloud services offered by Netnovation
+	\item To establish an initial reference point for implementing high availability private cloud services offered by Netnovation
 \end{itemize}
 
 \noindent The specific objectives are:
@@ -246,7 +246,7 @@ The solution to be implemented consists of F$\ell$OSS tools that allow its adapt
 
 \noindent The methodology used for the selection of F$\ell$OSS tools that make the proposed solution is not intended to provide an exhaustive process that considers all possibilities in the area, but a flexible way that allows classify them qualitatively, justifying their choice through concrete metrics.\bigskip
 
-\noindent Having successfully implemented a high availability solution on the e-mail and collaboration system used by Netnovation, this will serve as a reference for providing high availability to other enterprise systems, but these other configurations are not covered in this exercise.\bigskip
+\noindent Having successfully implemented a high availability solution on the e-mail and collaboration system used by Netnovation, this will serve as an starting point for providing high availability to other enterprise systems, but these other configurations are not covered in this exercise.\bigskip
 
 
 %=====================================
@@ -264,7 +264,7 @@ Some of these high-availability implementations have been proprietary since the 
 \subsection{HP Serviceguard}
 \label{subsec:serviceguard}
 
-Hewlett Packard (HP) claims the credit for the development of the first high availability solution for UNIX systems since 1990\footnote{\url{http://www.hpintelco.net/sglx/service.html}}. MC/ServiceGuard is a high-availability cluster software released for HP-UX and later for GNU/Linux systems. Since the first development of the software, HP has partnered with with companies such as Oracle or SAP to deploy high-availability in enterprise environments, as Figure~\ref{fig:enterprise} (took from \url{http://www.hpintelco.net}) shows.\bigskip
+Hewlett Packard (HP) claims the credit for the development of the first high availability solution for UNIX systems since 1990\footnote{\url{http://www.hpintelco.net/sglx/service.html}}. MC/ServiceGuard is a high-availability cluster software released for HP-UX and later for GNU/Linux systems. Since the first development of the software, HP has partnered with companies such as Oracle or SAP to deploy high-availability in enterprise environments, as Figure~\ref{fig:enterprise} (took from \url{http://www.hpintelco.net}) shows.\bigskip
 
 \begin{figure}
   \centering
@@ -324,7 +324,8 @@ At the end of the 90's Red Hat Inc. introduced its Enterprise Linux Advanced Ser
 
 \noindent A general RHCS infrastructure is shown in Figure~\ref{fig:rhcs} (took from RHCS online documentation\footnote{\url{https://access.redhat.com/documentation/en-US/Red\_Hat\_Enterprise\_Linux/5/html/Cluster\_Suite\_Overview/images/9106.png}}).
 
-\begin{figure}
+\FloatBarrier
+\begin{figure}[H]
   \centering
   \includegraphics[scale=0.70]{rhcs.png}
   \caption[RHCS Basic Infrastructure]{RHCS Basic Infrastructure}
@@ -374,7 +375,7 @@ Some of these tools are possibly part of the enterprise products mentioned befor
 
 \noindent An HA cluster could be defined as a group of computers supporting server applications, ensuring its accessibility with a minimum of down-time. They operate by using specialized software that leverage the redundancy of computers and avoid single points of failure by implementing a cluster architecture~\cite{Weygant}.\bigskip
 
-\noindent Then, as long as there is a service that must be maintained up and running and accessible to the users, computers require a way to communicate to one another and coordinate between each other to provide this service. Here computers are running GNU/Linux operating system and rely on TCP/IP network protocol, as well as network interconnected hardware to achieve the communication between nodes in the cluster.\bigskip
+\noindent As long as there is a service that must be maintained up and running and accessible to the users, computers require a way to communicate to one another and coordinate between each other to provide this service. Into this scheme computers are running a GNU/Linux operating system and rely on the TCP/IP network protocol, as well as network interconnected hardware to achieve the communication between nodes in the cluster.\bigskip
 
 \noindent One of the earliest tools who managed this task was Heartbeat, as a daemon installed on each node, able to \textit{talk} to the other ones and share cluster related information. This task was referred to as the Cluster Messaging Layer or Group Communication System.\bigskip
 
@@ -386,188 +387,145 @@ Some of these tools are possibly part of the enterprise products mentioned befor
 
 \noindent Nowadays Pacemaker is a resource manager responsible for starting and stopping cluster services in a proper way. Combined with other tools is able to detect service-level failures and move resources between cluster nodes as needed, to ensure the smooth operation of the services.\bigskip
 
+%\hfill\break
+
 \noindent On the other hand Corosync is responsible for cluster membership, message passing and quorum, using the totem protocol 
-for heartbeat, monitoring other node's health.\bigskip
+for heartbeat, monitoring other node's health.
 
-\noindent Technologies such as OpenAIS (a software API) also compete into the HA race. It is a F$\ell$OSS implementation of the Application Interface Specification released under the terms of the Artistic License\footnote{ http://opensource.org/licenses/Artistic-2.0}, used to define how HA applications work together, trying to mask hardware, operating system, middleware and application-level failures.\bigskip
+\noindent Technologies such as OpenAIS (a software API) also compete into the HA race. It is a F$\ell$OSS implementation of the Application Interface Specification released under the terms of the Artistic License\footnote{ http://opensource.org/licenses/Artistic-2.0}, used to define how HA applications work together, trying to mask hardware, operating system, middleware and application-level failures. %\bigskip
 
-\noindent As in enterprise HA solutions, Cluster Managers are an important element within HA implementations, providing backend GUI or CLI software that runs on one or all cluster nodes, responsible for managing and controlling clustered services. Currently there are several F$\ell$OSS alternatives, including the ones listed in Table~\ref{table:cluster_managers}.
-
-\FloatBarrier
-\begin{table}[H]
-  \centering
-  \begin{tabular}{ | r m{10cm} | }
-
-    \hline    
-    \multicolumn{2}{|c|}{\textbf{Apache Mesos}}\\
-    \hline
-    Company: &  Apache Software Foundation\\
-    License: & Apache License Version 2.0 \\
-    Website: & http://mesos.apache.org/ \\
-    Description: &  \\
-    Commercial support: &  \\
-    
-    \hline    
-    \multicolumn{2}{|c|}{\textbf{Keepalived}}\\
-    \hline
-    Company: &  Individual - Alexandre Cassen\\
-    License: & GNU GPL v2+ \\
-    Website: & http://keepalived.sourceforge.net/ \\
-    Description: &  \\
-    Commercial support: &  \\
-    
-    \hline
-    \multicolumn{2}{|c|}{\textbf{Linux Cluster Manager}}\\
-    \hline
-    Company: & Individual - Michael England \\
-    License: & GNU GPL \\
-    Website: & http://linuxcm.sourceforge.net/ \\
-    Description: &  \\
-    Commercial support: &  \\
-    
-    \hline    
-    \multicolumn{2}{|c|}{\textbf{oneSIS}}\\
-    \hline
-    Company: &  Individual - Josh England\\
-    License: & GNU GPL v2 \\
-    Website: & http://onesis.org/ \\
-    Description: &  \\
-    Commercial support: &  \\
-
-    \hline    
-    \multicolumn{2}{|c|}{\textbf{Rocks Cluster Distribution}}\\
-    \hline
-    Company: & Rocks Cluster Group \\
-    License: & BSD 3-Clause like \\
-    Website: & http://www.rocksclusters.org/ \\
-    Description: &  \\
-    Commercial support: &  \\
-    
-    \hline
-  \end{tabular}
-\label{table:cluster_managers_1}
-\end{table}
-
-\hfill\break
-
-\FloatBarrier
-\begin{table}[H]
-  \centering
-  \begin{tabular}{ | r m{10cm} | }
-  
-    \hline    
-    \multicolumn{2}{|c|}{\textbf{SCMS.pro}}\\
-    \hline
-    Company: & Glushkov Institute of Cybernetics NAS of Ukraine\\
-    License: & Apache 2 License \\
-    Website: & http://www.scms.pro/ \\
-    Description: &  \\
-    Commercial support: &  \\
-    
-    \hline
-    \multicolumn{2}{|c|}{\textbf{Ultra Monkey}}\\
-    \hline
-    Company: & Individual - Simon Horman \\
-    License: & LGPL v2 \\
-    Website: & http://www.ultramonkey.org/ \\
-    Description: &  \\
-    Commercial support: &  \\
-    
-    \hline    
-    \multicolumn{2}{|c|}{\textbf{xCAT}}\\
-    \hline
-    Company: & Individual - Bruce Sawyers, Jarrod Johnson et al.\\
-    License: & Eclipse Public License \\
-    Website: & http://xcat.org/ \\
-    Description: &  \\
-    Commercial support: &  \\
-    
-    \hline
-  \end{tabular}
-\caption{F$\ell$OSS Cluster Managers}
-\label{table:cluster_managers}
-\end{table}
-
+\noindent As in enterprise HA solutions, Cluster Managers are an important element within HA implementations, providing backend GUI or CLI software that runs on one or all cluster nodes, responsible for managing and controlling clustered services. Currently there are several F$\ell$OSS alternatives, including the ones listed in Table~\ref{table:cluster_managers_individuals} from individual developers, usually without enterprise support services, and some others from companies or institutes listed in Table~\ref{table:cluster_managers_companies}.
 
 \noindent The cluster oriented filesystems are another key element regarding HA implementations. They provide data replication and fault tolerance, allowing operations continuity against incidents. There are several F$\ell$OSS alternatives to provide clustered storage, including the tools listed in Table~\ref{table:cluster_filesystems}. One of the most consolidated clustered storage technologies is DRBD, first released in 1999, it will be aborded in Chapter~\ref{chap:implemented}.
+
+% \FloatBarrier
+\begin{table}[H]
+  \centering
+  \begin{tabular}{ | m{2cm} | r  m{10cm} | }
+
+    \hline    
+		 & Author(s): &  Alexandre Cassen\\
+      Keepalived & License: &  GNU GPL v2+\\
+		 & Website: &  http://keepalived.sourceforge.net/\\
+	 	 & Description: & Routing software written in C, providing loadbalancing and HA facilities\\
+    \hline
+	Linux	 & Author(s): & Michael England \\
+	Cluster	 & License: & GNU GPL \\
+	Manager	 & Website: & http://linuxcm.sourceforge.net/ \\
+	 	 & Description: & Graphical tool for managing multiple nodes from a central location, aimed for Beowulf style clusters \\
+    \hline    
+		 & Author(s): & Josh England \\
+      oneSIS	 & License: & GNU GPL v2 \\
+		 & Website: & http://onesis.org/ \\
+	 	 & Description: & Tool aimed to simplify diskless cluster management \\  
+    \hline    
+		 & Author(s): & Simon Horman \\
+      Ultra	 & License: & LGPL v2 \\
+	Monkey	 & Website: & http://www.ultramonkey.org/ \\
+	 	 & Description: & Creates load balanced and HA network services, based on heartbeat \\
+    \hline    
+		 & Author(s): & Bruce Sawyers, Jarrod Johnson et al. \\
+      xCAT	 & License: & Eclipse Public License \\
+		 & Website: & http://xcat.org/ \\
+	 	 & Description: & eXtreme Cluster/Cloud Administration Toolkit, providing cluster administration management \\
+    \hline
+
+  \end{tabular}
+\caption{F$\ell$OSS Cluster Managers from individual developers}
+\label{table:cluster_managers_individuals}
+\end{table}
 
 %\FloatBarrier
 \begin{table}[H]
   \centering
-  \begin{tabular}{ | r m{10cm} | }
+  \begin{tabular}{ | m{2cm} | r  m{10cm} | }
 
-    \hline
-    \multicolumn{2}{|c|}{\textbf{Apache Hadoop}}\\
-    \hline
-    Company: & Apache Software Foundation \\
-    License: & Apache License 2 \\
-    Website: & http://hadoop.apache.org/ \\
-    Description: &  \\
-    Commercial support: &  \\
-    
     \hline    
-    \multicolumn{2}{|c|}{\textbf{GFS}}\\
+		& Company: &  Apache Software Foundation\\
+      Apache 	& License: & Apache License Version 2.0 \\
+      Mesos	& Website: & http://mesos.apache.org/ \\
+	 	& Support: & Mailing Lists and Documentation\\
+	 	& Description: & Pool of resources management, enabling fault-tolerant and elastic distributed systems \\
+	 	
+    \hline        
+		 & Company: & Rocks Cluster Group \\
+     Rocks 	 & License: & BSD 3-Clause like \\
+     Cluster	 & Website: & http://www.rocksclusters.org/ \\
+   Distribution	 & Support: &  Mailing Lists and Documentation\\
+	 	 & Description: & GNU/Linux cluster distribution enabling end users to build computational clusters and grid endpoints \\
+    \hline    
+		 & Company: & Glushkov Institute of Cybernetics NAS of Ukraine \\
+      SCMS.pro   & License: & Apache 2 License \\
+		 & Website: & http://www.scms.pro/ \\
+	 	 & Support: & E-Mail, Documentation \\
+	 	 & Description: & Supercomputer Management System, intended to scientists and working groups, it aims to create comprehensive toolset for cluster management, grid and cloud access \\
     \hline
-    Company: & Red Hat Inc. \\
-    License: & GPL \\
-    Website: & http://sourceware.org/cluster/gfs/ \\
-    Description: &  \\
-    Commercial support: &  \\
-    
+  \end{tabular}
+\caption{F$\ell$OSS Cluster Managers from companies or institutes}
+\label{table:cluster_managers_companies}
+\end{table}
+
+
+%\FloatBarrier
+\begin{table}[H]
+  \centering
+  \begin{tabular}{ | m{2cm} | r  m{10cm} | }
+
+  \hline        
+		& Company: & Apache Software Foundation \\
+     Apache	& License: & Apache License 2 \\
+     Hadoop	& Website: & http://hadoop.apache.org/ \\
+		& Support: & Mailing Lists, Issue Tracking, Documentation \\
+	 	& Description: & Framework that allows distributed processing of large data sets across clusters of computers \\
+    \hline        
+		& Company: & Red Hat Inc. \\
+      GFS	& License: & GPL \\
+		& Website: & http://sourceware.org/cluster/gfs/ \\
+		& Support: & Mailing Lists, Documentation, Annual Subscription \\
+	 	& Description: & Allows a cluster of computers to simultaneously use a block device that is shared between them \\
     \hline
+		& Company: & Red Hat Inc. \\
+      GlusterFS & License: & GPL v3 \\
+		& Website: & http://www.gluster.org/ \\
+		& Support: & Mailing Lists, Documentation, Bug Tracking \\
+	 	& Description: & Scalable network filesystem, allow to create large, distributed storage solutions for media streaming, data analysis, and other data bandwidth intensive tasks \\
+    \hline
+
   \end{tabular}
 \label{table:cluster_filesystems_1}
 \end{table}
 
-\FloatBarrier
+%\FloatBarrier
 \begin{table}[H]
   \centering
-  \begin{tabular}{ | r m{10cm} | }
+  \begin{tabular}{ | m{2cm} | r  m{10cm} | }
+ 
+     \hline
+		& Company: & Seagate Technology LLC \\
+      Lustre FS	& License: & GPL \\
+		& Website: & http://lustre.org/ \\
+		& Support: & Mailing Lists, Documentation, Bug Tracking \\
+	 	& Description: & Parallel file system supporting HPC simulation environments \\
 
     \hline
-    \multicolumn{2}{|c|}{\textbf{GlusterFS}}\\
-    \hline
-    Company: & Red Hat Inc. \\
-    License: & GPL v3 \\
-    Website: & http://www.gluster.org/ \\
-    Description: &  \\
-    Commercial support: &  \\
-    
-    \hline
-    \multicolumn{2}{|c|}{\textbf{Lustre FS}}\\
-    \hline
-    Company: & Seagate Technology LLC \\
-    License: & GPL \\
-    Website: & http://lustre.org/ \\
-    Description: &  \\
-    Commercial support: &  \\
-    
-    \hline    
-    \multicolumn{2}{|c|}{\textbf{MooseFS}}\\
-    \hline
-    Company: & Core Technology Inc. \\
-    License: & GPL v2 \\
-    Website: & https://moosefs.com/ \\
-    Description: &  \\
-    Commercial support: &  \\
+		& Company: & Core Technology Inc. \\
+      MooseFS	& License: & GPL v2 \\
+		& Website: & https://moosefs.com/ \\
+		& Support: & Per license, Support Tickets and Year Subscription\\
+	 	& Description: & Fault tolerant, HA, Highly Performing, Scale-Out, network distributed file system \\
 
-    \hline    
-    \multicolumn{2}{|c|}{\textbf{OCFS2}}\\
     \hline
-    Company: & Oracle Corp. \\
-    License: & GPL \\
-    Website: & https://oss.oracle.com/projects/ocfs2/ \\
-    Description: & Oracle Cluster File System \\
-    Commercial support: &  \\
-    
-    \hline    
-    \multicolumn{2}{|c|}{\textbf{XtreemFS}}\\
+		& Company: & Oracle Corp. \\
+      	OCFS2	& License: & GPL \\
+		& Website: & https://oss.oracle.com/projects/ocfs2/ \\
+		& Support: & Documentation, Bug Tracking, Support Tickets \\
+	 	& Description: & General-purpose shared-disk cluster file system, providing both high performance and HA \\
     \hline
-    Company: & Quobyte Inc. \\
-    License: & BSD License \\
-    Website: & http://www.xtreemfs.org/ \\
-    Description: &  \\
-    Commercial support: &  \\
+		& Company: & Quobyte Inc. \\
+      XtreemFS	& License: & BSD License \\
+		& Website: & http://www.xtreemfs.org/ \\
+		& Support: & Mailing Lists, Documentation \\
+	 	& Description: & General purpose storage, scalable and fault-tolerant system \\
     \hline    
     
   \end{tabular}

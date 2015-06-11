@@ -466,13 +466,24 @@ Top 20 committers in the project:
 
 8. CONCLUSIONS AND FUTURE WORK
 
+- Raise the contras of Cloud (stated in PROBLEM STATEMENT - [Mell Peter]) by Stallman & Co
+- Enterprise HA cluster solutions are a mix of FLOSS technologies (as in RHCS) that have been adapted into a single one
+- Individual solutions do not offer enough reliability as Company ones
+- 
+
+
+
+
+
+
+
 REFERENCES
 - * Tools and metrics: Page 106 Sergio's TFM *
   Python, matplotlib [mat14a], has been used to generate graphics for certain metrics.
   A python 2d plotting library. 2014. http://matplotlib.org
 
 APPENDIX
-- Include python scripts (for graphics charts)
+- Include python scripts (for graphics charts from RESULTS AND DISCUSSION)
 
 
 ====================================================================================================

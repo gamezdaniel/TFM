@@ -471,6 +471,47 @@ Top 20 committers in the project:
 - Individual solutions do not offer enough reliability as Company ones
 - 
 
+* Conclusions regarding the goals or hypotheses presented in the Introduction,
+
+Los sistemas orientados a cloud estan cada vez mas diseminados, y sin duda facilitan las actividades diarias a nivel de IT en las empresas de cualquier indole que implementan este esquema. 
+
+Adoptar el esquema de cloud conlleva implicaciones importates tanto a niveles economicos como eticos. Una SME que contempla trasladar su infraestructura de operaciones IT al cloud debe considerar por ejemplo los costos asociados a la transformacion, migracion, despliegue, mantenimiento (ongoing) y tiempos de downtime contemplados en los SLA acordados, y compararlos con los costes que implica mantener esta infraestructura en premisas, asi como la accesibilidad a la misma. 
+
+Otro factor a considerar es la seguridad de los datos que pertenecen a la empresa que migra al cloud, ya que existe la posibilidad de que su privacidad sea vulnerada, dado que esta data sera almacenada en servidores que son accesibles a traves de internet, aunque tambien es cierto que existen formas de reducir los niveles de vulnerabilidad a traves de tuneles VPN, cifrado de las comunicaciones, acceso a la infraestructura mediante mecanismos de autenticacion, entre otros. Siempre sera dificil garantizar la seguridad de estos sistemas que son alojados en la nube. En esta misma linea de ideas, se encuentra el issue del control de la informacion, puesto que existe una fina membrana que algunas tendencias debaten respecto a si se tiene realmente este control o no cuando se habla de sistemas en la nube.
+http://www.theguardian.com/technology/2008/sep/29/cloud.computing.richard.stallman
+http://www.linuxjournal.com/content/stallman-vs-clouds
+
+No existe un patron o formula magica que indique si el paso a la nube es beneficioso o no para una determinada empresa, todo caso debe ser rigurosamente analizado. En el caso particular de Netnovation esta decision ya ha sido tomada, y en efecto el salto a la nube ya habia sido dado algun tiempo atras. 
+
+En base a los elementos que deben ser analizados para operar finalmente en la nube, se encuentra la disponibilidad de los servicios que son alojados en ella, lo cual impacta directamente en la continuidad del negocio. Para afianzar este eslabon surgen los sistemas de HA, siendo multiples las alternativas a evaluar para conseguir este objetivo, por lo que resulta necesario utilizar metodologias que permitan elegir de forma eficaz la solucion que mas se adapte a las necesidades planteadas. Los elementos a considerar pueden ser muy variados, sin embargo hay guidelines establecidas por los usuarios finales que exigen tomas de decisiones agiles y que dificilmente permiten hacer un analisis profundo y detallado de las opciones disponibles, muchas empresas lo resumen a una frase: "time is money". Para conllevar este fenomeno puede hacerse uso de metodos como LUM, que guian el proceso de adopcion de de nuevas tecnologias y en cierta forma lo aceleran al asumir que "user is likely to choose the solution that requires the least effort". 
+
+Herramientas de mineria de datos como Metrics Grimoire complementan oportunamente decisiones que puedan ser tomadas sin suficiente investigacion al usar modelos como LUM. Estas muestran de forma objetiva y a traves de metricas concretas, el comportamiento de proyectos de SL y ayudan con la eleccion acertada de determinadas soluciones.
+
+
+
+
+
+
+
+
+
+
+
+
+  * Reflective analysis of the research and its conclusions in light of current knowledge in the field,
+
+  * Comments on the significance and contribution of the research reported,
+    Punto de referencia para la implementacion de HA en otros servicios ofrecidos por NN
+
+  * Comments on strengths and limitations of the research,
+    Existen mecanismos para evaluar las soluciones disponibles de forma exhaustiva, 
+    OpenBRR~\cite{Wasserman}, QSoS, QualOSS, 
+  
+  * Discussion of any potential applications of the research findings, and
+
+  * A description of possible future research directions, drawing on the work reported
+    Implementacion de soluciones mas completas e integradas, que requieran de menos configuracion y orquestacion de tecnologias..
+
 
 
 

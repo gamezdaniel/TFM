@@ -487,34 +487,18 @@ En base a los elementos que deben ser analizados para operar finalmente en la nu
 
 Herramientas de mineria de datos como Metrics Grimoire complementan oportunamente decisiones que puedan ser tomadas sin suficiente investigacion al usar modelos como LUM. Estas muestran de forma objetiva y a traves de metricas concretas, el comportamiento de proyectos de SL y ayudan con la eleccion acertada de determinadas soluciones.
 
+En el proceso de eleccion de la solucion fueron analizadas dos grandes y diferenciadas alternativas, the Enterprise embedded solutions versus modular FLOSS tools, siendo ambas completamente validas aunque al final restringidas a los lineamientos impuestos por Netnovation. Uno de ellos apunta a la absorcion de las tecnologias implementadas, haciendo el minimo uso posible del soporte ofrecido por el fabricante de software y reduciendo al maximo el pago de las licencias de soporte disponibles en este esquema. Esto sin duda tiene un impacto directo en el tiempo empleado para lograr el nivel de conocimiento necesario asi como en los recursos -tanto humanos como materiales- que se requiere emplear para lograr el objetivo. A largo plazo, tambien se genera un incremento en la complejidad de la infraestructura soportada, aunque siempre que exista una adecuada arquitectura, definicion del workflow y documentacion de la infraestructura establecida, siempre sera posible manejarla. 
+
+La solucion basada en el uso de FLOSS tools engrano satisfactoriamente con el requerimiento planteado en un principio, que era proveer una solucion de HA para el sistema de correo y colaboracion Zimbra utilizado por Netnovation, incorporando nuevas tecnologias al esquema existente, evitando cambios disruptivos sobre la infraestructura en funcionamiento.
+
+Within the significance and contribution of the research carried out are found a few important ones. First, the fact that it has been provided an actual solution for the stated problem, it has been implemented a laboratory with an stagging environment similar to production, giving rise to a less distant adaptation from the current schema. Second, the implementation of HA in one of the systems of the infrastructure serves as an example for the deployment of this functionality on other services offered by Netnovation, such as Webservers in Apache, Databases in MySQL, Applications in Tomcat and so on. Lastly, this exercise puts in evidence the potential of FLOSS and its possibilities in the world of private enterprise providing reliable solutions which can compete with other corporate products on the market.
+
+Se ha mostrado que existen modelos, guidelines and concrete metrics to evaluate FLOSS projects, sin embargo esta investigacion no hace un analisis exhaustivo de las herramientas disponibles en la actualidad, tales como OpenBRR~\cite{Wasserman}, QSoS~\cite{QSOS}, QualOSS~\cite{QOSS} or the Open Source Maturity Model~\cite{OSMM}. A traves de estas, es posible hacer analisis mas rigurosos que conlleven a la eleccion de soluciones basandas en valores cualitativos y cuantitativos concretos.
+
+En la medida de que se disponga de suficiente tiempo y recursos para elaborar un analisis mas detallado de las alternativas disponibles y su factibilidad de implementacion, asi como un rango de accion mas amplio con respecto a las condiciones establecidas por el cliente final, seria propicio evaluar la implementacion de soluciones mas completas e integradas, que requieran de menos configuracion y orquestacion de tecnologias independientes. Por ejemplo considerar la adopcion de soluciones como OpenStack~\footnote{https://www.openstack.org/}, Cloudstack~\footnote{https://cloudstack.apache.org/}, Eucalyptus~\footnote{https://www.eucalyptus.com/} u OpenNebula~\footnote{http://opennebula.org/} que manejan otros esquemas de HA para los servicios de nube.
 
 
-
-
-
-
-
-
-
-
-
-  * Reflective analysis of the research and its conclusions in light of current knowledge in the field,
-
-  * Comments on the significance and contribution of the research reported,
-    Punto de referencia para la implementacion de HA en otros servicios ofrecidos por NN
-
-  * Comments on strengths and limitations of the research,
-    Existen mecanismos para evaluar las soluciones disponibles de forma exhaustiva, 
-    OpenBRR~\cite{Wasserman}, QSoS, QualOSS, 
-  
-  * Discussion of any potential applications of the research findings, and
-
-  * A description of possible future research directions, drawing on the work reported
-    Implementacion de soluciones mas completas e integradas, que requieran de menos configuracion y orquestacion de tecnologias..
-
-
-
-
+*** ADDITIONAL FIGURES w/SCREENSHOTS OF IMPLEMENTED SYSTEM *** ???
 
 
 

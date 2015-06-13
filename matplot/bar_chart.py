@@ -1,22 +1,19 @@
-import matplotlib.pyplot as plt
-import numpy as np
+import matplotlib.pyplot as pyplt
+import numpy as npy
 
-# Collect the data from the file, ignore empty lines
-with open('data_p.txt') as f:
-    lines = [line.strip().split(' ') for line in f if len(line) > 1]
+# Collect data from file, avoid empty lines
+with open('data_p.txt') as d:
+    lines = [line.strip().split(' ') for line in d if len(line) > 1]
 
 labels, y = zip(*lines)
 
-# Generate indexes
-ind = np.arange(len(labels))
+# Indexes
+ind = npy.arange(len(labels))
 
-# Convert the y values from str to int
+# Convert y values from str to int
 y = map(int, y)
 
-plt.figure()
-plt.bar(ind, y, align='center')
-plt.xticks(ind, labels, rotation=45)
-plt.show()
-
-
-# tickangle=-45
+pyplt.figure()
+pyplt.bar(ind, y, align='center')
+pyplt.xticks(ind, labels, rotation=45)
+pyplt.show()

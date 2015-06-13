@@ -88,17 +88,18 @@
 
 % Subject matter (terms of reference statement of problem/topic)
 
-\noindent The Small Medium Enterprise (SME) sector that requires access to computer systems for their operations is being increasingly attracted by cloud computing schemes. This demand is being attended by large providers of such services but also by other SMEs which assume strategic business models around this niche. When providing private cloud services, \textit{reliability} is a major feature, trust in that the service consistently performs according to its specifications. One of its key element consist in the \textit{availability} of the systems, and there are multiple ways to provide it but the choice of the right tools is not an easy task.\bigskip
+\noindent The Small Medium Enterprise (SME) sector that requires access to computer systems for their operations is being increasingly attracted by cloud computing schemes. This demand is being attended by large providers of such services but also by other SMEs which assume strategic business models around this niche. When providing private cloud services, \textit{reliability} is a major feature, trust in that the service consistently performs according to its specifications. One of its key elements consists in the \textit{availability} of the systems. There are multiple ways to provide it, but the choice of the right tools is not an easy task.\bigskip
 
-\noindent Netnovation is a good example of this type of SME, it is a company that has based its bussiness model on consulting around F$\ell$OSS providing Infrastructure as a Service (IaaS) and cloud services. Like many others, needs to provide high availability to their services in order to ensure SLAs established with its customers. There are many options, some more expensive than others, with economic, practical and ethical implications, but most of them with the same goal.\bigskip
+\noindent Netnovation is a good example of this type of SME: it is a company that has based its business model on consulting around F$\ell$OSS providing Infrastructure as a Service (IaaS) and cloud services. Like many others, it needs to provide high availability to its services in order to ensure SLAs established with its customers. There are many options, with economic, practical and ethical implications, but most of them with the same goal.\bigskip
 
 % methods of analysis (Formal language appropriate to report writing)
 
-\noindent It is necessary to apply a proper method that allows the choice of the right solution, considering the initial requirements, as well as human and material resources destinated to this purpose. The method used has been the Lazy User Model (LUM) which focuses on user needs and the demanded effort to chose a solution to a problem. Added to this, they are used suggested guidelines that reinforce the initial selection and adoption of F$\ell$OSS within the IT infrastructure. Furthermore, Grimoire Metrics techniques are used to obtain specific metrics, with which it is possible to interpret some behavior patterns of F$\ell$OSS projects assessed as a final solution.\bigskip
+\noindent It is necessary to apply a proper method that allows the choice of the right solution, considering the initial requirements, as well as human and material resources identified for this purpose. The method used has been the Lazy User Model (LUM) which focuses on user needs and the demanded effort to chose a solution to a problem. In addition,
+ suggested guidelines are used that reinforce the initial selection and adoption of F$\ell$OSS within the IT infrastructure. Furthermore, Grimoire Metrics techniques are used to obtain specific metrics, with which it is possible to interpret some behavior patterns of F$\ell$OSS projects assessed as a final solution.\bigskip
 
 % Findings (Key findings summarised)
 
-\noindent Two major alternatives were found, the enterprise embedded solutions offering support plans over the provided integrated product, and also modular or standalone F$\ell$OSS which needs to be orchestrated in order to provide a final solution. Based upon the guidelines established by Netnovation, the final solution consists in the integration of tools like Pacemaker, Corosync and DRBD, avoiding disruptive changes on the current operational infrastructure.\bigskip
+\noindent Two major alternatives were found: the enterprise embedded solutions offering support plans over the provided integrated product, and also modular or standalone F$\ell$OSS which needs to be orchestrated in order to provide a final solution. Based upon the guidelines established by Netnovation, the final solution consists in the integration of tools like Pacemaker, Corosync and DRBD, avoiding disruptive changes on the current operational infrastructure.\bigskip
 
 % Conclusions (Problem solution summarised) - can be summarized/bulleted
 
@@ -113,10 +114,10 @@
 % Recommendations - can be summarized/bulleted
 % Limitations of the report
 
-\noindent Ultimately it is discussed the adoption of cloud-oriented systems and their implications. It is important to note that a comprehensive analysis can be conducted through specialized tools able to provide metrics more specific than those obtained in this research. Also is considered for future work the adoption of technologies that can handle other high availability schemes for cloud services.\bigskip
+\noindent Ultimately the adoption of cloud-oriented systems and their implications is discussed. It is important to note that a comprehensive analysis can be conducted through specialized tools able to provide metrics more specific than those obtained in this research. Also the adoption of technologies that can handle other high availability schemes for cloud services is considered as future work .\bigskip
 
 \noindent
-Key words: Cluster, Corosync, CRM, DRBD, FOSS, F$\ell$OSS, High Availability, LUM, Metrics Grimoire, OCF, Pacemaker, Zimbra.
+{\bf Key words}: Cluster, Corosync, CRM, DRBD, FOSS, F$\ell$OSS, High Availability, LUM, Metrics Grimoire, OCF, Pacemaker, Zimbra.
 
 %=====================================
 % ACKNOWLEDGEMENTS
@@ -201,7 +202,7 @@ Key words: Cluster, Corosync, CRM, DRBD, FOSS, F$\ell$OSS, High Availability, LU
 
 \noindent This study was undertaken in the one hand to test some aspects of business practices in the current technology market and the use of F$\ell$OSS as a key factor, and in the other one, to fulfill the demands of a business organization showing that business models around F$\ell$OSS are a fact nowadays.\bigskip
 
-\noindent The way this dissertation is going to be organized is the following:\bigskip
+\noindent The way this dissertation is organized is the following:\bigskip
 
 \noindent Chapter 2 with the problem statement, setting why there is an issue in the current situation, what are the justification and motivation of this dissertation, also defining the objectives and the proper scope.\bigskip
 
@@ -291,7 +292,7 @@ Some of these high-availability implementations have been proprietary since the 
 \subsection{HP Serviceguard}
 \label{subsec:serviceguard}
 
-Hewlett Packard (HP) claims the credit for the development of the first high availability solution for UNIX systems since 1990\footnote{{\tiny\ http://www.hpintelco.net/sglx/service.html}}. MC/ServiceGuard is a high-availability cluster software released for HP-UX and later for GNU/Linux systems. Since the first development of the software, HP has partnered with companies such as Oracle or SAP to deploy high-availability in enterprise environments, as Figure~\ref{fig:enterprise} (took from http://www.hpintelco.net) shows.\bigskip
+Hewlett Packard (HP) claims the credit for the development of the first high availability solution for UNIX systems since 1990\footnote{{\tiny\ http://www.hpintelco.net/sglx/service.html}}. MC/ServiceGuard is a high-availability cluster software released for HP-UX and later for GNU/Linux systems. Since the first development of the software, HP has partnered with companies such as Oracle or SAP to deploy high-availability in enterprise environments, as Figure~\ref{fig:enterprise} (taken from http://www.hpintelco.net) shows.\bigskip
 
 \begin{figure}
   \centering
@@ -373,7 +374,7 @@ This is an integrated suite of clustering technologies that enables the implemen
 	\item Multiple clustering scenarios, as active/active and active/passive configurations, as well as hybrid physical and virtual clusters
 	\item Supports mixed clustering, physical and virtual Linux servers, based on Xen and KVM hypervisors
 	\item Corosync messaging and membership layer, also Pacemaker cluster resource manager
-	\item Storage and data replication supporting Fibre Channel or iSCSI SAN
+	\item Storage and data replication supporting Fiber Channel or iSCSI SAN
 	\item Cluster-aware file systems with GFS and OCFS, and cLVM as volume manager
 	\item Supports replication through DRBD
 	\item Samba clustering with CTDB
@@ -423,7 +424,7 @@ for heartbeat, monitoring other node's health.
 
 \noindent As in enterprise HA solutions, Cluster Managers are an important element within HA implementations, providing backend GUI or CLI software that runs on one or all cluster nodes, responsible for managing and controlling clustered services. Currently there are several F$\ell$OSS alternatives, including the ones listed in Table~\ref{table:cluster_managers_individuals} from individual developers, usually without enterprise support services, and some others from companies or institutes listed in Table~\ref{table:cluster_managers_companies}.
 
-\noindent The cluster oriented filesystems are another key element regarding HA implementations. They provide data replication and fault tolerance, allowing operations continuity against incidents. There are several F$\ell$OSS alternatives to provide clustered storage, including the tools listed in Table~\ref{table:cluster_filesystems}. One of the most consolidated clustered storage technologies is DRBD, first released in 1999, it will be aborded in Chapter~\ref{chap:implemented}.
+\noindent The cluster oriented filesystems are another key element regarding HA implementations. They provide data replication and fault tolerance, allowing operations continuity against incidents. There are several F$\ell$OSS alternatives to provide clustered storage, including the tools listed in Table~\ref{table:cluster_filesystems}. One of the most consolidated clustered storage technologies is DRBD, first released in 1999, it will be approached in Chapter~\ref{chap:implemented}.
 
 % \FloatBarrier
 \begin{table}[H]
@@ -434,7 +435,7 @@ for heartbeat, monitoring other node's health.
 		 & Author(s): &  Alexandre Cassen\\
       Keepalived & License: &  GNU GPL v2+\\
 		 & Website: &  http://keepalived.sourceforge.net/\\
-	 	 & Description: & Routing software written in C, providing loadbalancing and HA facilities\\
+	 	 & Description: & Routing software written in C, providing load balancing and HA facilities\\
     \hline
 	Linux	 & Author(s): & Michael England \\
 	Cluster	 & License: & GNU GPL \\
@@ -572,7 +573,7 @@ The followed roadmap to achieve the objectives outlined is a set of guidelines a
 \noindent On the one hand, the guidelines proposed by Daffara suggest a research method by collecting and read as much information related to the project is available and select the appropriate solution from a matching set that fulfill the requirements. On the other hand, following a practical formal approach, applying a model of technology acceptance such as the Lazy User Model (LUM)~\cite{CandT1} is possible to frame the process by which are chosen the technological tools that will make up the solution that meets user requirements, which in this case is being represented by the company Netnovation. This model focuses on user needs and the demanded effort when selecting a solution to a problem from a set of possible solutions, ``According to the lazy user model, a user is likely to choose the solution that requires the least effort. The user examines this cost in terms of time, energy and money when considering how to use a new solution."~\cite{CandT2} The LUM proposes that technology acceptance is impacted 
 by this principle.\bigskip
 
-\noindent Additionally at using Metrics Grimoire~\cite{GSyC}, a flexible toolset which allow to obtain data from repositories related to software development, is possible to analyze databases that can later be mined for specific patterns or summaries of activity, allowing to establish objective comparisons in relation to the projects analyzed.
+\noindent Additionally using Metrics Grimoire~\cite{GSyC}, a flexible toolset which allow to obtain data from repositories related to software development, it is possible to analyze databases that can later be mined for specific patterns or summaries of activity, allowing to establish objective comparisons in relation to the projects analyzed.
 
 % python, matplotlib ?
 
@@ -584,20 +585,20 @@ by this principle.\bigskip
 
 In order to provide IT services to customers, considering software services hosted in an on-line remote location, Netnovation requires a proper software and hardware infrastructure to operate. Some of these services are from VPS, Data Storage Systems, Customer Relationship Management Systems, Email and Collaboration Systems, to Voice over IP PBX systems. Both parties, software infrastructure and product services offered are based on F$\ell$OSS.\bigskip
 
-\noindent In particular the Zimbra server to which a high availability schema is been configured, resides into this architecture, and it is consistent with the company's principles and business model, which is why it is useful to understand the environment to which it belongs.
+\noindent In particular the Zimbra server to which a high availability schema is been configured, resides in this architecture, and is consistent with the company's principles and business model, which is why it is useful to understand the environment to which it belongs.
 
 
 \section{Company Infrastructure}
 \label{sec:infrastructure}
 
-Currently the services are offered from two DataCenters (DC1 and DC2) geographically distributed with the aim of guarantee data redundancy. Assuming that communication with the main DC is lost, it has been defined a procedure that allows the restoration of services in the other DC, with the disadvantage that it is a manual procedure that requires administrators intervention.
+Currently the services are offered from two DataCenters (DC1 and DC2) geographically distributed with the aim of providing guarantee of data redundancy. Assuming that communication with the main DC is lost, a procedure has been defined that allows the restoration of services in the other DC, with the disadvantage that it is a manual procedure that requires the  administrators' intervention.
 
 \section{Existent Hardware}
 \label{sec:hardware}
 
 Each DC has an average of seven Dell PowerEdge\texttrademark \ Racked Servers with different capacities, interconnected via communication devices that provide various services analogously.\bigskip
 
-\noindent There is a Dell PowerEdge 2850/2950 server serving as firewall and main router on each DC. On the one hand it has a WAN 1000Mbps interface, which is connected through UTP Cat-6 wired to 24 PoE ports Switches Netgear FS728TPv1 Gigabit. Physical servers are installed in 20U rack cabinets. These servers range from models Dell PowerEdge 1950, R510 to R710, have Intel Xeon CPUs within 24 and 64 cores, count with 8 to 64GB of RAM, and also have SCSI HDD with capacities between 100GB and 2,5TB.
+\noindent There is a Dell PowerEdge 2850/2950 server serving as firewall and main router on each DC. On the one hand it has a WAN 1000Mbps interface, which is connected through UTP Cat-6 wired to 24 PoE ports Switches Netgear FS728TPv1 Gigabit. Physical servers are installed in 20U rack cabinets. These servers range from models Dell PowerEdge 1950, R510 to R710, have Intel Xeon CPUs within 24 and 64 cores, count with 8 to 64GB of RAM, and also have SCSI HDD with capacities between 100GB and 2.5TB.
 
 
 \section{Company Network Scheme}
@@ -629,7 +630,7 @@ In Table~\ref{table:technologies} there are some software solutions currently us
     Industry: & Unified Threat Management \\
     License: & GNU GPL \\
     Website: & endian.com \\
-    Description: & A linux security distribution with full featured Unified Threat Management functionality. Include a stateful packet inspection firewall, application-level proxies for various protocols, antivirus support, virus and spam-filtering for email traffic, content filtering of Web traffic, also an OpenVPN solution. Distribution based on Red Hat. \\
+    Description: & A Linux security distribution with full featured Unified Threat Management functionality. Include a stateful packet inspection firewall, application-level proxies for various protocols, antivirus support, virus and spam-filtering for email traffic, content filtering of Web traffic, also an OpenVPN solution. Distribution based on Red Hat. \\
     Supported Platforms: & GNU/Linux \\
     Commercial support: & annual subscription \\
     
@@ -869,7 +870,7 @@ Table~\ref{table:fqdn} shows the current configuration for the virtual IP addres
 \end{table}
 
 
-\noindent Set the correct Netmask and Gateway, so servers are able to reach internet addresses, also disable the firewall or allow the http and ftp outgoing rules on it. The primary DNS server will be configured later to be the localhost, with forwarding to external DNS servers.\bigskip
+\noindent Set the correct Netmask and Gateway, so servers are able to reach internet addresses, also disable the firewall or allow the HTTP and ftp outgoing rules on it. The primary DNS server will be configured later to be the localhost, with forwarding to external DNS servers.\bigskip
 
 \noindent Some useful commands to manipulate and consult the network service on RHEL:\\
 \indent service network restart\\
@@ -883,7 +884,7 @@ Table~\ref{table:fqdn} shows the current configuration for the virtual IP addres
 	\item NTP
 \end{itemize}
 
-\noindent Required RPM packages to sincronize cluster nodes through network time protocol: ntp, ntpdate.\bigskip
+\noindent Required RPM packages to synchronize cluster nodes through network time protocol: ntp, ntpdate.\bigskip
 
 \noindent Set the proper NTP parameters in /etc/ntp.conf file on each server, so both nodes share the same date and time, as shown in Table~\ref{table:ntp}.
 
@@ -953,7 +954,7 @@ Table~\ref{table:fqdn} shows the current configuration for the virtual IP addres
 \label{table:bindastapor}
 \end{table}
 
-\noindent A similar got.com.db file must be set on braavos node replacing the corresponding hostname and IP address. Leaving zcs-ha entries without changes in both nodes.\bigskip
+\noindent A similar got.com.db file must be set on Braavos node replacing the corresponding hostname and IP address. Leaving ZCS-ha entries without changes in both nodes.\bigskip
 
 \noindent Some useful commands to handle and request BIND service on RHEL are:\\
 \indent named-checkconf -z \\
@@ -1066,7 +1067,7 @@ The following actions must be performed in parallel on both nodes, except in tho
 
 \end{itemize}
 
-\noindent Now it is necessary to revert the roles back, making braavos the secondary node and astapor the primary one.
+\noindent Now it is necessary to revert the roles back, making Braavos the secondary node and Astapor the primary one.
 
 
 \subsection{DRBD Split Brain Recovery}
@@ -1093,13 +1094,13 @@ The following actions must be performed in parallel on both nodes, except in tho
 \section{ZCS}
 \label{sec:zcs}
 
-Here will be fully installed ZCS on astapor but just a dummy installation on braavos, since DRBD will replicate the data to the other node. Download and place ZCS installation file in astapor and braavos filesystems. It can be found at http://www.zimbra.com/downloads/os-downloads.html. In order to complete a full install on a single server, the following resource will be useful - http://files.zimbra.com/website/docs/8.5/Zimbra\_OS\_Quick\_Start\_8.5.0.pdf.
+Here will be fully installed ZCS on Astapor but just a dummy installation on Braavos, since DRBD will replicate the data to the other node. Download and place ZCS installation file in Astapor and Braavos filesystems. It can be found at http://www.zimbra.com/downloads/os-downloads.html. In order to complete a full install on a single server, the following resource will be useful - http://files.zimbra.com/website/docs/8.5/Zimbra\_OS\_Quick\_Start\_8.5.0.pdf.
 
 
 \subsection{ZCS full install on primary node}
 \label{sec:fullinstall}
 
-The following actions must be performed sequentially on \textit{\textbf{astapor}}.
+The following actions must be performed sequentially on \textit{\textbf{Astapor}}.
 
 \begin{itemize}
 	\item Create directory for ZCS:\\
@@ -1157,10 +1158,10 @@ The following actions must be performed sequentially on \textit{\textbf{astapor}
 \subsection{ZCS dummy install on secondary node}
 \label{sec:dummyinstall}
 
-\noindent The following actions must be performed sequentially on braavos.
+\noindent The following actions must be performed sequentially on Braavos.
 
 \begin{itemize}
-	\item Promote braavos to primary DRBD:\\
+	\item Promote Braavos to primary DRBD:\\
 		drbdadm primary optzimbra
 		
 	\item Create directory for ZCS:\\
@@ -1185,7 +1186,7 @@ The following actions must be performed sequentially on \textit{\textbf{astapor}
 	\item Demote braavos back to secondary DRBD:\\
 		drbdadm secondary optzimbra
 		
-	\item Promote astapor back to primary DRBD, executing from astapor node:\\
+	\item Promote Astapor back to primary DRBD, executing from astapor node:\\
 		drbdadm primary optzimbra
 		
 \noindent At this point DRBD has to synchronize data from primary node, so check the status until it is done:\\
@@ -1199,7 +1200,7 @@ The following actions must be performed sequentially on \textit{\textbf{astapor}
 \noindent Open Cluster Framework, standard scripts to control services such as ZCS. Following actions must be performed in both nodes.
 
 \begin{itemize}
-	\item Add btactic zimbra script to /usr/lib/ocf/resource.d/btactic/zimbra. The source code of this script is included in the Appendix~\ref{app:appendix1}.\\
+	\item Add btactic Zimbra script to /usr/lib/ocf/resource.d/btactic/zimbra. The source code of this script is included in the Appendix~\ref{app:appendix1}.\\
 
 	\item Also create the following symbolic link:\\
 		ln \ -s \ /usr/lib/ocf/resource.d/btactic/zimbra \ /usr/lib/ocf/resource.d/heartbeat/
@@ -1257,7 +1258,7 @@ The following actions must be performed sequentially on \textit{\textbf{astapor}
 	\indent crm(live)\# help\\
 	\indent crm(live)\# quit\\
 
-\noindent Another way would be through \textit{\textbf{pcs}} and \textit{\textbf{ccs}} instructions directly from a linux tty in a bash session. Following is going to be used this way to configure the cluster, executing the commands only on the primary node.
+\noindent Another way would be through \textit{\textbf{pcs}} and \textit{\textbf{ccs}} instructions directly from a Linux tty in a bash session. Following is going to be used this way to configure the cluster, executing the commands only on the primary node.
 
 \begin{itemize}
 	\item Create the cluster:\\
@@ -1573,7 +1574,7 @@ The following actions must be performed sequentially on \textit{\textbf{astapor}
 \chapter{Results and discussion}
 \label{chap:results}
 
-In the initial research over the Internet, main F$\ell$OSS source code repositories were consulted (listed bellow alphabetically) in order to review the state of the art regarding tools that could fit the requirements. Most of the related projects were currently hosted in Github. It is worth noting important work in this area such as the ``Study of available tools"~\cite{FMC} by the FLOSSMetrics Consortium.
+In the initial research over the Internet, main F$\ell$OSS source code repositories were consulted (listed bellow alphabetically) in order to review the state of the art regarding tools that could fit the requirements. Most of the related projects were currently hosted in GitHub. It is worth noting important work in this area such as the ``Study of available tools"~\cite{FMC} by the FLOSSMetrics Consortium.
 
 \begin{itemize}
 	\item BerliOS (berlios.de)
@@ -1615,9 +1616,9 @@ In the initial research over the Internet, main F$\ell$OSS source code repositor
 \noindent Also specific related work was found, such as:
 
 \begin{itemize}
-	\item Gibanel Lopez, Adrian. ``Zimbra 8 High Availability on Ubuntu 12.04". Universitat de Lleida. 2013. DOI=http://repositori.udl.cat/bitstream/handle/10459.1/46685/agibanell.pdf
-	\item OCF zimbra script: https://github.com/adrian15/hazimbra-thesis/blob/master/ocf/zimbra
-	\item Vidal Lopez M. and Castro Jose L. ``Creacion de un cluster de alta disponibilidad con software libre". Novatica Journal. Nro 210. 2011. \\
+	\item Gibanel L\'opez, Adri\'an. ``Zimbra 8 High Availability on Ubuntu 12.04". Universitat de Lleida. 2013. DOI=http://repositori.udl.cat/bitstream/handle/10459.1/46685/agibanell.pdf
+	\item OCF Zimbra script: https://github.com/adrian15/hazimbra-thesis/blob/master/ocf/zimbra
+	\item Vidal L\'opez M. and Castro Jos\'e L. ``Creacion de un cluster de alta disponibilidad con software libre". Novatica Journal. Nro 210. 2011. \\
 	DOI=http://www.ati.es/novatica/2011/209/Nv209-75.pdf
 \end{itemize}
 
@@ -1759,11 +1760,11 @@ In the initial research over the Internet, main F$\ell$OSS source code repositor
 
 \noindent Adopting a cloud platform has important implications, at both economic and ethical levels. An SME which contemplates moving its IT infrastructure operations to the cloud should consider for example the costs associated with the transformation, migration, deployment, ongoing, hosting charges and downtime times covered by the SLA, and compare them with the costs involved in maintaining this infrastructure on premises, as well as guarantee its accessibility.\bigskip
 
-\noindent Another key factor to consider is the safety of the data belonging to the company that migrates to the cloud, as there is the possibility that their privacy could be violated, since this data will be stored on servers that are accessible over the Internet, although it is also true that there are ways to reduce these levels of vulnerability through VPN tunnels, encrypted and segmentated communications, access to infrastructure by authentication mechanisms, among others. It will always be difficult to ensure the safety of these systems that are hosted in remote locations. In the same line of ideas, and issue with the control of the information arises, as there is a thin membrane that some trends debate about whether these companies have actually control over its own information or not, when it comes to cloud systems~\footnote{{\tiny\ http://www.theguardian.com/technology/2008/sep/29/cloud.computing.richard.stallman}}~\footnote{{\tiny\ http://www.linuxjournal.com/content/stallman-vs-clouds}}.\bigskip
+\noindent Another key factor to consider is the safety of the data belonging to the company that migrates to the cloud, as there is the possibility that their privacy could be violated, since this data will be stored on servers that are accessible over the Internet, although it is also true that there are ways to reduce these levels of vulnerability through VPN tunnels, encrypted and segmented communications, access to infrastructure by authentication mechanisms, among others. It will always be difficult to ensure the safety of these systems that are hosted in remote locations. In the same line of ideas, and issue with the control of the information arises, as there is a thin membrane that some trends debate about whether these companies have actually control over its own information or not, when it comes to cloud systems~\footnote{{\tiny\ http://www.theguardian.com/technology/2008/sep/29/cloud.computing.richard.stallman}}~\footnote{{\tiny\ http://www.linuxjournal.com/content/stallman-vs-clouds}}.\bigskip
 
 \noindent There is no magic formula or pattern to indicate whether the move to the cloud is beneficial or not for a given company, every case should be analyzed rigorously based on its conditions. In the case of Netnovation this decision was already taken, and indeed the leap to the cloud had already been taken since some time ago.\bigskip
 
-\noindent Based upon the elements that should be analyzed to eventually operate in the cloud, the availability of hosted services is one of them, which directly impacts over the business continuity. To strengthen this eslabon emerge the HA systems, with multiple alternatives to be evaluated to achieve this goal, making it necessary to use methodologies to effectively choose the solution that best suits the needs raised. Elements for consideration can be varied, however there are guidelines set by end users (the companies involved in the transformation) demanding agile decisions and hardly allowing in-depth and detailed analysis of the available options, many companies summarize this to the single phrase ``time is money".\bigskip
+\noindent Based upon the elements that should be analyzed to eventually operate in the cloud, the availability of hosted services is one of them, which directly impacts over the business continuity. To strengthen this link emerge the HA systems, with multiple alternatives to be evaluated to achieve this goal, making it necessary to use methodologies to effectively choose the solution that best suits the needs raised. Elements for consideration can be varied, however there are guidelines set by end users (the companies involved in the transformation) demanding agile decisions and hardly allowing in-depth and detailed analysis of the available options, many companies summarize this to the single phrase ``time is money".\bigskip
 
 \noindent To overcome this phenomenon, methods such as LUM can be used, which guide the process of adopting new technologies and somehow accelerate it assuming that \textit{the user is likely to choose the solution that requires the least effort}.\bigskip
 
@@ -1773,7 +1774,7 @@ In the initial research over the Internet, main F$\ell$OSS source code repositor
 
 \noindent The solution based on independent FLOSS tools geared successfully with the requirement initially raised, which was to provide a high availability solution for the Zimbra E-mail and collaboration system used by Netnovation, incorporating new technologies to the existing scheme and avoiding disruptive changes on the operational infrastructure.\bigskip
 
-\noindent Within the significance and contribution of the research carried out are found a few important ones. First, the fact that it has been provided an actual solution for the stated problem, it has been implemented a laboratory with an stagging environment similar to production, giving rise to a less distant adaptation from the current schema. Second, the implementation of HA in one of the systems of the infrastructure serves as an example for the deployment of this functionality on other services offered by Netnovation, such as Webservers in Apache, Databases in MySQL, Applications in Tomcat and so on. Lastly, this exercise puts in evidence the potential of FLOSS and its possibilities in the world of private enterprise providing reliable solutions which can compete with other corporate products on the market.\bigskip
+\noindent Within the significance and contribution of the research carried out are found a few important ones. First, the fact that it has been provided an actual solution for the stated problem, it has been implemented a laboratory with an staging environment similar to production, giving rise to a less distant adaptation from the current schema. Second, the implementation of HA in one of the systems of the infrastructure serves as an example for the deployment of this functionality on other services offered by Netnovation, such as web servers in Apache, Databases in MySQL, Applications in Tomcat and so on. Lastly, this exercise puts in evidence the potential of FLOSS and its possibilities in the world of private enterprise providing reliable solutions which can compete with other corporate products on the market.\bigskip
 
 \noindent It has been shown that there are models, guidelines and concrete metrics to evaluate F$\ell$OSS projects, however, this research does not make a comprehensive analysis of the tools available nowadays. Such tools are for instance OpenBRR~\cite{Wasserman}, QSoS~\cite{QSOS}, QualOSS~\cite{QOSS} or the Open Source Maturity Model~\cite{OSMM}, through which it is possible to do a more rigorous analysis that lead to the choice of solutions based on specific qualitative and quantitative concrete values.\bigskip
 

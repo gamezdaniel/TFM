@@ -88,30 +88,32 @@
 
 % Subject matter (terms of reference statement of problem/topic)
 
-\noindent The Small Medium Enterprise (SME) sector that requires access to computer systems for their operations is being increasingly attracted by cloud computing schemes. This demand is being attended by large providers of such services but also by other SMEs which assume strategic business models around this niche. When providing private cloud services, reliability is a major feature, trust in that the service consistently performs according to its specifications. One of its key element consist in the availability of the systems, and there are multiple ways to provide it but the choice of the right tools is not an easy task.\bigskip
+\noindent The Small Medium Enterprise (SME) sector that requires access to computer systems for their operations is being increasingly attracted by cloud computing schemes. This demand is being attended by large providers of such services but also by other SMEs which assume strategic business models around this niche. When providing private cloud services, \textit{reliability} is a major feature, trust in that the service consistently performs according to its specifications. One of its key element consist in the \textit{availability} of the systems, and there are multiple ways to provide it but the choice of the right tools is not an easy task.\bigskip
 
-\noindent Netnovation is a good example of this type of SME, it is a company that has based its bussiness model on consulting around F$\ell$OSS providing Infrastructure as a Service (IaaS) and cloud services. Like many others, needs to provide high availability to the systems offered in order to ensure SLAs established with its customers. There are many options, some more expensive than others, with economic, practical and ethical implications, but most of them with the same goal.\bigskip
+\noindent Netnovation is a good example of this type of SME, it is a company that has based its bussiness model on consulting around F$\ell$OSS providing Infrastructure as a Service (IaaS) and cloud services. Like many others, needs to provide high availability to their services in order to ensure SLAs established with its customers. There are many options, some more expensive than others, with economic, practical and ethical implications, but most of them with the same goal.\bigskip
 
 % methods of analysis (Formal language appropriate to report writing)
 
-\noindent It is necessary to apply a proper method that allows the choice of the right solution, considering the established requirements  as well as human and material resources available for this purpose. One method that has been found is the one offered by the Lazy User Model (LUM) which focuses on user needs and the demanded effort to chose a solution to a problem. Added to this, they are used suggested guidelines that reinforce the initial selection and adoption of F$\ell$OSS within the IT infrastructure. Furthermore, Grimoire Metrics techniques are used to obtain specific metrics, with which it is possible to interpret some behavior patterns of F$\ell$OSS projects assessed as a final solution.\bigskip
+\noindent It is necessary to apply a proper method that allows the choice of the right solution, considering the initial requirements, as well as human and material resources destinated to this purpose. The method used has been the Lazy User Model (LUM) which focuses on user needs and the demanded effort to chose a solution to a problem. Added to this, they are used suggested guidelines that reinforce the initial selection and adoption of F$\ell$OSS within the IT infrastructure. Furthermore, Grimoire Metrics techniques are used to obtain specific metrics, with which it is possible to interpret some behavior patterns of F$\ell$OSS projects assessed as a final solution.\bigskip
 
 % Findings (Key findings summarised)
 
-\noindent Two major alternatives were found, the enterprise embedded solutions offering support plans over the provided integrated product, and also modular or independent F$\ell$OSS which needs to be orchestrated in order to provide a final solution. Based upon the guidelines established by Netnovation, the final solution consists in the integration of tools like Pacemaker, Corosync and DRBD, avoiding disruptive changes on the current operational infrastructure.\bigskip
+\noindent Two major alternatives were found, the enterprise embedded solutions offering support plans over the provided integrated product, and also modular or standalone F$\ell$OSS which needs to be orchestrated in order to provide a final solution. Based upon the guidelines established by Netnovation, the final solution consists in the integration of tools like Pacemaker, Corosync and DRBD, avoiding disruptive changes on the current operational infrastructure.\bigskip
 
 % Conclusions (Problem solution summarised) - can be summarized/bulleted
 
-\noindent Among the significant achievements and contribution of the research carried out are:\bigskip
+\noindent Among the significant achievements and contribution of the research carried out are:
 
-\indent - An actual implementation has been provided as a solution for the stated problem\\
-\indent - The implemented solution serves as a reference point to provide high availability over other services\\
-\indent - This exercise puts in evidence the potential of F$\ell$OSS and its possibilities in the world of private enterprise\bigskip
+\begin{itemize}
+  \item An actual implementation has been provided as a solution for the stated problem
+  \item The implemented solution serves as a reference point to provide high availability over other services
+  \item This exercise puts in evidence the potential of F$\ell$OSS and its possibilities in the world of private enterprise
+\end{itemize}
 
 % Recommendations - can be summarized/bulleted
 % Limitations of the report
 
-\noindent Ultimately it is discussed the adoption of cloud-oriented systems and their implications. Is important to note that a comprehensive analysis can be conducted through specialized tools able to provide metrics more specific than those obtained in this research. Also is considered for future work the adoption of technologies that can handle other high availability schemes for cloud services.\bigskip
+\noindent Ultimately it is discussed the adoption of cloud-oriented systems and their implications. It is important to note that a comprehensive analysis can be conducted through specialized tools able to provide metrics more specific than those obtained in this research. Also is considered for future work the adoption of technologies that can handle other high availability schemes for cloud services.\bigskip
 
 \noindent
 Key words: Cluster, Corosync, CRM, DRBD, FOSS, F$\ell$OSS, High Availability, LUM, Metrics Grimoire, OCF, Pacemaker, Zimbra.
@@ -144,7 +146,7 @@ Key words: Cluster, Corosync, CRM, DRBD, FOSS, F$\ell$OSS, High Availability, LU
 	\item CLI: Command Line Interface
 	\item cLVM: clustered Logical Volume Manager
 	\item CPU: Central Process Unit
-	\item CRM: Cluster Resource Manager / Customer Relationship Management
+	\item CRM: Cluster Resource Manager
 	\item CTDB: Clustered Trivial Database
 	\item DRBD: Distributed Replicated Block Device
 	\item F$\ell$OSS: Free Libre Open Source Software (also known as FOSS)
@@ -195,7 +197,7 @@ Key words: Cluster, Corosync, CRM, DRBD, FOSS, F$\ell$OSS, High Availability, LU
 
 \noindent Since 2004 Netnovation\texttrademark \ is a Venezuelan SME formed by a team of professionals in the areas of IT and telecommunications who adopted a business model based on consulting around F$\ell$OSS, providing system integration, timely development and Infrastructure as a Service (IaaS), orienting its services to the cloud.\bigskip
 
-\noindent Due to a number of reasons that will be discussed throughout this dissertation, cloud services require a set of components to ensure the security, availability and reliability of data that is stored in data center facilities remotely accessible from internet. The study conducted here is focused specifically on the availability of the data that must be accessible to their applicants at all times.\bigskip
+\noindent Due to a number of reasons that will be discussed throughout this dissertation, cloud services require a set of components to ensure the security, availability and reliability of data that is stored in data center facilities remotely accessible from internet. The study conducted here is focused specifically on the availability of services that must be accessible to their applicants at all times.\bigskip
 
 \noindent This study was undertaken in the one hand to test some aspects of business practices in the current technology market and the use of F$\ell$OSS as a key factor, and in the other one, to fulfill the demands of a business organization showing that business models around F$\ell$OSS are a fact nowadays.\bigskip
 
@@ -205,7 +207,7 @@ Key words: Cluster, Corosync, CRM, DRBD, FOSS, F$\ell$OSS, High Availability, LU
 
 \noindent Chapter 3 describing the most relevant related technologies around the possible solutions.\bigskip
 
-\noindent Chapter 4 establishing the used methodology, supported by guidelines proposed by Carlo Daffara and the Lazy User model, as well as analysis of concrete metrics.\bigskip
+\noindent Chapter 4 establishing the used methodology, supported by guidelines proposed by Carlo Daffara and the Lazy User model, as well as proposal of concrete metrics through Metrics Grimoire toolset.\bigskip
 
 \noindent Chapter 5 showing the architecture of the company and its infrastructure, available hardware for operations, the network scheme, and an overview of the software supporting the current situation, all of this in order to understand how to adapt an actual solution.\bigskip
 
@@ -224,11 +226,11 @@ Key words: Cluster, Corosync, CRM, DRBD, FOSS, F$\ell$OSS, High Availability, LU
 \chapter{Problem statement}
 \label{chap:problem}
 
-Business continuity in the field of information technology is supported in a large extent by the uninterrupted operation of the systems used in productivity tasks~\cite{ISO22399}. These systems must be fault tolerant, so that operations have the least possible impact in the event that an unexpected incident occurs.\bigskip
+Business continuity in the field of information technologies is supported in a large extent by the uninterrupted operation of the systems used in productivity tasks~\cite{ISO22399}. These systems must be fault tolerant, so that operations have the least possible impact in the event that an unexpected incident occurs.\bigskip
 
 \noindent Nowadays there are increasingly more people and organizations using centralized remote systems that allow online access to resources and everyday services, this scheme is called cloud computing~\cite{MandG}. Through this type of services, end users whether individuals or corporations, are abstracted to support the infrastructure that this entails, giving responsibility to intermediary companies providing cloud services. So these intermediaries are the ones who must ensure the proper availability of the services, as well as factors such as communications security and redundancy of stored data, among many others.\bigskip
 
-\noindent In particular Netnovation is a SME in the field of information technologies, which provides private cloud services from data storage to hosting of virtual private servers (VPS), including e-mail and collaboration systems. The latter is precisely one of the mainstays for the operations of the company, which employs mainly F$\ell$OSS to its internal systems, specifically using the F$\ell$OSS e-mail and collaboration suite Zimbra\texttrademark\footnote{{\tiny\ http://www.zimbra.com}}. One of the main problems that Netnovation faces is to ensure the communication and workflow continuity that is carried through this collaboration tool, as well as meet the SLAs offered to its customers over this software.\bigskip
+\noindent In particular Netnovation is a SME in the field of information technologies, which provides private cloud services from data storage to hosting of virtual private servers (VPS), including e-mail and collaboration systems. The latter is precisely one of the mainlines for the operations of the company, which employs mainly F$\ell$OSS to its internal systems, specifically using the F$\ell$OSS e-mail and collaboration suite Zimbra\texttrademark\footnote{{\tiny\ http://www.zimbra.com}}. One of the main problems that Netnovation faces is to ensure the communication and workflow continuity that is carried through this collaboration tool, as well as meet the SLAs offered to its customers over this software.\bigskip
 
 \noindent There are various software solutions offering high availability of services such as those provided by Zimbra, each one with its own legal implications, associated costs and implementation difficulty\footnote{{\tiny\ Some of these solutions will be addressed in Chapter~\ref{chap:related}}}. A valid alternative is the integration of multiple tools in the field of F$\ell$OSS providing a framework to ensure  continuity of systems operation or business continuity. By doing it this way it is possible to adapt the different requirements and use different technologies to provide the most consistent solution to what is desired.\bigskip
 
@@ -249,7 +251,7 @@ The overall objectives are:
 
 \begin{itemize}
 	\item To frame the F$\ell$OSS business model used by Netnovation
-	\item To show various current alternatives provided by F$\ell$OSS at the corporate level
+	\item To show various current alternatives provided by F$\ell$OSS at enterprise level
 	\item To adapt the proposed solution to the guidelines established by Netnovation
 	\item To establish an initial reference point for implementing high availability private cloud services offered by Netnovation
 \end{itemize}
@@ -269,7 +271,7 @@ The overall objectives are:
 
 The solution to be implemented consists of F$\ell$OSS tools that allow its adaptation to the current infrastructure of Netnovation, they are not intended to replace the elements of the existing operations  platform.\bigskip
 
-\noindent The methodology used for the selection of F$\ell$OSS tools that make the proposed solution is not intended to provide an exhaustive process that considers all possibilities in the area, but a flexible way that allows classify them qualitatively, justifying their choice through concrete metrics.\bigskip
+\noindent The methodology used for the selection of F$\ell$OSS tools that conform the proposed solution is not intended to provide an exhaustive process that considers all possibilities in the area, but a flexible way that allows classify them qualitatively, justifying their choice through concrete models and metrics.\bigskip
 
 \noindent Having successfully implemented a high availability solution on the e-mail and collaboration system used by Netnovation, this will serve as an starting point for providing high availability to other enterprise systems, but these other configurations are not covered in this exercise.\bigskip
 
@@ -570,7 +572,7 @@ The followed roadmap to achieve the objectives outlined is a set of guidelines a
 \noindent On the one hand, the guidelines proposed by Daffara suggest a research method by collecting and read as much information related to the project is available and select the appropriate solution from a matching set that fulfill the requirements. On the other hand, following a practical formal approach, applying a model of technology acceptance such as the Lazy User Model (LUM)~\cite{CandT1} is possible to frame the process by which are chosen the technological tools that will make up the solution that meets user requirements, which in this case is being represented by the company Netnovation. This model focuses on user needs and the demanded effort when selecting a solution to a problem from a set of possible solutions, ``According to the lazy user model, a user is likely to choose the solution that requires the least effort. The user examines this cost in terms of time, energy and money when considering how to use a new solution."~\cite{CandT2} The LUM proposes that technology acceptance is impacted 
 by this principle.\bigskip
 
-\noindent Additionally at using MetricsGrimoire~\cite{GSyC}, a flexible toolset which allow to obtain data from repositories related to software development, is possible to analyze databases that can later be mined for specific patterns or summaries of activity, allowing to establish objective comparisons in relation to the projects analyzed.
+\noindent Additionally at using Metrics Grimoire~\cite{GSyC}, a flexible toolset which allow to obtain data from repositories related to software development, is possible to analyze databases that can later be mined for specific patterns or summaries of activity, allowing to establish objective comparisons in relation to the projects analyzed.
 
 % python, matplotlib ?
 
@@ -580,7 +582,7 @@ by this principle.\bigskip
 \chapter{Architecture}
 \label{chap:architecture}
 
-In order to provide IT services to customers, considering software services hosted in an on-line remote location, Netnovation requires a proper software and hardware infrastructure to operate. Some of these services are from VPS, Data Storage Systems, Customer Relationship Management Systems (CRM), Email and Collaboration Systems, to Voice over IP PBX systems. Both parties, software infrastructure and product services offered are based on F$\ell$OSS.\bigskip
+In order to provide IT services to customers, considering software services hosted in an on-line remote location, Netnovation requires a proper software and hardware infrastructure to operate. Some of these services are from VPS, Data Storage Systems, Customer Relationship Management Systems, Email and Collaboration Systems, to Voice over IP PBX systems. Both parties, software infrastructure and product services offered are based on F$\ell$OSS.\bigskip
 
 \noindent In particular the Zimbra server to which a high availability schema is been configured, resides into this architecture, and it is consistent with the company's principles and business model, which is why it is useful to understand the environment to which it belongs.
 
@@ -605,7 +607,7 @@ The housing services leased by the providers offer a pool of public IPv4 address
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.50]{network_scheme.png}
+  \includegraphics[scale=1.80]{network_scheme.png}
   \caption[Network interconnection scheme]{Network interconnection scheme}
   \label{fig:network}
 \end{figure}
@@ -675,7 +677,7 @@ In Table~\ref{table:technologies} there are some software solutions currently us
 \chapter{Technological background}
 \label{chap:implemented}
 
-The following software tools represent the key elements on which it has been possible to implement a comprehensive high availability solution, some of them mentioned in Section~\ref{sec:hafloss}.
+The following software tools represent the key elements on which it has been possible to implement a final high availability solution, some of them mentioned in Section~\ref{sec:hafloss}.
 
 \begin{itemize}
 	\item Red Hat Enterprise Linux Server
@@ -699,7 +701,7 @@ The following software tools represent the key elements on which it has been pos
 	\item Corosync
 \end{itemize}
 
-\noindent It is released as F$\ell$OSS under the 3-clause BSD License. This software provides features based on C programming language implementing high availability within applications, through virtual synchrony for replicated state machines, simple availability handling responsible for applications restart when fail, it keeps configuration and statistics in a memory database providing the ability to set, retrieve, and receive change notifications of information, and a quorum system that notifies applications when it is achieved or lost.
+\noindent It is released as F$\ell$OSS under the 3-clause BSD License. This software provides features based on C programming language implementing high availability within applications, through virtual synchrony for replicated state machines, simple availability handling responsible for applications restart when fail, it keeps configuration and statistics in a memory database providing the ability to set, retrieve, and receive change notifications of information, and a quorum system that notifies applications when it is achieved or lost.\\
 
 \begin{itemize}
 	\item Pacemaker
@@ -717,17 +719,17 @@ The following software tools represent the key elements on which it has been pos
 	\item Cluster Configuration System (CCS)
 \end{itemize}
 
-\noindent Manages the cluster configuration and provides information to other cluster components. Runs in each cluster node and makes sure that the cluster configuration file in each cluster node is up to date. In Figure~\ref{fig:ccs} (\small {took from {https://access.redhat.com/documentation/en-US/Red\_Hat\_Enterprise\_Linux/4/html/Cluster\_Suite\_Overview/images/}}) is represented a CCS overview.
+\noindent Manages the cluster configuration and provides information to other cluster components. Runs in each cluster node and makes sure that the cluster configuration file in each cluster node is up to date. In Figure~\ref{fig:ccs}\footnote{\tiny\ {https://access.redhat.com/documentation/en-US/Red\_Hat\_Enterprise\_Linux/4/html/Cluster\_Suite\_Overview/images/}} is represented a CCS overview.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.50]{ccs-overview.png}
+  \includegraphics[scale=0.55]{ccs-overview.png}
   \caption[CCS overview]{CCS overview}
   \label{fig:ccs}
 \end{figure}
 
 \begin{itemize}
-	\item Cluster Manager (CMAN\footnote{{\tiny\ https://www.sourceware.org/cluster/cman/}})
+	\item Cluster Manager (CMAN)\footnote{{\tiny\ https://www.sourceware.org/cluster/cman/}}
 \end{itemize}
 
 \noindent A set of kernel patches and a userspace program, formed by a Connection Manager (cnxman) and a Service Manager (sm). The first one handles membership, messaging, quorum, event notification and transitions, and the second one is responsible for instances of external systems. It combines some functionalities provided by CRMsh, PCS and CCS.
@@ -755,7 +757,7 @@ This section is intended to provide technical documentation in the process of im
 	\item cman 3.0.12.1-59
 \end{itemize}
 
-\noindent The defined cluster consists of two nodes which will be referenced as Astapor and Braavos in the domain got.com (as in the novel Game of Thrones). These nodes are virtual machines hosted on two Proxmox Virtual Environment servers based on KVM virtualization, which are installed on separate physical machines in the same LAN to avoid single point of failure. The proposed scheme is conceptually similar to the observed in Figure~\ref{fig:ha-cluster}.
+\noindent The defined cluster consists of two nodes which will be referenced as Astapor and Braavos in the domain got.com (as in the novel ``A Game of Thrones"\footnote{\tiny\ {A fantasy novel written by George R. R. Martin}}). These nodes are virtual machines hosted on two Proxmox Virtual Environment servers based on KVM virtualization, which are installed on separate physical machines in the same LAN to avoid single point of failure. The proposed scheme is conceptually similar to the observed in Figure~\ref{fig:ha-cluster}.
 
 \FloatBarrier
 \begin{figure}
@@ -1091,8 +1093,7 @@ The following actions must be performed in parallel on both nodes, except in tho
 \section{ZCS}
 \label{sec:zcs}
 
-Here will be fully installed ZCS on astapor but just a dummy installation on braavos, since DRBD will replicate the data to the other node. Download and place ZCS installation file in astapor and braavos filesystems. It can be found at http://www.zimbra.com/downloads/os-downloads.html. In order to complete a full install on a single server, the following resource will be useful: http://files.zimbra.com/website\textbackslash\\
-/docs/8.5/Zimbra\_OS\_Quick\_Start\_8.5.0.pdf.
+Here will be fully installed ZCS on astapor but just a dummy installation on braavos, since DRBD will replicate the data to the other node. Download and place ZCS installation file in astapor and braavos filesystems. It can be found at http://www.zimbra.com/downloads/os-downloads.html. In order to complete a full install on a single server, the following resource will be useful - http://files.zimbra.com/website/docs/8.5/Zimbra\_OS\_Quick\_Start\_8.5.0.pdf.
 
 
 \subsection{ZCS full install on primary node}
@@ -1572,7 +1573,7 @@ The following actions must be performed sequentially on \textit{\textbf{astapor}
 \chapter{Results and discussion}
 \label{chap:results}
 
-In the initial research over internet, main F$\ell$OSS source code repositories were consulted (listed bellow alphabetically) in order to review the state of the art regarding tools that could fit the requirements. Most of the related projects were currently hosted in Github. It is worth noting important work in this area such as the ``Study of available tools"~\cite{FMC} by the FLOSSMetrics Consortium.
+In the initial research over the Internet, main F$\ell$OSS source code repositories were consulted (listed bellow alphabetically) in order to review the state of the art regarding tools that could fit the requirements. Most of the related projects were currently hosted in Github. It is worth noting important work in this area such as the ``Study of available tools"~\cite{FMC} by the FLOSSMetrics Consortium.
 
 \begin{itemize}
 	\item BerliOS (berlios.de)
@@ -1586,14 +1587,13 @@ In the initial research over internet, main F$\ell$OSS source code repositories 
 	\item SourceForge (sourceforge.net)
 \end{itemize}
 
-\noindent Since the desired solution was corporate oriented and focused on a GNU/Linux distribution, official websites and documentation were browsed for Hewlett Packard, Redhat Enterprise Linux and SuSE Linux Enterprise Server.
+\noindent Since the desired solution was enterprise-oriented and focused on a GNU/Linux distribution, official websites and documentation were browsed for Hewlett Packard, Redhat Enterprise Linux and SuSE Linux Enterprise Server.
 
 \begin{itemize}
 	\item ``HP Serviceguard sglx for Linux Deployment Guide". Hewlett Packard Co.\\
 	      DOI=http://www.hp.com/go/sglx/info
 	\item ``Red Hat Enterprise Linux 6 Cluster Administration". Red Hat Inc. et al, 2014.\\
-	      DOI=https://access.redhat.com/documentation/en-US/Red\_Hat\_Enterprise\_Linux/6/html-single/ \textbackslash \\
-	      Cluster\_Administration
+	      DOI=https://access.redhat.com/documentation/en-US/Red\_Hat\_Enterprise\_Linux/6/html-single/Cluster\_Administration
 	\item Roth T. and Schraitle T. ``SUSE Linux Enterprise High Availability Extension". Novell Inc, 2014.\\
 	      https://www.suse.com/documentation\\
 	      https://en.opensuse.org/openSUSE:High\_Availability
@@ -1678,21 +1678,21 @@ In the initial research over internet, main F$\ell$OSS source code repositories 
 
     \begin{figure}[H]
       \centering
-      \includegraphics[scale=0.45]{fig8-4.png}
+      \includegraphics[scale=0.50]{fig8-4.png}
       \caption[Evolution in the number of commits for Corosync]{Corosync - evolution in the number of commits per year}
       \label{fig:fig8-4}
     \end{figure}
 	  
     \begin{figure}[H]
       \centering
-      \includegraphics[scale=0.45]{fig8-5.png}
+      \includegraphics[scale=0.50]{fig8-5.png}
       \caption[Evolution in the number of commits for DRBD]{DRBD - evolution in the number of commits per year}
       \label{fig:fig8-5}
     \end{figure}
     
     \begin{figure}[H]
       \centering
-      \includegraphics[scale=0.45]{fig8-6.png}
+      \includegraphics[scale=0.50]{fig8-6.png}
       \caption[Evolution in the number of commits for Pacemaker]{Pacemaker - evolution in the number of commits per year}
       \label{fig:fig8-6}
     \end{figure}
@@ -2137,9 +2137,9 @@ esac
 \# the GNU General Public License as published by the Free Software Foundation; \\
 \# either version 2 of the License, or (at your option) any later version.\\
 \#\\
-\# This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; \\
-\# without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR \\
-\# PURPOSE. See the GNU General Public License for more details.\\
+\# This program is distributed in the hope that it will be useful, but WITHOUT ANY \\
+\# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS \\
+\# FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.\\
 \#\\
 \# You should have received a copy of the GNU General Public License along with this program; \\
 \# if not, write to the Free Software Foundation, Inc. \textless licensing@fsf.org\textgreater \\
@@ -2185,8 +2185,8 @@ dates = []\\
 \noindent def main(database):\\
 
 \# Commits per committer with the highest accumulated activity\\
-\indent query = ``select year(date), month(date), day(date), count(*) from scmlog group by year(date), \textbackslash\\
-\indent month(date), day(date)"\\
+\indent query = ``select year(date), month(date), day(date), count(*) from scmlog group by \textbackslash\\
+\indent year(date), month(date), day(date)"\\
 
 
 \# Connecting to the data base and retrieving data\\
@@ -2219,9 +2219,9 @@ plt.savefig(`basic\_timeseries\_agg.eps')\\
 \# the GNU General Public License as published by the Free Software Foundation; \\
 \# either version 2 of the License, or (at your option) any later version.\\
 \#\\
-\# This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; \\
-\# without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR \\
-\# PURPOSE. See the GNU General Public License for more details.\\
+\# This program is distributed in the hope that it will be useful, but WITHOUT ANY \\
+\# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS \\
+\# FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.\\
 \#\\
 \# You should have received a copy of the GNU General Public License along with this program; \\
 \# if not, write to the Free Software Foundation, Inc. \textless licensing@fsf.org\textgreater \\

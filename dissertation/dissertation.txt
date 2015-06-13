@@ -87,6 +87,15 @@ LIST OF TABLES
     - High Availability solutions based in FLOSS
     - Commercial cluster software
 
+    
+HP Serviceguard
+
+Licensing
+http://h20564.www2.hp.com/hpsc/doc/public/display?docId=emr_na-c02199685
+
+
+    
+    
   SUSE Linux Enterprise High Availability Extension (https://www.suse.com/products/highavailability)
   1-Year Subscription 590,00€ (2 sockets)
   3-Year Subscription 1.570,00€ (2 sockets)
@@ -151,9 +160,55 @@ LIST OF TABLES
 4. METHODOLOGY
     - Qualitative/Quantitative Research Methods to select the technologies used
 
-    ?. OpenBRR...?
+
+Collecting and read as much information related to the project is available and select the appropriate solution from a matching set that fulfill the requirements.
+
+Additionally at using MetricsGrimoire [5], a flexible toolset which allow to obtain data from repositories related to software development, is possible to analyze databases that can later be mined for specific patterns or summaries of activity, allowing to establish objective comparisons
+in relation to the projects analyzed.
 
 
+
+Resultaria ideal poder comparar un conjunto de herramientas de FLOSS que solventen las necesidades de los requerimientos pleanteados, ..perform a an assessment over them.. y elegir el software mas adecuado. 
+
+replicacion de disco (a nivel de bloques) para obtener redundancia de datos
+
+* DRBD = maneja el recurso compartido que vendria siendo el FS /opt
+  HA clusters with block-level asynchronous replication
+
+  Alternatives:
+
+    SAN: are great in terms of management, even though they’re sometimes prohibitively expensive.
+    You’re dealing with a single point of failure. SAN box does not offer physically distributed redundancy at the data level.
+
+    RAID: host-based mirroring between a local device, and a network block device.
+
+
+En efecto existen metodologias especializadas para evaluacion de proyectos de FLOSS tales como OpenBRR, QSoS o QualOSS que lo permiten, sin embargo en el area de HA la diversidad de soluciones basadas en FLOSS disponibles en la actualidad es escaza.
+
+A medida que estas soluciones evolucionen y exista una mayor competencia para su desarrollo, sin duda sera oportuno hacer una comparativa entre los distintos tipos de software (FLOSS) que provean...
+
+Pero por el momento la eleccion de las herramientas a utilizar se limita a ..?
+
+
+Two separate groups:
+- one mostly concerned with the cluster messaging
+- one concerned with cluster resources
+
+* Heartbeat: messaging mechanism, keeping the status of each node. Included Cluster Resource Manager (a process to manage services), but was removed and evolved into its own project known as Pacemaker.
+
+Development of heartbeat has slowed down and so now (according to pacemaker's website) corosync is considered the superior service.
+
+* Pacemaker = Se encarga de llevar los recursos, (FS, Servicios, archivos, direcciones IP) es decir los gestiona para pasarlos de un servidor a otro. Pacemaker works as a resource manager for either of these two projects (Heartbeat & Corosync).
+
+* Corosync = es el mediador que se encarga con ayuda de agentes de heartbeat de velar que los nodos esten arriba.
+A competing cluster messaging layer software (also known as Group Communication System) was born which added functionality over heartbeat.
+
+Two clustering configurations to choose:
+Heartbeat + Pacemaker
+Corosync + Pacemaker
+
+
+    
 5. ARCHITECTURE
 
     5.1. Netnovation...?
@@ -263,10 +318,201 @@ pcs \ resource \ create \ VIP1 \ IPaddr2 \ ip=172.17.18.190 \ \textbackslash \\
 
 7. RESULTS AND DISCUSSION
 
+--------
+Results presents the evidence and results of primary research which you have undertaken:
+
+- This section should set out your key experimental results, including any statistical analysis and whether or not the results of these are significant
+
+- should cover any literature supporting your interpretation of significance
+
+- You should write your results section in the past tense: you are describing what you have done in the past
+
+- Having decided what to include, next decide what order to use. You could choose chronological, which should follow the methods, or in order from most to least important in the answering of your research questions, or by research question and/or hypothesis
+
+
+Discussion section has four purposes:
+
+  - Interpret and explain your results
+
+  - Answer your research question
+
+  - Justify your approach
+
+  - Critically evaluate your study
+
+  -  written in the present tense
+
+  - review your findings in the context of the literature and the existing knowledge about the subject.
+
+  - demonstrate that you understand the limitations of your research and the implications of your findings for policy and practice
+  
+--------
+
+* Tools and metrics: Page 106 Sergio's TFM *
+Python, matplotlib [mat14a], has been used to generate graphics for certain metrics.
+A python 2d plotting library. 2014. http://matplotlib.org.
+
+python2 boxplots.py cvsanaly_nova
+python3 boxplots.py cvsanaly_nova
+python boxplots.py cvsanaly_nova
+
++--------------------+
+| Database           |
++--------------------+
+| cvsanaly_corosync  |
+| cvsanaly_drbd      |
+| cvsanaly_pacemaker |
++--------------------+
+
+python2 commits_per_commiter.py cvsanaly_corosync
+  max: 192
+  min: 1
+  mean: 31.0833333333
+  median: 8.0
+  std: 52.4769129131
+  .25 quartile: 2.0
+  .50 quartile: 8.0
+  .75 quartile: 29.0
+
+python2 commits_per_commiter.py cvsanaly_drbd
+  max: 20
+  min: 1
+  mean: 7.5625
+  median: 6.5
+  std: 6.06185563586
+  .25 quartile: 2.75
+  .50 quartile: 6.5
+  .75 quartile: 10.5
+  
+python2 commits_per_commiter.py cvsanaly_pacemaker
+  max: 192
+  min: 4
+  mean: 34.3428571429
+  median: 16.0
+  std: 45.4268283583
+  .25 quartile: 9.0
+  .50 quartile: 16.0
+  .75 quartile: 37.0
+
+
+- Collaboration to community: http://community.zimbra.com/collaboration/f/1888/t/1136032
+- Give credit to GNU matplotlib
+
+
+
+Developers with the most number of commits:
+SELECT p.name, count(distinct(s.id)) from people p, scmlog s where p.id=s.author_id GROUP BY p.name order by count(distinct(s.id)) desc;
+
+Developers who have modified most different files during the whole proyect history:
+SELECT p.name, count(distinct(a.file_id)) FROM people p, scmlog s, actions a WHERE a.commit_id=s.id AND s.author_id=p.id GROUP BY p.name ORDER BY COUNT(distinct(a.file_id)) desc;
+
+Number of files modified only by one developer:
+SELECT COUNT(p.email) FROM scmlog s, people p, file_links fl WHERE fl.commit_id=s.id AND s.committer_id=p.id GROUP BY fl.file_path HAVING COUNT(p.email)=1;
+
+Number of messages for year 20xy:
+SELECT count(*) FROM messages where year(first_date) = 2013;
+
+Number of commiters in year 2012:
+SELECT COUNT(s.id) FROM scmlog s, people p WHERE YEAR(s.date)="2012" AND s.committer_id=p.id;
+
+Number of commiters in the last month (November 2013):
+SELECT COUNT(DISTINCT(p.id)) FROM scmlog s, people p WHERE s.committer_id=p.id AND YEAR(s.date)="2013" AND MONTH(s.date)="11";
+
+Number of commits in the last month (November 2013):
+SELECT COUNT(s.id) FROM scmlog s, people p WHERE s.committer_id=p.id AND YEAR(s.date)="2013" AND MONTH(s.date)="11";
+
+Top 20 committers in the project:
+  SELECT p.name, count(distinct(s.id)) as "Number of commits" from people p, scmlog s where p.id=s.author_id group by p.name
+  order by count(distinct(s.id)) desc LIMIT 20;
+
+---
+  %\item Number of messages for year 2014:\\
+  %SELECT COUNT(*) FROM messages WHERE year(first\_date)=2014;
+
+  % Territoriality
+  %\item Number of files modified only by one developer:\\
+  %SELECT COUNT(p.email) FROM scmlog s, people p, file\_links fl WHERE fl.commit\_id=s.id AND s.committer\_id=p.id GROUP BY fl.file\_path HAVING COUNT(p.email)=1;
+
+  %\item Most number of commits by developer:\\
+  %SELECT p.name, COUNT(DISTINCT(s.id)) FROM people p, scmlog s WHERE p.id=s.author\_id GROUP BY p.name ORDER BY COUNT(DISTINCT(s.id)) DESC;
+
+  %\item Developers who have modified most different files during the whole proyect history:\\
+  %SELECT p.name, COUNT(DISTINCT(a.file\_id)) FROM people p, scmlog s, actions a WHERE a.commit\_id=s.id AND s.author\_id=p.id GROUP BY p.name ORDER BY COUNT(distinct(a.file\_id)) DESC;
+
+  %\item Top 15 committers in the project:\\
+  %SELECT p.name, COUNT(DISTINCT(s.id)) AS ``Number of commits" FROM people p, scmlog s WHERE p.id=s.author\_id GROUP BY p.name ORDER BY COUNT(DISTINCT(s.id)) DESC LIMIT 15;
+---
+  
+  Corosync:
+  git clone https://github.com/corosync/corosync
+
+  mysql -uroot
+  create database cvsanaly_corosync;
+  exit
+  cd /path/to/cloned/dir
+  cvsanaly2 --db-database=cvsanaly_corosync
+
+
+  DRBD:
+  git://git.drbd.org/drbd-8.4.git
+
+  Pacemaker:
+    mysql
+    create database cvsanaly_
+    git clone https://github.com/ClusterLabs/pacemaker
+    cd pacemaker/
+    cvsanaly2 -u root -d cvsanaly_pacemaker
+
+
 8. CONCLUSIONS AND FUTURE WORK
 
+- Raise the contras of Cloud (stated in PROBLEM STATEMENT - [Mell Peter]) by Stallman & Co
+- Enterprise HA cluster solutions are a mix of FLOSS technologies (as in RHCS) that have been adapted into a single one
+- Individual solutions do not offer enough reliability as Company ones
+- 
+
+* Conclusions regarding the goals or hypotheses presented in the Introduction,
+
+
+The cloud-oriented systems have been increasingly disseminated, and certainly facilitating the daily activities at companies of any kind that implement this scheme.
+
+Adopting a cloud platform has important implications, at both economic and ethical levels. An SME which contemplates moving its IT infrastructure operations to the cloud should consider for example the costs associated with the transformation, migration, deployment, ongoing, hosting charges and downtime times covered by the SLA, and compare them with the costs involved in maintaining this infrastructure on premises, as well as guarantee its accessibility.
+
+Another key factor to consider is the safety of the data belonging to the company that migrates to the cloud, as there is the possibility that their privacy could be violated, since this data will be stored on servers that are accessible over the Internet, although it is also true that there are ways to reduce these levels of vulnerability through VPN tunnels, encrypted and segmentated communications, access to infrastructure by authentication mechanisms, among others. It will always be difficult to ensure the safety of these systems that are hosted in remote locations. In the same line of ideas, and issue with the control of the information arises, as there is a thin membrane that some trends debate about whether these companies have actually control over its own information or not, when it comes to cloud systems~\footnote{http://www.theguardian.com/technology/2008/sep/29/cloud.computing.richard.stallman}~\footnote{http://www.linuxjournal.com/content/stallman-vs-clouds}.
+
+There is no magic formula or pattern to indicate whether the move to the cloud is beneficial or not for a given company, every case should be analyzed rigorously based on its conditions. In the case of Netnovation this decision was already taken, and indeed the leap to the cloud had already been taken since some time ago. 
+
+Based upon the elements that should be analyzed to eventually operate in the cloud, the availability of hosted services is one of them, which directly impacts over the business continuity. To strengthen this eslabon emerge the HA systems, with multiple alternatives to be evaluated to achieve this goal, making it necessary to use methodologies to effectively choose the solution that best suits the needs raised. Elements for consideration can be varied, however there are guidelines set by end users (the companies involved in the transformation) demanding agile decisions and hardly allowing in-depth and detailed analysis of the available options, many companies summarize this to a single phrase "time is money".
+
+To overcome this phenomenon, methods such as LUM can be used, which guide the process of adopting new technologies and somehow accelerate it assuming that \textit{the user is likely to choose the solution that requires the least effort}.
+
+Data mining tools as Metrics Grimoire opportunely complement the decision making process, by filling out the pitfalls that models as LUM may have or due to insufficient research in the first place. These show objectively and through specific metrics, behavior of F$\ell$OSS projects and help to the right choice of certain solutions.
+
+In the process of choosing a solution, two major and differentiated alternatives were analyzed, the enterprise embedded solutions versus modular FLOSS tools, being both completely valid but ultimately restricted to the guidelines set by Netnovation. One of them aims at the absorption of the implemented technologies, doing the minimum possible use of the commercial support offered by the software vendors and minimizing payment of support licenses available in this scheme. This certainly has a direct impact on the time invested to obtain the necessary knowledge skills, as well as human and material resources that are required to achieve the goal. In the long term also is increased the complexity of the supported infrastructure, although whenever there is a suitable architecture, workflow definition and proper documentation of the infrastructure, it will be possible to handle it.
+
+The solution based on independent FLOSS tools geared successfully with the requirement initially raised, which was to provide a high availability solution for the Zimbra E-mail and collaboration system used by Netnovation, incorporating new technologies to the existing scheme and avoiding disruptive changes on the operational infrastructure.
+
+Within the significance and contribution of the research carried out are found a few important ones. First, the fact that it has been provided an actual solution for the stated problem, it has been implemented a laboratory with an stagging environment similar to production, giving rise to a less distant adaptation from the current schema. Second, the implementation of HA in one of the systems of the infrastructure serves as an example for the deployment of this functionality on other services offered by Netnovation, such as Webservers in Apache, Databases in MySQL, Applications in Tomcat and so on. Lastly, this exercise puts in evidence the potential of FLOSS and its possibilities in the world of private enterprise providing reliable solutions which can compete with other corporate products on the market.
+
+It has been shown that there are models, guidelines and concrete metrics to evaluate F$\ell$OSS projects, however, this research does not make a comprehensive analysis of the tools available nowadays. Such tools are for instance OpenBRR~\cite{Wasserman}, QSoS~\cite{QSOS}, QualOSS~\cite{QOSS} or the Open Source Maturity Model~\cite{OSMM}, through which it is possible to do a more rigorous analysis that lead to the choice of solutions based on specific qualitative and quantitative concrete values.
+
+To the extent that it is sufficient time and resources to develop a more detailed analysis for available alternatives and its feasibility of implementation, as well as a wider range of decision regarding the conditions set by the customer, it would be suitable to evaluate the implementation of more comprehensive, integrated solutions that require less configuration and orchestration of independent technologies. For instance considering the adoption of solutions such as OpenStack~\footnote{https://www.openstack.org/}, Cloudstack~\footnote{https://cloudstack.apache.org/}, Eucalyptus~\footnote{https://www.eucalyptus.com/} or OpenNebula~\footnote{http://opennebula.org/} which handle other HA schemes for cloud services.
+
+
+
+
+*** ADDITIONAL FIGURES w/SCREENSHOTS OF IMPLEMENTED SYSTEM *** ???
+- Include the term FOSS?
+
+
 REFERENCES
+- * Tools and metrics: Page 106 Sergio's TFM *
+  Python, matplotlib [mat14a], has been used to generate graphics for certain metrics.
+  A python 2d plotting library. 2014. http://matplotlib.org
+
 APPENDIX
+- Include python scripts (for graphics charts from RESULTS AND DISCUSSION)
+
 
 ====================================================================================================
 
@@ -293,6 +539,7 @@ Essays, UK. (November 2013). The Lazy Model In Information Technology Informatio
 \bibitem{Wasserman et. all} Wasserman A., Pal M. and Chan C. \textit{The Business Readiness Rating Model: an Evaluation Framework for Open Source}. Proceedings of the EFOSS: OpenBRR Workshop. Italy, June 2006.
 
 
+
 \bibitem{} . \textit{}. . . DOI=
 \bibitem{} . \textit{}. . . DOI=
 
@@ -307,5 +554,7 @@ http://carlodaffara.conecta.it/category/oss-business-models/
 
 \bibitem{Barahona & Ortega} Gonzalez-Barahona, Jesus and Ortega, Felipe. \textit{Economic Aspects of Libre Software}. GSyC/LibreSoft, Universidad Rey Juan Carlos. Spain, November 2011.
 
-http://opensource.com/resources/ebooks
+Hewlett-Packard. Data sheet HP Serviceguard Solutions for Linux. Hewlett-Packard Development Company, L.P. 2014.
+http://h20195.www2.hp.com/v2/GetDocument.aspx?docname=4AA4-1792ENW&doctype=data%20sheet&doclang=EN_US
 
+http://opensource.com/resources/ebooks

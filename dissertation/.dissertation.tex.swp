@@ -1,3 +1,5 @@
+% LaTeX template for the final master thesis
+
 \documentclass[a4paper, 12pt]{book}
 \usepackage[a4paper, left=2.5cm, right=2.5cm, top=3cm, bottom=3cm]{geometry}
 \usepackage{array}
@@ -5,10 +7,10 @@
 \usepackage{booktabs}
 \usepackage{caption}
 \usepackage{enumitem}
-\usepackage{float}  % H for Figures positioning
+\usepackage{float}  									 % H for Figures positioning
 \usepackage{graphicx}
 \usepackage[latin1]{inputenc}
-\usepackage{latexsym}	% LaTeX Logo
+\usepackage{latexsym}  									 % LaTeX Logo
 \usepackage{placeins}
 \usepackage{textcomp}
 \usepackage{times}
@@ -86,37 +88,10 @@
 \label{chap:abstract}
 \addcontentsline{toc}{chapter}{Abstract}
 
-% Subject matter (terms of reference statement of problem/topic)
-
-\noindent The Small Medium Enterprise (SME) sector that requires access to computer systems for their operations is being increasingly attracted by cloud computing schemes. This demand is being attended by large providers of such services but also by other SMEs which assume strategic business models around this niche. When providing private cloud services, \textit{reliability} is a major feature, trust in that the service consistently performs according to its specifications. One of its key element consist in the \textit{availability} of the systems, and there are multiple ways to provide it but the choice of the right tools is not an easy task.\bigskip
-
-\noindent Netnovation is a good example of this type of SME, it is a company that has based its bussiness model on consulting around F$\ell$OSS providing Infrastructure as a Service (IaaS) and cloud services. Like many others, needs to provide high availability to their services in order to ensure SLAs established with its customers. There are many options, some more expensive than others, with economic, practical and ethical implications, but most of them with the same goal.\bigskip
-
-% methods of analysis (Formal language appropriate to report writing)
-
-\noindent It is necessary to apply a proper method that allows the choice of the right solution, considering the initial requirements, as well as human and material resources destinated to this purpose. The method used has been the Lazy User Model (LUM) which focuses on user needs and the demanded effort to chose a solution to a problem. Added to this, they are used suggested guidelines that reinforce the initial selection and adoption of F$\ell$OSS within the IT infrastructure. Furthermore, Grimoire Metrics techniques are used to obtain specific metrics, with which it is possible to interpret some behavior patterns of F$\ell$OSS projects assessed as a final solution.\bigskip
-
-% Findings (Key findings summarised)
-
-\noindent Two major alternatives were found, the enterprise embedded solutions offering support plans over the provided integrated product, and also modular or standalone F$\ell$OSS which needs to be orchestrated in order to provide a final solution. Based upon the guidelines established by Netnovation, the final solution consists in the integration of tools like Pacemaker, Corosync and DRBD, avoiding disruptive changes on the current operational infrastructure.\bigskip
-
-% Conclusions (Problem solution summarised) - can be summarized/bulleted
-
-\noindent Among the significant achievements and contribution of the research carried out are:
-
-\begin{itemize}
-  \item An actual implementation has been provided as a solution for the stated problem
-  \item The implemented solution serves as a reference point to provide high availability over other services
-  \item This exercise puts in evidence the potential of F$\ell$OSS and its possibilities in the world of private enterprise
-\end{itemize}
-
-% Recommendations - can be summarized/bulleted
-% Limitations of the report
-
-\noindent Ultimately it is discussed the adoption of cloud-oriented systems and their implications. It is important to note that a comprehensive analysis can be conducted through specialized tools able to provide metrics more specific than those obtained in this research. Also is considered for future work the adoption of technologies that can handle other high availability schemes for cloud services.\bigskip
+This is the Abstract...
 
 \noindent
-Key words: Cluster, Corosync, CRM, DRBD, FOSS, F$\ell$OSS, High Availability, LUM, Metrics Grimoire, OCF, Pacemaker, Zimbra.
+Key words: Cluster, Corosync, CRM, DRBD, FOSS, F$\ell$OSS, High Availability, OCF, Pacemaker, Zimbra
 
 %=====================================
 % ACKNOWLEDGEMENTS
@@ -125,13 +100,7 @@ Key words: Cluster, Corosync, CRM, DRBD, FOSS, F$\ell$OSS, High Availability, LU
 \label{chap:acknowledgements}
 \addcontentsline{toc}{chapter}{Acknowledgements}
 
-\noindent A huge recognition to the Free Libre Open Source Software and its wonderful community, thanks to the many opportunities and satisfactions it has given to me.\bigskip
-
-\noindent To the Universidad Rey Juan Carlos and its prestigious team of professors and academics, in particular to the Grupo de Sistemas y Comunicaciones (GSyC) and Libresoft who promote the movement of Free Libre Open Source Software with such passion and excellent quality.\bigskip
-
-\noindent Also to the Netnovation team and especially Eduardo V\'{i}tols, who has supported me for a long time. This project has been possible thanks to their innovation spirit.\bigskip
-
-\noindent To my beautiful country Venezuela, and also to this graceful land in which I reside, Spain. To my family and friends, who encourage me everyday to go forward.
+These are the Acknowledgements..
 
 
 %=====================================
@@ -146,10 +115,10 @@ Key words: Cluster, Corosync, CRM, DRBD, FOSS, F$\ell$OSS, High Availability, LU
 	\item CLI: Command Line Interface
 	\item cLVM: clustered Logical Volume Manager
 	\item CPU: Central Process Unit
-	\item CRM: Cluster Resource Manager
+	\item CRM: Cluster Resource Manager / Customer Relationship Management
 	\item CTDB: Clustered Trivial Database
 	\item DRBD: Distributed Replicated Block Device
-	\item F$\ell$OSS: Free Libre Open Source Software (also known as FOSS)
+	\item F$\ell$OSS: Free Libre Open Source Software
 	\item GNU: GNU is Not Unix
 	\item GPL:  General Public License
 	\item GUI: Graphic User Interface
@@ -165,6 +134,7 @@ Key words: Cluster, Corosync, CRM, DRBD, FOSS, F$\ell$OSS, High Availability, LU
 	\item OBS: openSUSE Build Service
 	\item OCF: Open Cluster Framework
 	\item OCFS: Oracle Cluster File System
+	\item OpenBRR: Open Business Readiness Rating
 	\item OS: Operating System
 	\item PBX: Private Branch Exchange
 	\item RHEL: Ret Hat Enterprise Linux
@@ -195,11 +165,11 @@ Key words: Cluster, Corosync, CRM, DRBD, FOSS, F$\ell$OSS, High Availability, LU
 
 \noindent With the growing use of cloud-oriented systems and the need for this information to be always available, online systems play an increasingly important role in our society nowadays. The technologies that support such schemes have evolved fleetingly and today there are numerous ways to get this kind of solutions, from proprietary software implementations, tools oriented to corporate environments that can be even based on F$\ell$OSS products and a variety of business models, to F$\ell$OSS standalone tools representing a robust solution to meet today's demands.\bigskip
 
-\noindent Since 2004 Netnovation\texttrademark \ is a Venezuelan SME formed by a team of professionals in the areas of IT and telecommunications who adopted a business model based on consulting around F$\ell$OSS, providing system integration, timely development and Infrastructure as a Service (IaaS), orienting its services to the cloud.\bigskip
+\noindent Since 2004 Netnovation\texttrademark \ is a Venezuelan SME formed by a team of professionals in the areas of IT and telecommunications who adopted a business model based on consulting around F$\ell$OSS, providing system integration, timely development and Software as a Service (SaaS) cloud services.\bigskip
 
-\noindent Due to a number of reasons that will be discussed throughout this dissertation, cloud services require a set of components to ensure the security, availability and reliability of data that is stored in data center facilities remotely accessible from internet. The study conducted here is focused specifically on the availability of services that must be accessible to their applicants at all times.\bigskip
+\noindent Due to a number of reasons that will be discussed throughout this dissertation, cloud services require a set of components to ensure the security, availability and reliability of data that is stored in data center facilities remotely accessible from internet. The study conducted here is focused specifically on the availability of the data that must be accessible to their applicants at all times.\bigskip
 
-\noindent This study was undertaken in the one hand to test some aspects of business practices in the current technology market and the use of F$\ell$OSS as a key factor, and in the other one, to fulfill the demands of a business organization showing that business models around F$\ell$OSS are a fact nowadays.\bigskip
+\noindent This study was undertaken in the one hand to test some aspects of business practices in the current technology market and the use of F$\ell$OSS as a key factor, and in the other one, to fulfill the demands of a business organization showing that business models around F$\ell$OSS are a fact.\bigskip
 
 \noindent The way this dissertation is going to be organized is the following:\bigskip
 
@@ -207,7 +177,7 @@ Key words: Cluster, Corosync, CRM, DRBD, FOSS, F$\ell$OSS, High Availability, LU
 
 \noindent Chapter 3 describing the most relevant related technologies around the possible solutions.\bigskip
 
-\noindent Chapter 4 establishing the used methodology, supported by guidelines proposed by Carlo Daffara and the Lazy User model, as well as proposal of concrete metrics through Metrics Grimoire toolset.\bigskip
+\noindent Chapter 4 establishing the used methodology, supported by the OpenBRR and the Lazy User models.\bigskip
 
 \noindent Chapter 5 showing the architecture of the company and its infrastructure, available hardware for operations, the network scheme, and an overview of the software supporting the current situation, all of this in order to understand how to adapt an actual solution.\bigskip
 
@@ -226,23 +196,23 @@ Key words: Cluster, Corosync, CRM, DRBD, FOSS, F$\ell$OSS, High Availability, LU
 \chapter{Problem statement}
 \label{chap:problem}
 
-Business continuity in the field of information technologies is supported in a large extent by the uninterrupted operation of the systems used in productivity tasks~\cite{ISO22399}. These systems must be fault tolerant, so that operations have the least possible impact in the event that an unexpected incident occurs.\bigskip
+Business continuity in the field of information technology is supported in a large extent by the uninterrupted operation of the systems used in productivity tasks~\cite{ISO22399}. These systems must be fault tolerant, so that operations have the least possible impact in the event that an unexpected incident occurs.\bigskip
 
 \noindent Nowadays there are increasingly more people and organizations using centralized remote systems that allow online access to resources and everyday services, this scheme is called cloud computing~\cite{MandG}. Through this type of services, end users whether individuals or corporations, are abstracted to support the infrastructure that this entails, giving responsibility to intermediary companies providing cloud services. So these intermediaries are the ones who must ensure the proper availability of the services, as well as factors such as communications security and redundancy of stored data, among many others.\bigskip
 
-\noindent In particular Netnovation is a SME in the field of information technologies, which provides private cloud services from data storage to hosting of virtual private servers (VPS), including e-mail and collaboration systems. The latter is precisely one of the mainlines for the operations of the company, which employs mainly F$\ell$OSS to its internal systems, specifically using the F$\ell$OSS e-mail and collaboration suite Zimbra\texttrademark\footnote{{\tiny\ http://www.zimbra.com}}. One of the main problems that Netnovation faces is to ensure the communication and workflow continuity that is carried through this collaboration tool, as well as meet the SLAs offered to its customers over this software.\bigskip
+\noindent In particular Netnovation is a SME in the field of information technologies, which provides private cloud services from data storage to hosting virtual private servers (VPS), including e-mail and collaboration servers. The latter is precisely one of the mainstays for the operations of the company, which employs mainly F$\ell$OSS to its internal systems, specifically using the F$\ell$OSS e-mail and collaboration suite Zimbra\texttrademark\footnote{\ http://www.zimbra.com}. One of the main problems that Netnovation faces is to ensure the communication and workflow continuity that is carried through this collaboration tool, as well as meet the SLAs offered to its customers over this software.\bigskip
 
-\noindent There are various software solutions offering high availability of services such as those provided by Zimbra, each one with its own legal implications, associated costs and implementation difficulty\footnote{{\tiny\ Some of these solutions will be addressed in Chapter~\ref{chap:related}}}. A valid alternative is the integration of multiple tools in the field of F$\ell$OSS providing a framework to ensure  continuity of systems operation or business continuity. By doing it this way it is possible to adapt the different requirements and use different technologies to provide the most consistent solution to what is desired.\bigskip
+\noindent There are various software solutions offering high availability of services such as those provided by Zimbra, each one with its own legal implications, associated costs and implementation difficulty\footnote{\ Some of these solutions will be addressed in Chapter~\ref{chap:related}}. A valid alternative is the integration of multiple tools in the field of F$\ell$OSS providing a framework to ensure  continuity of systems operation or business continuity. By doing it this way it is possible to adapt the different requirements and use different technologies to provide the most consistent solution to what is desired.\bigskip
 
-\noindent One key technology for this purpose is a cluster, in particular a high availability cluster, basically a group of computers interconnected that work together trying to maintain a service up and running all the time.\bigskip
+\noindent One key technology for this purpose is a cluster, in particular a high availability cluster, basically a a group of computers interconnected that work together trying to maintain a service up and running all the time.\bigskip
 
-\noindent On previous occasions, Netnovation has managed to successfully consolidate most of its operations infrastructure adapting F$\ell$OSS, making it a wonderful situation to keep this scheme working. To achieve this, it is necessary to evaluate the state of the art in the field of systems that provide high availability with the aim of offering an effective solution, all of this in accordance to the guidelines that have been proposed by the company in the first place.
+\noindent On previous occasions, Netnovation has managed to successfully consolidate most of its operations infrastructure adapting F$\ell$OSS, making it a wonderful idea to keep this scheme working. To achieve this, it is necessary to evaluate the state of the art in the field of systems that provide high availability, with the aim of offering an effective solution, all of this in accordance to the guidelines that have been proposed by the company.
 
 
 \section{Justification / Motivation}
 \label{sec:justification}
 
-The factors that motivate this work are on one hand, give proper credit to business models based on F$\ell$OSS as those used by technology companies nowadays~\cite{Daffara2}, and on the other hand, show that private enterprise can be benefited by F$\ell$OSS  through a set of toolsets and mechanisms which allow obtaining robust solutions in accordance to technology needs.
+The factors that motivates this work are on one hand, give proper credit to business models based on F$\ell$OSS as those used by technology companies nowadays~\cite{Daffara2}, and on the other hand, show that private enterprise can be benefited by F$\ell$OSS, through a set of toolsets and mechanisms who allow obtaining robust solutions in accordance to technology needs.
 
 \section{Objectives}
 \label{sec:objectives}
@@ -251,9 +221,9 @@ The overall objectives are:
 
 \begin{itemize}
 	\item To frame the F$\ell$OSS business model used by Netnovation
-	\item To show various current alternatives provided by F$\ell$OSS at enterprise level
+	\item To show various current alternatives provided by F$\ell$OSS at the corporate level
 	\item To adapt the proposed solution to the guidelines established by Netnovation
-	\item To establish an initial reference point for implementing high availability private cloud services offered by Netnovation
+	\item To establish an initial point reference for implementing high availability private cloud services offered by Netnovation
 \end{itemize}
 
 \noindent The specific objectives are:
@@ -271,9 +241,9 @@ The overall objectives are:
 
 The solution to be implemented consists of F$\ell$OSS tools that allow its adaptation to the current infrastructure of Netnovation, they are not intended to replace the elements of the existing operations  platform.\bigskip
 
-\noindent The methodology used for the selection of F$\ell$OSS tools that conform the proposed solution is not intended to provide an exhaustive process that considers all possibilities in the area, but a flexible way that allows classify them qualitatively, justifying their choice through concrete models and metrics.\bigskip
+\noindent The methodology used for the selection of F$\ell$OSS tools that make the proposed solution is not intended to provide an exhaustive process that considers all possibilities in the area, but a flexible way that allows classify them qualitatively, justifying their choice through concrete metrics.\bigskip
 
-\noindent Having successfully implemented a high availability solution on the e-mail and collaboration system used by Netnovation, this will serve as an starting point for providing high availability to other enterprise systems, but these other configurations are not covered in this exercise.\bigskip
+\noindent Having successfully implemented a high availability solution on the e-mail and collaboration system used by Netnovation, this will serve as a reference for providing high availability to other enterprise systems, but these other configurations are not covered in this exercise.\bigskip
 
 
 %=====================================
@@ -291,7 +261,7 @@ Some of these high-availability implementations have been proprietary since the 
 \subsection{HP Serviceguard}
 \label{subsec:serviceguard}
 
-Hewlett Packard (HP) claims the credit for the development of the first high availability solution for UNIX systems since 1990\footnote{{\tiny\ http://www.hpintelco.net/sglx/service.html}}. MC/ServiceGuard is a high-availability cluster software released for HP-UX and later for GNU/Linux systems. Since the first development of the software, HP has partnered with companies such as Oracle or SAP to deploy high-availability in enterprise environments, as Figure~\ref{fig:enterprise} (took from http://www.hpintelco.net) shows.\bigskip
+Hewlett Packard (HP) claims the credit for the development of the first high availability solution for UNIX systems since 1990\footnote{\url{http://www.hpintelco.net/sglx/service.html}}. MC/ServiceGuard is a high-availability cluster software released for HP-UX and later for GNU/Linux systems. Since the first development of the software, HP has partnered with with companies such as Oracle or SAP to deploy high-availability in enterprise environments, as Figure~\ref{fig:enterprise} (took from \url{http://www.hpintelco.net}) shows.\bigskip
 
 \begin{figure}
   \centering
@@ -302,12 +272,12 @@ Hewlett Packard (HP) claims the credit for the development of the first high ava
 
 \noindent With the appearance of Linux in 1994 and its increasing popularity together with GNU, in 1999 HP released a Linux port called SG/LX, allowing high-availability features on it.\bigskip
 
-\noindent Since 2001, companies Intel, Red Hat and HP joined efforts to produce the Red Hat Open Source Solutions Initiative\footnote{{\tiny\ http://www.hpintelco.net/hp-intel-redhat.htm}} (OSSI), with the aim to reduce partner's sale cycle by delivering enterprise reliable solutions to their customers. To some extent, realizing that their technologies could be strengthened by F$\ell$OSS.\bigskip
+\noindent Since 2001, companies Intel, Red Hat and HP joined efforts to produce the Red Hat Open Source Solutions Initiative\footnote{\url{http://www.hpintelco.net/hp-intel-redhat.htm}} (OSSI), with the aim to reduce partner's sale cycle by delivering enterprise reliable solutions to their customers. To some extent, realizing that their technologies could be strengthened by F$\ell$OSS.\bigskip
 
 \noindent Some technical specifications of this product are the following:
 
 \begin{itemize}
-	\item Proprietary Licensing Model\footnote{{\tiny\ http://h20564.www2.hp.com/hpsc/doc/public/display?docId=emr\_na-c02199685}}
+	\item Proprietary Licensing Model\footnote{http://h20564.www2.hp.com/hpsc/doc/public/display?docId=emr\_na-c02199685}
 	\item Active/active, active/standby, and rotating standby cluster types
 	\item Quorum Server support
 	\item 32 Fibre Channel nodes, 2 single-path SCSI nodes, and 32 multipath SCSI nodes
@@ -318,7 +288,7 @@ Hewlett Packard (HP) claims the credit for the development of the first high ava
 	\item Logical Volume Manager
 \end{itemize}
 
-\noindent The general overview of an HP Serviceguard architecture is shown in Figure~\ref{fig:serviceguard} (took from data sheet HP Serviceguard Solutions for Linux\footnote{{\tiny\ http://h20195.www2.hp.com/v2/GetDocument.aspx?docname=4AA4-1792ENW}}).
+\noindent The general overview of an HP Serviceguard architecture is shown in Figure~\ref{fig:serviceguard} (took from data sheet HP Serviceguard Solutions for Linux\footnote{http://h20195.www2.hp.com/v2/GetDocument.aspx?docname=4AA4-1792ENW}).
 
 \begin{figure}
   \centering
@@ -333,7 +303,7 @@ Hewlett Packard (HP) claims the credit for the development of the first high ava
 
 At the end of the 90's Red Hat Inc. introduced its Enterprise Linux Advanced Server, designed specifically for use in enterprise environments to deliver superior application support, performance, availability and scalability. It included a high-availability clustering feature as part of the base product. Since then, the product has evolved to the current Red Hat Cluster Suite (RHCS), provided as a separately licensed product, also on top of Red Hat's Linux Enterprise Server.\bigskip
 
-\noindent The RHCS has three major features, one of them is the Cluster Manager or \textbf{cman}, which adds functionality to, and is dependent upon other cluster stacks such as Corosync or OpenAIS. Is noteworthy that this is an adaptation of the Linux-HA project. Another key feature is the Resource Group Manager or \textbf{rgmanager}, a fully functional replacement for Pacemaker intended to work exclusively with RHCS. And also the IP Load Balancing (originally called Piranha), was originally developed by researchers at Oak Ridge National Laboratory, basically a text mining technology that Red Hat adapted in order to allow transparent load balancing and failover between servers\footnote{{\tiny\ http://www.ornl.gov/connect-with-ornl/for-industry/partnerships/technology-licensing/licensing-opportunity-announcements/piranha}}.\bigskip
+\noindent The RHCS has three major features, one of them is the Cluster Manager or \textbf{cman}, which adds functionality to, and is dependent upon other cluster stacks such as Corosync or OpenAIS. Is noteworthy that this is an adaptation of the Linux-HA project. Another key feature is the Resource Group Manager or \textbf{rgmanager}, a fully functional replacement for Pacemaker intended to work exclusively with RHCS. And also the IP Load Balancing (originally called Piranha), was originally developed by researchers at Oak Ridge National Laboratory, basically a text mining technology that Red Hat adapted in order to allow transparent load balancing and failover between servers\footnote{http://www.ornl.gov/connect-with-ornl/for-industry/partnerships/technology-licensing/licensing-opportunity-announcements/piranha}.\bigskip
 
 \noindent The Cluster Manager, the Resource Group Manager and the IP Load Balancing are complementary high-availability technologies that can be used separately or in combination, depending on application requirements. Some of these technologies come from previous F$\ell$OSS projects and have been properly integrated into RHCS.\bigskip
 
@@ -349,10 +319,9 @@ At the end of the 90's Red Hat Inc. introduced its Enterprise Linux Advanced Ser
 	\item OCF and LSB resource agents
 \end{itemize}
 
-\noindent A general RHCS infrastructure is shown in Figure~\ref{fig:rhcs} (took from RHCS online documentation\footnote{{\tiny https://access.redhat.com/documentation/en-US/Red\_Hat\_Enterprise\_Linux/5/html/Cluster\_Suite\_Overview/images/9106.png}}).
+\noindent A general RHCS infrastructure is shown in Figure~\ref{fig:rhcs} (took from RHCS online documentation\footnote{\url{https://access.redhat.com/documentation/en-US/Red\_Hat\_Enterprise\_Linux/5/html/Cluster\_Suite\_Overview/images/9106.png}}).
 
-\FloatBarrier
-\begin{figure}[H]
+\begin{figure}
   \centering
   \includegraphics[scale=0.70]{rhcs.png}
   \caption[RHCS Basic Infrastructure]{RHCS Basic Infrastructure}
@@ -365,7 +334,7 @@ At the end of the 90's Red Hat Inc. introduced its Enterprise Linux Advanced Ser
 
 This is an integrated suite of clustering technologies that enables the implementation of high availability over physical and virtual Linux clusters~\cite{TandS}. It allows monitoring, messaging, and cluster resource management, handling failover and load balancing of resources.\bigskip
 
-\noindent As Red Hat did, other companies such as Novell took advantage of the high-availability demand over the enterprise sector and also adapted their own HA solution. This product is available as a paid add-on to SUSE Linux Enterprise Server GNU/Linux distribution, although in OpenSUSE many of these tools are included into the base system for free (without charge), with available repositories on OBS to provide newer versions of the packages for various GNU/Linux distributions\footnote{{\tiny\ https://en.opensuse.org/openSUSE:High\_Availability}}.\bigskip
+\noindent As Red Hat did, other companies such as Novell took advantage of the high-availability demand over the enterprise sector and also adapted their own HA solution. This product is available as a paid add-on to SUSE Linux Enterprise Server GNU/Linux distribution, although in OpenSUSE many of these tools are included into the base system for free (without charge), with available repositories on OBS to provide newer versions of the packages for various GNU/Linux distributions\footnote{\url{https://en.opensuse.org/openSUSE:High_Availability}}.\bigskip
 
 \noindent Among the main product features of this product are the following:
 
@@ -381,7 +350,7 @@ This is an integrated suite of clustering technologies that enables the implemen
 	\item GUI and CLI administration tools, such as YaST, HAWK and CRM
 \end{itemize}
 
-\noindent A SUSE HA cluster architecture is depicted in Figure~\ref{fig:suseha} (took from SUSE Linux High Availability Extension online documentation\footnote{{\tiny\ https://www.suse.com/documentation/sle\_ha/book\_sleha/graphics/ha\_cluster\_components\_arch.png}}).
+\noindent A SUSE HA cluster architecture is depicted in Figure~\ref{fig:suseha} (took from SUSE Linux High Availability Extension online documentation\footnote{https://www.suse.com/documentation/sle\_ha/book\_sleha/graphics/ha\_cluster\_components\_arch.png}).
 
 \begin{figure}[H]
   \centering
@@ -402,7 +371,7 @@ Some of these tools are possibly part of the enterprise products mentioned befor
 
 \noindent An HA cluster could be defined as a group of computers supporting server applications, ensuring its accessibility with a minimum of down-time. They operate by using specialized software that leverage the redundancy of computers and avoid single points of failure by implementing a cluster architecture~\cite{Weygant}.\bigskip
 
-\noindent As long as there is a service that must be maintained up and running and accessible to the users, computers require a way to communicate to one another and coordinate between each other to provide this service. Into this scheme computers are running a GNU/Linux operating system and rely on the TCP/IP network protocol, as well as network interconnected hardware to achieve the communication between nodes in the cluster.\bigskip
+\noindent Then, as long as there is a service that must be maintained up and running and accessible to the users, computers require a way to communicate to one another and coordinate between each other to provide this service. Here computers are running GNU/Linux operating system and rely on TCP/IP network protocol, as well as network interconnected hardware to achieve the communication between nodes in the cluster.\bigskip
 
 \noindent One of the earliest tools who managed this task was Heartbeat, as a daemon installed on each node, able to \textit{talk} to the other ones and share cluster related information. This task was referred to as the Cluster Messaging Layer or Group Communication System.\bigskip
 
@@ -414,149 +383,171 @@ Some of these tools are possibly part of the enterprise products mentioned befor
 
 \noindent Nowadays Pacemaker is a resource manager responsible for starting and stopping cluster services in a proper way. Combined with other tools is able to detect service-level failures and move resources between cluster nodes as needed, to ensure the smooth operation of the services.\bigskip
 
-%\hfill\break
-
 \noindent On the other hand Corosync is responsible for cluster membership, message passing and quorum, using the totem protocol 
-for heartbeat, monitoring other node's health.
+for heartbeat, monitoring other node's health.\bigskip
 
-\noindent Technologies such as OpenAIS (a software API) also compete into the HA race. It is a F$\ell$OSS implementation of the Application Interface Specification released under the terms of the Artistic License\footnote{{\tiny\  http://opensource.org/licenses/Artistic-2.0}}, used to define how HA applications work together, trying to mask hardware, operating system, middleware and application-level failures. %\bigskip
+\noindent Technologies such as OpenAIS (a software API) also compete into the HA race. It is a F$\ell$OSS implementation of the Application Interface Specification released under the terms of the Artistic License\footnote{ http://opensource.org/licenses/Artistic-2.0}, used to define how HA applications work together, trying to mask hardware, operating system, middleware and application-level failures.\bigskip
 
-\noindent As in enterprise HA solutions, Cluster Managers are an important element within HA implementations, providing backend GUI or CLI software that runs on one or all cluster nodes, responsible for managing and controlling clustered services. Currently there are several F$\ell$OSS alternatives, including the ones listed in Table~\ref{table:cluster_managers_individuals} from individual developers, usually without enterprise support services, and some others from companies or institutes listed in Table~\ref{table:cluster_managers_companies}.
+\noindent As in enterprise HA solutions, Cluster Managers are an important element within HA implementations, providing backend GUI or CLI software that runs on one or all cluster nodes, responsible for managing and controlling clustered services. Currently there are several F$\ell$OSS alternatives, including the ones listed in Table~\ref{table:cluster_managers}.
 
-\noindent The cluster oriented filesystems are another key element regarding HA implementations. They provide data replication and fault tolerance, allowing operations continuity against incidents. There are several F$\ell$OSS alternatives to provide clustered storage, including the tools listed in Table~\ref{table:cluster_filesystems}. One of the most consolidated clustered storage technologies is DRBD, first released in 1999, it will be aborded in Chapter~\ref{chap:implemented}.
-
-% \FloatBarrier
-\begin{table}[H]
+\begin{table}
   \centering
-  \begin{tabular}{ | m{2cm} | r  m{10cm} | }
+  \begin{tabular}{ | r m{10cm} | }
 
     \hline    
-		 & Author(s): &  Alexandre Cassen\\
-      Keepalived & License: &  GNU GPL v2+\\
-		 & Website: &  http://keepalived.sourceforge.net/\\
-	 	 & Description: & Routing software written in C, providing loadbalancing and HA facilities\\
+    \multicolumn{2}{|c|}{\textbf{Apache Mesos}}\\
     \hline
-	Linux	 & Author(s): & Michael England \\
-	Cluster	 & License: & GNU GPL \\
-	Manager	 & Website: & http://linuxcm.sourceforge.net/ \\
-	 	 & Description: & Graphical tool for managing multiple nodes from a central location, aimed for Beowulf style clusters \\
-    \hline    
-		 & Author(s): & Josh England \\
-      oneSIS	 & License: & GNU GPL v2 \\
-		 & Website: & http://onesis.org/ \\
-	 	 & Description: & Tool aimed to simplify diskless cluster management \\  
-    \hline    
-		 & Author(s): & Simon Horman \\
-      Ultra	 & License: & LGPL v2 \\
-	Monkey	 & Website: & http://www.ultramonkey.org/ \\
-	 	 & Description: & Creates load balanced and HA network services, based on heartbeat \\
-    \hline    
-		 & Author(s): & Bruce Sawyers, Jarrod Johnson et al. \\
-      xCAT	 & License: & Eclipse Public License \\
-		 & Website: & http://xcat.org/ \\
-	 	 & Description: & eXtreme Cluster/Cloud Administration Toolkit, providing cluster administration management \\
-    \hline
-
-  \end{tabular}
-\caption{F$\ell$OSS Cluster Managers from individual developers}
-\label{table:cluster_managers_individuals}
-\end{table}
-
-%\FloatBarrier
-\begin{table}[H]
-  \centering
-  \begin{tabular}{ | m{2cm} | r  m{10cm} | }
-
-    \hline    
-		& Company: &  Apache Software Foundation\\
-      Apache 	& License: & Apache License Version 2.0 \\
-      Mesos	& Website: & http://mesos.apache.org/ \\
-	 	& Support: & Mailing Lists and Documentation\\
-	 	& Description: & Pool of resources management, enabling fault-tolerant and elastic distributed systems \\
-	 	
-    \hline        
-		 & Company: & Rocks Cluster Group \\
-     Rocks 	 & License: & BSD 3-Clause like \\
-     Cluster	 & Website: & http://www.rocksclusters.org/ \\
-   Distribution	 & Support: &  Mailing Lists and Documentation\\
-	 	 & Description: & GNU/Linux cluster distribution enabling end users to build computational clusters and grid endpoints \\
-    \hline    
-		 & Company: & Glushkov Institute of Cybernetics NAS of Ukraine \\
-      SCMS.pro   & License: & Apache 2 License \\
-		 & Website: & http://www.scms.pro/ \\
-	 	 & Support: & E-Mail, Documentation \\
-	 	 & Description: & Supercomputer Management System, intended to scientists and working groups, it aims to create comprehensive toolset for cluster management, grid and cloud access \\
-    \hline
-  \end{tabular}
-\caption{F$\ell$OSS Cluster Managers from companies or institutes}
-\label{table:cluster_managers_companies}
-\end{table}
-
-
-%\FloatBarrier
-\begin{table}[H]
-  \centering
-  \begin{tabular}{ | m{2cm} | r  m{10cm} | }
-
-  \hline        
-		& Company: & Apache Software Foundation \\
-     Apache	& License: & Apache License 2 \\
-     Hadoop	& Website: & http://hadoop.apache.org/ \\
-		& Support: & Mailing Lists, Issue Tracking, Documentation \\
-	 	& Description: & Framework that allows distributed processing of large data sets across clusters of computers \\
-    \hline        
-		& Company: & Red Hat Inc. \\
-      GFS	& License: & GPL \\
-		& Website: & http://sourceware.org/cluster/gfs/ \\
-		& Support: & Mailing Lists, Documentation, Annual Subscription \\
-	 	& Description: & Allows a cluster of computers to simultaneously use a block device that is shared between them \\
-    \hline
-		& Company: & Red Hat Inc. \\
-      GlusterFS & License: & GPL v3 \\
-		& Website: & http://www.gluster.org/ \\
-		& Support: & Mailing Lists, Documentation, Bug Tracking \\
-	 	& Description: & Scalable network filesystem, allow to create large, distributed storage solutions for media streaming, data analysis, and other data bandwidth intensive tasks \\
-    \hline
-
-  \end{tabular}
-\label{table:cluster_filesystems_1}
-\end{table}
-
-%\FloatBarrier
-\begin{table}[H]
-  \centering
-  \begin{tabular}{ | m{2cm} | r  m{10cm} | }
- 
-     \hline
-		& Company: & Seagate Technology LLC \\
-      Lustre FS	& License: & GPL \\
-		& Website: & http://lustre.org/ \\
-		& Support: & Mailing Lists, Documentation, Bug Tracking \\
-	 	& Description: & Parallel file system supporting HPC simulation environments \\
-
-    \hline
-		& Company: & Core Technology Inc. \\
-      MooseFS	& License: & GPL v2 \\
-		& Website: & https://moosefs.com/ \\
-		& Support: & Per license, Support Tickets and Year Subscription\\
-	 	& Description: & Fault tolerant, HA, Highly Performing, Scale-Out, network distributed file system \\
-
-    \hline
-		& Company: & Oracle Corp. \\
-      	OCFS2	& License: & GPL \\
-		& Website: & https://oss.oracle.com/projects/ocfs2/ \\
-		& Support: & Documentation, Bug Tracking, Support Tickets \\
-	 	& Description: & General-purpose shared-disk cluster file system, providing both high performance and HA \\
-    \hline
-		& Company: & Quobyte Inc. \\
-      XtreemFS	& License: & BSD License \\
-		& Website: & http://www.xtreemfs.org/ \\
-		& Support: & Mailing Lists, Documentation \\
-	 	& Description: & General purpose storage, scalable and fault-tolerant system \\
-    \hline    
+    Company: &  \\
+    License: & Apache License Version 2.0 \\
+    Website: & http://mesos.apache.org/ \\
+    Description: &  \\
+    Commercial support: &  \\
     
+    \hline    
+    \multicolumn{2}{|c|}{\textbf{Keepalived}}\\
+    \hline
+    Company: &  \\
+    License: & GNU GPL v2+ \\
+    Website: & http://keepalived.sourceforge.net/ \\
+    Description: &  \\
+    Commercial support: &  \\
+    
+    \hline
+    \multicolumn{2}{|c|}{\textbf{Linux Cluster Manager}}\\
+    \hline
+    Company: &  \\
+    License: & GNU GPL \\
+    Website: & http://linuxcm.sourceforge.net/ \\
+    Description: &  \\
+    Commercial support: &  \\
+    
+    \hline    
+    \multicolumn{2}{|c|}{\textbf{oneSIS}}\\
+    \hline
+    Company: &  \\
+    License: & GNU GPL v2 \\
+    Website: & http://onesis.org/ \\
+    Description: &  \\
+    Commercial support: &  \\
+
+    \hline    
+    \multicolumn{2}{|c|}{\textbf{Rocks Cluster Distribution}}\\
+    \hline
+    Company: &  \\
+    License: & BSD 3-Clause like \\
+    Website: & http://www.rocksclusters.org/ \\
+    Description: &  \\
+    Commercial support: &  \\
+    
+    \hline    
+    \multicolumn{2}{|c|}{\textbf{SCMS.pro}}\\
+    \hline
+    Company: &  \\
+    License: & Apache 2 License \\
+    Website: & http://www.scms.pro/ \\
+    Description: &  \\
+    Commercial support: &  \\
+    
+    \hline
+    \multicolumn{2}{|c|}{\textbf{Ultra Monkey}}\\
+    \hline
+    Company: &  \\
+    License: & LGPL v2 \\
+    Website: & http://www.ultramonkey.org/ \\
+    Description: &  \\
+    Commercial support: &  \\
+    
+    \hline    
+    \multicolumn{2}{|c|}{\textbf{xCAT}}\\
+    \hline
+    Company: &  \\
+    License: & Eclipse Public License \\
+    Website: & http://xcat.org/ \\
+    Description: &  \\
+    Commercial support: &  \\
+    
+    \hline
   \end{tabular}
-\caption{F$\ell$OSS Cluster Storage Technologies}
+\caption{F$\ell$OSS Cluster Managers}
+\label{table:cluster_managers}
+\end{table}
+
+
+% *** STORAGE ***
+\noindent The cluster oriented filesystems are another key element regarding HA implementations. They provide data replication and fault tolerance, allowing operations continuity against incidents.
+
+\noindent There are also several F$\ell$OSS alternatives to provide clustered storage, including the tools listed in Table~\ref{table:cluster_filesystems}. One of the most consolidated clustered storage technologies is DRBD, first released in 1999, it will be aborded in Chapter~\ref{chap:implemented}.
+
+\begin{table}
+  \centering
+  \begin{tabular}{ | r m{10cm} | }
+
+    \hline
+    \multicolumn{2}{|c|}{\textbf{Apache Hadoop}}\\
+    \hline
+    Company: &  \\
+    License: & Apache License 2 \\
+    Website: & http://hadoop.apache.org/ \\
+    Description: &  \\
+    Commercial support: &  \\
+    
+    \hline    
+    \multicolumn{2}{|c|}{\textbf{GFS}}\\
+    \hline
+    Company: &  \\
+    License: & GPL \\
+    Website: & http://sourceware.org/cluster/gfs/ \\
+    Description: &  \\
+    Commercial support: &  \\
+
+    \hline
+    \multicolumn{2}{|c|}{\textbf{GlusterFS}}\\
+    \hline
+    Company: &  \\
+    License: & GPL v3 \\
+    Website: & http://www.gluster.org/ \\
+    Description: &  \\
+    Commercial support: &  \\
+    
+    \hline
+    \multicolumn{2}{|c|}{\textbf{Lustre FS}}\\
+    \hline
+    Company: &  \\
+    License: & GPL \\
+    Website: & http://lustre.org/ \\
+    Description: &  \\
+    Commercial support: &  \\
+    
+    \hline    
+    \multicolumn{2}{|c|}{\textbf{MooseFS}}\\
+    \hline
+    Company: &  \\
+    License: & GPL v2 \\
+    Website: & https://moosefs.com/ \\
+    Description: &  \\
+    Commercial support: &  \\
+
+    \hline    
+    \multicolumn{2}{|c|}{\textbf{OCFS2}}\\
+    \hline
+    Company: &  \\
+    License: & GPL \\
+    Website: & https://oss.oracle.com/projects/ocfs2/ \\
+    Description: & Oracle Cluster File System \\
+    Commercial support: &  \\
+    
+    \hline    
+    \multicolumn{2}{|c|}{\textbf{XtreemFS}}\\
+    \hline
+    Company: &  \\
+    License: & BSD License \\
+    Website: & http://www.xtreemfs.org/ \\
+    Description: &  \\
+    Commercial support: &  \\
+    
+    \hline
+  \end{tabular}
+\caption{F$\ell$OSS Clustered Storage Technologies}
 \label{table:cluster_filesystems}
 \end{table}
 
@@ -569,12 +560,11 @@ for heartbeat, monitoring other node's health.
 
 The followed roadmap to achieve the objectives outlined is a set of guidelines and suggestions for the adoption of F$\ell$OSS within SMEs~\cite{Daffara1}, in the sense that a methodology is not an exact formula but a set of practices. At using this model, companies find a supporting guide from the initial selection and adoption of F$\ell$OSS within the IT infrastructure and even to the consolidation of business models around open source.\bigskip
 
-\noindent On the one hand, the guidelines proposed by Daffara suggest a research method by collecting and read as much information related to the project is available and select the appropriate solution from a matching set that fulfill the requirements. On the other hand, following a practical formal approach, applying a model of technology acceptance such as the Lazy User Model (LUM)~\cite{CandT1} is possible to frame the process by which are chosen the technological tools that will make up the solution that meets user requirements, which in this case is being represented by the company Netnovation. This model focuses on user needs and the demanded effort when selecting a solution to a problem from a set of possible solutions, ``According to the lazy user model, a user is likely to choose the solution that requires the least effort. The user examines this cost in terms of time, energy and money when considering how to use a new solution."~\cite{CandT2} The LUM proposes that technology acceptance is impacted 
-by this principle.\bigskip
+\noindent On the one hand, the guidelines proposed by Daffara suggest a research method by collecting and read as much information related to the project is available and select the appropriate solution from a matching set that fulfill the requirements. On the other hand this dissertation also contemplates an open and standard framework to select the technologies to be used, this is the light weight model OpenBRR~\cite{Wasserman}, which performs a quick and flexible assessment over software tools considered.\bigskip
 
-\noindent Additionally at using Metrics Grimoire~\cite{GSyC}, a flexible toolset which allow to obtain data from repositories related to software development, is possible to analyze databases that can later be mined for specific patterns or summaries of activity, allowing to establish objective comparisons in relation to the projects analyzed.
+\noindent Additionally, and following a practical formal approach, applying a model of technology acceptance such as the Lazy User Model (LUM)~\cite{CandT1} is possible to frame the process by which are chosen the technological tools that will make up the solution that meets user requirements, which in this case is being represented by the company Netnovation. This model focuses on user needs and the demanded effort when selecting a solution to a problem from a set of possible solutions, ``According to the lazy user model, a user is likely to choose the solution that requires the least effort. The user examines this cost in terms of time, energy and money when considering how to use a new solution."~\cite{CandT2} The LUM proposes that technology acceptance is impacted by this principle.\bigskip
 
-% python, matplotlib ?
+
 
 %=====================================
 % ARCHITECHTURE
@@ -582,7 +572,7 @@ by this principle.\bigskip
 \chapter{Architecture}
 \label{chap:architecture}
 
-In order to provide IT services to customers, considering software services hosted in an on-line remote location, Netnovation requires a proper software and hardware infrastructure to operate. Some of these services are from VPS, Data Storage Systems, Customer Relationship Management Systems, Email and Collaboration Systems, to Voice over IP PBX systems. Both parties, software infrastructure and product services offered are based on F$\ell$OSS.\bigskip
+In order to provide IT services to customers, considering software services hosted in an on-line remote location, Netnovation requires a proper software and hardware infrastructure to operate. Some of these services are from VPS, Data Storage Systems, Customer Relationship Management Systems (CRM), Email and Collaboration Systems, to Voice over IP PBX systems. Both parties, software infrastructure and product services offered are based on F$\ell$OSS.\bigskip
 
 \noindent In particular the Zimbra server to which a high availability schema is been configured, resides into this architecture, and it is consistent with the company's principles and business model, which is why it is useful to understand the environment to which it belongs.
 
@@ -607,7 +597,7 @@ The housing services leased by the providers offer a pool of public IPv4 address
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=1.80]{network_scheme.png}
+  \includegraphics[scale=0.50]{network_scheme.png}
   \caption[Network interconnection scheme]{Network interconnection scheme}
   \label{fig:network}
 \end{figure}
@@ -677,7 +667,7 @@ In Table~\ref{table:technologies} there are some software solutions currently us
 \chapter{Technological background}
 \label{chap:implemented}
 
-The following software tools represent the key elements on which it has been possible to implement a final high availability solution, some of them mentioned in Section~\ref{sec:hafloss}.
+The following software tools represent the key elements on which it has been possible to implement a comprehensive high availability solution, some of them mentioned in Section~\ref{sec:hafloss}.
 
 \begin{itemize}
 	\item Red Hat Enterprise Linux Server
@@ -701,7 +691,7 @@ The following software tools represent the key elements on which it has been pos
 	\item Corosync
 \end{itemize}
 
-\noindent It is released as F$\ell$OSS under the 3-clause BSD License. This software provides features based on C programming language implementing high availability within applications, through virtual synchrony for replicated state machines, simple availability handling responsible for applications restart when fail, it keeps configuration and statistics in a memory database providing the ability to set, retrieve, and receive change notifications of information, and a quorum system that notifies applications when it is achieved or lost.\\
+\noindent It is released as F$\ell$OSS under the 3-clause BSD License. This software provides features based on C programming language implementing high availability within applications, through virtual synchrony for replicated state machines, simple availability handling responsible for applications restart when fail, it keeps configuration and statistics in a memory database providing the ability to set, retrieve, and receive change notifications of information, and a quorum system that notifies applications when it is achieved or lost.
 
 \begin{itemize}
 	\item Pacemaker
@@ -710,7 +700,7 @@ The following software tools represent the key elements on which it has been pos
 \noindent A F$\ell$OSS high availability resource manager software released under GNU GPLv2. This software was part of the Linux-HA project until 2007, then was split out to be its own project. It implements APIs for resources control, including the Open Cluster Framework (OCF). It is used on computer clusters since 2004.
 
 \begin{itemize}
-	\item Cluster Resource Manager Shell (CRMsh\footnote{{\tiny\ http://crmsh.github.io}}) and Pacemaker Configuration System (PCS\footnote{{\tiny\ https://github.com/feist/pcs}})
+	\item Cluster Resource Manager Shell (CRMsh\footnote{http://crmsh.github.io}) and Pacemaker Configuration System (PCS\footnote{https://github.com/feist/pcs})
 \end{itemize}
 
 \noindent Initially, the CRMsh was distributed as part of the Pacemaker project, but it was split into its own separate project in 2011. Also as CRMsh, PCS is a command-line interface to the Pacemaker cluster resource management stack.
@@ -719,17 +709,17 @@ The following software tools represent the key elements on which it has been pos
 	\item Cluster Configuration System (CCS)
 \end{itemize}
 
-\noindent Manages the cluster configuration and provides information to other cluster components. Runs in each cluster node and makes sure that the cluster configuration file in each cluster node is up to date. In Figure~\ref{fig:ccs}\footnote{\tiny\ {https://access.redhat.com/documentation/en-US/Red\_Hat\_Enterprise\_Linux/4/html/Cluster\_Suite\_Overview/images/}} is represented a CCS overview.
+\noindent Manages the cluster configuration and provides information to other cluster components. Runs in each cluster node and makes sure that the cluster configuration file in each cluster node is up to date. In Figure~\ref{fig:ccs} (\small {took from \url{https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/4/html/Cluster_Suite_Overview/images/}}) is represented a CCS overview.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.55]{ccs-overview.png}
+  \includegraphics[scale=0.50]{ccs-overview.png}
   \caption[CCS overview]{CCS overview}
   \label{fig:ccs}
 \end{figure}
 
 \begin{itemize}
-	\item Cluster Manager (CMAN)\footnote{{\tiny\ https://www.sourceware.org/cluster/cman/}}
+	\item Cluster Manager (CMAN\footnote{https://www.sourceware.org/cluster/cman/})
 \end{itemize}
 
 \noindent A set of kernel patches and a userspace program, formed by a Connection Manager (cnxman) and a Service Manager (sm). The first one handles membership, messaging, quorum, event notification and transitions, and the second one is responsible for instances of external systems. It combines some functionalities provided by CRMsh, PCS and CCS.
@@ -757,7 +747,7 @@ This section is intended to provide technical documentation in the process of im
 	\item cman 3.0.12.1-59
 \end{itemize}
 
-\noindent The defined cluster consists of two nodes which will be referenced as Astapor and Braavos in the domain got.com (as in the novel ``A Game of Thrones"\footnote{\tiny\ {A fantasy novel written by George R. R. Martin}}). These nodes are virtual machines hosted on two Proxmox Virtual Environment servers based on KVM virtualization, which are installed on separate physical machines in the same LAN to avoid single point of failure. The proposed scheme is conceptually similar to the observed in Figure~\ref{fig:ha-cluster}.
+\noindent The defined cluster consists of two nodes which will be referenced as Astapor and Braavos in the domain got.com (as in the novel Game of Thrones). These nodes are virtual machines hosted on two Proxmox Virtual Environment servers based on KVM virtualization, which are installed on separate physical machines in the same LAN to avoid single point of failure. The proposed scheme is conceptually similar to the observed in Figure~\ref{fig:ha-cluster}.
 
 \FloatBarrier
 \begin{figure}
@@ -813,7 +803,7 @@ Table~\ref{table:fqdn} shows the current configuration for the virtual IP addres
 \label{table:fqdn}
 \end{table}
 
-\noindent On both nodes, /etc/hosts file should contain at least the entries described in Table~\ref{table:hosts}:
+\noindent On both nodes, /etc/hosts file should contain at least the entries described in Table~\ref{table:hosts} :
 
 \FloatBarrier
 \begin{table}[H]
@@ -949,7 +939,7 @@ Table~\ref{table:fqdn} shows the current configuration for the virtual IP addres
       astapor.got.com & IN &    & CNAME & zcs-ha.got.com.\\
     \hline
   \end{tabular}
-\caption{/var/named/got.com.db file}
+\caption{/etc/named.conf file}
 \label{table:bindastapor}
 \end{table}
 
@@ -1049,8 +1039,8 @@ The following actions must be performed in parallel on both nodes, except in tho
 
 	\item Verify current roles:\\
 		drbdadm role optzimbra\\
-		It will show `Primary/Secondary' on astapor \\
-		and `Secondary/Primary' on braavos node.
+		It will show 'Primary/Secondary' on astapor \\
+		and 'Secondary/Primary' on braavos node.
 
 	\item Now make the filesystem on astapor:\\
 		mkfs.ext4 /dev/drbd0
@@ -1066,7 +1056,7 @@ The following actions must be performed in parallel on both nodes, except in tho
 
 \end{itemize}
 
-\noindent Now it is necessary to revert the roles back, making braavos the secondary node and astapor the primary one.
+\noindent Now it is necessary to revert the roles back, making braavos the secondary node and astapor the primary one, with the procedure described in section~\ref{sec:initialconf}.
 
 
 \subsection{DRBD Split Brain Recovery}
@@ -1093,7 +1083,8 @@ The following actions must be performed in parallel on both nodes, except in tho
 \section{ZCS}
 \label{sec:zcs}
 
-Here will be fully installed ZCS on astapor but just a dummy installation on braavos, since DRBD will replicate the data to the other node. Download and place ZCS installation file in astapor and braavos filesystems. It can be found at http://www.zimbra.com/downloads/os-downloads.html. In order to complete a full install on a single server, the following resource will be useful - http://files.zimbra.com/website/docs/8.5/Zimbra\_OS\_Quick\_Start\_8.5.0.pdf.
+Here will be fully installed ZCS on astapor but just a dummy installation on braavos, since DRBD will replicate the data to the other node. Download and place ZCS installation file in astapor and braavos filesystems. It can be found at \url{http://www.zimbra.com/downloads/os-downloads.html}. In order to complete a full install on a single server, the following resource will be useful:\\
+\url{http://files.zimbra.com/website/docs/8.5/Zimbra_OS_Quick_Start_8.5.0.pdf}
 
 
 \subsection{ZCS full install on primary node}
@@ -1573,180 +1564,15 @@ The following actions must be performed sequentially on \textit{\textbf{astapor}
 \chapter{Results and discussion}
 \label{chap:results}
 
-In the initial research over the Internet, main F$\ell$OSS source code repositories were consulted (listed bellow alphabetically) in order to review the state of the art regarding tools that could fit the requirements. Most of the related projects were currently hosted in Github. It is worth noting important work in this area such as the ``Study of available tools"~\cite{FMC} by the FLOSSMetrics Consortium.
+This chapter presents the evidence and/or results of primary research which you have undertaken
 
-\begin{itemize}
-	\item BerliOS (berlios.de)
-	\item BountySource (bountysource.com)
-	\item FLOSSMetrics (flossmetrics.org)
-	\item FLOSSmole (ossmole.sourceforge.net)
-	\item GitHub (github.com)
-	\item Gitorious (gitorious.org)
-	\item GNU Savannah (savannah.gnu.org)
-	\item Launchpad (launchpad.net)
-	\item SourceForge (sourceforge.net)
-\end{itemize}
+\noindent Presented in the form of:\\
 
-\noindent Since the desired solution was enterprise-oriented and focused on a GNU/Linux distribution, official websites and documentation were browsed for Hewlett Packard, Redhat Enterprise Linux and SuSE Linux Enterprise Server.
+\noindent - hypothesis testing to analysis suggested by guidelines for the adoption of F$\ell$OSS within SMEs (Daffara), search method by collecting and read as much information related to the project is available and select the appropriate solution from a matching set that fulfill the requirements\\
 
-\begin{itemize}
-	\item ``HP Serviceguard sglx for Linux Deployment Guide". Hewlett Packard Co.\\
-	      DOI=http://www.hp.com/go/sglx/info
-	\item ``Red Hat Enterprise Linux 6 Cluster Administration". Red Hat Inc. et al, 2014.\\
-	      DOI=https://access.redhat.com/documentation/en-US/Red\_Hat\_Enterprise\_Linux/6/html-single/Cluster\_Administration
-	\item Roth T. and Schraitle T. ``SUSE Linux Enterprise High Availability Extension". Novell Inc, 2014.\\
-	      https://www.suse.com/documentation\\
-	      https://en.opensuse.org/openSUSE:High\_Availability
-\end{itemize}
+\noindent - Detailed quantitative model OpenBRR, quick and flexible assessment over software tools considered\\
 
-\noindent Also documentation from each individual F$\ell$OSS product:
-
-\begin{itemize}
-	\item DRBD: Haas F., Reisner P., Ellenberg L. et al. ``The DRBD User's Guide". LINBIT Information Technologies GmbH and LINBIT HA Solutions GmbH. 2011.\\
-	DOU=https://drbd.linbit.com/users-guide
-	\item Linux-HA: Haas, Florian. ``The Linux-HA User's Guide". LINBIT HA-Solutions GmbH, The Linux-HA Project. 2010. \\
-	DOI=http://www.linux-ha.org/wiki/MainPage
-	\item Pacemaker: ``A scalable High Availability cluster resource manager". ClusterLabs. \\
-	DOI=http://clusterlabs.org/wiki/MainPage
-	\item OCF: Haas, Florian. ``The OCF Resource Agent Developer's Guide". LINBIT HA-Solutions GmbH, Novell, Inc., SUSE Linux GmbH, hastexo Professional Services GmbH. 2011. \\
-        DOI=http://www.linux-ha.org/doc/dev-guides/ra-dev-guide.html
-\end{itemize}
-
-\noindent Also specific related work was found, such as:
-
-\begin{itemize}
-	\item Gibanel Lopez, Adrian. ``Zimbra 8 High Availability on Ubuntu 12.04". Universitat de Lleida. 2013. DOI=http://repositori.udl.cat/bitstream/handle/10459.1/46685/agibanell.pdf
-	\item OCF zimbra script: https://github.com/adrian15/hazimbra-thesis/blob/master/ocf/zimbra
-	\item Vidal Lopez M. and Castro Jose L. ``Creacion de un cluster de alta disponibilidad con software libre". Novatica Journal. Nro 210. 2011. \\
-	DOI=http://www.ati.es/novatica/2011/209/Nv209-75.pdf
-\end{itemize}
-
-\noindent Once enough information on the subject of interest have been collected, is crucial to abstract the essence, for which a model as LUM~\cite{CandT1} is ideal. This model focuses on user needs and the demanded effort when selecting a solution to a problem from a set of possible solutions, identifying significant results from patterns and focus on the primary research collected.\bigskip
-
-\noindent A particular type of data that has been obtained is the source code repository for some of the main projects involved in the final solution. They refers to collection of source code used to build a particular software system, supporting versioning through revision control systems, on multi-developer projects to handle various code versions and providing aid in resolving conflicts that arise from developers submitting conflicting modifications.
-
-\begin{itemize}
-	\item Corosync: https://github.com/corosync/corosync
-	\item DRBD: git://git.drbd.org/drbd-8.4.git
-	\item Pacemaker: https://github.com/ClusterLabs/pacemaker
-\end{itemize}
-
-\noindent These repositories aside from offering the source code of the software, basically provide data about the project's development behavior and details of the community that makes it possible. This allows for instance, to find out how long has been developing the software and to know if the project is still active, among many other interesting analysis. To achieve this is very useful to use tools like Metrics Grimoire~\cite{GSyC}, obtaining data from project's source code repositories and retrieving information about commits, ticket management, communication in mailing lists, etc. The data is organized and stored into SQL databases that can later be mined for specific patterns or summaries of activity. \bigskip
-
-\noindent In particular Repository Handler and CVSanalY are the tools that have been used to extract the required data. A detailed description for setup and use of these tools can be found in the document ``Analysing Libre Software communities"~\cite{IandR} published by GSyC LibreSoft from Universidad Rey Juan Carlos and Bitergia\footnote{{\tiny\ http://bitergia.com}} team. Part of the analysis consisted into make the following SQL requests:
-
-\begin{itemize}
-      % [8.A] Is the project is still active?
-      \item Number of commits in the last 6 months, shown in Figure~\ref{fig:fig8-1} for Corosync, Figure~\ref{fig:fig8-2} for DRBD and Figure~\ref{fig:fig8-3} for Pacemaker:
-      % SELECT COUNT(s.id) FROM scmlog s, people p WHERE s.committer\_id=p.id AND YEAR(s.date)=2014 AND MONTH(s.date) IN (7,8,9,10,11,12);
-\end{itemize}
-
-    \begin{figure}[H]
-      \centering
-      \includegraphics[scale=0.30]{fig8-1.png}
-      \caption[Commits in the last 6 months for Corosync]{Corosync - number of commits in the last 6 months}
-      \label{fig:fig8-1}
-    \end{figure}
-	  
-    \begin{figure}[H]
-      \centering
-      \includegraphics[scale=0.30]{fig8-2.png}
-      \caption[Commits in the last 6 months for DRBD]{DRBD - number of commits in the last 6 months}
-      \label{fig:fig8-2}
-    \end{figure}
-    
-    \begin{figure}[H]
-      \centering
-      \includegraphics[scale=0.30]{fig8-3.png}
-      \caption[Commits in the last 6 months for Pacemaker]{Pacemaker - number of commits in the last 6 months}
-      \label{fig:fig8-3}
-    \end{figure}
-
-
-\noindent The values returned on these queries indicate that indeed each of the projects keep some activity to the date that they were executed (December 2014), in particular Pacemaker with 367 commits, followed by Corosync with 82 commits and finally DRBD with 46 commits during the last six months.\bigskip
-
-\noindent A low amount of commits does not necessarily imply a lack of developer's participation, it can also be related to the maturity of the project and its robust structure, although also to a lack of bug posting from the users community. It could be observed in the following queries that these projects particularly have a small but consistent group of committers.
-
-
-\begin{itemize}
-      % [8.B] Evolution in the number of commits
-      \item Evolution in the number of commits per year since the begining of the project, shown in Figure~\ref{fig:fig8-4} for Corosync, Figure~\ref{fig:fig8-5} for DRBD and Figure~\ref{fig:fig8-6} for Pacemaker:
-      
-      For this purpose was employed a GNU GPL python script (included in the Appendix~\ref{app:appendix2}) published by Daniel Izquierdo from GSyC/LibreSoft which uses the following query:\\
-      SELECT YEAR(date), MONTH(date), DAY(date), COUNT(*) FROM scmlog GROUP BY YEAR(date), MONTH(date), DAY(date);
-\end{itemize}
-
-    \begin{figure}[H]
-      \centering
-      \includegraphics[scale=0.50]{fig8-4.png}
-      \caption[Evolution in the number of commits for Corosync]{Corosync - evolution in the number of commits per year}
-      \label{fig:fig8-4}
-    \end{figure}
-	  
-    \begin{figure}[H]
-      \centering
-      \includegraphics[scale=0.50]{fig8-5.png}
-      \caption[Evolution in the number of commits for DRBD]{DRBD - evolution in the number of commits per year}
-      \label{fig:fig8-5}
-    \end{figure}
-    
-    \begin{figure}[H]
-      \centering
-      \includegraphics[scale=0.50]{fig8-6.png}
-      \caption[Evolution in the number of commits for Pacemaker]{Pacemaker - evolution in the number of commits per year}
-      \label{fig:fig8-6}
-    \end{figure}
-
-    
-\noindent The incremental progress is evident in the number of commits from the start of each project, being Pacemaker the one with a larger number of commits in a relatively similar period of time. DRBD meanwhile began about four years earlier and presents a consistent growth but below the 1000 commits. It was not until the emergence of projects such as Pacemaker and Corosync that its development is driven, due to the benefits that these tools are capable to offer working together to provide a common goal - high availability.
-
-
-\begin{itemize}
-      % [8.C] Evolution in the number of active committers
-      \item Evolution in the number of active committers since the begining of the project, shown in Figure~\ref{fig:barchart_c} for Corosync, Figure~\ref{fig:barchart_d} for DRBD and Figure~\ref{fig:barchart_p} for Pacemaker:
-
-      To produce these bar charts was used a simple python script (included in the Appendix~\ref{app:appendix3}) with the following queries:\\
-      SELECT year(s.date) FROM scmlog s GROUP BY year(s.date);\\
-      SELECT COUNT(DISTINCT(p.id)) FROM scmlog s, people p WHERE s.committer\_id=p.id AND YEAR(s.date) BETWEEN 1999 AND 2015;
-\end{itemize}
-
-    \begin{figure}[H]
-      \centering
-      \includegraphics[scale=0.45]{barchart_c.png}
-      \caption[Active committers for Corosync]{Corosync - evolution in the number of active committers per year}
-      \label{fig:barchart_c}
-    \end{figure}
-	  
-    \begin{figure}[H]
-      \centering
-      \includegraphics[scale=0.45]{barchart_d.png}
-      \caption[Active committers for DRBD]{DRBD - evolution in the number of active committers per year}
-      \label{fig:barchart_d}
-    \end{figure}
-    
-    \begin{figure}[H]
-      \centering
-      \includegraphics[scale=0.45]{barchart_p.png}
-      \caption[Active committers for Pacemaker]{Pacemaker - evolution in the number of active committers per year}
-      \label{fig:barchart_p}
-    \end{figure}
-
-
-\noindent As histograms show, annually the number of active developers related to Corosync (5 on average) and DRBD (4 on average) is low in comparison with Pacemaker (13 on average). It can be said that DRBD and Pacemaker have tended to keep their average number of active committers, while Corosync has decreased it with the passing of the years.\bigskip
-
-\noindent Increases in the number of committers as of 2009 for Corosync, can be related to the fact that the project was formally announced as independent in 2008~\cite{CRS}, the source code of OpenAIS was refactored and its core infrastructure components were adopted into Corosync, possibly turning it more attractive to developers.\bigskip
-
-\noindent Peaks as the one around 2007 for DRBD is related to the discussions to include the project into the Linux kernel mainline~\cite{ELDRBD}, it is likely that this event captured the attention of developers in the community at the moment, and in fact this actually happened. The last value of 2 active developers in 2005 occurs because it still has not been calculated the activity for the entire year.\bigskip
-
-\noindent In 2008 there is a considerable decrease in the number of active committers for Pacemaker, caused by the splitting of the Linux-HA project~\footnote{{\tiny\ http://clusterlabs.org/wiki/Pacemaker\#Project\_History}}, but then the community have reacted positively and got involved in the project in a notorious way.\bigskip
-
-
-\noindent Finally it can be said that the analysis suggested by Carlo Daffara~\cite{Daffara1} through his guidelines for the adoption of F$\ell$OSS within SMEs has proved tremendously useful in the process of selecting and evaluate new tools among the vast amount of existent alternatives in the market.\bigskip
-
-\noindent The proposed hypothesis of a search method by collecting and read as much information related to the project is available, results on the one hand, a task very well supported with internet approachability and lots of information available for both official and unofficial. Though on the other hand, this amount of information is not always available in an organized or easy way to digest, leading to an extensive analysis on many occasions that the companies are not willing to invest.\bigskip
-
-\noindent To deal with the latter fact, the Lazy User Model leverages the process by which are elected the technological tools that represent the appropriate solution and fulfill the user requirements. 
-
+\noindent - Lazy User Model, frame the process by which are chosen the technological tools that will make up the solution that meets user requirements. This model focuses on user needs and the demanded effort when selecting a solution to a problem from a set of possible solutions
 
 
 %=====================================
@@ -1755,29 +1581,12 @@ In the initial research over the Internet, main F$\ell$OSS source code repositor
 \chapter{Conclusions and future work}
 \label{chap:conclusions}
 
-\noindent The cloud-oriented systems have been increasingly disseminated, and certainly facilitating the daily activities at companies of any kind that implement this scheme.\bigskip
+Text..
 
-\noindent Adopting a cloud platform has important implications, at both economic and ethical levels. An SME which contemplates moving its IT infrastructure operations to the cloud should consider for example the costs associated with the transformation, migration, deployment, ongoing, hosting charges and downtime times covered by the SLA, and compare them with the costs involved in maintaining this infrastructure on premises, as well as guarantee its accessibility.\bigskip
 
-\noindent Another key factor to consider is the safety of the data belonging to the company that migrates to the cloud, as there is the possibility that their privacy could be violated, since this data will be stored on servers that are accessible over the Internet, although it is also true that there are ways to reduce these levels of vulnerability through VPN tunnels, encrypted and segmentated communications, access to infrastructure by authentication mechanisms, among others. It will always be difficult to ensure the safety of these systems that are hosted in remote locations. In the same line of ideas, and issue with the control of the information arises, as there is a thin membrane that some trends debate about whether these companies have actually control over its own information or not, when it comes to cloud systems~\footnote{{\tiny\ http://www.theguardian.com/technology/2008/sep/29/cloud.computing.richard.stallman}}~\footnote{{\tiny\ http://www.linuxjournal.com/content/stallman-vs-clouds}}.\bigskip
 
-\noindent There is no magic formula or pattern to indicate whether the move to the cloud is beneficial or not for a given company, every case should be analyzed rigorously based on its conditions. In the case of Netnovation this decision was already taken, and indeed the leap to the cloud had already been taken since some time ago.\bigskip
 
-\noindent Based upon the elements that should be analyzed to eventually operate in the cloud, the availability of hosted services is one of them, which directly impacts over the business continuity. To strengthen this eslabon emerge the HA systems, with multiple alternatives to be evaluated to achieve this goal, making it necessary to use methodologies to effectively choose the solution that best suits the needs raised. Elements for consideration can be varied, however there are guidelines set by end users (the companies involved in the transformation) demanding agile decisions and hardly allowing in-depth and detailed analysis of the available options, many companies summarize this to the single phrase ``time is money".\bigskip
 
-\noindent To overcome this phenomenon, methods such as LUM can be used, which guide the process of adopting new technologies and somehow accelerate it assuming that \textit{the user is likely to choose the solution that requires the least effort}.\bigskip
-
-\noindent Data mining tools as Metrics Grimoire opportunely complement the decision making process, by filling out the pitfalls that models as LUM may have or due to insufficient research in the first place. These show objectively and through specific metrics, behavior of F$\ell$OSS projects and help to the right choice of certain solutions.\bigskip
-
-\noindent In the process of choosing a solution, two major and differentiated alternatives were analyzed, the enterprise embedded solutions versus modular FLOSS tools, being both completely valid but ultimately restricted to the guidelines set by Netnovation. One of them aims at the absorption of the implemented technologies, doing the minimum possible use of the commercial support offered by the software vendors and minimizing payment of support licenses available in this scheme. This certainly has a direct impact on the time invested to obtain the necessary knowledge skills, as well as human and material resources that are required to achieve the goal. In the long term also is increased the complexity of the supported infrastructure, although whenever there is a suitable architecture, workflow definition and proper documentation of the infrastructure, it will be possible to handle it.\bigskip
-
-\noindent The solution based on independent FLOSS tools geared successfully with the requirement initially raised, which was to provide a high availability solution for the Zimbra E-mail and collaboration system used by Netnovation, incorporating new technologies to the existing scheme and avoiding disruptive changes on the operational infrastructure.\bigskip
-
-\noindent Within the significance and contribution of the research carried out are found a few important ones. First, the fact that it has been provided an actual solution for the stated problem, it has been implemented a laboratory with an stagging environment similar to production, giving rise to a less distant adaptation from the current schema. Second, the implementation of HA in one of the systems of the infrastructure serves as an example for the deployment of this functionality on other services offered by Netnovation, such as Webservers in Apache, Databases in MySQL, Applications in Tomcat and so on. Lastly, this exercise puts in evidence the potential of FLOSS and its possibilities in the world of private enterprise providing reliable solutions which can compete with other corporate products on the market.\bigskip
-
-\noindent It has been shown that there are models, guidelines and concrete metrics to evaluate F$\ell$OSS projects, however, this research does not make a comprehensive analysis of the tools available nowadays. Such tools are for instance OpenBRR~\cite{Wasserman}, QSoS~\cite{QSOS}, QualOSS~\cite{QOSS} or the Open Source Maturity Model~\cite{OSMM}, through which it is possible to do a more rigorous analysis that lead to the choice of solutions based on specific qualitative and quantitative concrete values.\bigskip
-
-\noindent To the extent that it is sufficient time and resources to develop a more detailed analysis for available alternatives and its feasibility of implementation, as well as a wider range of decision regarding the conditions set by the customer, it would be suitable to evaluate the implementation of more comprehensive, integrated solutions that require less configuration and orchestration of independent technologies. For instance considering the adoption of solutions such as OpenStack~\footnote{{\tiny\ https://www.openstack.org/}}, Cloudstack~\footnote{{\tiny\ https://cloudstack.apache.org/}}, Eucalyptus~\footnote{{\tiny\ https://www.eucalyptus.com/}} or OpenNebula~\footnote{{\tiny\ http://opennebula.org/}} which handle other HA schemes for cloud services.
 
 
 %=====================================
@@ -1791,14 +1600,18 @@ In the initial research over the Internet, main F$\ell$OSS source code repositor
 % APPENDIX
 %
 \appendix
-\chapter{Btactic zimbra script}
+\chapter{btactic zimbra script}
 \label{app:appendix1}
 % btactic zimbra script
 
 \#!/bin/sh\\
+\#\\
 \# Resource script for Zimbra\\
+\#\\
 \# Description:  Manages Zimbra as an OCF resource in an high-availability setup.\\
-\# Author: Adrian Gibanel \textless adrian.gibanel@btactic.com\textgreater \\
+\#\\
+\# Author:       Adrian Gibanel\\
+\# \textless adrian.gibanel@btactic.com\textgreater : Original Author\\
 \#\\
 \# License: GNU General Public License (GPL)\\
 \# Note:  Aimed at an active/passive cluster originally\\
@@ -1816,8 +1629,10 @@ In the initial research over the Internet, main F$\ell$OSS source code repositor
 \#  OCF\_RESKEY\_config\_dir\\
 \#  OCF\_RESKEY\_parameters\\
 \#\\
+\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\\
 
 \noindent \# Initialization:\\
+
 \noindent : \$\{OCF\_FUNCTIONS\_DIR=\$\{OCF\_ROOT\}/lib/heartbeat\}\\
 . \$\{OCF\_FUNCTIONS\_DIR\}/ocf-shellfuncs\\
 : \$\{OCF\_RESKEY\_binary=``zmcontrol"\}\\
@@ -1834,45 +1649,45 @@ USAGE=``Usage: \$0 \{start\textbar stop\textbar reload\textbar status\textbar mo
 
 \noindent meta\_data() \{\\
 
-\noindent cat \textless \textless END\\
+        cat \textless \textless END\\
         
-\noindent \textless ?xml version=``1.0"?\textgreater\\
+\textless ?xml version=``1.0"?\textgreater\\
 \textless !DOCTYPE resource-agent SYSTEM ``ra-api-1.dtd"\textgreater\\
 \textless resource-agent name=``zimbra"\textgreater\\
 \textless version\textgreater0.1\textless /version\textgreater\\
 \textless longdesc lang=``en"\textgreater\\
-\indent This script manages Zimbra as an OCF resource in a high-availability setup.\\
+This script manages Zimbra as an OCF resource in a high-availability setup.\\
 \textless /longdesc\textgreater\\
 \textless shortdesc lang=``en"\textgreater\\
-\indent Manages a highly available Zimbra mail server instance\\
+Manages a highly available Zimbra mail server instance\\
 \textless /shortdesc\textgreater\\
 
 \noindent \textless parameters\textgreater\\
 
 \noindent \textless parameter name=``binary" unique=``0" required=``0"\textgreater\\
 \textless longdesc lang=``en"\textgreater\\
-\indent Short name to the Zimbra control script.\\
-\indent For example, ``zmcontrol".\\
+Short name to the Zimbra control script.\\
+For example, ``zmcontrol".\\
 \textless /longdesc\textgreater\\
 \textless shortdesc lang=``en"\textgreater\\
-\indent Short name to the Zimbra control script\textless /shortdesc\textgreater\\
+Short name to the Zimbra control script\textless /shortdesc\textgreater\\
 \textless content type=``string" default=``zmcontrol" /\textgreater\\
 \textless /parameter\textgreater\\
 
 \noindent \textless parameter name=``zimbra\_dir" unique=``1" required=``0"\textgreater\\
 \textless longdesc lang=``en"\textgreater\\
-\indent Full path to Zimbra directory.\\
-\indent For example, ``/opt/zimbra".\\
+Full path to Zimbra directory.\\
+For example, ``/opt/zimbra".\\
 \textless /longdesc\textgreater\\
 \textless shortdesc lang=``en"\textgreater\\
-\indent Full path to Zimbra directory\textless /shortdesc\textgreater\\
+Full path to Zimbra directory\textless /shortdesc\textgreater\\
 \textless content type=``string" default=``/opt/zimbra" /\textgreater\\
 \textless /parameter\textgreater\\
 
 \noindent \textless parameter name=``zimbra\_user" unique=``1" required=``0"\textgreater\\
 \textless longdesc lang=``en"\textgreater\\
-\indent Zimbra username.\\
-\indent For example, ``zimbra".\\
+Zimbra username.\\
+For example, ``zimbra".\\
 \textless /longdesc\textgreater\\
 \textless shortdesc lang=``en"\textgreater Zimbra username\textless /shortdesc\textgreater\\
 \textless content type=``string" default=``zimbra" /\textgreater\\
@@ -1880,8 +1695,8 @@ USAGE=``Usage: \$0 \{start\textbar stop\textbar reload\textbar status\textbar mo
 
 \noindent \textless parameter name=``zimbra\_group" unique=``1" required=``0"\textgreater\\
 \textless longdesc lang=``en"\textgreater\\
-\indent Zimbra group.\\
-\indent For example, ``zimbra".\\
+Zimbra group.\\
+For example, ``zimbra".\\
 \textless /longdesc\textgreater\\
 \textless shortdesc lang=``en"\textgreater Zimbra group\textless /shortdesc\textgreater\\
 \textless content type=``string" default=``zimbra" /\textgreater\\
@@ -2126,129 +1941,5 @@ fi\\
     \indent *)          usage\\
                 \indent \indent exit \$OCF\_ERR\_UNIMPLEMENTED;;\\
 esac
-
-
-\chapter{Commits evolution python script}
-\label{app:appendix2}
-
-\# Copyright (C) 2007-2011  GSyC/LibreSoft, Universidad Rey Juan Carlos\\
-\#\\
-\# This program is free software; you can redistribute it and/or modify it under the terms of \\
-\# the GNU General Public License as published by the Free Software Foundation; \\
-\# either version 2 of the License, or (at your option) any later version.\\
-\#\\
-\# This program is distributed in the hope that it will be useful, but WITHOUT ANY \\
-\# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS \\
-\# FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.\\
-\#\\
-\# You should have received a copy of the GNU General Public License along with this program; \\
-\# if not, write to the Free Software Foundation, Inc. \textless licensing@fsf.org\textgreater \\
-\#\\
-\# Author: Daniel Izquierdo Cortazar \textless dizquierdo@libresoft.es\textgreater \\
-
-\noindent import matplotlib as mpl\\
-mpl.use(`Agg')\\
-import matplotlib.pyplot as plt\\
-import MySQLdb\\
-import sys\\
-import datetime as dt\bigskip
-
-\noindent def connect(database):\\
-   \indent user = `USER'\\
-   \indent password = `PASSWORD'\\
-   \indent host = `HOST'\\
-
-   \indent dbaux = database\\
-   \indent try:\\
-   \indent \indent db =  MySQLdb.connect(host,user,password,dbaux)\\
-   \indent \indent return db.cursor()\\
-   \indent except:\\
-   \indent \indent print(``Database connection error")\\
-
-\noindent def get\_dates\_commits(dates\_commits):\bigskip
-
-dates = []\\
-  \indent commits = []\\
-  \indent total\_commits = 0\\
-
-  \indent for date\_commit in dates\_commits:\\
-  \indent \indent year = int(date\_commit[0])\\
-  \indent \indent month = int(date\_commit[1])\\
-  \indent \indent day = int(date\_commit[2])\\
-  \indent \indent num\_commits = int(date\_commit[3])\\
-  \indent \indent dates.append(dt.date(year, month, day))\\
-  \indent \indent commits.append(num\_commits + total\_commits)\\
-  \indent \indent total\_commits = total\_commits + num\_commits\\
-
-  \indent return dates, commits, total\_commits\\
-
-\noindent def main(database):\\
-
-\# Commits per committer with the highest accumulated activity\\
-\indent query = ``select year(date), month(date), day(date), count(*) from scmlog group by \textbackslash\\
-\indent year(date), month(date), day(date)"\\
-
-
-\# Connecting to the data base and retrieving data\\
-\indent connector = connect(database)\\
-\indent results = int(connector.execute(query))\\
-\indent if results \textgreater 0:\\
-  \indent \indent results\_aux = connector.fetchall()\\
-  \indent else:\\  
-  \indent \indent print(``Error when retrieving data")\\
-
-\noindent return dates, commits, total\_commits = get\_dates\_commits(results\_aux)\\
-
-\noindent \# Creating the final boxplot\\
-fig = plt.figure()\\
-plt.title(`Evolution of Commits')\\
-plt.plot(dates, commits)\\
-fig.autofmt\_xdate()\\
-plt.savefig(`basic\_timeseries\_agg.eps')\\
-
-\noindent if \_\_name\_\_ == ``\_\_main\_\_":main(sys.argv[1])\\
-
-
-
-\chapter{Active committers evolution python script}
-\label{app:appendix3}
-
-\# Copyright (C) 2015 Daniel Gamez \\
-\#\\
-\# This program is free software; you can redistribute it and/or modify it under the terms of \\
-\# the GNU General Public License as published by the Free Software Foundation; \\
-\# either version 2 of the License, or (at your option) any later version.\\
-\#\\
-\# This program is distributed in the hope that it will be useful, but WITHOUT ANY \\
-\# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS \\
-\# FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.\\
-\#\\
-\# You should have received a copy of the GNU General Public License along with this program; \\
-\# if not, write to the Free Software Foundation, Inc. \textless licensing@fsf.org\textgreater \\
-\#\\
-\# Author: Daniel Gamez \textless daniel.gamez@gmail.com\textgreater \\
-
-\noindent import matplotlib.pyplot as pyplt\\
-\noindent import numpy as npy\\
-
-\noindent \# Collect data from file, avoid empty lines\\
-
-\noindent with open(`data\_p.txt') as d:\\
-  lines = [line.strip().split(` ') for line in d if len(line) \textgreater 1]\\
-\noindent  \# data\_p.txt has values in two columns per line\\
-  
-\noindent labels, y = zip(*lines)\\
-
-\noindent \# Indexes\\
-\noindent ind = npy.arange(len(labels))\\
-
-\noindent \# Convert y values from str to int\\
-\noindent y = map(int, y)\\
-
-\noindent pyplt.figure()\\
-\noindent pyplt.bar(ind, y, align=`center')\\
-\noindent pyplt.xticks(ind, labels, rotation=45)\\
-\noindent pyplt.show()
-
 
 \end{document}

@@ -1,0 +1,346 @@
+\#!/bin/sh
+\#
+\# Resource script for Zimbra
+\#
+\# Description:  Manages Zimbra as an OCF resource in an high-availability setup.
+\#
+\# Author:       Adrian Gibanel 
+\# \textless adrian.gibanel@btactic.com\textgreater : Original Author
+\# 
+\# License: GNU General Public License (GPL)
+\# Note:  Aimed at an active/passive cluster originally
+\#        Inspired from postfix OCF script
+\#        Inspired from Ubuntu LSB script.
+\#        Not sure it will work for other distros without modifying
+\#
+\#   usage: \$0 \{start|stop|reload|status|monitor|validate-all|meta-data\}
+\#
+\#       The ``start" arg starts Zimbra
+\#       The ``stop" arg stops it.
+\#
+\# OCF parameters:
+\#  OCF\_RESKEY\_binary
+\#  OCF\_RESKEY\_config\_dir
+\#  OCF\_RESKEY\_parameters
+\#
+\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
+
+\# Initialization:
+
+: \$\{OCF\_FUNCTIONS\_DIR=\$\{OCF\_ROOT\}/lib/heartbeat\}
+. \$\{OCF\_FUNCTIONS\_DIR\}/ocf-shellfuncs
+
+: \$\{OCF\_RESKEY\_binary=\textasciigrave `zmcontrol"\}
+: \$\{OCF\_RESKEY\_zimbra\_dir=\textasciigrave `/opt/zimbra"\}
+: \$\{OCF\_RESKEY\_zimbra\_user=\textasciigrave `zimbra"\}
+: \$\{OCF\_RESKEY\_zimbra\_group=\textasciigrave `zimbra"\}
+USAGE=\textasciigrave `Usage: \$0 \{start|stop|restart|status|monitor|validate-all|meta-data\}";
+
+\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
+
+usage() \{
+    echo \$USAGE \textgreater\&2
+\}
+
+meta\_data() \{
+        cat \textless \textless END
+\textless ?xml version=\textasciigrave `1.0"?\textgreater
+\textless !DOCTYPE resource-agent SYSTEM ``ra-api-1.dtd"\textgreater
+\textless resource-agent name=\textasciigrave `zimbra"\textgreater
+\textless version\textgreater0.1\textless /version\textgreater
+\textless longdesc lang=\textasciigrave `en"\textgreater
+This script manages Zimbra as an OCF resource in a high-availability setup.
+\textless /longdesc\textgreater
+\textless shortdesc lang=\textasciigrave `en"\textgreater
+Manages a highly available Zimbra mail server instance
+\textless /shortdesc\textgreater
+
+\textless parameters\textgreater
+
+\textless parameter name=\textasciigrave `binary" unique=\textasciigrave `0" required=\textasciigrave `0"\textgreater
+\textless longdesc lang=\textasciigrave `en"\textgreater
+Short name to the Zimbra control script.
+For example, ``zmcontrol".
+\textless /longdesc\textgreater
+\textless shortdesc lang=\textasciigrave `en"\textgreater
+Short name to the Zimbra control script\textless /shortdesc\textgreater
+\textless content type=\textasciigrave `string" default=\textasciigrave `zmcontrol" /\textgreater
+\textless /parameter\textgreater
+
+\textless parameter name=\textasciigrave `zimbra\_dir" unique=\textasciigrave `1" required=\textasciigrave `0"\textgreater
+\textless longdesc lang=\textasciigrave `en"\textgreater
+Full path to Zimbra directory.
+For example, ``/opt/zimbra".
+\textless /longdesc\textgreater
+\textless shortdesc lang=\textasciigrave `en"\textgreater
+Full path to Zimbra directory\textless /shortdesc\textgreater
+\textless content type=\textasciigrave `string" default=\textasciigrave `/opt/zimbra" /\textgreater
+\textless /parameter\textgreater
+
+\textless parameter name=\textasciigrave `zimbra\_user" unique=\textasciigrave `1" required=\textasciigrave `0"\textgreater
+\textless longdesc lang=\textasciigrave `en"\textgreater
+Zimbra username.
+For example, ``zimbra".
+\textless /longdesc\textgreater
+\textless shortdesc lang=\textasciigrave `en"\textgreaterZimbra username\textless /shortdesc\textgreater
+\textless content type=\textasciigrave `string" default=\textasciigrave `zimbra" /\textgreater
+\textless /parameter\textgreater
+
+\textless parameter name=\textasciigrave `zimbra\_group"
+ unique=\textasciigrave `1" required=\textasciigrave `0"\textgreater
+\textless longdesc lang=\textasciigrave `en"\textgreater
+Zimbra group.
+For example, ``zimbra".
+\textless /longdesc\textgreater
+\textless shortdesc lang=\textasciigrave `en"\textgreaterZimbra group\textless /shortdesc\textgreater
+\textless content type=\textasciigrave `string" default=\textasciigrave `zimbra" /\textgreater
+\textless /parameter\textgreater
+
+\textless /parameters\textgreater
+
+\textless actions\textgreater
+\textless action name=\textasciigrave `start"   timeout=\textasciigrave `360s" /\textgreater
+\textless action name=\textasciigrave `stop"    timeout=\textasciigrave `360s" /\textgreater
+\textless action name=\textasciigrave `restart"  timeout=\textasciigrave `360s" /\textgreater
+\textless action name=\textasciigrave `monitor" depth=\textasciigrave `0"  timeout=\textasciigrave `40s"
+ interval=\textasciigrave `60s" /\textgreater
+\textless action name=\textasciigrave `validate-all"  timeout=\textasciigrave `360s" /\textgreater
+\textless action name=\textasciigrave `meta-data"  timeout=\textasciigrave `5s" /\textgreater
+\textless /actions\textgreater
+\textless /resource-agent\textgreater
+END
+\}
+
+command()
+\{
+  if [ -f \$\{zimbra\_dir\}/redolog/redo.log ]; then
+    chown -f \$\{zimbra\_user\}:\$\{zimbra\_group\} \
+      \$\{zimbra\_dir\}/redolog/redo.log
+  fi
+
+  su - \$\{zimbra\_user\} -c ``\$\{binary\} \$1 \textless /dev/null"
+\}
+
+running() \{
+    \# run Zimbra status
+    command status
+\}
+
+
+zimbra\_status()
+\{
+    running
+\}
+
+zimbra\_start()
+\{
+    \# if Zimbra is running return success
+    if zimbra\_status; then
+        ocf\_log info ``Zimbra is already running."
+        return \$OCF\_SUCCESS
+    fi
+
+    \# start Zimbra
+    command start
+    ret=\$?
+    if [ -d /var/lock/subsys -a \$ret -eq 0 ]; then
+      touch /var/lock/subsys/zimbra
+    fi
+
+    if [ \$ret -ne 0 ]; then
+        ocf\_log err ``Zimbra returned an error." \$ret
+        return \$OCF\_ERR\_GENERIC
+    fi
+
+    \# grant some time for
+    \# startup/forking the sub processes
+    sleep 2
+
+    \# initial monitoring action
+    running
+    ret=\$?
+    if [ \$ret -ne \$OCF\_SUCCESS ]; then
+     ocf\_log err ``Zimbra failed initial monitor action." \$ret
+     return \$OCF\_ERR\_GENERIC
+    fi
+
+    ocf\_log info ``Zimbra started."
+    return \$OCF\_SUCCESS
+\}
+
+
+zimbra\_stop()
+\{
+    \# if Zimbra is not running return success
+    if ! zimbra\_status; then
+        ocf\_log info ``Zimbra already stopped."
+        return \$OCF\_SUCCESS
+    fi
+
+    \# stop Zimbra
+    command stop 
+    ret=\$?
+
+    if [ -d /var/lock/subsys -a \$ret -eq 0 ]; then
+      rm -f /var/lock/subsys/zimbra
+    fi
+
+    if [ \$ret -ne 0 ]; then
+        ocf\_log err ``Zimbra returned an error while stopping." \$ret
+        return \$OCF\_ERR\_GENERIC
+    fi
+
+    \# grant some time for shutdown and recheck 5 times
+    for i in 1 2 3 4 5; do
+        if zimbra\_status; then
+            sleep 1
+        fi
+    done
+
+    \# escalate to abort if we did not stop by now
+    \# @TODO shall we loop here too?
+    if zimbra\_status; then
+        ocf\_log err ``Zimbra failed to stop. Escalating to 'abort'."
+
+        ORPHANED=\textasciigrave ps -u \$\{zimbra\_user\} -o ``pid=\textasciigrave `` \&\& kill -9 \$ORPHANED 2\textgreater\&1
+        ret=\$?
+        sleep 10
+
+        \# zimbra abort did not succeed
+        if zimbra\_status; then
+            ocf\_log err ``Zimbra failed to abort."
+            return \$OCF\_ERR\_GENERIC
+        fi
+    fi
+
+    ocf\_log info ``Zimbra stopped."
+    return \$OCF\_SUCCESS
+\}
+
+zimbra\_restart()
+\{
+    if zimbra\_status; then
+        ocf\_log info ``Reloading Zimbra."
+        command restart
+    fi
+\}
+
+zimbra\_monitor()
+\{
+    if zimbra\_status; then
+        return \$OCF\_SUCCESS
+    fi
+    return \$OCF\_NOT\_RUNNING
+\}
+
+zimbra\_validate\_all()
+\{
+    \# check zimbra\_dir parameter
+    if [ ! -d ``\$zimbra\_dir" ]; then
+      ocf\_log err ``Zimbra directory '\$config\_dir' does not exist." \$ret
+      return \$OCF\_ERR\_INSTALLED
+    fi
+    \# check that the Zimbra binaries 
+    \# exist and can be executed
+    if ! have\_binary ``\$\{zimbra\_dir\}/bin/\$\{binary\}" ; then
+      return \$OCF\_ERR\_INSTALLED
+    fi
+
+    \# check permissions
+    user=\$\{zimbra\_user\}
+    zimbra\_writable\_dirs=\textasciigrave `\$\{zimbra\_dir\}/conf"
+    for dir in ``\$zimbra\_writable\_dirs"; do
+        if ! su -s /bin/sh - \$user -c ``test -w \$dir"; then
+            ocf\_log err ``Directory '\$dir' is not writable by user '\$user'."
+            exit \$OCF\_ERR\_PERM;
+        fi
+    done
+
+    return \$OCF\_SUCCESS
+\}
+
+\#
+\# Main
+\#
+
+if [ \$\# -ne 1 ]; then
+    usage
+    exit \$OCF\_ERR\_ARGS
+fi
+
+binary=\$OCF\_RESKEY\_binary
+zimbra\_dir=\$OCF\_RESKEY\_zimbra\_dir
+zimbra\_user=\$OCF\_RESKEY\_zimbra\_user
+zimbra\_group=\$OCF\_RESKEY\_zimbra\_group
+parameters=\$OCF\_RESKEY\_parameters
+
+\# build Zimbra options string 
+\# *outside* to access from each method
+OPTIONS=''
+OPTION\_CONFIG\_DIR=''
+
+\# check if the Zimbra config\_dir exist
+if [ ``x\$config\_dir" != ``x" ]; then
+    \# check for postconf binary
+    \#check\_binary ``\$\{zimbra\_dir\}/bin/\$\{binary\}"
+
+    \# remove all trailing slashes
+    zimbra\_dir=\textasciigrave echo \$zimbra\_dir | sed 's/\/*\$//'`
+
+fi
+
+case \$1 in
+    meta-data)  meta\_data
+                exit \$OCF\_SUCCESS
+                ;;
+
+    usage|help) usage
+                exit \$OCF\_SUCCESS
+                ;;
+esac
+
+zimbra\_validate\_all
+ret=\$?
+
+LSB\_STATUS\_STOPPED=3
+if [ \$ret -ne \$OCF\_SUCCESS ]; then
+    case \$1 in
+    stop)       exit \$OCF\_SUCCESS ;;
+    monitor)    exit \$OCF\_NOT\_RUNNING;;
+    status)     exit \$LSB\_STATUS\_STOPPED;;
+    *)          exit \$ret;;
+    esac
+fi
+
+case \$1 in
+    monitor)    zimbra\_monitor
+                exit \$?
+                ;;
+    start)      zimbra\_start
+                exit \$?
+                ;;
+
+    stop)       zimbra\_stop
+                exit \$?
+                ;;
+
+    restart)     zimbra\_restart
+                exit \$?
+                ;;
+
+    status)     if zimbra\_status; then
+                    ocf\_log info ``Zimbra is running."
+                    exit \$OCF\_SUCCESS
+                else
+                    ocf\_log info ``Zimbra is stopped."
+                    exit \$OCF\_NOT\_RUNNING
+                fi
+                ;;
+
+    validate-all)   exit \$OCF\_SUCCESS
+                    ;;
+
+    *)          usage
+                exit \$OCF\_ERR\_UNIMPLEMENTED
+                ;;
+esac

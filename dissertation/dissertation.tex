@@ -4,9 +4,11 @@
 \usepackage[english]{babel}
 \usepackage{booktabs}
 \usepackage{caption}
+\usepackage{color}
 \usepackage{enumitem}
 \usepackage{float}  % H for Figures positioning
 \usepackage{graphicx}
+\usepackage{hyperref}
 \usepackage[latin1]{inputenc}
 \usepackage{latexsym}	% LaTeX Logo
 \usepackage{placeins}
@@ -16,6 +18,7 @@
 \usepackage[nottoc, notlot, notlof, notindex]{tocbibind} % Index options
 \usepackage{url}
 
+\hypersetup{linktocpage}
 \pagestyle{plain}
 \graphicspath{{./img/}}
 
@@ -97,11 +100,11 @@
 \noindent It is necessary to apply a proper method that allows the choice of the right solution, considering the initial requirements, as well as human and material resources identified for this purpose. The method used has been the Lazy User Model (LUM) which focuses on user needs and the demanded effort to chose a solution to a problem. In addition,
  suggested guidelines are used that reinforce the initial selection and adoption of F$\ell$OSS within the IT infrastructure. Furthermore, Grimoire Metrics techniques are used to obtain specific metrics, with which it is possible to interpret some behavior patterns of F$\ell$OSS projects assessed as a final solution.\bigskip
 
-% Findings (Key findings summarised)
+% Findings (Key findings summarized)
 
 \noindent Two major alternatives were found: the enterprise embedded solutions offering support plans over the provided integrated product, and also modular or standalone F$\ell$OSS which needs to be orchestrated in order to provide a final solution. Based upon the guidelines established by Netnovation, the final solution consists in the integration of tools like Pacemaker, Corosync and DRBD, avoiding disruptive changes on the current operational infrastructure.\bigskip
 
-% Conclusions (Problem solution summarised) - can be summarized/bulleted
+% Conclusions (Problem solution summarized) - can be summarized/bulleted
 
 \noindent Among the significant achievements and contribution of the research carried out are:
 
@@ -120,11 +123,11 @@
 {\bf Key words}: Cluster, Corosync, CRM, DRBD, FOSS, F$\ell$OSS, High Availability, LUM, Metrics Grimoire, OCF, Pacemaker, Zimbra.
 
 %=====================================
-% ACKNOWLEDGEMENTS
+% ACKNOWLEDGMENTS
 %
-\chapter*{Acknowledgements}
+\chapter*{Acknowledgments}
 \label{chap:acknowledgements}
-\addcontentsline{toc}{chapter}{Acknowledgements}
+\addcontentsline{toc}{chapter}{Acknowledgments}
 
 \noindent A huge recognition to the Free Libre Open Source Software and its wonderful community, thanks to the many opportunities and satisfactions it has given to me.\bigskip
 
@@ -168,7 +171,7 @@
 	\item OCFS: Oracle Cluster File System
 	\item OS: Operating System
 	\item PBX: Private Branch Exchange
-	\item RHEL: Ret Hat Enterprise Linux
+	\item RHEL: Red Hat Enterprise Linux
 	\item SAN: Storage Area Network
 	\item SCSI: Small Computer System Interface
 	\item SLA: Service Level Agreement
@@ -233,7 +236,7 @@ Business continuity in the field of information technologies is supported in a l
 
 \noindent In particular Netnovation is a SME in the field of information technologies, which provides private cloud services from data storage to hosting of virtual private servers (VPS), including e-mail and collaboration systems. The latter is precisely one of the mainlines for the operations of the company, which employs mainly F$\ell$OSS to its internal systems, specifically using the F$\ell$OSS e-mail and collaboration suite Zimbra\texttrademark\footnote{{\tiny\ http://www.zimbra.com}}. One of the main problems that Netnovation faces is to ensure the communication and workflow continuity that is carried through this collaboration tool, as well as meet the SLAs offered to its customers over this software.\bigskip
 
-\noindent There are various software solutions offering high availability of services such as those provided by Zimbra, each one with its own legal implications, associated costs and implementation difficulty\footnote{{\tiny\ Some of these solutions will be addressed in Chapter~\ref{chap:related}}}. A valid alternative is the integration of multiple tools in the field of F$\ell$OSS providing a framework to ensure  continuity of systems operation or business continuity. By doing it this way it is possible to adapt the different requirements and use different technologies to provide the most consistent solution to what is desired.\bigskip
+\noindent There are various software solutions offering high availability of services such as those provided by Zimbra, each one with its own legal implications, associated costs and implementation difficulty\footnote{\tiny\ Some of these solutions will be addressed in Chapter~\ref{chap:related}}. A valid alternative is the integration of multiple tools in the field of F$\ell$OSS providing a framework to ensure  continuity of systems operation or business continuity. By doing it this way it is possible to adapt the different requirements and use different technologies to provide the most consistent solution to what is desired.\bigskip
 
 \noindent One key technology for this purpose is a cluster, in particular a high availability cluster, basically a group of computers interconnected that work together trying to maintain a service up and running all the time.\bigskip
 
@@ -278,7 +281,7 @@ The solution to be implemented consists of F$\ell$OSS tools that allow its adapt
 
 
 %=====================================
-% PRECEDENTS / RELEATED TECHNOLOGIES / STATE OF THE ART
+% PRECEDENTS / RELATED TECHNOLOGIES / STATE OF THE ART
 %
 \chapter{Related technologies}
 \label{chap:related}
@@ -578,7 +581,7 @@ by this principle.\bigskip
 % python, matplotlib ?
 
 %=====================================
-% ARCHITECHTURE
+% ARCHITECTURE
 %
 \chapter{Architecture}
 \label{chap:architecture}
@@ -591,7 +594,7 @@ In order to provide IT services to customers, considering software services host
 \section{Company Infrastructure}
 \label{sec:infrastructure}
 
-Currently the services are offered from two DataCenters (DC1 and DC2) geographically distributed with the aim of providing guarantee of data redundancy. Assuming that communication with the main DC is lost, a procedure has been defined that allows the restoration of services in the other DC, with the disadvantage that it is a manual procedure that requires the  administrators' intervention.
+Currently the services are offered from two Data Centers (DC1 and DC2) geographically distributed with the aim of providing guarantee of data redundancy. Assuming that communication with the main DC is lost, a procedure has been defined that allows the restoration of services in the other DC, with the disadvantage that it is a manual procedure that requires the  administrators' intervention.
 
 \section{Existent Hardware}
 \label{sec:hardware}
@@ -680,47 +683,47 @@ In Table~\ref{table:technologies} there are some software solutions currently us
 
 The following software tools represent the key elements on which it has been possible to implement a final high availability solution, some of them mentioned in Section~\ref{sec:hafloss}.
 
-\begin{itemize}
+\begin{itemize}[leftmargin=*]
 	\item Red Hat Enterprise Linux Server
 \end{itemize}
 
 \noindent GNU/Linux enterprise-oriented distribution providing a very stable base system, vast documentation and proper support from manufacturer, released as F$\ell$OSS mainly under the terms of the GNU Lesser General Public License 2.1, except for some optional components. In order to be specific in this exercise, the Linux kernel 2.6.32-431.el6.x86\_64 that is included by the RHEL version 6.5 was used.
 
-\begin{itemize}
+\begin{itemize}[leftmargin=*]
 	\item Zimbra Collaboration System (ZCS)
 \end{itemize}
 
 \noindent Server and client collaboration software, supporting e-mail, contacts, calendar, documents, push synchronization, and many other enterprise features related to groupware. The software is F$\ell$OSS released under the terms of the Common Public Attribution License version 1 and the GNU General Public License version 2 (GPLv2). The exact version implemented was ZCS FOSS  8.0.7\_GA\_6021.RHEL6\_64.
 
-\begin{itemize}
+\begin{itemize}[leftmargin=*]
 	\item Distributed Replicated Block Device (DRBD)
 \end{itemize}
 
 \noindent A distributed replicated storage system for Linux, implemented as several userspace management applications and shell scripts, used to provide data redundancy. Works on top of block devices, such as hard disk partitions or LVM logical volumes, mirroring each data block that it is written to disk to the peer node.
 
-\begin{itemize}
+\begin{itemize}[leftmargin=*]
 	\item Corosync
 \end{itemize}
 
 \noindent It is released as F$\ell$OSS under the 3-clause BSD License. This software provides features based on C programming language implementing high availability within applications, through virtual synchrony for replicated state machines, simple availability handling responsible for applications restart when fail, it keeps configuration and statistics in a memory database providing the ability to set, retrieve, and receive change notifications of information, and a quorum system that notifies applications when it is achieved or lost.\\
 
-\begin{itemize}
+\begin{itemize}[leftmargin=*]
 	\item Pacemaker
 \end{itemize}
 
 \noindent A F$\ell$OSS high availability resource manager software released under GNU GPLv2. This software was part of the Linux-HA project until 2007, then was split out to be its own project. It implements APIs for resources control, including the Open Cluster Framework (OCF). It is used on computer clusters since 2004.
 
-\begin{itemize}
-	\item Cluster Resource Manager Shell (CRMsh\footnote{{\tiny\ http://crmsh.github.io}}) and Pacemaker Configuration System (PCS\footnote{{\tiny\ https://github.com/feist/pcs}})
+\begin{itemize}[leftmargin=*]
+	\item Cluster Resource Manager Shell (CRMsh)\footnote{{\tiny\ http://crmsh.github.io}} and Pacemaker Configuration System (PCS)\footnote{{\tiny\ https://github.com/feist/pcs}}
 \end{itemize}
 
 \noindent Initially, the CRMsh was distributed as part of the Pacemaker project, but it was split into its own separate project in 2011. Also as CRMsh, PCS is a command-line interface to the Pacemaker cluster resource management stack.
 
-\begin{itemize}
+\begin{itemize}[leftmargin=*]
 	\item Cluster Configuration System (CCS)
 \end{itemize}
 
-\noindent Manages the cluster configuration and provides information to other cluster components. Runs in each cluster node and makes sure that the cluster configuration file in each cluster node is up to date. In Figure~\ref{fig:ccs}\footnote{\tiny\ {https://access.redhat.com/documentation/en-US/Red\_Hat\_Enterprise\_Linux/4/html/Cluster\_Suite\_Overview/images/}} is represented a CCS overview.
+\noindent Manages the cluster configuration and provides information to other cluster components. Runs in each cluster node and makes sure that the cluster configuration file in each cluster node is up to date. In Figure~\ref{fig:ccs}\footnote{\tiny\ {https://access.redhat.com/documentation/en-US/Red\_Hat\_Enterprise\_Linux/4/html/Cluster\_Suite\_Overview/images/ccs-overview.png}} is represented a CCS overview.
 
 \begin{figure}[H]
   \centering
@@ -729,7 +732,7 @@ The following software tools represent the key elements on which it has been pos
   \label{fig:ccs}
 \end{figure}
 
-\begin{itemize}
+\begin{itemize}[leftmargin=*]
 	\item Cluster Manager (CMAN)\footnote{{\tiny\ https://www.sourceware.org/cluster/cman/}}
 \end{itemize}
 
@@ -838,7 +841,7 @@ Table~\ref{table:fqdn} shows the current configuration for the virtual IP addres
 \subsection{Network}
 \label{sec:network}
 
-\begin{itemize}
+\begin{itemize}[leftmargin=*]
 	\item Internet Protocol version 4 (IPv4)
 \end{itemize}
 
@@ -880,7 +883,7 @@ Table~\ref{table:fqdn} shows the current configuration for the virtual IP addres
 \indent ifconfig\\
 \indent ip addr show
 
-\begin{itemize}
+\begin{itemize}[leftmargin=*]
 	\item NTP
 \end{itemize}
 
@@ -912,7 +915,7 @@ Table~\ref{table:fqdn} shows the current configuration for the virtual IP addres
 \indent ntpq -pn \\
 \indent date
 
-\begin{itemize}
+\begin{itemize}[leftmargin=*]
 	\item BIND
 \end{itemize}
 
@@ -1037,12 +1040,12 @@ The following actions must be performed in parallel on both nodes, except in tho
 	\item Create resource:\\
 		drbdadm create-md optzimbra
 	
-	\item Execute first DRBD synchronisation on astapor:\\
+	\item Execute first DRBD synchronization on astapor:\\
 		drbdadm up optzimbra\\
 		drbdadm primary --force optzimbra\\
 		drbdadm --discard-my-data connect optzimbra
 
-	\item It is possible to check synchronisation status with:\\
+	\item It is possible to check synchronization status with:\\
 		watch cat /proc/drbd
 
 	\item Final output will show:\\
@@ -1604,7 +1607,7 @@ In the initial research over the Internet, main F$\ell$OSS source code repositor
 
 \begin{itemize}
 	\item DRBD: Haas F., Reisner P., Ellenberg L. et al. ``The DRBD User's Guide". LINBIT Information Technologies GmbH and LINBIT HA Solutions GmbH. 2011.\\
-	DOU=https://drbd.linbit.com/users-guide
+	DOI=https://drbd.linbit.com/users-guide
 	\item Linux-HA: Haas, Florian. ``The Linux-HA User's Guide". LINBIT HA-Solutions GmbH, The Linux-HA Project. 2010. \\
 	DOI=http://www.linux-ha.org/wiki/MainPage
 	\item Pacemaker: ``A scalable High Availability cluster resource manager". ClusterLabs. \\
@@ -1634,7 +1637,7 @@ In the initial research over the Internet, main F$\ell$OSS source code repositor
 
 \noindent These repositories aside from offering the source code of the software, basically provide data about the project's development behavior and details of the community that makes it possible. This allows for instance, to find out how long has been developing the software and to know if the project is still active, among many other interesting analysis. To achieve this is very useful to use tools like Metrics Grimoire~\cite{GSyC}, obtaining data from project's source code repositories and retrieving information about commits, ticket management, communication in mailing lists, etc. The data is organized and stored into SQL databases that can later be mined for specific patterns or summaries of activity. \bigskip
 
-\noindent In particular Repository Handler and CVSanalY are the tools that have been used to extract the required data. A detailed description for setup and use of these tools can be found in the document ``Analysing Libre Software communities"~\cite{IandR} published by GSyC LibreSoft from Universidad Rey Juan Carlos and Bitergia\footnote{{\tiny\ http://bitergia.com}} team. Part of the analysis consisted into make the following SQL requests:
+\noindent In particular Repository Handler and CVSanalY are the tools that have been used to extract the required data. A detailed description for setup and use of these tools can be found in the document ``Analyzing Libre Software communities"~\cite{IandR} published by GSyC LibreSoft from Universidad Rey Juan Carlos and Bitergia\footnote{{\tiny\ http://bitergia.com}} team. Part of the analysis consisted into make the following SQL requests:
 
 \begin{itemize}
       % [8.A] Is the project is still active?
@@ -1671,7 +1674,7 @@ In the initial research over the Internet, main F$\ell$OSS source code repositor
 
 \begin{itemize}
       % [8.B] Evolution in the number of commits
-      \item Evolution in the number of commits per year since the begining of the project, shown in Figure~\ref{fig:fig8-4} for Corosync, Figure~\ref{fig:fig8-5} for DRBD and Figure~\ref{fig:fig8-6} for Pacemaker:
+      \item Evolution in the number of commits per year since the beginning of the project, shown in Figure~\ref{fig:fig8-4} for Corosync, Figure~\ref{fig:fig8-5} for DRBD and Figure~\ref{fig:fig8-6} for Pacemaker:
       
       For this purpose was employed a GNU GPL python script (included in the Appendix~\ref{app:appendix2}) published by Daniel Izquierdo from GSyC/LibreSoft which uses the following query:\\
       SELECT YEAR(date), MONTH(date), DAY(date), COUNT(*) FROM scmlog GROUP BY YEAR(date), MONTH(date), DAY(date);
@@ -1704,7 +1707,7 @@ In the initial research over the Internet, main F$\ell$OSS source code repositor
 
 \begin{itemize}
       % [8.C] Evolution in the number of active committers
-      \item Evolution in the number of active committers since the begining of the project, shown in Figure~\ref{fig:barchart_c} for Corosync, Figure~\ref{fig:barchart_d} for DRBD and Figure~\ref{fig:barchart_p} for Pacemaker:
+      \item Evolution in the number of active committers since the beginning of the project, shown in Figure~\ref{fig:barchart_c} for Corosync, Figure~\ref{fig:barchart_d} for DRBD and Figure~\ref{fig:barchart_p} for Pacemaker:
 
       To produce these bar charts was used a simple python script (included in the Appendix~\ref{app:appendix3}) with the following queries:\\
       SELECT year(s.date) FROM scmlog s GROUP BY year(s.date);\\
@@ -1735,7 +1738,7 @@ In the initial research over the Internet, main F$\ell$OSS source code repositor
 
 \noindent As histograms show, annually the number of active developers related to Corosync (5 on average) and DRBD (4 on average) is low in comparison with Pacemaker (13 on average). It can be said that DRBD and Pacemaker have tended to keep their average number of active committers, while Corosync has decreased it with the passing of the years.\bigskip
 
-\noindent Increases in the number of committers as of 2009 for Corosync, can be related to the fact that the project was formally announced as independent in 2008~\cite{CRS}, the source code of OpenAIS was refactored and its core infrastructure components were adopted into Corosync, possibly turning it more attractive to developers.\bigskip
+\noindent Increases in the number of committers as of 2009 for Corosync, can be related to the fact that the project was formally announced as independent in 2008~\cite{CRS}, the source code of OpenAIS was re-factored and its core infrastructure components were adopted into Corosync, possibly turning it more attractive to developers.\bigskip
 
 \noindent Peaks as the one around 2007 for DRBD is related to the discussions to include the project into the Linux kernel mainline~\cite{ELDRBD}, it is likely that this event captured the attention of developers in the community at the moment, and in fact this actually happened. The last value of 2 active developers in 2005 occurs because it still has not been calculated the activity for the entire year.\bigskip
 

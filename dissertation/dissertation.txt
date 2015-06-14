@@ -92,9 +92,6 @@ HP Serviceguard
 
 Licensing
 http://h20564.www2.hp.com/hpsc/doc/public/display?docId=emr_na-c02199685
-
-
-    
     
   SUSE Linux Enterprise High Availability Extension (https://www.suse.com/products/highavailability)
   1-Year Subscription 590,00€ (2 sockets)
@@ -207,7 +204,6 @@ Two clustering configurations to choose:
 Heartbeat + Pacemaker
 Corosync + Pacemaker
 
-
     
 5. ARCHITECTURE
 
@@ -231,8 +227,6 @@ Corosync + Pacemaker
       A symmetric general purpose kernel based cluster manager, formed by a Connection Manager (cnxman) and a Service Manager (sm). The first one handles membership, messaging, quorum, event notification and transitions, and the second one is responsible for instances of external systems.
       
       in order to be specific in this exercise,
-      
-      
       
       
     5.2. Infrastructure
@@ -274,7 +268,6 @@ Description: A linux security distribution with full featured Unified Threat Man
 Supported Platforms: GNU/Linux
 Commercial support: by annual subscription
     
-
 Proxmox VE
 Company: Proxmox Server Solutions GmbH
 Industry: Server Virtualization
@@ -397,7 +390,6 @@ python2 commits_per_commiter.py cvsanaly_pacemaker
 
 - Collaboration to community: http://community.zimbra.com/collaboration/f/1888/t/1136032
 - Give credit to GNU matplotlib
-
 
 
 Developers with the most number of commits:
@@ -558,3 +550,15 @@ Hewlett-Packard. Data sheet HP Serviceguard Solutions for Linux. Hewlett-Packard
 http://h20195.www2.hp.com/v2/GetDocument.aspx?docname=4AA4-1792ENW&doctype=data%20sheet&doclang=EN_US
 
 http://opensource.com/resources/ebooks
+
+
+======================================>
+
+Presentation
+http://kafecho.github.io/presentations/introduction-to-pacemaker/
+http://www.slideshare.net/KrisBuytaert/linuxha-with-pacemaker
+http://www.slideshare.net/DanFrincu/pacemaker-drbd?related=1
+
+http://www.slideshare.net/NOVL/building-high-availability-clusters-with-suse-linux-enterprise-high-availability-extension?related=1
+
+Pacemaker Cluster Stack: http://clusterlabs.org/wiki/Architecture

@@ -152,6 +152,7 @@
 	\item CPU: Central Process Unit
 	\item CRM: Cluster Resource Manager
 	\item CTDB: Clustered Trivial Database
+	\item DOI: Digital Object Identifier
 	\item DRBD: Distributed Replicated Block Device
 	\item F$\ell$OSS: Free Libre Open Source Software (also known as FOSS)
 	\item GNU: GNU is Not Unix
@@ -423,17 +424,22 @@ Some of these tools are possibly part of the enterprise products mentioned befor
 \noindent On the other hand Corosync is responsible for cluster membership, message passing and quorum, using the totem protocol 
 for heartbeat, monitoring other node's health.
 
-\noindent Technologies such as OpenAIS (a software API) also compete into the HA race. It is a F$\ell$OSS implementation of the Application Interface Specification released under the terms of the Artistic License\footnote{{\tiny\  http://opensource.org/licenses/Artistic-2.0}}, used to define how HA applications work together, trying to mask hardware, operating system, middleware and application-level failures. %\bigskip
+\noindent Technologies such as OpenAIS (a software API) also compete into the HA race. It is a F$\ell$OSS implementation of the Application Interface Specification released under the terms of the Artistic License\footnote{{\tiny\  http://opensource.org/licenses/Artistic-2.0}}, used to define how HA applications work together, trying to mask hardware, operating system, middleware and application-level failures. A general overview of the Pacemaker/Corosync/DRBD stack for an Active/Passive setup is shown in Figure~\ref{fig:stack}\footnote{\tiny\ Modified from http://clusterlabs.org/doc/en-US/Pacemaker/1.1/html-single/Pacemaker\_Explained/images/pcmk-active-passive.png}.
 
-\noindent As in enterprise HA solutions, Cluster Managers are an important element within HA implementations, providing backend GUI or CLI software that runs on one or all cluster nodes, responsible for managing and controlling clustered services. Currently there are several F$\ell$OSS alternatives, including the ones listed in Table~\ref{table:cluster_managers_individuals} from individual developers, usually without enterprise support services, and some others from companies or institutes listed in Table~\ref{table:cluster_managers_companies}.
+\FloatBarrier
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=1]{pacemaker-stack.png}
+  \caption[General Active/Passive Pacemaker/Corosync/DRBD stack]{General Active/Passive Pacemaker/Corosync/DRBD stack}
+  \label{fig:stack}
+\end{figure}
 
-\noindent The cluster oriented filesystems are another key element regarding HA implementations. They provide data replication and fault tolerance, allowing operations continuity against incidents. There are several F$\ell$OSS alternatives to provide clustered storage, including the tools listed in Table~\ref{table:cluster_filesystems}. One of the most consolidated clustered storage technologies is DRBD, first released in 1999, it will be approached in Chapter~\ref{chap:implemented}.
+\noindent As in enterprise HA solutions, a Cluster Manager is an important element within HA implementations, providing backend GUI or CLI software that runs on one or all cluster nodes, responsible for managing and controlling clustered services. Currently there are several F$\ell$OSS alternatives, including the ones listed in Table~\ref{table:cluster_managers_individuals} from individual developers, usually without enterprise support services, and some others from companies or institutes listed in Table~\ref{table:cluster_managers_companies}.
 
-% \FloatBarrier
+\FloatBarrier
 \begin{table}[H]
   \centering
   \begin{tabular}{ | m{2cm} | r  m{10cm} | }
-
     \hline    
 		 & Author(s): &  Alexandre Cassen\\
       Keepalived & License: &  GNU GPL v2+\\
@@ -443,7 +449,20 @@ for heartbeat, monitoring other node's health.
 	Linux	 & Author(s): & Michael England \\
 	Cluster	 & License: & GNU GPL \\
 	Manager	 & Website: & http://linuxcm.sourceforge.net/ \\
-	 	 & Description: & Graphical tool for managing multiple nodes from a central location, aimed for Beowulf style clusters \\
+	 	 & Description: & Graphical tool for managing multiple nodes from a central location, aimed for Beowulf style clusters\\
+    \hline
+
+  \end{tabular}
+%\caption{F$\ell$OSS Cluster Managers from individual developers}
+\label{table:cluster_managers_individuals_}
+\end{table}
+
+
+% \FloatBarrier
+\begin{table}[H]
+  \centering
+  \begin{tabular}{ | m{2cm} | r  m{10cm} | }
+
     \hline    
 		 & Author(s): & Josh England \\
       oneSIS	 & License: & GNU GPL v2 \\
@@ -459,12 +478,14 @@ for heartbeat, monitoring other node's health.
       xCAT	 & License: & Eclipse Public License \\
 		 & Website: & http://xcat.org/ \\
 	 	 & Description: & eXtreme Cluster/Cloud Administration Toolkit, providing cluster administration management \\
-    \hline
+    \hline  
 
   \end{tabular}
 \caption{F$\ell$OSS Cluster Managers from individual developers}
 \label{table:cluster_managers_individuals}
 \end{table}
+
+\noindent The cluster oriented filesystems are another key element regarding HA implementations. They provide data replication and fault tolerance, allowing operations continuity against incidents. There are several F$\ell$OSS alternatives to provide clustered storage, including the tools listed in Table~\ref{table:cluster_filesystems}. One of the most consolidated clustered storage technologies is DRBD, first released in 1999, it will be approached in Chapter~\ref{chap:implemented}.
 
 %\FloatBarrier
 \begin{table}[H]
@@ -521,17 +542,6 @@ for heartbeat, monitoring other node's health.
 		& Support: & Mailing Lists, Documentation, Bug Tracking \\
 	 	& Description: & Scalable network filesystem, allow to create large, distributed storage solutions for media streaming, data analysis, and other data bandwidth intensive tasks \\
     \hline
-
-  \end{tabular}
-\label{table:cluster_filesystems_1}
-\end{table}
-
-%\FloatBarrier
-\begin{table}[H]
-  \centering
-  \begin{tabular}{ | m{2cm} | r  m{10cm} | }
- 
-     \hline
 		& Company: & Seagate Technology LLC \\
       Lustre FS	& License: & GPL \\
 		& Website: & http://lustre.org/ \\
@@ -544,7 +554,6 @@ for heartbeat, monitoring other node's health.
 		& Website: & https://moosefs.com/ \\
 		& Support: & Per license, Support Tickets and Year Subscription\\
 	 	& Description: & Fault tolerant, HA, Highly Performing, Scale-Out, network distributed file system \\
-
     \hline
 		& Company: & Oracle Corp. \\
       	OCFS2	& License: & GPL \\
@@ -557,12 +566,22 @@ for heartbeat, monitoring other node's health.
 		& Website: & http://www.xtreemfs.org/ \\
 		& Support: & Mailing Lists, Documentation \\
 	 	& Description: & General purpose storage, scalable and fault-tolerant system \\
-    \hline    
-    
+    \hline
+
   \end{tabular}
-\caption{F$\ell$OSS Cluster Storage Technologies}
+  \caption{F$\ell$OSS Cluster Storage Technologies}
 \label{table:cluster_filesystems}
 \end{table}
+
+%\FloatBarrier
+% \begin{table}[H]
+%   \centering
+%   \begin{tabular}{ | m{2cm} | r  m{10cm} | }    
+%     
+%   \end{tabular}
+% \caption{F$\ell$OSS Cluster Storage Technologies}
+% \label{table:cluster_filesystems}
+% \end{table}
 
 
 %=====================================
@@ -573,8 +592,7 @@ for heartbeat, monitoring other node's health.
 
 The followed roadmap to achieve the objectives outlined is a set of guidelines and suggestions for the adoption of F$\ell$OSS within SMEs~\cite{Daffara1}, in the sense that a methodology is not an exact formula but a set of practices. At using this model, companies find a supporting guide from the initial selection and adoption of F$\ell$OSS within the IT infrastructure and even to the consolidation of business models around open source.\bigskip
 
-\noindent On the one hand, the guidelines proposed by Daffara suggest a research method by collecting and read as much information related to the project is available and select the appropriate solution from a matching set that fulfill the requirements. On the other hand, following a practical formal approach, applying a model of technology acceptance such as the Lazy User Model (LUM)~\cite{CandT1} is possible to frame the process by which are chosen the technological tools that will make up the solution that meets user requirements, which in this case is being represented by the company Netnovation. This model focuses on user needs and the demanded effort when selecting a solution to a problem from a set of possible solutions, ``According to the lazy user model, a user is likely to choose the solution that requires the least effort. The user examines this cost in terms of time, energy and money when considering how to use a new solution."~\cite{CandT2} The LUM proposes that technology acceptance is impacted 
-by this principle.\bigskip
+\noindent On the one hand, the guidelines proposed by Daffara suggest a research method by collecting and read as much information related to the project is available and select the appropriate solution from a matching set that fulfill the requirements. On the other hand, following a practical formal approach, applying a model of technology acceptance such as the Lazy User Model (LUM)~\cite{CandT1} is possible to frame the process by which are chosen the technological tools that will make up the solution that meets user requirements, which in this case is being represented by the company Netnovation. This model focuses on user needs and the demanded effort when selecting a solution to a problem from a set of possible solutions, ``According to the lazy user model, a user is likely to choose the solution that requires the least effort. The user examines this cost in terms of time, energy and money when considering how to use a new solution."~\cite{CandT2} The LUM proposes that technology acceptance is impacted by this principle.\bigskip
 
 \noindent Additionally using Metrics Grimoire~\cite{GSyC}, a flexible toolset which allow to obtain data from repositories related to software development, it is possible to analyze databases that can later be mined for specific patterns or summaries of activity, allowing to establish objective comparisons in relation to the projects analyzed.
 
@@ -607,7 +625,7 @@ Each DC has an average of seven Dell PowerEdge\texttrademark \ Racked Servers wi
 \section{Company Network Scheme}
 \label{sec:networkscheme}
 
-The housing services leased by the providers offer a pool of public IPv4 addresses that are handled by the main router on each DC facility. DC1 and DC2 are interconnected by a VPN through WAN, each of them associated to a different private Class B network internally. To the LAN Ethernet ports of the switches are connected the physical servers of the private network with transfer speed rates of 100/1000Mbps. The overall interconnection scheme can be appreciated in Figure~\ref{fig:network}.
+The housing services leased by the providers offer a pool of public IPv4 addresses that are handled by the main router on each DC facility. DC1 and DC2 are interconnected by a VPN through WAN, each of them associated to a different private Class B network internally. To the LAN Ethernet ports of the switches are connected the physical servers of the private network with transfer speed rates of 100/1000Mbps. The overall interconnection scheme can be appreciated in Figure~\ref{fig:network}.\\
 
 \begin{figure}[H]
   \centering
@@ -616,6 +634,7 @@ The housing services leased by the providers offer a pool of public IPv4 address
   \label{fig:network}
 \end{figure}
 
+\vspace{1cm}
 
 \section{Software Supporting the Infrastructure}
 \label{sec:software}
@@ -852,7 +871,7 @@ Table~\ref{table:fqdn} shows the current configuration for the virtual IP addres
   \centering
   \begin{tabular}{ | l | l | }
     \hline
-    \multicolumn{1}{|c|}{Astapor} & Braavos \\
+    \multicolumn{1}{|c|}{Astapor} & {\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Braavos} \\
     \hline
     DEVICE=eth0 & DEVICE=eth0 \\
     HWADDR=26:34:99:65:d7:77 & HWADDR=26:34:99:65:d7:78\\
@@ -1478,21 +1497,25 @@ The following actions must be performed sequentially on \textit{\textbf{Astapor}
 
 \begin{itemize}
 	\item On primary node:\\
-		crm node standby\\
+	crm node standby
+		
 	Or stop pacemaker:\\
-		service pacemaker stop
+	service pacemaker stop
+
 \end{itemize}
 
 
 \begin{itemize}
-	\item Now ``crm\_mon" or ``pcs status" will show:\\
+	\item Now ``crm\_mon" or ``pcs status" will show:
+	
 		Node astapor.got.com: standby\\
 		Online: [ braavos.got.com ]
 \end{itemize}
 
 
 \begin{itemize}
-	\item It is going to take a while before secondary node takes control. So it is possible to check logs and ``crm\_mon" status during the process.\\
+	\item It is going to take a while before secondary node takes control. So it is possible to check logs and ``crm\_mon" status during the process.
+	
 		crm\_mon\\
 		tail -F /var/log/zimbra.log\\
 		tail -F /var/log/messages
@@ -1500,7 +1523,8 @@ The following actions must be performed sequentially on \textit{\textbf{Astapor}
 
 
 \begin{itemize}
-	\item Also it is possible to check with ``crm\_standby" command. A value of true\textbar on indicates that the node is not able to host any resources and a value of false\textbar off indicates it does.\\
+	\item Also it is possible to check with ``crm\_standby" command. A value of true\textbar on indicates that the node is not able to host any resources and a value of false\textbar off indicates it does.
+	
 		crm\_standby \textminus \textminus get-value
 \end{itemize}
 
@@ -1534,7 +1558,8 @@ The following actions must be performed sequentially on \textit{\textbf{Astapor}
 
 \begin{itemize}
 	\item Set back online the primary node:\\
-			crm node online\\
+			crm node online
+			
 		  Or start over pacemaker service:\\
 		  	service pacemaker start
 \end{itemize}
@@ -1542,7 +1567,8 @@ The following actions must be performed sequentially on \textit{\textbf{Astapor}
 
 \begin{itemize}
 	\item To give the control back to primary node, execute on secondary node:\\
-			crm node standby\\
+			crm node standby
+			
 		  Then resources will be transferred back to primary node.
 \end{itemize}
 
@@ -1588,7 +1614,8 @@ In the initial research over the Internet, main F$\ell$OSS source code repositor
 	\item Gitorious (gitorious.org)
 	\item GNU Savannah (savannah.gnu.org)
 	\item Launchpad (launchpad.net)
-	\item SourceForge (sourceforge.net)
+	\item SourceForge (sourceforge.net)\\
+	
 \end{itemize}
 
 \noindent Since the desired solution was enterprise-oriented and focused on a GNU/Linux distribution, official websites and documentation were browsed for Hewlett Packard, Redhat Enterprise Linux and SuSE Linux Enterprise Server.
@@ -1676,7 +1703,8 @@ In the initial research over the Internet, main F$\ell$OSS source code repositor
       % [8.B] Evolution in the number of commits
       \item Evolution in the number of commits per year since the beginning of the project, shown in Figure~\ref{fig:fig8-4} for Corosync, Figure~\ref{fig:fig8-5} for DRBD and Figure~\ref{fig:fig8-6} for Pacemaker:
       
-      For this purpose was employed a GNU GPL python script (included in the Appendix~\ref{app:appendix2}) published by Daniel Izquierdo from GSyC/LibreSoft which uses the following query:\\
+      For this purpose was employed a GNU GPL python script (included in the Appendix~\ref{app:appendix2}) published by Daniel Izquierdo from GSyC/LibreSoft which uses the following query:
+      
       SELECT YEAR(date), MONTH(date), DAY(date), COUNT(*) FROM scmlog GROUP BY YEAR(date), MONTH(date), DAY(date);
 \end{itemize}
 
@@ -1709,7 +1737,8 @@ In the initial research over the Internet, main F$\ell$OSS source code repositor
       % [8.C] Evolution in the number of active committers
       \item Evolution in the number of active committers since the beginning of the project, shown in Figure~\ref{fig:barchart_c} for Corosync, Figure~\ref{fig:barchart_d} for DRBD and Figure~\ref{fig:barchart_p} for Pacemaker:
 
-      To produce these bar charts was used a simple python script (included in the Appendix~\ref{app:appendix3}) with the following queries:\\
+      To produce these bar charts was used a simple python script (included in the Appendix~\ref{app:appendix3}) with the following queries:
+      
       SELECT year(s.date) FROM scmlog s GROUP BY year(s.date);\\
       SELECT COUNT(DISTINCT(p.id)) FROM scmlog s, people p WHERE s.committer\_id=p.id AND YEAR(s.date) BETWEEN 1999 AND 2015;
 \end{itemize}

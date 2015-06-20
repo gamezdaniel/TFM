@@ -555,6 +555,7 @@ http://opensource.com/resources/ebooks
 ======================================>
 
 Presentation
+
 http://kafecho.github.io/presentations/introduction-to-pacemaker/
 http://www.slideshare.net/KrisBuytaert/linuxha-with-pacemaker
 http://www.slideshare.net/DanFrincu/pacemaker-drbd?related=1
@@ -562,3 +563,14 @@ http://www.slideshare.net/DanFrincu/pacemaker-drbd?related=1
 http://www.slideshare.net/NOVL/building-high-availability-clusters-with-suse-linux-enterprise-high-availability-extension?related=1
 
 Pacemaker Cluster Stack: http://clusterlabs.org/wiki/Architecture
+
+http://www.icot.es/castillos-mas-grandes-han-caido-alta-disponibilidad-y-resiliencia-asentamos-las-bases-de-diseno-y-despliegue-informatico/
+- Porcentajes HA 99.99%, 
+
+"SCSI compartido" vs "Fibrechannel SAN" vs "GFS"
+- Evaluar costos/complejidad
+
+Synchronous vs Asynchronous
+http://www.thesenpai.com/linbit-launches-new-synchronous-server-storage-software
+
+http://www.linuxfocus.org/Castellano/November2000/article179.shtml

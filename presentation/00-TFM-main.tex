@@ -1,0 +1,106 @@
+% Compilar a .pdf con LaTeX (pdflatex)
+% Es necesario instalar Beamer 
+
+\documentclass{beamer}
+
+\usepackage{moreverb} 
+\usepackage{listings}
+\usepackage{mflogo}
+
+% imprimir
+% \documentclass[handout]{beamer} 
+% \usepackage{pgfpages}
+% \pgfpagesuselayout{4 on 1}[a4paper,landscape,border shrink=5mm]
+
+\mode<presentation> {
+  %\usetheme{Warsaw}
+  \usetheme{Darmstadt}
+  \setbeamercovered{transparent}
+}
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+%\usepackage{amssymb} % Simbolos matematicos
+
+%% Metadatos del PDF.
+\hypersetup{  
+  pdftitle={F$\ell$OSS HA cluster for Netnovation's ZCS},
+  pdfauthor={Daniel G\'amez},
+  pdfcreator={Universidad Rey Juan Carlos (Madrid, Spain)},
+  pdfproducer=PDFLaTeX,
+  pdfsubject={Master in Free Libre Open Source Sorftware},
+}
+%%
+
+\defbeamertemplate*{footline}{shadow theme}
+{
+  \leavevmode
+  \hbox{
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm plus1fil,rightskip=.3cm]{author in head/foot}
+    \usebeamerfont{author in head/foot}\insertframenumber\,/\,\inserttotalframenumber\hfill\includegraphics[scale=0.40]{img/cc-by-sa-80x15.png} \hspace{0.1cm}\insertshortauthor 
+  \end{beamercolorbox}
+  
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}}
+  
+  \vskip0pt
+}
+
+\setbeamertemplate{itemize/enumerate subbody begin}{\vspace{0.2cm}}
+\setbeamertemplate{itemize/enumerate subbody end}{\vspace{0.3cm}}
+
+
+\begin{document}
+
+\title{F$\ell$OSS HA cluster for Netnovation's ZCS}
+\subtitle{Master Thesis}
+
+\author[Daniel G\'amez]{
+Author - Daniel G\'amez \\
+Tutor - Dr. Gregorio Robles}
+\date{}
+
+% Background Image
+% \setbeamertemplate{background}
+% {
+%     \tikz\node[opacity=0.1] at (current page.center)
+%     {
+%       \vbox to \paperheight{\vfil\hbox to \paperwidth{\hfil\includegraphics[scale=1.2]{HA.png}\hfil}\vfil}
+%     };
+% }
+
+\frame<1>[label=firstframe]
+{
+
+  \begin{center}
+    \includegraphics[width=4cm]{img/logoURJC.jpg}\\
+    \large{Master in Free Libre Open Source Software}\\
+  \end{center}
+
+  \maketitle
+
+}
+
+\normalsize
+
+\section[Index]{}
+
+\begin{frame}%[allowframebreaks]
+  \tableofcontents
+\end{frame}
+
+  \include{./01-ProblemStatement}
+  \include{./02-JustificationMotivation}
+  \include{./03-OverallObjectives}
+  \include{./04-SpecificObjectives}
+  \include{./05-Scope}  
+  \include{./06-RelatedTechnologies}
+  \include{./07-Methodology}
+  \include{./08-Architecture}
+  \include{./09-Implementation}
+  \include{./10-Results}
+  \include{./11-Conclusions}
+  \include{./12-Bibliography}
+
+\end{document}

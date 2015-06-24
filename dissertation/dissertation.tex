@@ -592,8 +592,7 @@ for heartbeat, monitoring other node's health.
 
 The followed roadmap to achieve the objectives outlined is a set of guidelines and suggestions for the adoption of F$\ell$OSS within SMEs~\cite{Daffara1}, in the sense that a methodology is not an exact formula but a set of practices. At using this model, companies find a supporting guide from the initial selection and adoption of F$\ell$OSS within the IT infrastructure and even to the consolidation of business models around open source.\bigskip
 
-\noindent On the one hand, the guidelines proposed by Daffara suggest a research method by collecting and read as much information related to the project is available and select the appropriate solution from a matching set that fulfill the requirements. On the other hand, following a practical formal approach, applying a model of technology acceptance such as the Lazy User Model (LUM)~\cite{CandT1} is possible to frame the process by which are chosen the technological tools that will make up the solution that meets user requirements, which in this case is being represented by the company Netnovation. This model focuses on user needs and the demanded effort when selecting a solution to a problem from a set of possible solutions, ``According to the lazy user model, a user is likely to choose the solution that requires the least effort. The user examines this cost in terms of time, energy and money when considering how to use a new solution."~\cite{CandT2} The LUM proposes that technology acceptance is impacted 
-by this principle.\bigskip
+\noindent On the one hand, the guidelines proposed by Daffara suggest a research method by collecting and read as much information related to the project is available and select the appropriate solution from a matching set that fulfill the requirements. On the other hand, following a practical formal approach, applying a model of technology acceptance such as the Lazy User Model (LUM)~\cite{CandT1} is possible to frame the process by which are chosen the technological tools that will make up the solution that meets user requirements, which in this case is being represented by the company Netnovation. This model focuses on user needs and the demanded effort when selecting a solution to a problem from a set of possible solutions, ``According to the lazy user model, a user is likely to choose the solution that requires the least effort. The user examines this cost in terms of time, energy and money when considering how to use a new solution."~\cite{CandT2} The LUM proposes that technology acceptance is impacted by this principle.\bigskip
 
 \noindent Additionally using Metrics Grimoire~\cite{GSyC}, a flexible toolset which allow to obtain data from repositories related to software development, it is possible to analyze databases that can later be mined for specific patterns or summaries of activity, allowing to establish objective comparisons in relation to the projects analyzed.
 
@@ -1402,17 +1401,17 @@ The following actions must be performed sequentially on \textit{\textbf{Astapor}
 \begin{itemize}
 	\item Define Zimbra service resource:\\
 		configure \ primitive \ zcs\_service ocf:btactic:zimbra \ \textbackslash \\
-		op \ monitor \ interval=2min \ timeout="40s" \ \textbackslash \\
-		op \ start \ interval="0" \ timeout="360s" \ \textbackslash \\
-		op \ stop \ interval="0" \ timeout="360s"
+		op \ monitor \ interval=2min \ timeout=``40s" \ \textbackslash \\
+		op \ start \ interval="0" \ timeout=``360s" \ \textbackslash \\
+		op \ stop \ interval="0" \ timeout=``360s"
 \end{itemize}
 
 \begin{itemize}
 	\item Define Zimbra cluster filesystem resource:\\
 		configure \ primitive \ zcs\_fs \ ocf:heartbeat:Filesystem \ params \ \textbackslash \\ 
-		device="/dev/drbd0" \ directory="/opt/zimbra" \ fstype=ext4 \ \textbackslash \\
+		device=``/dev/drbd0" \ directory=``/opt/zimbra" \ fstype=ext4 \ \textbackslash \\
 		op \ start \ interval=0 \ timeout=60s \ \textbackslash \\
-		op \ stop \ interval="0" \ timeout="60"
+		op \ stop \ interval=``0" \ timeout=``60"
 \end{itemize}
 
 \begin{itemize}

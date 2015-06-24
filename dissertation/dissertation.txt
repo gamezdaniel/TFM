@@ -574,3 +574,6 @@ Synchronous vs Asynchronous
 http://www.thesenpai.com/linbit-launches-new-synchronous-server-storage-software
 
 http://www.linuxfocus.org/Castellano/November2000/article179.shtml
+
+https://mixedsignal.wordpress.com/2013/06/13/top-ten-tips-for-master-thesis-presentations/
+

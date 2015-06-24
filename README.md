@@ -1,7 +1,7 @@
 TFM
 ===
 
-TFM URJC
+IMPLEMENTATION OF A HIGH AVAILABILITY SOLUTION BASED ON FREE LIBRE OPEN SOURCE SOFTWARE TOOLS FOR NETNOVATION'S EMAIL AND COLLABORATION SYSTEM
 
 The Small Medium Enterprise (SME) sector that requires access to computer systems for their operations is being increasingly attracted by cloud computing schemes. This demand is being attended by large providers of such services but also by other SMEs which assume strategic business models around this niche. When providing private cloud services, reliability is a major feature, trust in that the service consistently performs according to its specifications. One of its key elements consists in the availability of the systems. There are multiple ways to provide it, but the choice of the right tools is not an easy task.
 

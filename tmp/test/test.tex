@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage{geometry}
+\usepackage{tabularx}
+\usepackage{graphics}
+
+\begin{document}
+
+\begin{table}
+\begin{tabularx}{\textwidth}{>{\setlength\hsize{0.3\hsize}\setlength\linewidth{\hsize}}X>{\setlength\hsize{0.7\hsize}\setlength\linewidth{\hsize}}X}
+
+  1. Fisrt
+  \begin{itemize}
+  \item One
+  \item I
+  \item II
+  \item III
+  \item IV
+  \item V
+  \end{itemize} & 
+
+  \vphantom{1. Fisrt}
+  \includegraphics{network_scheme.png} \\
+
+
+  2. Second
+  \begin{itemize}
+  \item Two
+  \end{itemize}  &
+
+  \vphantom{2. Second}
+  \begin{itemize}
+  \item Two.2
+  \end{itemize} \\
+
+\end{tabularx}
+\end{table}
+
+\end{document}

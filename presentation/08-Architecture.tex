@@ -1,24 +1,27 @@
 \section{Netnovation's Architecture}
 
 \begin{frame}
-\frametitle{Netnovation's Architecture}
+  \frametitle{Netnovation's Architecture}
 
-\begin{table}
-  \begin{center}
-    \begin{tabular}{ l c }
+  \begin{table}
+  \begin{tabularx}{\textwidth}{>{\setlength\hsize{0.4\hsize}\setlength\linewidth{\hsize}}X>{\setlength\hsize{0.6\hsize}\setlength\linewidth{\hsize}}X}
 
-%      \begin{itemize}
-      - Infrastructure\\
-      - Network Scheme\\
-      - Supporting Software
-%      \end{itemize}
-     
-      &
+    \begin{itemize}
+      \item Infrastructure
+      \item Network Scheme
+      \item Supporting Software:\\
+	- UTM EFW\\
+	- ProxmoxVE\\
+	- FreeNAS\\
+	- Zabbix
+    \end{itemize}
+
+    &
     
-      \raisebox{-\totalheight}{\includegraphics[scale=0.8]{img/network_scheme.png}}
- 
-    \end{tabular}
-  \end{center}
-\end{table}
+    \vphantom{Infrastructure}
+    \includegraphics[scale=0.9]{img/network_scheme.png} \\
+
+  \end{tabularx}
+  \end{table}
 
 \end{frame}

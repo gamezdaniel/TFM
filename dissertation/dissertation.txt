@@ -491,12 +491,6 @@ It has been shown that there are models, guidelines and concrete metrics to eval
 To the extent that it is sufficient time and resources to develop a more detailed analysis for available alternatives and its feasibility of implementation, as well as a wider range of decision regarding the conditions set by the customer, it would be suitable to evaluate the implementation of more comprehensive, integrated solutions that require less configuration and orchestration of independent technologies. For instance considering the adoption of solutions such as OpenStack~\footnote{https://www.openstack.org/}, Cloudstack~\footnote{https://cloudstack.apache.org/}, Eucalyptus~\footnote{https://www.eucalyptus.com/} or OpenNebula~\footnote{http://opennebula.org/} which handle other HA schemes for cloud services.
 
 
-
-
-*** ADDITIONAL FIGURES w/SCREENSHOTS OF IMPLEMENTED SYSTEM *** ???
-- Include the term FOSS?
-
-
 REFERENCES
 - * Tools and metrics: Page 106 Sergio's TFM *
   Python, matplotlib [mat14a], has been used to generate graphics for certain metrics.
@@ -510,7 +504,6 @@ APPENDIX
 
 Abo Akademi University Lazy User Model
 Essays, UK. (November 2013). The Lazy Model In Information Technology Information Technology Essay. Retrieved from http://www.ukessays.com/essays/information-technology/the-lazy-model-in-information-technology-information-technology-essay.php?cref=1
-
 
 \bibitem{Collan and Tetard} Collan M. and Tetard F. \textit{Lazy User Theory of Solution Selection}. Proceedings of the CELDA 2007 Conference. Portugal, December 2007.
 
@@ -530,9 +523,6 @@ Essays, UK. (November 2013). The Lazy Model In Information Technology Informatio
 
 \bibitem{Wasserman et. all} Wasserman A., Pal M. and Chan C. \textit{The Business Readiness Rating Model: an Evaluation Framework for Open Source}. Proceedings of the EFOSS: OpenBRR Workshop. Italy, June 2006.
 
-
-
-\bibitem{} . \textit{}. . . DOI=
 \bibitem{} . \textit{}. . . DOI=
 
 ---
@@ -570,10 +560,22 @@ http://www.icot.es/castillos-mas-grandes-han-caido-alta-disponibilidad-y-resilie
 "SCSI compartido" vs "Fibrechannel SAN" vs "GFS"
 - Evaluar costos/complejidad
 
+ADDITIONAL FIGURES w/SCREENSHOTS OF IMPLEMENTED SYSTEM (Video?)
+
+In "Network Interconection Scheme Figure"
+- Include FreeNAS (vSAN-iSCSI Storage)
+- Include USERS accessing through VPN or Internet
+- Mention dissadvantages and future plans (contrast them to solutions using GFS, NFS and the impact over performance)
+
 Synchronous vs Asynchronous
 http://www.thesenpai.com/linbit-launches-new-synchronous-server-storage-software
 
 http://www.linuxfocus.org/Castellano/November2000/article179.shtml
 
 https://mixedsignal.wordpress.com/2013/06/13/top-ten-tips-for-master-thesis-presentations/
+
+Include URL with Master Github repo
+
+For Results Slide, mention that:
+- Metrics obtained for other minor scale solutions, where far lower in comparison with selected ones
 
